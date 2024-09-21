@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-public class PlayerLogic : EntityLogic
+namespace ShootingStar
 {
+    public class PlayerLogic : EntityLogic
+    {
+    }
 }

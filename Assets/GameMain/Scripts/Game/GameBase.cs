@@ -5,8 +5,7 @@ namespace ShootingStar
     {
         public virtual void Initialize()
         {
-            GameEntry.Entity.ShowEntity<PlayerLogic>(1, "Assets/GameMain/Entities/PlayerFighter.prefab", "PlayerFighter", 1,
-                null);
+            GameEntry.Entity.ShowPlayerFighter(new PlayerFighterData(1,1,1));
         }
 
         public virtual void Update( float elapseSeconds, float realElapseSeconds)
