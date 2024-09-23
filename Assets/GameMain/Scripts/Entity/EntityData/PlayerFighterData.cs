@@ -1,8 +1,10 @@
-﻿namespace ShootingStar
+﻿using GameFramework.DataTable;
+
+namespace ShootingStar
 {
     public class PlayerFighterData:EntityData
     {
-        public PlayerFighterData(int id, int typeID, int priority) : base(id, typeID, priority)
+        public PlayerFighterData(int id) : base(id)
         {
         }
     }

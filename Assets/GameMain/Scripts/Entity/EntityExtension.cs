@@ -7,8 +7,8 @@ namespace ShootingStar
     {
         public static void ShowPlayerFighter(this EntityComponent entityComponent, PlayerFighterData data)
         {
-            entityComponent.ShowEntity(typeof(PlayerLogic), AssetUtility.GetEntityAsset("PlayerFighter"),
-                "PlayerFighter", data);
+            entityComponent.ShowEntity(typeof(PlayerLogic), AssetUtility.GetEntityAsset(data.AssetName),
+                data.GroupName, data);
         }
 
         private static void ShowEntity(this EntityComponent entityComponent, Type typeLogic, string entityAssetName,

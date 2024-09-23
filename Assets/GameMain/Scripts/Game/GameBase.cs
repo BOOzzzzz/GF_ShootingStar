@@ -5,7 +5,7 @@ namespace ShootingStar
     {
         public virtual void Initialize()
         {
-            GameEntry.Entity.ShowPlayerFighter(new PlayerFighterData(1,1,1));
+            GameEntry.Entity.ShowPlayerFighter(new PlayerFighterData(10000));
         }
 
         public virtual void Update( float elapseSeconds, float realElapseSeconds)

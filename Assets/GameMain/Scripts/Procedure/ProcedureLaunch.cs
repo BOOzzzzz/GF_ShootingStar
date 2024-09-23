@@ -1,3 +1,4 @@
+using GameFramework.DataTable;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
@@ -6,6 +7,13 @@ namespace ShootingStar
 {
     public class ProcedureLaunch : ProcedureBase
     {
+        protected override void OnInit(IFsm<IProcedureManager> procedureOwner)
+        {
+            base.OnInit(procedureOwner);
+            DataTableBase dataTableBase =  GameEntry.DataTable.CreateDataTable(typeof(DREntity));
+            dataTableBase.ReadData("Assets/GameMain/DataTables/Entity.txt");
+        }
+
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
