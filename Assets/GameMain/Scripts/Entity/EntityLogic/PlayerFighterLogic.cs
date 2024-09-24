@@ -5,7 +5,7 @@ using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
-    public class PlayerLogic : EntityLogic
+    public class PlayerFighterLogic : EntityLogic
     {
     }
 }

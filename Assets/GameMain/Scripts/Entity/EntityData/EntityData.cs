@@ -12,33 +12,33 @@ namespace ShootingStar
 
         public int ID
         {
-            get { return id; }
+            get => id;
         }
 
 
         public int Priority
         {
-            get { return priority; }
+            get => priority;
         }
 
         public string AssetName
         {
-            get { return assetName; }
+            get => assetName;
         }
-        
+
         public string GroupName
         {
-            get { return groupName; }
+            get => groupName;
         }
 
         public EntityData(int id)
         {
             this.id = id;
-            IDataTable<DREntity> dataTable = GameEntry.DataTable.GetDataTable<DREntity>();
-            DREntity entityData = dataTable.GetDataRow(id);
-            assetName = entityData.AssetName;
-            groupName = entityData.GroupName;
-            priority = entityData.Priority;
+            IDataTable<DREntity> dtEntity = GameEntry.DataTable.GetDataTable<DREntity>();
+            DREntity drEntity = dtEntity.GetDataRow(id);
+            assetName = drEntity.AssetName;
+            groupName = drEntity.GroupName;
+            priority = drEntity.Priority;
         }
     }
 }

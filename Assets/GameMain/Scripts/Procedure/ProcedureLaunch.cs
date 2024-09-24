@@ -10,8 +10,6 @@ namespace ShootingStar
         protected override void OnInit(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnInit(procedureOwner);
-            DataTableBase dataTableBase =  GameEntry.DataTable.CreateDataTable(typeof(DREntity));
-            dataTableBase.ReadData("Assets/GameMain/DataTables/Entity.txt");
         }
 
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
@@ -25,8 +23,7 @@ namespace ShootingStar
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            GameEntry.Scene.LoadScene("Assets/GameMain/Scenes/Game.unity");
-            ChangeState<ProcedureGame>(procedureOwner);
+            ChangeState<ProcedurePreload>(procedureOwner);
         }
     }
 }
