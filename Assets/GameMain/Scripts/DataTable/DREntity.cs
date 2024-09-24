@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-09-24 23:41:45.437
+// 生成时间：2024-09-24 23:48:40.145
 //------------------------------------------------------------
 
 using GameFramework;
@@ -34,6 +34,15 @@ namespace ShootingStar
             {
                 return m_Id;
             }
+        }
+
+        /// <summary>
+        /// 获取类型编号。
+        /// </summary>
+        public int TypeId
+        {
+            get;
+            private set;
         }
 
         /// <summary>
@@ -75,6 +84,7 @@ namespace ShootingStar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
+            TypeId = int.Parse(columnStrings[index++]);
             AssetName = columnStrings[index++];
             Priority = int.Parse(columnStrings[index++]);
             GroupName = columnStrings[index++];
@@ -90,6 +100,7 @@ namespace ShootingStar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
+                    TypeId = binaryReader.Read7BitEncodedInt32();
                     AssetName = binaryReader.ReadString();
                     Priority = binaryReader.Read7BitEncodedInt32();
                     GroupName = binaryReader.ReadString();
