@@ -60,9 +60,8 @@ namespace ShootingStar
         {
             foreach (var dataTableName in DataTableNames)
             {
-                DataTableBase dataTableBase =  GameEntry.DataTable.CreateDataTable(typeof(DREntity));
                 string dataTableAssetName = AssetUtility.GetDataTableAsset(dataTableName, false);
-                dataTableBase.ReadData(dataTableAssetName,this);
+                GameEntry.DataTable.LoadDataTable(dataTableName,dataTableAssetName,this);
             }
         }
 
