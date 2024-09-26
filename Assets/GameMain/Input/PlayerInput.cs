@@ -74,7 +74,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""30d44ed5-92bb-4c10-9ff9-9d102fcfe960"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

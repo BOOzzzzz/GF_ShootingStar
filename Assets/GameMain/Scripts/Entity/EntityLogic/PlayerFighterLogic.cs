@@ -6,6 +6,8 @@ namespace ShootingStar
     public class PlayerFighterLogic : EntityBaseLogic
     {
         private PlayerFighterData playerFighterData;
+        private PlayerInput playerInput;
+        public float speed = 5f;
 
         protected override void OnInit(object userData)
         {
@@ -17,26 +19,38 @@ namespace ShootingStar
                 Log.Warning("PlayerFighterData is not initialized");
             }
 
+            playerInput = new PlayerInput();
+            
             InitData(playerFighterData);
         }
 
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
-            GameEntry.Entity.ShowThruster(new ThrusterData(10001, playerFighterData.ID)
+            playerInput.Enable();
+            for (int i = 1; i <= 3; i++)
             {
-                Position = new Vector3(-0.87f, -0.05f, 0)
-            });
+                GameEntry.Entity.ShowThruster(playerFighterData.thrusters[10000+i]);
+            }
+        }
 
-            GameEntry.Entity.ShowThruster(new ThrusterData(10002, playerFighterData.ID)
-            {
-                Position = new Vector3(-0.75f, -0.154f, 0.242f)
-            });
+        protected override void OnHide(bool isShutdown, object userData)
+        {
+            base.OnHide(isShutdown, userData);
+            playerInput.Disable();
+        }
 
-            GameEntry.Entity.ShowThruster(new ThrusterData(10003, playerFighterData.ID)
-            {
-                Position = new Vector3(-0.75f, -0.154f, -0.242f)
-            });
+        protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
+        {
+            base.OnUpdate(elapseSeconds, realElapseSeconds);
+            var moveDir = playerInput.GamePlay.Move.ReadValue<Vector2>();
+            
+            PlayerMove(moveDir);
+        }
+
+        private void PlayerMove(Vector2 moveDir)
+        {
+            transform.position += speed * Time.deltaTime * new Vector3(moveDir.x,moveDir.y,0);
         }
     }
 }
