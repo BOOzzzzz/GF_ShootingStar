@@ -1,4 +1,6 @@
-﻿namespace ShootingStar
+﻿using UnityGameFramework.Runtime;
+
+namespace ShootingStar
 {
     public abstract class AccessoryObjectData:EntityData
     {

@@ -7,11 +7,12 @@ using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
-    public class ProcedurePreload:ProcedureBase
+    public class ProcedurePreload : ProcedureBase
     {
         public static string[] DataTableNames = new string[]
         {
             "Entity",
+            "Thruster"
         };
 
         private Dictionary<string, bool> loadedFlags = new Dictionary<string, bool>();
@@ -19,15 +20,17 @@ namespace ShootingStar
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
+
+            GameEntry.Event.Subscribe(LoadDataTableSuccessEventArgs.EventId, LoadDataTableSuccess);
+            GameEntry.Event.Subscribe(LoadDataTableFailureEventArgs.EventId, LoadDataTableFailure);
+
             loadedFlags.Clear();
-            
-            GameEntry.Event.Subscribe(LoadDataTableSuccessEventArgs.EventId,LoadDataTableSuccess);
-            GameEntry.Event.Subscribe(LoadDataTableFailureEventArgs.EventId,LoadDataTableFailure);
-            
+
             PreLoad();
         }
 
-        protected override void OnUpdate(IFsm<IProcedureManager> procedureOwner, float elapseSeconds, float realElapseSeconds)
+        protected override void OnUpdate(IFsm<IProcedureManager> procedureOwner, float elapseSeconds,
+            float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
@@ -38,7 +41,7 @@ namespace ShootingStar
                     return;
                 }
             }
-            
+
             GameEntry.Scene.LoadScene("Assets/GameMain/Scenes/Game.unity");
             ChangeState<ProcedureGame>(procedureOwner);
         }
@@ -46,9 +49,9 @@ namespace ShootingStar
         protected override void OnLeave(IFsm<IProcedureManager> procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
-            
-            GameEntry.Event.Unsubscribe(LoadDataTableSuccessEventArgs.EventId,LoadDataTableSuccess);
-            GameEntry.Event.Unsubscribe(LoadDataTableFailureEventArgs.EventId,LoadDataTableFailure);
+
+            GameEntry.Event.Unsubscribe(LoadDataTableSuccessEventArgs.EventId, LoadDataTableSuccess);
+            GameEntry.Event.Unsubscribe(LoadDataTableFailureEventArgs.EventId, LoadDataTableFailure);
         }
 
         private void PreLoad()
@@ -61,7 +64,8 @@ namespace ShootingStar
             foreach (var dataTableName in DataTableNames)
             {
                 string dataTableAssetName = AssetUtility.GetDataTableAsset(dataTableName, false);
-                GameEntry.DataTable.LoadDataTable(dataTableName,dataTableAssetName,this);
+                loadedFlags.Add(dataTableAssetName, false);
+                GameEntry.DataTable.LoadDataTable(dataTableName, dataTableAssetName, this);
             }
         }
 
@@ -85,7 +89,8 @@ namespace ShootingStar
                 return;
             }
 
-            Log.Error("Can not load data table '{0}' from '{1}' with error message '{2}'.", ne.DataTableAssetName, ne.DataTableAssetName, ne.ErrorMessage);
+            Log.Error("Can not load data table '{0}' from '{1}' with error message '{2}'.", ne.DataTableAssetName,
+                ne.DataTableAssetName, ne.ErrorMessage);
         }
     }
 }

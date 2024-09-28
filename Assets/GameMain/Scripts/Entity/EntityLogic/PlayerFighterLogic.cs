@@ -5,9 +5,9 @@ namespace ShootingStar
 {
     public class PlayerFighterLogic : EntityBaseLogic
     {
+        [SerializeField]
         private PlayerFighterData playerFighterData;
         private PlayerInput playerInput;
-        public float speed = 5f;
 
         protected override void OnInit(object userData)
         {
@@ -20,7 +20,7 @@ namespace ShootingStar
             }
 
             playerInput = new PlayerInput();
-            
+
             InitData(playerFighterData);
         }
 
@@ -28,10 +28,8 @@ namespace ShootingStar
         {
             base.OnShow(userData);
             playerInput.Enable();
-            for (int i = 1; i <= 3; i++)
-            {
-                GameEntry.Entity.ShowThruster(playerFighterData.thrusters[10000+i]);
-            }
+            
+            GameEntry.Entity.ShowThruster(playerFighterData.GetThrusterData);
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -43,14 +41,14 @@ namespace ShootingStar
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
-            var moveDir = playerInput.GamePlay.Move.ReadValue<Vector2>();
             
+            var moveDir = playerInput.GamePlay.Move.ReadValue<Vector2>();
             PlayerMove(moveDir);
         }
 
         private void PlayerMove(Vector2 moveDir)
         {
-            transform.position += speed * Time.deltaTime * new Vector3(moveDir.x,moveDir.y,0);
+            transform.position += playerFighterData.GetThrusterData.Speed * Time.deltaTime * new Vector3(moveDir.x, moveDir.y, 0);
         }
     }
 }

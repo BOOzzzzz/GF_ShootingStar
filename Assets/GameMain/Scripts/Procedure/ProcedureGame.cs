@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameFramework.DataTable;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
@@ -20,6 +21,7 @@ namespace ShootingStar
         {
             base.OnEnter(procedureOwner);
             Log.Debug("ProcedureGame");
+            
             currentGame = games[GameMode.Survive];
             currentGame.Initialize();
         }

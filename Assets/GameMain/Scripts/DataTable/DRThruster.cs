@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-09-28 17:12:55.136
+// 生成时间：2024-09-28 17:12:55.155
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,14 +19,14 @@ using UnityGameFramework.Runtime;
 namespace ShootingStar
 {
     /// <summary>
-    /// 实体表。
+    /// 推进器表。
     /// </summary>
-    public class DREntity : DataRowBase
+    public class DRThruster : DataRowBase
     {
         private int m_Id = 0;
 
         /// <summary>
-        /// 获取实体编号。
+        /// 获取类型编号。
         /// </summary>
         public override int Id
         {
@@ -37,36 +37,9 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取类型编号。
+        /// 获取推进器速度。
         /// </summary>
-        public int TypeId
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// 获取资源名称。
-        /// </summary>
-        public string AssetName
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// 获取实体加载优先级。
-        /// </summary>
-        public int Priority
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// 获取资源组名称。
-        /// </summary>
-        public string GroupName
+        public int Speed
         {
             get;
             private set;
@@ -84,10 +57,7 @@ namespace ShootingStar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            TypeId = int.Parse(columnStrings[index++]);
-            AssetName = columnStrings[index++];
-            Priority = int.Parse(columnStrings[index++]);
-            GroupName = columnStrings[index++];
+            Speed = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -100,10 +70,7 @@ namespace ShootingStar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    TypeId = binaryReader.Read7BitEncodedInt32();
-                    AssetName = binaryReader.ReadString();
-                    Priority = binaryReader.Read7BitEncodedInt32();
-                    GroupName = binaryReader.ReadString();
+                    Speed = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

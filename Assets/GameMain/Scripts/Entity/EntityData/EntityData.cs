@@ -1,5 +1,6 @@
 ﻿using GameFramework.DataTable;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
