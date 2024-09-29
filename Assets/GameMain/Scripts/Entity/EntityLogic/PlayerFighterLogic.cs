@@ -5,9 +5,10 @@ namespace ShootingStar
 {
     public class PlayerFighterLogic : EntityBaseLogic
     {
-        [SerializeField]
+        [SerializeField] 
         private PlayerFighterData playerFighterData;
         private PlayerInput playerInput;
+        private Rigidbody rb;
 
         protected override void OnInit(object userData)
         {
@@ -20,6 +21,7 @@ namespace ShootingStar
             }
 
             playerInput = new PlayerInput();
+            rb = GetComponent<Rigidbody>();
 
             InitData(playerFighterData);
         }
@@ -28,7 +30,7 @@ namespace ShootingStar
         {
             base.OnShow(userData);
             playerInput.Enable();
-            
+
             GameEntry.Entity.ShowThruster(playerFighterData.GetThrusterData);
         }
 
@@ -41,14 +43,24 @@ namespace ShootingStar
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
-            
+
             var moveDir = playerInput.GamePlay.Move.ReadValue<Vector2>();
             PlayerMove(moveDir);
+            LimiteMove();
         }
 
         private void PlayerMove(Vector2 moveDir)
         {
-            transform.position += playerFighterData.GetThrusterData.Speed * Time.deltaTime * new Vector3(moveDir.x, moveDir.y, 0);
+            rb.velocity = moveDir * playerFighterData.GetThrusterData.Speed;
+        }
+
+        private void LimiteMove()
+        {
+            CachedTransform.position = new Vector3(
+                Mathf.Clamp(CachedTransform.position.x, -EntityExtension.maxHorizontalDistance,
+                    EntityExtension.maxHorizontalDistance),
+                Mathf.Clamp(CachedTransform.position.y, EntityExtension.minVerticalDistance,
+                    EntityExtension.maxVerticalDistance), 0);
         }
     }
 }

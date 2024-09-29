@@ -5,6 +5,10 @@ namespace ShootingStar
 {
     public static class EntityExtension
     {
+        public const float maxHorizontalDistance = 8.5f;
+        public const float maxVerticalDistance = 5.5f;
+        public const float minVerticalDistance = -3.3f;
+        
         public static void ShowThruster(this EntityComponent entityComponent, ThrusterData data)
         {
             entityComponent.ShowEntity(typeof(ThrusterLogic), AssetUtility.GetEntityAsset(data.AssetName),
