@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityGameFramework.Runtime;
@@ -13,6 +14,7 @@ namespace ShootingStar
 
         private float timer;
         private Coroutine coroutine;
+        private float angelRotate = 28;
 
         protected override void OnInit(object userData)
         {
@@ -62,26 +64,30 @@ namespace ShootingStar
                 StopCoroutine(coroutine);
             }
 
-            coroutine = StartCoroutine(Move(moveDir, 0.2f));
+            coroutine = StartCoroutine(
+                Move(moveDir, Quaternion.AngleAxis(angelRotate * moveDir.y, Vector3.right), 0.2f));
         }
 
         private void PlayerStopMove()
         {
-            if (coroutine!=null)
+            if (coroutine != null)
             {
                 StopCoroutine(coroutine);
             }
-            StartCoroutine(Move(Vector2.zero, 0.2f));
+
+            StartCoroutine(Move(Vector2.zero, Quaternion.identity, 0.2f));
         }
 
-        private IEnumerator Move(Vector2 moveDir, float changeVelocityTime)
+        private IEnumerator Move(Vector2 moveDir, Quaternion targetRotation, float changeTime)
         {
             timer = 0;
-            while (timer < changeVelocityTime)
+            while (timer < changeTime)
             {
                 timer += Time.deltaTime;
                 rb.velocity = Vector3.Lerp(rb.velocity, moveDir * playerFighterData.GetThrusterData.Speed,
-                    timer / changeVelocityTime);
+                    timer / changeTime);
+                CachedTransform.rotation =
+                    Quaternion.Lerp(CachedTransform.rotation, targetRotation, timer / changeTime);
                 yield return null;
             }
         }
