@@ -17,6 +17,13 @@ namespace ShootingStar
 
         private Dictionary<string, bool> loadedFlags = new Dictionary<string, bool>();
 
+        protected override void OnInit(IFsm<IProcedureManager> procedureOwner)
+        {
+            base.OnInit(procedureOwner);
+            
+            PlayerInputManager.Instance.OnInit();
+        }
+
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
