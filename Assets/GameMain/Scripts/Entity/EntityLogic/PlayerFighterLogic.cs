@@ -14,7 +14,7 @@ namespace ShootingStar
 
         private float timer;
         private Coroutine coroutine;
-        private float angelRotate = 28;
+        private float angelRotate = 25;
 
         protected override void OnInit(object userData)
         {
