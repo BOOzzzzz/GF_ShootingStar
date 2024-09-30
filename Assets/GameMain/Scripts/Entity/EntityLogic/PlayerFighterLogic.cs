@@ -65,7 +65,8 @@ namespace ShootingStar
             }
 
             coroutine = StartCoroutine(
-                Move(moveDir, Quaternion.AngleAxis(angelRotate * moveDir.y, Vector3.right), 0.2f));
+                Move(moveDir, Quaternion.AngleAxis(angelRotate * moveDir.y, Vector3.right),
+                    playerFighterData.ChangeTime));
         }
 
         private void PlayerStopMove()
@@ -75,7 +76,7 @@ namespace ShootingStar
                 StopCoroutine(coroutine);
             }
 
-            StartCoroutine(Move(Vector2.zero, Quaternion.identity, 0.2f));
+            StartCoroutine(Move(Vector2.zero, Quaternion.identity, playerFighterData.ChangeTime));
         }
 
         private IEnumerator Move(Vector2 moveDir, Quaternion targetRotation, float changeTime)

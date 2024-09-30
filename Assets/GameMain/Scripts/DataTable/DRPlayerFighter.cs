@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-09-30 17:57:52.421
+// 生成时间：2024-09-30 17:57:52.425
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,9 +19,9 @@ using UnityGameFramework.Runtime;
 namespace ShootingStar
 {
     /// <summary>
-    /// 推进器表。
+    /// 玩家战机表。
     /// </summary>
-    public class DRThruster : DataRowBase
+    public class DRPlayerFighter : DataRowBase
     {
         private int m_Id = 0;
 
@@ -37,9 +37,9 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取推进器速度。
+        /// 获取速度变化时间。
         /// </summary>
-        public int Speed
+        public float ChangeTime
         {
             get;
             private set;
@@ -57,7 +57,7 @@ namespace ShootingStar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            Speed = int.Parse(columnStrings[index++]);
+            ChangeTime = float.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -70,7 +70,7 @@ namespace ShootingStar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    Speed = binaryReader.Read7BitEncodedInt32();
+                    ChangeTime = binaryReader.ReadSingle();
                 }
             }
 

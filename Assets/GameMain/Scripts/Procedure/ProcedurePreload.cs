@@ -12,7 +12,8 @@ namespace ShootingStar
         public static string[] DataTableNames = new string[]
         {
             "Entity",
-            "Thruster"
+            "Thruster",
+            "PlayerFighter"
         };
 
         private Dictionary<string, bool> loadedFlags = new Dictionary<string, bool>();
