@@ -1,7 +1,4 @@
-using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -9,25 +6,27 @@ namespace ShootingStar
     public class PlayerFighterLogic : EntityBaseLogic
     {
         [SerializeField] private PlayerFighterData playerFighterData;
-
+        
         private Rigidbody rb;
+        
+        private Vector2 moveDir;
+        private float currentSpeed;
+        private float targetSpeed;
+        private float speedChangeVelocity; // 用于 SmoothDamp
 
-        private float timer;
-        private Coroutine coroutine;
         private float angelRotate = 25;
 
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
-
+            
             playerFighterData = userData as PlayerFighterData;
             if (playerFighterData == null)
             {
                 Log.Warning("PlayerFighterData is not initialized");
             }
-
+            
             rb = GetComponent<Rigidbody>();
-
             InitData(playerFighterData);
         }
 
@@ -53,53 +52,36 @@ namespace ShootingStar
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
 
-            Log.Debug(rb.velocity);
+            Movement();
             LimiteMove();
         }
 
-        private void PlayerMove(Vector2 moveDir)
+        private void PlayerMove(Vector2 direction)
         {
-            if (coroutine != null)
-            {
-                StopCoroutine(coroutine);
-            }
-
-            coroutine = StartCoroutine(
-                Move(moveDir, Quaternion.AngleAxis(angelRotate * moveDir.y, Vector3.right),
-                    playerFighterData.ChangeTime));
+            moveDir = direction;
+            targetSpeed = playerFighterData.GetThrusterData.Speed;
         }
 
         private void PlayerStopMove()
         {
-            if (coroutine != null)
-            {
-                StopCoroutine(coroutine);
-            }
-
-            StartCoroutine(Move(Vector2.zero, Quaternion.identity, playerFighterData.ChangeTime));
+            moveDir=Vector2.zero;
+            targetSpeed = 0f; 
         }
 
-        private IEnumerator Move(Vector2 moveDir, Quaternion targetRotation, float changeTime)
+        private void Movement()
         {
-            timer = 0;
-            while (timer < changeTime)
-            {
-                timer += Time.deltaTime;
-                rb.velocity = Vector3.Lerp(rb.velocity, moveDir * playerFighterData.GetThrusterData.Speed,
-                    timer / changeTime);
-                CachedTransform.rotation =
-                    Quaternion.Lerp(CachedTransform.rotation, targetRotation, timer / changeTime);
-                yield return null;
-            }
+            currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedChangeVelocity, playerFighterData.ChangeTime);
+            rb.velocity = moveDir * currentSpeed;
+            Quaternion targetRotation = Quaternion.AngleAxis(angelRotate * moveDir.y, Vector3.right);
+            CachedTransform.rotation = Quaternion.Lerp(CachedTransform.rotation, targetRotation, Time.deltaTime / playerFighterData.ChangeTime);
         }
 
         private void LimiteMove()
         {
             CachedTransform.position = new Vector3(
-                Mathf.Clamp(CachedTransform.position.x, -EntityExtension.maxHorizontalDistance,
-                    EntityExtension.maxHorizontalDistance),
-                Mathf.Clamp(CachedTransform.position.y, EntityExtension.minVerticalDistance,
-                    EntityExtension.maxVerticalDistance), 0);
+                Mathf.Clamp(CachedTransform.position.x, -EntityExtension.maxHorizontalDistance, EntityExtension.maxHorizontalDistance),
+                Mathf.Clamp(CachedTransform.position.y, EntityExtension.minVerticalDistance, EntityExtension.maxVerticalDistance),
+                0);
         }
     }
 }
