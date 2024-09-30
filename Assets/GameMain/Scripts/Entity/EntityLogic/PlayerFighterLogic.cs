@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityGameFramework.Runtime;
@@ -11,6 +12,7 @@ namespace ShootingStar
         private Rigidbody rb;
 
         private float timer;
+        private Coroutine coroutine;
 
         protected override void OnInit(object userData)
         {
@@ -55,23 +57,32 @@ namespace ShootingStar
 
         private void PlayerMove(Vector2 moveDir)
         {
-            Move(moveDir,1);
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+            }
+
+            coroutine = StartCoroutine(Move(moveDir, 0.2f));
         }
 
         private void PlayerStopMove()
         {
-            Move(Vector2.zero,1);
+            if (coroutine!=null)
+            {
+                StopCoroutine(coroutine);
+            }
+            StartCoroutine(Move(Vector2.zero, 0.2f));
         }
 
-        private void Move(Vector2 moveDir, float changeVelocityTime)
+        private IEnumerator Move(Vector2 moveDir, float changeVelocityTime)
         {
             timer = 0;
-            while (timer<changeVelocityTime)
+            while (timer < changeVelocityTime)
             {
                 timer += Time.deltaTime;
-                timer = Mathf.Clamp01(timer);
                 rb.velocity = Vector3.Lerp(rb.velocity, moveDir * playerFighterData.GetThrusterData.Speed,
                     timer / changeVelocityTime);
+                yield return null;
             }
         }
 
