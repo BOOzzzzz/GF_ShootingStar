@@ -29040,7 +29040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6318475572488382901}
   m_Layer: 0
-  m_Name: Thruster
+  m_Name: ThrusterPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
