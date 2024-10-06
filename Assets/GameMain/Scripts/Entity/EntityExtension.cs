@@ -9,6 +9,12 @@ namespace ShootingStar
         public const float maxVerticalDistance = 5.5f;
         public const float minVerticalDistance = -3.3f;
         
+        public static void ShowWeaponPoint(this EntityComponent entityComponent, WeaponPointData pointData)
+        {
+            entityComponent.ShowEntity(typeof(WeaponPoint), AssetUtility.GetEntityAsset(pointData.AssetName),
+                pointData.GroupName, pointData);
+        }
+        
         public static void ShowThruster(this EntityComponent entityComponent, ThrusterData data)
         {
             entityComponent.ShowEntity(typeof(ThrusterLogic), AssetUtility.GetEntityAsset(data.AssetName),

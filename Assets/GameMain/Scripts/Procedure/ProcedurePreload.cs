@@ -13,7 +13,8 @@ namespace ShootingStar
         {
             "Entity",
             "Thruster",
-            "PlayerFighter"
+            "PlayerFighter",
+            "Weapon"
         };
 
         private Dictionary<string, bool> loadedFlags = new Dictionary<string, bool>();

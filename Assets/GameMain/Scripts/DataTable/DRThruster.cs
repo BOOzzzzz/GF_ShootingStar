@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-09-30 17:57:52.421
+// 生成时间：2024-10-06 11:54:53.668
 //------------------------------------------------------------
 
 using GameFramework;
@@ -26,7 +26,7 @@ namespace ShootingStar
         private int m_Id = 0;
 
         /// <summary>
-        /// 获取类型编号。
+        /// 获取属性编号。
         /// </summary>
         public override int Id
         {

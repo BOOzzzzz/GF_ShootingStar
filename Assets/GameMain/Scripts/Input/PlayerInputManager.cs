@@ -10,6 +10,8 @@ namespace ShootingStar
 
         public Action<Vector2> onMove;
         public Action onStopMove;
+        public Action onFire;
+        public Action onStopFire;
 
         public void OnInit()
         {
@@ -37,6 +39,18 @@ namespace ShootingStar
             if (context.canceled)
             {
                 onStopMove();
+            }
+        }
+
+        public void OnFire(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                onFire();
+            }
+            if (context.canceled)
+            {
+                onStopFire();
             }
         }
     }

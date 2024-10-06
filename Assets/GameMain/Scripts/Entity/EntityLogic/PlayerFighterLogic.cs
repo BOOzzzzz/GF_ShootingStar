@@ -36,8 +36,11 @@ namespace ShootingStar
             PlayerInputManager.Instance.OnEnable();
             PlayerInputManager.Instance.onMove += PlayerMove;
             PlayerInputManager.Instance.onStopMove += PlayerStopMove;
+            PlayerInputManager.Instance.onFire += PlayerFire;
+            PlayerInputManager.Instance.onStopFire += PlayerStopFire;
 
             GameEntry.Entity.ShowThruster(playerFighterData.GetThrusterData);
+            GameEntry.Entity.ShowWeaponPoint(playerFighterData.GetWeaponPointData);
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -45,6 +48,8 @@ namespace ShootingStar
             base.OnHide(isShutdown, userData);
             PlayerInputManager.Instance.onMove -= PlayerMove;
             PlayerInputManager.Instance.onStopMove -= PlayerStopMove;
+            PlayerInputManager.Instance.onFire -= PlayerFire;
+            PlayerInputManager.Instance.onStopFire -= PlayerStopFire;
             PlayerInputManager.Instance.OnDisable();
         }
 
@@ -55,6 +60,8 @@ namespace ShootingStar
             Movement();
             LimiteMove();
         }
+
+        #region Move
 
         private void PlayerMove(Vector2 direction)
         {
@@ -83,5 +90,21 @@ namespace ShootingStar
                 Mathf.Clamp(CachedTransform.position.y, EntityExtension.minVerticalDistance, EntityExtension.maxVerticalDistance),
                 0);
         }
+
+        #endregion
+
+        #region Fire
+
+        private void PlayerFire()
+        {
+            
+        }
+
+        private void PlayerStopFire()
+        {
+            
+        }
+
+        #endregion
     }
 }
