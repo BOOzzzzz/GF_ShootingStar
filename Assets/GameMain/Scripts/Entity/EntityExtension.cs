@@ -39,7 +39,7 @@ namespace ShootingStar
         private static void ShowEntity(this EntityComponent entityComponent, Type typeLogic, string entityAssetName,
             string entityGroupName, EntityData data)
         {
-            entityComponent.ShowEntity(data.ID, typeLogic, entityAssetName, entityGroupName, data.Priority, data);
+            entityComponent.ShowEntity(data.EntityID, typeLogic, entityAssetName, entityGroupName, data.Priority, data);
         }
         
         public static int GenerateSerialId(this EntityComponent entityComponent)

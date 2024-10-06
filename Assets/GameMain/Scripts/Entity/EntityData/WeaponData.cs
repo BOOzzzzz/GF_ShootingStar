@@ -11,10 +11,10 @@ namespace ShootingStar
         [SerializeField] private float attackInterval;
         [SerializeField] private float speed;
         
-        public WeaponData(int id) : base(id)
+        public WeaponData(int entityID,int id) : base(entityID,id)
         {
             IDataTable<DRWeapon> dtWeapon = GameEntry.DataTable.GetDataTable<DRWeapon>();
-            DRWeapon drWeapon = dtWeapon.GetDataRow(TypeId);
+            DRWeapon drWeapon = dtWeapon.GetDataRow(TypeID);
             speed = drWeapon.Speed;
             attack = drWeapon.Attack;
             attackInterval = drWeapon.AttackInterval;

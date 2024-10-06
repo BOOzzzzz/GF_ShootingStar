@@ -11,7 +11,7 @@ namespace ShootingStar
             get => ownerId;
         }
 
-        protected AccessoryObjectData(int id,int ownerId) : base(id)
+        protected AccessoryObjectData(int entityID,int id,int ownerId) : base(entityID,id)
         {
             this.ownerId = ownerId;
         }

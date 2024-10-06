@@ -6,8 +6,10 @@ namespace ShootingStar
 {
     public abstract class EntityData
     {
+        private int entityID;
+
         private int id;
-        private int typeId;
+        private int typeID;
         private int priority;
         private string assetName;
         private string groupName;
@@ -16,14 +18,19 @@ namespace ShootingStar
 
 
 
+        public int EntityID
+        {
+            get => entityID;
+        }
+
         public int ID
         {
             get => id;
         }
 
-        public int TypeId
+        public int TypeID
         {
-            get => typeId;
+            get => typeID;
         }
 
         public int Priority
@@ -53,12 +60,13 @@ namespace ShootingStar
             set => rotation = value;
         }
 
-        public EntityData(int id)
+        public EntityData(int entityID,int id)
         {
             this.id = id;
             IDataTable<DREntity> dtEntity = GameEntry.DataTable.GetDataTable<DREntity>();
             DREntity drEntity = dtEntity.GetDataRow(id);
-            typeId = drEntity.TypeId;
+            this.entityID = entityID;
+            typeID = drEntity.TypeId;
             assetName = drEntity.AssetName;
             groupName = drEntity.GroupName;
             priority = drEntity.Priority;
