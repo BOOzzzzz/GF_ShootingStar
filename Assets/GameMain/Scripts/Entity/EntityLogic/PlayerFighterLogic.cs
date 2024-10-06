@@ -27,7 +27,7 @@ namespace ShootingStar
             }
             
             rb = GetComponent<Rigidbody>();
-            InitData(playerFighterData);
+            InitData(playerFighterData,false);
         }
 
         protected override void OnShow(object userData)
@@ -97,7 +97,8 @@ namespace ShootingStar
 
         private void PlayerFire()
         {
-            
+            playerFighterData.GetWeaponDatas[0].Position = playerFighterData.GetWeaponPointData.Position;
+            GameEntry.Entity.ShowWeapon(playerFighterData.GetWeaponDatas[0]);
         }
 
         private void PlayerStopFire()

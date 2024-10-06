@@ -15,7 +15,7 @@ namespace ShootingStar
                 Log.Warning("ThrusterData is not initialized");
             }
             GameEntry.Entity.AttachEntity(Entity,thrusterData.OwnerId,"Thruster");
-            InitData(thrusterData);
+            InitData(thrusterData,true);
         }
 
         protected override void OnShow(object userData)

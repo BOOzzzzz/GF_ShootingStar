@@ -1,17 +1,26 @@
 ﻿using System;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
     public static class EntityExtension
     {
+        public static int serialID = 0;
+        
         public const float maxHorizontalDistance = 8.5f;
         public const float maxVerticalDistance = 5.5f;
         public const float minVerticalDistance = -3.3f;
         
+        public static void ShowWeapon(this EntityComponent entityComponent, WeaponData data)
+        {
+            entityComponent.ShowEntity(typeof(WeaponLogic), AssetUtility.GetEntityAsset(data.AssetName),
+                data.GroupName, data);
+        }
+        
         public static void ShowWeaponPoint(this EntityComponent entityComponent, WeaponPointData pointData)
         {
-            entityComponent.ShowEntity(typeof(WeaponPoint), AssetUtility.GetEntityAsset(pointData.AssetName),
+            entityComponent.ShowEntity(typeof(WeaponPointLogic), AssetUtility.GetEntityAsset(pointData.AssetName),
                 pointData.GroupName, pointData);
         }
         
@@ -31,6 +40,11 @@ namespace ShootingStar
             string entityGroupName, EntityData data)
         {
             entityComponent.ShowEntity(data.ID, typeLogic, entityAssetName, entityGroupName, data.Priority, data);
+        }
+        
+        public static int GenerateSerialId(this EntityComponent entityComponent)
+        {
+            return --serialID;
         }
     }
 }
