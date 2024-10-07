@@ -4840,9 +4840,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6449780436050257597}
-  - component: {fileID: 2785282244910192169}
+  - component: {fileID: 3763799826175783213}
   m_Layer: 8
-  m_Name: Player Projectile 1
+  m_Name: PlayerProjectile2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4864,7 +4864,7 @@ Transform:
   - {fileID: 6449780435518965624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &2785282244910192169
+--- !u!70 &3763799826175783213
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4898,7 +4898,7 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.28, y: 0}
   m_Size: {x: 0.25, y: 0.1}
-  m_Direction: 1
+  m_Direction: 0
 --- !u!1 &6449780436410464338
 GameObject:
   m_ObjectHideFlags: 0

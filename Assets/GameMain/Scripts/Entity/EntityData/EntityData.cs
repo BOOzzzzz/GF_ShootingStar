@@ -9,7 +9,6 @@ namespace ShootingStar
         private int entityID;
 
         private int id;
-        private int typeID;
         private int priority;
         private string assetName;
         private string groupName;
@@ -26,11 +25,6 @@ namespace ShootingStar
         public int ID
         {
             get => id;
-        }
-
-        public int TypeID
-        {
-            get => typeID;
         }
 
         public int Priority
@@ -66,7 +60,6 @@ namespace ShootingStar
             IDataTable<DREntity> dtEntity = GameEntry.DataTable.GetDataTable<DREntity>();
             DREntity drEntity = dtEntity.GetDataRow(id);
             this.entityID = entityID;
-            typeID = drEntity.TypeId;
             assetName = drEntity.AssetName;
             groupName = drEntity.GroupName;
             priority = drEntity.Priority;

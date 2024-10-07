@@ -16,18 +16,18 @@ namespace ShootingStar
 
         private WeaponPointData weaponPointData;
 
-        public PlayerFighterData(int entityID,int id) : base(entityID,id)
+        public PlayerFighterData(int entityID,EnumEntity id) : base(entityID,(int)id)
         {
-            IDataTable<DRPlayerFighter> dtPlayerFighter = GameEntry.DataTable.GetDataTable<DRPlayerFighter>();
-            DRPlayerFighter drPlayerFighter = dtPlayerFighter.GetDataRow(TypeID);
+            IDataTable<DRFighter> dtPlayerFighter = GameEntry.DataTable.GetDataTable<DRFighter>();
+            DRFighter drPlayerFighter = dtPlayerFighter.GetDataRow((int)id);
             changeTime = drPlayerFighter.ChangeTime;
 
-            thrusterData = new ThrusterData(GameEntry.Entity.GenerateSerialId(),20000, entityID);
-            weaponPointData = new WeaponPointData(GameEntry.Entity.GenerateSerialId(),30000, entityID)
+            thrusterData = new ThrusterData(GameEntry.Entity.GenerateSerialId(),EnumEntity.ThrusterPoint, entityID);
+            weaponPointData = new WeaponPointData(GameEntry.Entity.GenerateSerialId(),EnumEntity.WeaponPoint, entityID)
             {
                 Position = new Vector3(1,0,0)
             };
-            for (int i = 40000; i < 40001; i++)
+            for (EnumEntity i = EnumEntity.PlayerProjectile1; i < EnumEntity.PlayerProjectile1+1; i++)
             {
                 weaponDatas.Add(new WeaponData(GameEntry.Entity.GenerateSerialId(),i));
             }

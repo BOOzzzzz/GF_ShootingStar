@@ -7,7 +7,7 @@ namespace ShootingStar
     {
         public virtual void Initialize()
         {
-            GameEntry.Entity.ShowPlayerFighter(new PlayerFighterData(GameEntry.Entity.GenerateSerialId(),10000)
+            GameEntry.Entity.ShowPlayerFighter(new PlayerFighterData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerFighter)
             {
                 Position = new Vector3(-7,1,0)
             });

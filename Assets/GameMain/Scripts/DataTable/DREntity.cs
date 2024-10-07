@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-06 11:54:53.655
+// 生成时间：2024-10-07 11:33:21.609
 //------------------------------------------------------------
 
 using GameFramework;
@@ -37,15 +37,6 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取属性编号。
-        /// </summary>
-        public int TypeId
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
         /// 获取资源名称。
         /// </summary>
         public string AssetName
@@ -72,6 +63,15 @@ namespace ShootingStar
             private set;
         }
 
+        /// <summary>
+        /// 获取实体类型。
+        /// </summary>
+        public string EntityType
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -84,10 +84,10 @@ namespace ShootingStar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            TypeId = int.Parse(columnStrings[index++]);
             AssetName = columnStrings[index++];
             Priority = int.Parse(columnStrings[index++]);
             GroupName = columnStrings[index++];
+            EntityType = columnStrings[index++];
 
             GeneratePropertyArray();
             return true;
@@ -100,10 +100,10 @@ namespace ShootingStar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    TypeId = binaryReader.Read7BitEncodedInt32();
                     AssetName = binaryReader.ReadString();
                     Priority = binaryReader.Read7BitEncodedInt32();
                     GroupName = binaryReader.ReadString();
+                    EntityType = binaryReader.ReadString();
                 }
             }
 

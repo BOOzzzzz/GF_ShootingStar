@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-06 11:54:53.672
+// 生成时间：2024-10-07 11:33:21.636
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,9 +19,9 @@ using UnityGameFramework.Runtime;
 namespace ShootingStar
 {
     /// <summary>
-    /// 玩家战机表。
+    /// 战机表。
     /// </summary>
-    public class DRPlayerFighter : DataRowBase
+    public class DRFighter : DataRowBase
     {
         private int m_Id = 0;
 

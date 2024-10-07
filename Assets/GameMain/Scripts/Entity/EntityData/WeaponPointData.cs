@@ -2,7 +2,7 @@
 {
     public class WeaponPointData:AccessoryObjectData
     {
-        public WeaponPointData(int entityID,int id, int ownerId) : base(entityID,id, ownerId)
+        public WeaponPointData(int entityID,EnumEntity id, int ownerId) : base(entityID,(int)id, ownerId)
         {
         }
     }

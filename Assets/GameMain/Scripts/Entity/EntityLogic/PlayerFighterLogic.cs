@@ -98,7 +98,7 @@ namespace ShootingStar
         private void PlayerFire()
         {
             playerFighterData.GetWeaponDatas[0].Position = playerFighterData.GetWeaponPointData.Position;
-            GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),40000));
+            GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1));
         }
 
         private void PlayerStopFire()

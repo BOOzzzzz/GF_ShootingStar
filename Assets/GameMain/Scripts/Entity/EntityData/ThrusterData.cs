@@ -17,10 +17,10 @@ namespace ShootingStar
             set => speed = value;
         }
 
-        public ThrusterData(int entityID,int id, int ownerId) : base(entityID,id, ownerId)
+        public ThrusterData(int entityID,EnumEntity id, int ownerId) : base(entityID,(int)id, ownerId)
         {
             IDataTable<DRThruster> dtThruster = GameEntry.DataTable.GetDataTable<DRThruster>();
-            DRThruster drThruster = dtThruster.GetDataRow(TypeID);
+            DRThruster drThruster = dtThruster.GetDataRow((int)id);
             speed = drThruster.Speed;
         }
     }

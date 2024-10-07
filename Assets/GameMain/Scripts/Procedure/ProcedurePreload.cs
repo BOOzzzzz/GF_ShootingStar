@@ -13,7 +13,7 @@ namespace ShootingStar
         {
             "Entity",
             "Thruster",
-            "PlayerFighter",
+            "Fighter",
             "Weapon"
         };
 
