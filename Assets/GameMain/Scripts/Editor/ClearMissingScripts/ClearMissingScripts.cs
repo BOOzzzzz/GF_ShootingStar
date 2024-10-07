@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RemoveMissingScripts
 {
-    [MenuItem("Tools/RemoveMissingScripts")]
+    [MenuItem("ShootingStar/RemoveMissingScripts")]
     public static void StartRemoveMissingScripts()
     {
         FindAll();
