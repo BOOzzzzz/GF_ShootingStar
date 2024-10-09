@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -13,8 +14,9 @@ namespace ShootingStar
         private float currentSpeed;
         private float targetSpeed;
         private float speedChangeVelocity; // 用于 SmoothDamp
-
         private float angelRotate = 25;
+
+        private WaitForSeconds fireInterval;
 
         protected override void OnInit(object userData)
         {
@@ -41,6 +43,8 @@ namespace ShootingStar
 
             GameEntry.Entity.ShowThruster(playerFighterData.GetThrusterData);
             GameEntry.Entity.ShowWeaponPoint(playerFighterData.GetWeaponPointData);
+
+            fireInterval = new WaitForSeconds(playerFighterData.GetWeaponDatas[0].AttackInterval);
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -59,6 +63,7 @@ namespace ShootingStar
 
             Movement();
             LimiteMove();
+            Fire();
         }
 
         #region Move
@@ -97,15 +102,24 @@ namespace ShootingStar
 
         private void PlayerFire()
         {
-            GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
-            {
-                Position = playerFighterData.GetWeaponPointData.Position
-            });
+            StartCoroutine(nameof(Fire));
         }
 
         private void PlayerStopFire()
         {
-            
+            StopCoroutine(nameof(Fire));
+        }
+
+        private IEnumerator Fire()
+        {
+            while (true)
+            {
+                GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
+                {
+                    Position = playerFighterData.GetWeaponPointData.Position
+                });
+                yield return fireInterval;
+            }
         }
 
         #endregion
