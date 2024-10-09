@@ -12,6 +12,11 @@ namespace ShootingStar
         public const float maxVerticalDistance = 5.5f;
         public const float minVerticalDistance = -3.3f;
         
+        public static void HideEntity(this EntityComponent entityComponent, EntityLogic entity)
+        {
+            entityComponent.HideEntity(entity.Entity);
+        }
+        
         public static void ShowWeapon(this EntityComponent entityComponent, WeaponData data)
         {
             entityComponent.ShowEntity(typeof(WeaponLogic), AssetUtility.GetEntityAsset(data.AssetName),
