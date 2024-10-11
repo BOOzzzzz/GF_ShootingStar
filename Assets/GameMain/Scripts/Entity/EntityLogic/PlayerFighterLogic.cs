@@ -17,6 +17,7 @@ namespace ShootingStar
         private float angelRotate = 25;
 
         private WaitForSeconds fireInterval;
+        private int weaponPower = 3;
 
         protected override void OnInit(object userData)
         {
@@ -42,7 +43,10 @@ namespace ShootingStar
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
 
             GameEntry.Entity.ShowThruster(playerFighterData.GetThrusterData);
-            GameEntry.Entity.ShowWeaponPoint(playerFighterData.GetWeaponPointData);
+            for (int i = 0; i < 3; i++)
+            {
+                GameEntry.Entity.ShowWeaponPoint(playerFighterData.GetWeaponPointDatas[i]);
+            }
 
             fireInterval = new WaitForSeconds(playerFighterData.GetWeaponDatas[0].AttackInterval);
         }
@@ -114,10 +118,45 @@ namespace ShootingStar
         {
             while (true)
             {
-                GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
+                switch (weaponPower)
                 {
-                    Position = playerFighterData.GetWeaponPointData.Position
-                });
+                    case 1:
+                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
+                        {
+                            Position = playerFighterData.GetWeaponPointDatas[0].Position,
+                            Rotation = playerFighterData.GetWeaponPointDatas[0].Rotation
+                        });
+                        break;
+                    case 2:
+                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
+                        {
+                            Position = playerFighterData.GetWeaponPointDatas[1].Position,
+                            Rotation = playerFighterData.GetWeaponPointDatas[1].Rotation
+                        });
+                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
+                        {
+                            Position = playerFighterData.GetWeaponPointDatas[2].Position,
+                            Rotation = playerFighterData.GetWeaponPointDatas[2].Rotation
+                        });
+                        break;
+                    case 3:
+                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
+                        {
+                            Position = playerFighterData.GetWeaponPointDatas[0].Position,
+                            Rotation = playerFighterData.GetWeaponPointDatas[0].Rotation
+                        });
+                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile2)
+                        {
+                            Position = playerFighterData.GetWeaponPointDatas[1].Position,
+                            Rotation = playerFighterData.GetWeaponPointDatas[1].Rotation
+                        });
+                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile3)
+                        {
+                            Position = playerFighterData.GetWeaponPointDatas[2].Position,
+                            Rotation = playerFighterData.GetWeaponPointDatas[2].Rotation
+                        });
+                        break;
+                }
                 yield return fireInterval;
             }
         }

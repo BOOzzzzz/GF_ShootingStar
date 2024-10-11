@@ -24,6 +24,7 @@ namespace ShootingStar
             base.OnUpdate(elapseSeconds, realElapseSeconds);
 
             weaponPointData.Position = CachedTransform.position;
+            weaponPointData.Rotation = CachedTransform.rotation;
         }
     }
 }

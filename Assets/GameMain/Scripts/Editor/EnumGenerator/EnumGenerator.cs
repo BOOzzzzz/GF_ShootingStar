@@ -17,7 +17,7 @@ namespace Flower
             "Entity",
         };
 
-        [MenuItem("Tools/Generate DataTable Enum", false, 3)]
+        [MenuItem("ShootingStar/Generate DataTable Enum", false, 3)]
         private static void GenerateDataTableEnum()
         {
             foreach (string dataTableName in GenerateDataTables)

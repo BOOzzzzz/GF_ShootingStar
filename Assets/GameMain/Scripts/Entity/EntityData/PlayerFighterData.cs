@@ -11,25 +11,38 @@ namespace ShootingStar
         [SerializeField] private float changeTime;
 
         [SerializeField] private ThrusterData thrusterData;
-        
-        [SerializeField] private List<WeaponData> weaponDatas=new List<WeaponData>();
 
-        private WeaponPointData weaponPointData;
+        [SerializeField] private List<WeaponData> weaponDatas = new List<WeaponData>();
 
-        public PlayerFighterData(int entityID,EnumEntity id) : base(entityID,(int)id)
+        private List<WeaponPointData> weaponPointDatas = new List<WeaponPointData>();
+
+        public PlayerFighterData(int entityID, EnumEntity id) : base(entityID, (int)id)
         {
             IDataTable<DRFighter> dtPlayerFighter = GameEntry.DataTable.GetDataTable<DRFighter>();
             DRFighter drPlayerFighter = dtPlayerFighter.GetDataRow((int)id);
             changeTime = drPlayerFighter.ChangeTime;
 
-            thrusterData = new ThrusterData(GameEntry.Entity.GenerateSerialId(),EnumEntity.ThrusterPoint, entityID);
-            weaponPointData = new WeaponPointData(GameEntry.Entity.GenerateSerialId(),EnumEntity.WeaponPoint, entityID)
+            thrusterData = new ThrusterData(GameEntry.Entity.GenerateSerialId(), EnumEntity.ThrusterPoint, entityID);
+            weaponPointDatas.Add(
+                new WeaponPointData(GameEntry.Entity.GenerateSerialId(), EnumEntity.WeaponPoint, entityID)
+                {
+                    Position = new Vector3(1, 0, 0)
+                });
+            weaponPointDatas.Add(
+                new WeaponPointData(GameEntry.Entity.GenerateSerialId(), EnumEntity.WeaponPoint, entityID)
+                {
+                    Position = new Vector3(1, 0.15f, 0),
+                    Rotation = Quaternion.Euler(0, 0, 5)
+                });
+            weaponPointDatas.Add(
+                new WeaponPointData(GameEntry.Entity.GenerateSerialId(), EnumEntity.WeaponPoint, entityID)
+                {
+                    Position = new Vector3(1, -0.15f, 0),
+                    Rotation = Quaternion.Euler(0, 0, -5)
+                });
+            for (EnumEntity i = EnumEntity.PlayerProjectile1; i < EnumEntity.PlayerProjectile1 + 1; i++)
             {
-                Position = new Vector3(1,0,0)
-            };
-            for (EnumEntity i = EnumEntity.PlayerProjectile1; i < EnumEntity.PlayerProjectile1+1; i++)
-            {
-                weaponDatas.Add(new WeaponData(GameEntry.Entity.GenerateSerialId(),i));
+                weaponDatas.Add(new WeaponData(GameEntry.Entity.GenerateSerialId(), i));
             }
         }
 
@@ -41,16 +54,16 @@ namespace ShootingStar
         }
 
 
-        public WeaponPointData GetWeaponPointData
+        public List<WeaponPointData> GetWeaponPointDatas
         {
-            get => weaponPointData;
+            get => weaponPointDatas;
         }
 
         public ThrusterData GetThrusterData
         {
             get => thrusterData;
         }
-        
+
         public List<WeaponData> GetWeaponDatas
         {
             get => weaponDatas;
