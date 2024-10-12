@@ -5,13 +5,14 @@ using UnityEngine;
 namespace ShootingStar
 {
     [Serializable]
-    public class WeaponData:EntityData
+    public class WeaponData : EntityData
     {
+        [SerializeField] private Vector2 direction;
         [SerializeField] private int attack;
         [SerializeField] private float attackInterval;
         [SerializeField] private float speed;
-        
-        public WeaponData(int entityID,EnumEntity id) : base(entityID,(int)id)
+
+        public WeaponData(int entityID, EnumEntity id) : base(entityID, (int)id)
         {
             IDataTable<DRWeapon> dtWeapon = GameEntry.DataTable.GetDataTable<DRWeapon>();
             DRWeapon drWeapon = dtWeapon.GetDataRow((int)id);
@@ -36,6 +37,12 @@ namespace ShootingStar
         {
             get => speed;
             set => speed = value;
+        }
+
+        public Vector2 Direction
+        {
+            get => direction;
+            set => direction = value;
         }
     }
 }

@@ -26,19 +26,17 @@ namespace ShootingStar
             weaponPointDatas.Add(
                 new WeaponPointData(GameEntry.Entity.GenerateSerialId(), EnumEntity.WeaponPoint, entityID)
                 {
-                    Position = new Vector3(1, 0, 0)
+                    Position = new Vector3(0.95f, -0.05f, 0)
                 });
             weaponPointDatas.Add(
                 new WeaponPointData(GameEntry.Entity.GenerateSerialId(), EnumEntity.WeaponPoint, entityID)
                 {
-                    Position = new Vector3(1, 0.15f, 0),
-                    Rotation = Quaternion.Euler(0, 0, 5)
+                    Position = new Vector3(0.95f, 0.1f, 0),
                 });
             weaponPointDatas.Add(
                 new WeaponPointData(GameEntry.Entity.GenerateSerialId(), EnumEntity.WeaponPoint, entityID)
                 {
-                    Position = new Vector3(1, -0.15f, 0),
-                    Rotation = Quaternion.Euler(0, 0, -5)
+                    Position = new Vector3(0.95f, -0.2f, 0),
                 });
             for (EnumEntity i = EnumEntity.PlayerProjectile1; i < EnumEntity.PlayerProjectile1 + 1; i++)
             {

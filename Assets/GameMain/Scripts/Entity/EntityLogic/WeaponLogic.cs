@@ -28,6 +28,11 @@ namespace ShootingStar
             }
 
             InitData(weaponData, false);
+            Log.Debug(weaponData.Direction);
+            if (weaponData.Direction != Vector2.right)
+            { 
+                transform.GetChild(0).rotation = Quaternion.FromToRotation(Vector2.right, weaponData.Direction);
+            }
 
             timer = 0;
         }
@@ -36,7 +41,7 @@ namespace ShootingStar
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
 
-            transform.Translate(Vector3.right * weaponData.Speed * elapseSeconds);
+            transform.Translate(weaponData.Direction * weaponData.Speed * elapseSeconds);
 
             timer += Time.deltaTime;
             if (timer > 4)

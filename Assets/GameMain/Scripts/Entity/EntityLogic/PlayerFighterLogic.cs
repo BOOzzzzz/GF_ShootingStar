@@ -124,36 +124,36 @@ namespace ShootingStar
                         GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
                         {
                             Position = playerFighterData.GetWeaponPointDatas[0].Position,
-                            Rotation = playerFighterData.GetWeaponPointDatas[0].Rotation
+                            Direction = new Vector2(1,0)
                         });
                         break;
                     case 2:
                         GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
                         {
                             Position = playerFighterData.GetWeaponPointDatas[1].Position,
-                            Rotation = playerFighterData.GetWeaponPointDatas[1].Rotation
+                            Direction = new Vector2(1,0)
                         });
                         GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
                         {
                             Position = playerFighterData.GetWeaponPointDatas[2].Position,
-                            Rotation = playerFighterData.GetWeaponPointDatas[2].Rotation
+                            Direction = new Vector2(1,0)
                         });
                         break;
                     case 3:
                         GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
                         {
                             Position = playerFighterData.GetWeaponPointDatas[0].Position,
-                            Rotation = playerFighterData.GetWeaponPointDatas[0].Rotation
+                            Direction = new Vector2(1,0)
                         });
                         GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile2)
                         {
                             Position = playerFighterData.GetWeaponPointDatas[1].Position,
-                            Rotation = playerFighterData.GetWeaponPointDatas[1].Rotation
+                            Direction = new Vector2(1,0.05f)
                         });
                         GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile3)
                         {
                             Position = playerFighterData.GetWeaponPointDatas[2].Position,
-                            Rotation = playerFighterData.GetWeaponPointDatas[2].Rotation
+                            Direction = new Vector2(1,-0.05f)
                         });
                         break;
                 }
