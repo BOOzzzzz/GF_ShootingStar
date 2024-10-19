@@ -3,6 +3,7 @@ using GameFramework.DataTable;
 using GameFramework.Event;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
+using ShootingStar.DataTableData;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -35,7 +36,7 @@ namespace ShootingStar
 
             loadedFlags.Clear();
 
-            PreLoad();
+            OnPreLoad();
         }
 
         protected override void OnUpdate(IFsm<IProcedureManager> procedureOwner, float elapseSeconds,
@@ -63,9 +64,9 @@ namespace ShootingStar
             GameEntry.Event.Unsubscribe(LoadDataTableFailureEventArgs.EventId, LoadDataTableFailure);
         }
 
-        private void PreLoad()
+        private void OnPreLoad()
         {
-            LoadDataTable();
+            GameEntry.Data.OnPreloadAllDatas();
         }
 
         private void LoadDataTable()

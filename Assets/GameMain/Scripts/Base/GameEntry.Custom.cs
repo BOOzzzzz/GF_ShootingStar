@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
@@ -8,9 +9,14 @@ namespace ShootingStar
     /// </summary>
     public partial class GameEntry : MonoBehaviour
     {
-
+        public static DataComponent Data
+        {
+            get;
+            private set;
+        }
         private static void InitCustomComponents()
         {
+            Data = UnityGameFramework.Runtime.GameEntry.GetComponent<DataComponent>();
         }
     }
 }

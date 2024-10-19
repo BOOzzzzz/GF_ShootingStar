@@ -1,8 +1,9 @@
-﻿using UnityGameFramework.Runtime;
+﻿using ShootingStar.ReferencePoolData;
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
-    public abstract class AccessoryObjectData:EntityData
+    public abstract class AccessoryObjectData:EntityBaseData
     {
         private int ownerId;
 
@@ -11,7 +12,7 @@ namespace ShootingStar
             get => ownerId;
         }
 
-        protected AccessoryObjectData(int entityID,int id,int ownerId) : base(entityID,id)
+        protected AccessoryObjectData(int ownerId)
         {
             this.ownerId = ownerId;
         }

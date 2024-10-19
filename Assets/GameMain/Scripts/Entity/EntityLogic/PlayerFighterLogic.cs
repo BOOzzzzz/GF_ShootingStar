@@ -1,12 +1,14 @@
 using System.Collections;
+using ShootingStar.ReferencePoolData;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
     public class PlayerFighterLogic : EntityBaseLogic
     {
-        [SerializeField] private PlayerFighterData playerFighterData;
+        private FighterEntityData fighterEntityData;
         
         private Rigidbody rb;
         
@@ -23,14 +25,14 @@ namespace ShootingStar
         {
             base.OnInit(userData);
             
-            playerFighterData = userData as PlayerFighterData;
-            if (playerFighterData == null)
+            fighterEntityData = userData as FighterEntityData;
+            if (fighterEntityData == null)
             {
                 Log.Warning("PlayerFighterData is not initialized");
             }
             
             rb = GetComponent<Rigidbody>();
-            InitData(playerFighterData,false);
+            //InitData(fighterEntityData,false);
         }
 
         protected override void OnShow(object userData)
@@ -42,13 +44,13 @@ namespace ShootingStar
             PlayerInputManager.Instance.onFire += PlayerFire;
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
 
-            GameEntry.Entity.ShowThruster(playerFighterData.GetThrusterData);
+            GameEntry.Entity.ShowThruster(fighterEntityData.GetThrusterData);
             for (int i = 0; i < 3; i++)
             {
-                GameEntry.Entity.ShowWeaponPoint(playerFighterData.GetWeaponPointDatas[i]);
+                GameEntry.Entity.ShowWeaponPoint(fighterEntityData.GetWeaponPointDatas[i]);
             }
 
-            fireInterval = new WaitForSeconds(playerFighterData.GetWeaponDatas[0].AttackInterval);
+            fireInterval = new WaitForSeconds(fighterEntityData.GetWeaponDatas[0].AttackInterval);
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -75,7 +77,7 @@ namespace ShootingStar
         private void PlayerMove(Vector2 direction)
         {
             moveDir = direction;
-            targetSpeed = playerFighterData.GetThrusterData.Speed;
+            targetSpeed = fighterEntityData.GetThrusterData.Speed;
         }
 
         private void PlayerStopMove()
@@ -86,10 +88,10 @@ namespace ShootingStar
 
         private void Movement()
         {
-            currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedChangeVelocity, playerFighterData.ChangeTime);
+            currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedChangeVelocity, fighterEntityData.ChangeTime);
             rb.velocity = moveDir * currentSpeed;
             Quaternion targetRotation = Quaternion.AngleAxis(angelRotate * moveDir.y, Vector3.right);
-            CachedTransform.rotation = Quaternion.Lerp(CachedTransform.rotation, targetRotation, Time.deltaTime / playerFighterData.ChangeTime);
+            CachedTransform.rotation = Quaternion.Lerp(CachedTransform.rotation, targetRotation, Time.deltaTime / fighterEntityData.ChangeTime);
         }
 
         private void LimiteMove()
@@ -121,38 +123,34 @@ namespace ShootingStar
                 switch (weaponPower)
                 {
                     case 1:
-                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
-                        {
-                            Position = playerFighterData.GetWeaponPointDatas[0].Position,
-                            Direction = new Vector2(1,0)
-                        });
+                        GameEntry.Entity.ShowWeapon(WeaponEntityData.Create());
                         break;
                     case 2:
-                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
+                        GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile1)
                         {
-                            Position = playerFighterData.GetWeaponPointDatas[1].Position,
+                            Position = fighterEntityData.GetWeaponPointDatas[1].Position,
                             Direction = new Vector2(1,0)
                         });
-                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
+                        GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile1)
                         {
-                            Position = playerFighterData.GetWeaponPointDatas[2].Position,
+                            Position = fighterEntityData.GetWeaponPointDatas[2].Position,
                             Direction = new Vector2(1,0)
                         });
                         break;
                     case 3:
-                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile1)
+                        GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile1)
                         {
-                            Position = playerFighterData.GetWeaponPointDatas[0].Position,
+                            Position = fighterEntityData.GetWeaponPointDatas[0].Position,
                             Direction = new Vector2(1,0)
                         });
-                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile2)
+                        GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile2)
                         {
-                            Position = playerFighterData.GetWeaponPointDatas[1].Position,
+                            Position = fighterEntityData.GetWeaponPointDatas[1].Position,
                             Direction = new Vector2(1,0.05f)
                         });
-                        GameEntry.Entity.ShowWeapon(new WeaponData(GameEntry.Entity.GenerateSerialId(),EnumEntity.PlayerProjectile3)
+                        GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile3)
                         {
-                            Position = playerFighterData.GetWeaponPointDatas[2].Position,
+                            Position = fighterEntityData.GetWeaponPointDatas[2].Position,
                             Direction = new Vector2(1,-0.05f)
                         });
                         break;
