@@ -7,7 +7,7 @@ namespace ShootingStar.ReferencePoolData
         public EntityData entityData;
         public WeaponData weaponData;
 
-        public WeaponEntityData Create(WeaponData weaponData,EntityData entityData)
+        public static WeaponEntityData Create(WeaponData weaponData,EntityData entityData)
         {
             WeaponEntityData weaponEntityData = ReferencePool.Acquire<WeaponEntityData>();
             weaponEntityData.entityData = entityData;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using GameFramework.DataTable;
+using UnityEngine;
 
 namespace ShootingStar.DataTableData
 {
@@ -8,12 +9,12 @@ namespace ShootingStar.DataTableData
         private IDataTable<DREntity> dtEntity;
         private Dictionary<int, EntityData> dicEntity;
 
-        public override void OnPreload()
+        public override void Preload()
         {
             LoadDataTable("Entity");
         }
 
-        public override void OnLoad()
+        public override void Load()
         {
             dtEntity = GameEntry.DataTable.GetDataTable<DREntity>();
             DREntity[] drEntities = dtEntity.GetAllDataRows();
@@ -22,6 +23,11 @@ namespace ShootingStar.DataTableData
                 EntityData entityData = new EntityData(drEntity);
                 dicEntity.Add(drEntity.Id,entityData);
             }
+        }
+        
+        public EntityData GetEntityData(EnumEntity id)
+        {
+            return dicEntity.TryGetValue((int)id, out EntityData entityData)? entityData : null;
         }
     }
 }

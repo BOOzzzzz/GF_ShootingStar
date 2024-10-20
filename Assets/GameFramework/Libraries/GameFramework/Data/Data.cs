@@ -2,8 +2,8 @@
 {
     public abstract class Data:IData
     {
-        public abstract void OnPreload();
+        public abstract void Preload();
 
-        public abstract void OnLoad();
+        public abstract void Load();
     }
 }

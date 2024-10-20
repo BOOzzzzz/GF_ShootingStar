@@ -1,4 +1,4 @@
-
+using ShootingStar.DataTableData;
 using UnityEngine;
 
 namespace ShootingStar
@@ -7,15 +7,12 @@ namespace ShootingStar
     {
         public virtual void Initialize()
         {
-            GameEntry.Entity.ShowPlayerFighter(new FighterEntityData(EnumEntity.PlayerFighter)
-            {
-                Position = new Vector3(-7,1,0)
-            });
+            GameEntry.Entity.ShowPlayerFighter(FighterEntityData.Create(GameEntry.Data.GetData<FighterDatas>().GetFighterData(EnumEntity.PlayerFighter),
+                (GameEntry.Data.GetData<EntityDatas>().GetEntityData(EnumEntity.PlayerFighter))));
         }
 
-        public virtual void Update( float elapseSeconds, float realElapseSeconds)
+        public virtual void Update(float elapseSeconds, float realElapseSeconds)
         {
-            
         }
     }
 }

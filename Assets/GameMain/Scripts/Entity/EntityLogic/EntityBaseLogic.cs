@@ -17,5 +17,5 @@ namespace ShootingStar
     //             CachedTransform.rotation = data.Rotation;
     //         }
     //     }
-    // }
+    }
 }

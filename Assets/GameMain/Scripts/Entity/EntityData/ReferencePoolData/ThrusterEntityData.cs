@@ -10,7 +10,7 @@ namespace ShootingStar
         public EntityData entityData;
         public ThrusterData thrusterData;
 
-        public ThrusterEntityData Create(ThrusterData thrusterData,EntityData entityData)
+        public static ThrusterEntityData Create(ThrusterData thrusterData,EntityData entityData)
         {
             ThrusterEntityData thrusterEntityData = ReferencePool.Acquire<ThrusterEntityData>();
             thrusterEntityData.entityData = entityData;
