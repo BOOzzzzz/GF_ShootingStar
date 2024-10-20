@@ -6,7 +6,7 @@ namespace ShootingStar.DataTableData
     public class ThrusterDatas:BaseDatas
     {
         private IDataTable<DRThruster> dtThuster;
-        private Dictionary<int, ThrusterData> dicThuster;
+        private Dictionary<int, ThrusterData> dicThuster = new Dictionary<int, ThrusterData>();
 
         public override void Preload()
         {

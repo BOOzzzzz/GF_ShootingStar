@@ -6,7 +6,7 @@ namespace ShootingStar.DataTableData
     public class WeaponDatas:BaseDatas
     {
         private IDataTable<DRWeapon> dtWeapon;
-        private Dictionary<int, WeaponData> dicWeapon;
+        private Dictionary<int, WeaponData> dicWeapon = new Dictionary<int, WeaponData>();
 
         public override void Preload()
         {

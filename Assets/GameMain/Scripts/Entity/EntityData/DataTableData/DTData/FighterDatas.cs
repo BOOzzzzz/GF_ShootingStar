@@ -7,7 +7,7 @@ namespace ShootingStar.DataTableData
     public class FighterDatas:BaseDatas
     {
         private IDataTable<DRFighter> dtFighter;
-        private Dictionary<int, FighterData> dicFighter;
+        private Dictionary<int, FighterData> dicFighter =new Dictionary<int, FighterData>();
 
         public override void Preload()
         {
@@ -21,13 +21,16 @@ namespace ShootingStar.DataTableData
             foreach (var drFighter in drFighters)
             {
                 FighterData fighterData = new FighterData(drFighter);
-                Log.Debug(drFighter.Id);
                 dicFighter.Add(drFighter.Id,fighterData);
             }
         }
         
         public FighterData GetFighterData(EnumEntity id)
         {
+            foreach (var dicFighterKey in dicFighter.Keys)
+            {
+                Log.Debug(dicFighterKey);
+            }
             return dicFighter[(int)id];
         }
     }

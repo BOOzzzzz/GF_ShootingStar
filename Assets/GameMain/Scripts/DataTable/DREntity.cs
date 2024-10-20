@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-07 11:33:21.609
+// 生成时间：2024-10-20 23:14:54.621
 //------------------------------------------------------------
 
 using GameFramework;
@@ -46,27 +46,9 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取实体加载优先级。
-        /// </summary>
-        public int Priority
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
         /// 获取资源组名称。
         /// </summary>
         public string GroupName
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// 获取实体类型。
-        /// </summary>
-        public string EntityType
         {
             get;
             private set;
@@ -85,9 +67,7 @@ namespace ShootingStar
             m_Id = int.Parse(columnStrings[index++]);
             index++;
             AssetName = columnStrings[index++];
-            Priority = int.Parse(columnStrings[index++]);
             GroupName = columnStrings[index++];
-            EntityType = columnStrings[index++];
 
             GeneratePropertyArray();
             return true;
@@ -101,9 +81,7 @@ namespace ShootingStar
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
                     AssetName = binaryReader.ReadString();
-                    Priority = binaryReader.Read7BitEncodedInt32();
                     GroupName = binaryReader.ReadString();
-                    EntityType = binaryReader.ReadString();
                 }
             }
 
