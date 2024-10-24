@@ -2,8 +2,8 @@
 {
     public interface IData
     {
-        public void Preload();
+        public void OnPreload();
         
-        public void Load();
+        public void OnLoad();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GameFramework.Data
 {
@@ -9,6 +10,8 @@ namespace GameFramework.Data
         public Data GetData(Type type);
 
         public T GetData<T>() where T : Data;
+
+        public List<Data> GetAllDatas();
         /// <summary>
         /// 预加载数据表
         /// </summary>

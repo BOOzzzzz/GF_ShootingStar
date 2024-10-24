@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GameFramework;
 using GameFramework.Data;
@@ -50,6 +51,11 @@ namespace UnityGameFramework.Runtime
         public T GetData<T>() where T : Data
         {
             return dataManager.GetData<T>();
+        }
+
+        public List<Data> GetAllDatas()
+        {
+            return dataManager.GetAllDatas();
         }
 
         public void AddData(Data data)

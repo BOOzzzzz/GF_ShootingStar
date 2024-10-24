@@ -1,5 +1,7 @@
 ﻿using GameFramework;
+using ShootingStar.DataTableData;
 using ShootingStar.ReferencePoolData;
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
@@ -8,11 +10,11 @@ namespace ShootingStar
         public EntityData entityData;
         public FighterData fighterData;
 
-        public static FighterEntityData Create(FighterData fighterData,EntityData entityData)
+        public static FighterEntityData Create(EnumEntity id)
         {
             FighterEntityData fighterEntityData = ReferencePool.Acquire<FighterEntityData>();
-            fighterEntityData.entityData = entityData;
-            fighterEntityData.fighterData = fighterData;
+            fighterEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(id);
+            fighterEntityData.fighterData = GameEntry.Data.GetData<FighterDatas>().GetFighterData(id);
             return fighterEntityData;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GameFramework.Data;
 using GameFramework.DataTable;
 using GameFramework.Event;
 using GameFramework.Fsm;
@@ -10,6 +11,8 @@ namespace ShootingStar
 {
     public class ProcedurePreload : ProcedureBase
     {
+        private List<BaseDatas> baseDatas = new List<BaseDatas>();
+        
         public static string[] DataTableNames = new string[]
         {
             "Entity",
@@ -17,8 +20,6 @@ namespace ShootingStar
             "Fighter",
             "Weapon"
         };
-
-        private Dictionary<string, bool> loadedFlags = new Dictionary<string, bool>();
 
         protected override void OnInit(IFsm<IProcedureManager> procedureOwner)
         {
@@ -31,6 +32,12 @@ namespace ShootingStar
         {
             base.OnEnter(procedureOwner);
 
+            List<Data> datas = GameEntry.Data.GetAllDatas();
+            for (int i = 0; i < datas.Count; i++)
+            {
+                baseDatas.Add(datas[i] as BaseDatas);
+            }
+
             OnPreLoad();
         }
 
@@ -39,12 +46,10 @@ namespace ShootingStar
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            foreach (var loadedFlagValue in loadedFlags.Values)
+            foreach (var baseData in baseDatas)
             {
-                if (!loadedFlagValue)
-                {
+                if(!baseData.IsPreLoaded)
                     return;
-                }
             }
 
             GameEntry.Data.OnLoadAllDatas();

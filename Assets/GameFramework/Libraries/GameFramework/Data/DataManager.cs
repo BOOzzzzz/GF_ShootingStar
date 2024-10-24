@@ -31,11 +31,16 @@ namespace GameFramework.Data
             return dicDatas[type] as T;
         }
 
+        public List<Data> GetAllDatas()
+        {
+            return datas;
+        }
+
         public void OnPreload()
         {
             foreach (var data in datas)
             {
-                data.Preload();
+                data.OnPreload();
             }
         }
 
@@ -43,7 +48,7 @@ namespace GameFramework.Data
         {
             foreach (var data in datas)
             {
-                data.Load();
+                data.OnLoad();
             }
         }
 

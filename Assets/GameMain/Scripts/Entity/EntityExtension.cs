@@ -36,14 +36,14 @@ namespace ShootingStar
         {
             entityComponent.ShowEntity(typeof(PlayerFighterLogic),
                 AssetUtility.GetEntityAsset(data.entityData.AssetName),
-                data.entityData.AssetName, data);
+                data.entityData.GroupName, data);
         }
 
         public static void ShowEntity(this EntityComponent entityComponent, Type typeLogic, string assetName,
             string groupName, object userData)
         {
             GenerateSerialId(entityComponent);
-            entityComponent.ShowEntity(serialID, typeof(PlayerFighterLogic), AssetUtility.GetEntityAsset(assetName),
+            entityComponent.ShowEntity(serialID, typeof(PlayerFighterLogic), assetName,
                 groupName, userData);
         }
 

@@ -8,28 +8,51 @@ namespace ShootingStar.DataTableData
     {
         public Dictionary<string,bool> loadedFlags = new Dictionary<string,bool>();
 
-        public override void Preload()
+        public bool IsPreLoaded
+        {
+            get
+            {
+                foreach (var loadedFlag in loadedFlags)
+                {
+                    if (!loadedFlag.Value)
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        }
+
+        public override void OnPreload()
         {
             GameEntry.Event.Subscribe(LoadDataTableSuccessEventArgs.EventId, LoadDataTableSuccess);
             GameEntry.Event.Subscribe(LoadDataTableFailureEventArgs.EventId, LoadDataTableFailure);
             
-            OnPreload();
+            Preload();
         }
 
-        public override void Load()
+        public override void OnLoad()
         {
+            foreach (var loadedFlag in loadedFlags)
+            {
+                if (!loadedFlag.Value)
+                {
+                    return;
+                }
+            }
             GameEntry.Event.Unsubscribe(LoadDataTableSuccessEventArgs.EventId, LoadDataTableSuccess);
             GameEntry.Event.Unsubscribe(LoadDataTableFailureEventArgs.EventId, LoadDataTableFailure);
             
-            OnLoad();
+            Load();
         }
 
-        public virtual void OnPreload()
+        public virtual void Preload()
         {
             
         }
 
-        public virtual void OnLoad()
+        public virtual void Load()
         {
             
         }

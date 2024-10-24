@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using GameFramework.DataTable;
-using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar.DataTableData
@@ -28,7 +27,7 @@ namespace ShootingStar.DataTableData
         
         public EntityData GetEntityData(EnumEntity id)
         {
-            return dicEntity.TryGetValue((int)id, out EntityData entityData)? entityData : null;
+            return dicEntity[(int)id];
         }
     }
 }

@@ -6,10 +6,6 @@ namespace ShootingStar
 {
     public class EntityData
     {
-        private int id;
-        private string assetName;
-        private string groupName;
-        
         private DREntity drEntity;
 
         public EntityData(DREntity drEntity)
@@ -19,17 +15,17 @@ namespace ShootingStar
 
         public int ID
         {
-            get => id;
+            get => drEntity.Id;
         }
 
         public string AssetName
         {
-            get => assetName;
+            get => drEntity.AssetName;
         }
 
         public string GroupName
         {
-            get => groupName;
+            get => drEntity.GroupName;
         }
     }
 }

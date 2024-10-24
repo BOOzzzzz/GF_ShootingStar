@@ -27,10 +27,6 @@ namespace ShootingStar.DataTableData
         
         public FighterData GetFighterData(EnumEntity id)
         {
-            foreach (var dicFighterKey in dicFighter.Keys)
-            {
-                Log.Debug(dicFighterKey);
-            }
             return dicFighter[(int)id];
         }
     }
