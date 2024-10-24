@@ -1,14 +1,18 @@
-﻿using GameFramework;
+﻿using System;
+using GameFramework;
+using UnityEngine;
 
-namespace ShootingStar.ReferencePoolData
+namespace ShootingStar
 {
-    public abstract class EntityBaseData:IReference
+    [Serializable]
+    public abstract class EntityBaseData : IReference
     {
-        public int Id { get; }
-        
+        public int Id { get; set; }
+        public Vector3 Position { get; set; }
+        public Quaternion Rotation { get; set; }
+
         public virtual void Clear()
         {
-            
         }
     }
 }

@@ -1,16 +1,17 @@
-using System.Collections;
-using ShootingStar.ReferencePoolData;
+
+using GameFramework;
+using ShootingStar.DataTableData;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
     public class PlayerFighterLogic : EntityBaseLogic
     {
-        // private FighterEntityData fighterEntityData;
+        [SerializeField]
+         private FighterEntityData fighterEntityData;
         //
-        // private Rigidbody rb;
+         private Rigidbody rb;
         //
         // private Vector2 moveDir;
         // private float currentSpeed;
@@ -21,37 +22,36 @@ namespace ShootingStar
         // private WaitForSeconds fireInterval;
         // private int weaponPower = 3;
         //
-        // protected override void OnInit(object userData)
-        // {
-        //     base.OnInit(userData);
-        //     
-        //     fighterEntityData = userData as FighterEntityData;
-        //     if (fighterEntityData == null)
-        //     {
-        //         Log.Warning("PlayerFighterData is not initialized");
-        //     }
-        //     
-        //     rb = GetComponent<Rigidbody>();
-        //     //InitData(fighterEntityData,false);
-        // }
-        //
-        // protected override void OnShow(object userData)
-        // {
-        //     base.OnShow(userData);
-        //     PlayerInputManager.Instance.OnEnable();
-        //     PlayerInputManager.Instance.onMove += PlayerMove;
-        //     PlayerInputManager.Instance.onStopMove += PlayerStopMove;
-        //     PlayerInputManager.Instance.onFire += PlayerFire;
-        //     PlayerInputManager.Instance.onStopFire += PlayerStopFire;
-        //
-        //     // GameEntry.Entity.ShowThruster(GameEntry.Data.GetData());
-        //     // for (int i = 0; i < 3; i++)
-        //     // {
-        //     //     GameEntry.Entity.ShowWeaponPoint(fighterEntityData.GetWeaponPointDatas[i]);
-        //     // }
-        //     //
-        //     // fireInterval = new WaitForSeconds(fighterEntityData.GetWeaponDatas[0].AttackInterval);
-        // }
+        protected override void OnInit(object userData)
+        {
+            base.OnInit(userData);
+            
+            fighterEntityData = userData as FighterEntityData;
+            if (fighterEntityData == null)
+            {
+                Log.Warning("PlayerFighterData is not initialized");
+            }
+            
+            rb = GetComponent<Rigidbody>();
+            //InitData(fighterEntityData,false);
+        }
+        
+        protected override void OnShow(object userData)
+        {
+            base.OnShow(userData);
+            // PlayerInputManager.Instance.OnEnable();
+            // PlayerInputManager.Instance.onMove += PlayerMove;
+            // PlayerInputManager.Instance.onStopMove += PlayerStopMove;
+            // PlayerInputManager.Instance.onFire += PlayerFire;
+            // PlayerInputManager.Instance.onStopFire += PlayerStopFire;
+             GameEntry.Entity.ShowThruster(fighterEntityData.thrusterEntityData);
+            // for (int i = 0; i < 3; i++)
+            // {
+            //     GameEntry.Entity.ShowWeaponPoint(fighterEntityData.GetWeaponPointDatas[i]);
+            // }
+            //
+            // fireInterval = new WaitForSeconds(fighterEntityData.GetWeaponDatas[0].AttackInterval);
+        }
         //
         // protected override void OnHide(bool isShutdown, object userData)
         // {

@@ -1,20 +1,22 @@
-﻿using System;
-using GameFramework;
-using ShootingStar.ReferencePoolData;
+﻿using GameFramework;
+using ShootingStar.DataTableData;
 
 namespace ShootingStar
 {
-    [Serializable]
-    public class ThrusterEntityData:EntityBaseData
+    public class ThrusterEntityData:AccessoryObjectData
     {
         public EntityData entityData;
         public ThrusterData thrusterData;
+        
+        public float Speed{ get; set; }
 
-        public static ThrusterEntityData Create(ThrusterData thrusterData,EntityData entityData)
+        public static ThrusterEntityData Create(EnumEntity id,int ownerId)
         {
             ThrusterEntityData thrusterEntityData = ReferencePool.Acquire<ThrusterEntityData>();
-            thrusterEntityData.entityData = entityData;
-            thrusterEntityData.thrusterData = thrusterData;
+            thrusterEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(id);
+            thrusterEntityData.thrusterData = GameEntry.Data.GetData<ThrusterDatas>().GetThrusterData(id);
+            thrusterEntityData.OwnerId = ownerId;
+            thrusterEntityData.Speed = thrusterEntityData.thrusterData.Speed;
             return thrusterEntityData;
         }
     }

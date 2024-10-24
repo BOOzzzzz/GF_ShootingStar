@@ -1,5 +1,3 @@
-using ShootingStar.DataTableData;
-using UnityEngine;
 
 namespace ShootingStar
 {

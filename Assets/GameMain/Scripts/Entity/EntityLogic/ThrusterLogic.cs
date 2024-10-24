@@ -1,22 +1,24 @@
-﻿using UnityGameFramework.Runtime;
+﻿
+
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
     public class ThrusterLogic:EntityBaseLogic
     {
-        // private ThrusterData thrusterData;
-        // protected override void OnInit(object userData)
-        // {
-        //     base.OnInit(userData);
-        //     
-        //     thrusterData = userData as ThrusterData;
-        //     if (thrusterData == null)
-        //     {
-        //         Log.Warning("ThrusterData is not initialized");
-        //     }
-        //     GameEntry.Entity.AttachEntity(Entity,thrusterData.OwnerId,"Thruster");
-        //     InitData(thrusterData,true);
-        // }
+         private ThrusterEntityData thrusterEntityData;
+        protected override void OnInit(object userData)
+        {
+            base.OnInit(userData);
+            
+            thrusterEntityData = userData as ThrusterEntityData;
+            if (thrusterEntityData == null)
+            {
+                Log.Warning("ThrusterData is not initialized");
+            }
+            GameEntry.Entity.AttachEntity(Entity,thrusterEntityData.OwnerId,"Thruster");
+            //InitData(thrusterData,true);
+        }
         //
         // protected override void OnShow(object userData)
         // {

@@ -27,7 +27,7 @@ namespace ShootingStar.DataTableData
         
         public EntityData GetEntityData(EnumEntity id)
         {
-            return dicEntity[(int)id];
+            return dicEntity.TryGetValue((int)id, out EntityData entityData)? entityData : null;
         }
     }
 }

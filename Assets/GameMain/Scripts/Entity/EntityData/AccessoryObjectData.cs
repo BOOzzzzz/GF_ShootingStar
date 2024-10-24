@@ -1,5 +1,4 @@
-﻿using ShootingStar.ReferencePoolData;
-using UnityGameFramework.Runtime;
+﻿
 
 namespace ShootingStar
 {
@@ -10,11 +9,8 @@ namespace ShootingStar
         public int OwnerId
         {
             get => ownerId;
+            set => ownerId = value;
         }
 
-        protected AccessoryObjectData(int ownerId)
-        {
-            this.ownerId = ownerId;
-        }
     }
 }

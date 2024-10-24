@@ -27,7 +27,7 @@ namespace ShootingStar.DataTableData
         
         public FighterData GetFighterData(EnumEntity id)
         {
-            return dicFighter[(int)id];
+            return dicFighter.TryGetValue((int)id, out FighterData entityData)? entityData : null;
         }
     }
 }

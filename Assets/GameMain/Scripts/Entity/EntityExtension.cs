@@ -1,6 +1,4 @@
 ﻿using System;
-using ShootingStar.ReferencePoolData;
-using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -49,7 +47,7 @@ namespace ShootingStar
 
         public static int GenerateSerialId(this EntityComponent entityComponent)
         {
-            return --serialID;
+            return ++serialID;
         }
     }
 }

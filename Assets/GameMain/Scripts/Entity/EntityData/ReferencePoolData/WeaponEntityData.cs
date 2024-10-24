@@ -1,6 +1,6 @@
 ﻿using GameFramework;
 
-namespace ShootingStar.ReferencePoolData
+namespace ShootingStar
 {
     public class WeaponEntityData:EntityBaseData
     {
