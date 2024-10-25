@@ -15,12 +15,17 @@ namespace ShootingStar
 
         public static FighterEntityData Create(EnumEntity id)
         {
+            return Create(GameEntry.Entity.GenerateSerialId(), id);
+        }
+
+        public static FighterEntityData Create(int serialID, EnumEntity id)
+        {
             FighterEntityData fighterEntityData = ReferencePool.Acquire<FighterEntityData>();
             fighterEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(id);
             fighterEntityData.fighterData = GameEntry.Data.GetData<FighterDatas>().GetFighterData(id);
-
-            fighterEntityData.Id = EntityExtension.serialID;
-            fighterEntityData.thrusterEntityData=ThrusterEntityData.Create(EnumEntity.ThrusterPoint,fighterEntityData.Id);
+            
+            fighterEntityData.Id = serialID;
+            fighterEntityData.thrusterEntityData = ThrusterEntityData.Create(EnumEntity.ThrusterPoint, fighterEntityData.Id);
             return fighterEntityData;
         }
 

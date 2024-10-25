@@ -1,10 +1,14 @@
 ﻿
 
+using System;
+using UnityEngine;
+
 namespace ShootingStar
 {
+    [Serializable]
     public abstract class AccessoryObjectData:EntityBaseData
     {
-        private int ownerId;
+        [SerializeField]private int ownerId;
 
         public int OwnerId
         {

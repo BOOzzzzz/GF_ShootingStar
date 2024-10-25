@@ -40,8 +40,7 @@ namespace ShootingStar
         public static void ShowEntity(this EntityComponent entityComponent, Type typeLogic, string assetName,
             string groupName, object userData)
         {
-            GenerateSerialId(entityComponent);
-            entityComponent.ShowEntity(serialID, typeof(PlayerFighterLogic), assetName,
+            entityComponent.ShowEntity(((EntityBaseData)userData).Id, typeLogic, assetName,
                 groupName, userData);
         }
 
