@@ -12,6 +12,13 @@ namespace ShootingStar
         public FighterData fighterData;
 
         public ThrusterEntityData thrusterEntityData;
+        
+        [SerializeField]private float changeTime;
+        public float ChangeTime
+        {
+            get => changeTime;
+            set => changeTime = value;
+        }
 
         public static FighterEntityData Create(EnumEntity id)
         {
@@ -23,9 +30,11 @@ namespace ShootingStar
             FighterEntityData fighterEntityData = ReferencePool.Acquire<FighterEntityData>();
             fighterEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(id);
             fighterEntityData.fighterData = GameEntry.Data.GetData<FighterDatas>().GetFighterData(id);
-            
+
             fighterEntityData.Id = serialID;
-            fighterEntityData.thrusterEntityData = ThrusterEntityData.Create(EnumEntity.ThrusterPoint, fighterEntityData.Id);
+            fighterEntityData.ChangeTime = fighterEntityData.fighterData.ChangeTime;
+            fighterEntityData.thrusterEntityData =
+                ThrusterEntityData.Create(EnumEntity.ThrusterPoint, fighterEntityData.Id);
             return fighterEntityData;
         }
 

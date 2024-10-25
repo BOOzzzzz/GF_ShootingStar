@@ -1,6 +1,7 @@
 ﻿using System;
 using GameFramework;
 using ShootingStar.DataTableData;
+using UnityEngine;
 
 namespace ShootingStar
 {
@@ -10,7 +11,8 @@ namespace ShootingStar
         public EntityData entityData;
         public ThrusterData thrusterData;
 
-        public float Speed { get; set; }
+        [SerializeField] private float speed;
+        public float Speed { get=>speed; set=>speed=value; }
 
         public static ThrusterEntityData Create(EnumEntity id, int ownerId)
         {
