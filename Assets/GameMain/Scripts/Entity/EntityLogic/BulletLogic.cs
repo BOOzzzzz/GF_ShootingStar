@@ -27,7 +27,7 @@ namespace ShootingStar
                 Log.Warning("WeaponData is not initialized");
             }
         
-            InitData(bulletData, true);
+            InitData(bulletData);
             if (bulletData.Direction != Vector2.right)
             { 
                 transform.GetChild(0).rotation = Quaternion.FromToRotation(Vector2.right, bulletData.Direction);
