@@ -1,17 +1,32 @@
-﻿using GameFramework;
+﻿using System;
+using GameFramework;
+using ShootingStar.DataTableData;
+using UnityEngine;
 
 namespace ShootingStar
 {
-    public class WeaponEntityData:EntityBaseData
+    [Serializable]
+    public class WeaponEntityData:AccessoryObjectData
     {
         public EntityData entityData;
-        public BulletData BulletData;
+        public WeaponData weaponData;
 
-        public static WeaponEntityData Create(BulletData bulletData,EntityData entityData)
+        [field:SerializeField]public int WeaponPower{ get; set; }
+        
+        public static WeaponEntityData Create(EnumEntity id, int ownerId)
+        {
+            return Create(GameEntry.Entity.GenerateSerialId(),id,ownerId);
+        }
+        
+        public static WeaponEntityData Create(int serialID, EnumEntity id, int ownerId)
         {
             WeaponEntityData weaponEntityData = ReferencePool.Acquire<WeaponEntityData>();
-            weaponEntityData.entityData = entityData;
-            weaponEntityData.BulletData = bulletData;
+            weaponEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(id);
+            weaponEntityData.weaponData = GameEntry.Data.GetData<WeaponDatas>().GetWeaponData(id);
+
+            weaponEntityData.Id = serialID;
+            weaponEntityData.OwnerId = ownerId;
+            weaponEntityData.WeaponPower = weaponEntityData.weaponData.WeaponPower;
             return weaponEntityData;
         }
     }

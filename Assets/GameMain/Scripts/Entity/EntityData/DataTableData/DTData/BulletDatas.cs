@@ -24,7 +24,7 @@ namespace ShootingStar.DataTableData
             }
         }
         
-        public BulletData GetThrusterData(EnumEntity id)
+        public BulletData GetBulletData(EnumEntity id)
         {
             return dicBullet.TryGetValue((int)id, out BulletData bulletData)? bulletData : null;
         }

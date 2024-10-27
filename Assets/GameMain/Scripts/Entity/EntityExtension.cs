@@ -15,6 +15,13 @@ namespace ShootingStar
         {
             entityComponent.HideEntity(entity.Entity);
         }
+        
+        public static void ShowBullet(this EntityComponent entityComponent, BulletEntityData data)
+        {
+            entityComponent.ShowEntity(typeof(BulletLogic),
+                AssetUtility.GetEntityAsset(data.entityData.AssetName),
+                data.entityData.GroupName, data);
+        }
 
         public static void ShowWeapon(this EntityComponent entityComponent, WeaponEntityData data)
         {

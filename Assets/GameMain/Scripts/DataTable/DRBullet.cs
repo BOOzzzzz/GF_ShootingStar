@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-27 15:09:54.536
+// 生成时间：2024-10-27 15:45:58.183
 //------------------------------------------------------------
 
 using GameFramework;
@@ -37,7 +37,7 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取武器攻击力。
+        /// 获取子弹攻击力。
         /// </summary>
         public int Attack
         {
@@ -46,7 +46,7 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取武器攻击间隔。
+        /// 获取子弹攻击间隔。
         /// </summary>
         public float AttackInterval
         {
@@ -55,9 +55,18 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取武器移动速度。
+        /// 获取子弹移动速度。
         /// </summary>
         public float Speed
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取子弹方向。
+        /// </summary>
+        public Vector2 Direction
         {
             get;
             private set;
@@ -78,6 +87,7 @@ namespace ShootingStar
             Attack = int.Parse(columnStrings[index++]);
             AttackInterval = float.Parse(columnStrings[index++]);
             Speed = float.Parse(columnStrings[index++]);
+            Direction = DataTableExtension.ParseVector2(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -93,6 +103,7 @@ namespace ShootingStar
                     Attack = binaryReader.Read7BitEncodedInt32();
                     AttackInterval = binaryReader.ReadSingle();
                     Speed = binaryReader.ReadSingle();
+                    Direction = binaryReader.ReadVector2();
                 }
             }
 

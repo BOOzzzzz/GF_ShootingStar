@@ -1,5 +1,6 @@
 ﻿using System;
 using GameFramework.DataTable;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -17,6 +18,12 @@ namespace ShootingStar
             Type classType = Type.GetType(classTypeName);
             DataTableBase dataTableBase =  dataTableComponent.CreateDataTable(classType);
             dataTableBase.ReadData(dataTableAssetName,userData);
+        }
+        
+        public static Vector2 ParseVector2(string value)
+        {
+            string[] splitedValue = value.Split(',');
+            return new Vector2(float.Parse(splitedValue[0]), float.Parse(splitedValue[1]));
         }
     }
 }

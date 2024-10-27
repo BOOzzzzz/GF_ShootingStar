@@ -1,11 +1,10 @@
-using GameFramework;
-using ShootingStar.DataTableData;
+using System.Collections;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
-    public class PlayerFighterLogic : EntityBaseLogic
+    public class PlayerFighterLogic : FighterLogic
     {
         [SerializeField] private FighterEntityData fighterEntityData;
 
@@ -46,15 +45,16 @@ namespace ShootingStar
             PlayerInputManager.Instance.OnEnable();
             PlayerInputManager.Instance.onMove += PlayerMove;
             PlayerInputManager.Instance.onStopMove += PlayerStopMove;
-            // PlayerInputManager.Instance.onFire += PlayerFire;
-            // PlayerInputManager.Instance.onStopFire += PlayerStopFire;
+            PlayerInputManager.Instance.onFire += PlayerFire;
+            PlayerInputManager.Instance.onStopFire += PlayerStopFire;
             GameEntry.Entity.ShowThruster(fighterEntityData.thrusterEntityData);
+            GameEntry.Entity.ShowWeapon(fighterEntityData.weaponEntityData);
             // for (int i = 0; i < 3; i++)
             // {
             //     GameEntry.Entity.ShowWeaponPoint(fighterEntityData.GetWeaponPointDatas[i]);
             // }
             //
-            // fireInterval = new WaitForSeconds(fighterEntityData.GetWeaponDatas[0].AttackInterval);
+            fireInterval = new WaitForSeconds(0.2f);
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -62,8 +62,8 @@ namespace ShootingStar
             base.OnHide(isShutdown, userData);
             PlayerInputManager.Instance.onMove -= PlayerMove;
             PlayerInputManager.Instance.onStopMove -= PlayerStopMove;
-            // PlayerInputManager.Instance.onFire -= PlayerFire;
-            // PlayerInputManager.Instance.onStopFire -= PlayerStopFire;
+            PlayerInputManager.Instance.onFire -= PlayerFire;
+            PlayerInputManager.Instance.onStopFire -= PlayerStopFire;
             PlayerInputManager.Instance.OnDisable();
         }
 
@@ -73,7 +73,17 @@ namespace ShootingStar
 
             Movement();
             LimiteMove();
-            //Fire();
+            Fire();
+        }
+
+        protected override void OnAttached(EntityLogic childEntity, Transform parentTransform, object userData)
+        {
+            base.OnAttached(childEntity, parentTransform, userData);
+
+            if (childEntity is WeaponLogic)
+            {
+                weapon = childEntity as WeaponLogic;
+            }
         }
 
         #region Move
@@ -112,62 +122,28 @@ namespace ShootingStar
 
         #endregion
 
-        //
-        // #region Fire
-        //
-        // // private void PlayerFire()
-        // // {
-        // //     StartCoroutine(nameof(Fire));
-        // // }
-        // //
-        // // private void PlayerStopFire()
-        // // {
-        // //     StopCoroutine(nameof(Fire));
-        // // }
-        //
-        // // private IEnumerator Fire()
-        // // {
-        // //     while (true)
-        // //     {
-        // //         switch (weaponPower)
-        // //         {
-        // //             case 1:
-        // //                 GameEntry.Entity.ShowWeapon(WeaponEntityData.Create());
-        // //                 break;
-        // //             case 2:
-        // //                 GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile1)
-        // //                 {
-        // //                     Position = fighterEntityData.GetWeaponPointDatas[1].Position,
-        // //                     Direction = new Vector2(1,0)
-        // //                 });
-        // //                 GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile1)
-        // //                 {
-        // //                     Position = fighterEntityData.GetWeaponPointDatas[2].Position,
-        // //                     Direction = new Vector2(1,0)
-        // //                 });
-        // //                 break;
-        // //             case 3:
-        // //                 GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile1)
-        // //                 {
-        // //                     Position = fighterEntityData.GetWeaponPointDatas[0].Position,
-        // //                     Direction = new Vector2(1,0)
-        // //                 });
-        // //                 GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile2)
-        // //                 {
-        // //                     Position = fighterEntityData.GetWeaponPointDatas[1].Position,
-        // //                     Direction = new Vector2(1,0.05f)
-        // //                 });
-        // //                 GameEntry.Entity.ShowWeapon(new WeaponData(EnumEntity.PlayerProjectile3)
-        // //                 {
-        // //                     Position = fighterEntityData.GetWeaponPointDatas[2].Position,
-        // //                     Direction = new Vector2(1,-0.05f)
-        // //                 });
-        // //                 break;
-        // //         }
-        // //         yield return fireInterval;
-        // //     }
-        // // }
-        //
-        // #endregion
+        
+        #region Fire
+        
+        private void PlayerFire()
+        {
+            StartCoroutine(nameof(Fire));
+        }
+        
+        private void PlayerStopFire()
+        {
+            StopCoroutine(nameof(Fire));
+        }
+        
+        private IEnumerator Fire()
+        {
+            while (true)
+            {
+                weapon.Attack();
+                yield return fireInterval;
+            }
+        }
+        
+        #endregion
     }
 }

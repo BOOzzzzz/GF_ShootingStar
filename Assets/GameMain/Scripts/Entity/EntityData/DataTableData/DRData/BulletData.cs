@@ -6,31 +6,36 @@ namespace ShootingStar
 {
     public class BulletData
     {
-        private DRBullet drWeapon;
+        private DRBullet drBullet;
 
-        public BulletData(DRBullet drWeapon)
+        public BulletData(DRBullet drBullet)
         {
-            this.drWeapon=drWeapon;
+            this.drBullet=drBullet;
         }
 
         public int ID
         {
-            get => drWeapon.Id;
+            get => drBullet.Id;
         }
 
         public int Attack
         {
-            get => drWeapon.Attack;
+            get => drBullet.Attack;
         }
 
         public float AttackInterval
         {
-            get => drWeapon.AttackInterval;
+            get => drBullet.AttackInterval;
         }
 
         public float Speed
         {
-            get => drWeapon.Speed;
+            get => drBullet.Speed;
+        }
+
+        public Vector2 Direction
+        {
+            get => drBullet.Direction;
         }
     }
 }

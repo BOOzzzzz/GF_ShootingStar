@@ -24,7 +24,7 @@ namespace ShootingStar.DataTableData
             }
         }
         
-        public WeaponData GetThrusterData(EnumEntity id)
+        public WeaponData GetWeaponData(EnumEntity id)
         {
             return dicWeapon.TryGetValue((int)id, out WeaponData weaponData)? weaponData : null;
         }
