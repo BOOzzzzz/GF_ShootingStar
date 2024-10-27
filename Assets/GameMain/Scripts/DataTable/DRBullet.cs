@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-27 15:09:54.529
+// 生成时间：2024-10-27 15:09:54.536
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,9 +19,9 @@ using UnityGameFramework.Runtime;
 namespace ShootingStar
 {
     /// <summary>
-    /// 推进器表。
+    /// 子弹表。
     /// </summary>
-    public class DRThruster : DataRowBase
+    public class DRBullet : DataRowBase
     {
         private int m_Id = 0;
 
@@ -37,9 +37,27 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取推进器速度。
+        /// 获取武器攻击力。
         /// </summary>
-        public int Speed
+        public int Attack
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取武器攻击间隔。
+        /// </summary>
+        public float AttackInterval
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取武器移动速度。
+        /// </summary>
+        public float Speed
         {
             get;
             private set;
@@ -57,7 +75,9 @@ namespace ShootingStar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            Speed = int.Parse(columnStrings[index++]);
+            Attack = int.Parse(columnStrings[index++]);
+            AttackInterval = float.Parse(columnStrings[index++]);
+            Speed = float.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -70,7 +90,9 @@ namespace ShootingStar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    Speed = binaryReader.Read7BitEncodedInt32();
+                    Attack = binaryReader.Read7BitEncodedInt32();
+                    AttackInterval = binaryReader.ReadSingle();
+                    Speed = binaryReader.ReadSingle();
                 }
             }
 

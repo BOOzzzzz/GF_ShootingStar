@@ -18,19 +18,9 @@ namespace ShootingStar
             get => drWeapon.Id;
         }
 
-        public int Attack
+        public int WeaponPower
         {
-            get => drWeapon.Attack;
-        }
-
-        public float AttackInterval
-        {
-            get => drWeapon.AttackInterval;
-        }
-
-        public float Speed
-        {
-            get => drWeapon.Speed;
+            get => drWeapon.WeaponPower;
         }
     }
 }

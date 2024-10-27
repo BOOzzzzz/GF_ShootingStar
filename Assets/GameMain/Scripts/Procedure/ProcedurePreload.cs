@@ -18,6 +18,7 @@ namespace ShootingStar
             "Entity",
             "Thruster",
             "Fighter",
+            "Bullet",
             "Weapon"
         };
 

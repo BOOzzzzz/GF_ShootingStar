@@ -5,13 +5,13 @@ namespace ShootingStar
     public class WeaponEntityData:EntityBaseData
     {
         public EntityData entityData;
-        public WeaponData weaponData;
+        public BulletData BulletData;
 
-        public static WeaponEntityData Create(WeaponData weaponData,EntityData entityData)
+        public static WeaponEntityData Create(BulletData bulletData,EntityData entityData)
         {
             WeaponEntityData weaponEntityData = ReferencePool.Acquire<WeaponEntityData>();
             weaponEntityData.entityData = entityData;
-            weaponEntityData.weaponData = weaponData;
+            weaponEntityData.BulletData = bulletData;
             return weaponEntityData;
         }
     }
