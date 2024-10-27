@@ -10,6 +10,28 @@ namespace ShootingStar
     {
         public EntityData entityData;
         public BulletData bulletData;
+        private Vector2 direction;
+        private int attack;
+        private float speed;
+
+
+        public Vector2 Direction
+        {
+            get => direction;
+            set => direction = value;
+        }
+
+        public int Attack
+        {
+            get => attack;
+            set => attack = value;
+        }
+
+        public float Speed
+        {
+            get => speed;
+            set => speed = value;
+        }
 
         public static BulletEntityData Create(BulletData bulletData,EntityData entityData)
         {
@@ -38,7 +60,6 @@ namespace ShootingStar
             bulletEntityData.Id = serialID;
             bulletEntityData.Speed = bulletEntityData.bulletData.Speed;
             bulletEntityData.Attack = bulletEntityData.bulletData.Attack;
-            bulletEntityData.AttackInterval = bulletEntityData.bulletData.AttackInterval;
             bulletEntityData.Direction = bulletEntityData.bulletData.Direction;
             return bulletEntityData;
         }
@@ -52,18 +73,9 @@ namespace ShootingStar
             bulletEntityData.Id = serialID;
             bulletEntityData.Speed = bulletEntityData.bulletData.Speed;
             bulletEntityData.Attack = bulletEntityData.bulletData.Attack;
-            bulletEntityData.AttackInterval = bulletEntityData.bulletData.AttackInterval;
             bulletEntityData.Direction = bulletEntityData.bulletData.Direction;
             bulletEntityData.Position = position;
             return bulletEntityData;
         }
-
-        public Vector2 Direction { get; set; }
-
-        public float AttackInterval { get; set; }
-
-        public int Attack { get; set; }
-
-        public float Speed { get; set; }
     }
 }

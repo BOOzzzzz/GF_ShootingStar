@@ -49,12 +49,8 @@ namespace ShootingStar
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
             GameEntry.Entity.ShowThruster(fighterEntityData.thrusterEntityData);
             GameEntry.Entity.ShowWeapon(fighterEntityData.weaponEntityData);
-            // for (int i = 0; i < 3; i++)
-            // {
-            //     GameEntry.Entity.ShowWeaponPoint(fighterEntityData.GetWeaponPointDatas[i]);
-            // }
-            //
-            fireInterval = new WaitForSeconds(0.2f);
+            
+            fireInterval = new WaitForSeconds(fighterEntityData.weaponEntityData.AttackInterval);
         }
 
         protected override void OnHide(bool isShutdown, object userData)

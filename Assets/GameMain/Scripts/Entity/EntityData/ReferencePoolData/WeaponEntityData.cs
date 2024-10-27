@@ -10,9 +10,21 @@ namespace ShootingStar
     {
         public EntityData entityData;
         public WeaponData weaponData;
+        [SerializeField]private int weaponPower;
+        private float attackInterval;
 
-        [field:SerializeField]public int WeaponPower{ get; set; }
-        
+        public int WeaponPower
+        {
+            get => weaponPower;
+            set => weaponPower = value;
+        }
+
+        public float AttackInterval
+        {
+            get => attackInterval;
+            set => attackInterval = value;
+        }
+
         public static WeaponEntityData Create(EnumEntity id, int ownerId)
         {
             return Create(GameEntry.Entity.GenerateSerialId(),id,ownerId);
@@ -27,7 +39,9 @@ namespace ShootingStar
             weaponEntityData.Id = serialID;
             weaponEntityData.OwnerId = ownerId;
             weaponEntityData.WeaponPower = weaponEntityData.weaponData.WeaponPower;
+            weaponEntityData.AttackInterval = weaponEntityData.weaponData.AttackInterval;
             return weaponEntityData;
         }
+
     }
 }

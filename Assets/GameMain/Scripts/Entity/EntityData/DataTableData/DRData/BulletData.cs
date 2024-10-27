@@ -23,11 +23,6 @@ namespace ShootingStar
             get => drBullet.Attack;
         }
 
-        public float AttackInterval
-        {
-            get => drBullet.AttackInterval;
-        }
-
         public float Speed
         {
             get => drBullet.Speed;

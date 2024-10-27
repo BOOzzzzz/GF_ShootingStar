@@ -7,6 +7,10 @@ namespace ShootingStar
     {
         [SerializeField]private WeaponEntityData weaponData;
 
+        private Transform middleMuzzle;
+        private Transform topMuzzle;
+        private Transform bottomMuzzle;
+
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
@@ -19,6 +23,14 @@ namespace ShootingStar
 
             GameEntry.Entity.AttachEntity(Entity, weaponData.OwnerId, "Weapon");
             //InitData(weaponPointData,true);
+        }
+
+        protected override void OnShow(object userData)
+        {
+            base.OnShow(userData);
+            middleMuzzle = transform.Find("middleMuzzle").transform;
+            topMuzzle = transform.Find("topMuzzle").transform;
+            bottomMuzzle = transform.Find("bottomMuzzle").transform;
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
@@ -34,18 +46,20 @@ namespace ShootingStar
             switch (weaponData.WeaponPower)
             {
                 case 1:
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  new Vector3(0.95f,-0.05f,0)));
+                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
                     break;
                 case 2:
-
+                    
+                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
+                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  topMuzzle.position));
                     break;
                 case 3:
 
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  new Vector3(0.95f,-0.05f,0)));
+                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
 
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile2,new Vector3(0.95f,0.1f,0)));
+                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile2,topMuzzle.position));
 
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile3,new Vector3(0.95f,-0.2f,0)));
+                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile3,bottomMuzzle.position));
                     break;
             }
         }

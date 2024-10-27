@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-27 15:45:58.186
+// 生成时间：2024-10-27 18:08:14.734
 //------------------------------------------------------------
 
 using GameFramework;
@@ -45,6 +45,15 @@ namespace ShootingStar
             private set;
         }
 
+        /// <summary>
+        /// 获取武器攻击时间间隔。
+        /// </summary>
+        public float AttackInterval
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -58,6 +67,7 @@ namespace ShootingStar
             m_Id = int.Parse(columnStrings[index++]);
             index++;
             WeaponPower = int.Parse(columnStrings[index++]);
+            AttackInterval = float.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -71,6 +81,7 @@ namespace ShootingStar
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
                     WeaponPower = binaryReader.Read7BitEncodedInt32();
+                    AttackInterval = binaryReader.ReadSingle();
                 }
             }
 

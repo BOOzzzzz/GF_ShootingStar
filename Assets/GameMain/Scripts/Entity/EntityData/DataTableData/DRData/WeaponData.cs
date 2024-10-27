@@ -22,5 +22,10 @@ namespace ShootingStar
         {
             get => drWeapon.WeaponPower;
         }
+
+        public float AttackInterval
+        {
+            get => drWeapon.AttackInterval;
+        }
     }
 }
