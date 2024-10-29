@@ -2,56 +2,59 @@
 using GameFramework;
 using ShootingStar.DataTableData;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ShootingStar
 {
     [Serializable]
     public class FighterEntityData : EntityBaseData
     {
-        public EntityData entityData;
         public FighterData fighterData;
 
         public ThrusterEntityData thrusterEntityData;
         public WeaponEntityData weaponEntityData;
 
-        [SerializeField] private float changeTime;
+        [SerializeField] private int health;
 
-        public float ChangeTime
+        public int Health
         {
-            get => changeTime;
-            set => changeTime = value;
+            get => health;
+            set => health = value;
         }
 
-        public static FighterEntityData Create(EnumEntity id)
+        public static FighterEntityData Create(EnumEntity entity, EnumEntity thruster, EnumEntity weapon)
         {
-            return Create(GameEntry.Entity.GenerateSerialId(), id);
+            return Create(GameEntry.Entity.GenerateSerialId(), entity, thruster, weapon);
         }
 
-        public static FighterEntityData Create(EnumEntity id, Vector3 position)
+        public static FighterEntityData Create(EnumEntity entity, EnumEntity thruster, EnumEntity weapon,
+            Vector3 position)
         {
-            return Create(GameEntry.Entity.GenerateSerialId(), id, position);
+            return Create(GameEntry.Entity.GenerateSerialId(), entity, thruster, weapon, position);
         }
 
-        public static FighterEntityData Create(EnumEntity id, Vector3 position, Quaternion rotation)
+        public static FighterEntityData Create(EnumEntity entity, EnumEntity thruster, EnumEntity weapon,
+            Vector3 position, Quaternion rotation)
         {
-            return Create(GameEntry.Entity.GenerateSerialId(), id, position, rotation);
+            return Create(GameEntry.Entity.GenerateSerialId(), entity, thruster, weapon, position, rotation);
         }
 
-        public static FighterEntityData Create(int serialID, EnumEntity id, Vector3 position = default,
+        public static FighterEntityData Create(int serialID, EnumEntity entity, EnumEntity thruster, EnumEntity weapon,
+            Vector3 position = default,
             Quaternion rotation = default)
         {
             FighterEntityData fighterEntityData = ReferencePool.Acquire<FighterEntityData>();
-            fighterEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(id);
-            fighterEntityData.fighterData = GameEntry.Data.GetData<FighterDatas>().GetFighterData(id);
+            fighterEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(entity);
+            fighterEntityData.fighterData = GameEntry.Data.GetData<FighterDatas>().GetFighterData(entity);
 
             fighterEntityData.Id = serialID;
             fighterEntityData.Position = position;
             fighterEntityData.Rotation = rotation;
-            fighterEntityData.ChangeTime = fighterEntityData.fighterData.ChangeTime;
-            fighterEntityData.thrusterEntityData = ThrusterEntityData.Create(EnumEntity.ThrusterPoint,
+            fighterEntityData.Health = fighterEntityData.fighterData.Health;
+            fighterEntityData.thrusterEntityData = ThrusterEntityData.Create(thruster,
                 fighterEntityData.Id, new Vector3(0, 0, 0));
             fighterEntityData.weaponEntityData =
-                WeaponEntityData.Create(EnumEntity.WeaponPoint, fighterEntityData.Id, new Vector3(0, 0, 0));
+                WeaponEntityData.Create(weapon, fighterEntityData.Id, new Vector3(0, 0, 0));
 
             return fighterEntityData;
         }

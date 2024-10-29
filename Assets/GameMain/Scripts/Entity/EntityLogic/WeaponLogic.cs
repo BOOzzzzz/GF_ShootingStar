@@ -46,20 +46,20 @@ namespace ShootingStar
             switch (weaponData.WeaponPower)
             {
                 case 1:
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
+                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
                     break;
                 case 2:
                     
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  topMuzzle.position));
+                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
+                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  topMuzzle.position));
                     break;
                 case 3:
 
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
+                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
 
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile2,topMuzzle.position));
+                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile2,topMuzzle.position));
 
-                    GameEntry.Entity.ShowBullet(BulletEntityData.Create(EnumEntity.PlayerProjectile3,bottomMuzzle.position));
+                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile3,bottomMuzzle.position));
                     break;
             }
         }

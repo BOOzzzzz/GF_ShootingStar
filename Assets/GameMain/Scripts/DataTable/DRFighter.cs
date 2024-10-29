@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-27 18:08:14.728
+// 生成时间：2024-10-29 13:38:57.451
 //------------------------------------------------------------
 
 using GameFramework;
@@ -37,9 +37,9 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取速度变化时间。
+        /// 获取生命值。
         /// </summary>
-        public float ChangeTime
+        public int Health
         {
             get;
             private set;
@@ -57,7 +57,7 @@ namespace ShootingStar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            ChangeTime = float.Parse(columnStrings[index++]);
+            Health = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -70,7 +70,7 @@ namespace ShootingStar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    ChangeTime = binaryReader.ReadSingle();
+                    Health = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

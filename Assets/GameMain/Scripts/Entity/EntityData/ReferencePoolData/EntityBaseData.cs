@@ -10,6 +10,8 @@ namespace ShootingStar
         [SerializeField] private int id;
         private Vector3 position;
         private Quaternion rotation;
+        
+        public EntityData entityData;
 
         public int Id
         {

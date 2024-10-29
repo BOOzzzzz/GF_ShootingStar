@@ -8,7 +8,6 @@ namespace ShootingStar
     [Serializable]
     public class BulletEntityData : EntityBaseData
     {
-        public EntityData entityData;
         public BulletData bulletData;
         private Vector2 direction;
         private int attack;

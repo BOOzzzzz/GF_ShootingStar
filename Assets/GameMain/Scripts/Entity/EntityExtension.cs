@@ -16,30 +16,9 @@ namespace ShootingStar
             entityComponent.HideEntity(entity.Entity);
         }
         
-        public static void ShowBullet(this EntityComponent entityComponent, BulletEntityData data)
+        public static void ShowEntity<T>(this EntityComponent entityComponent, EntityBaseData data) where T :EntityBaseLogic
         {
-            entityComponent.ShowEntity(typeof(BulletLogic),
-                AssetUtility.GetEntityAsset(data.entityData.AssetName),
-                data.entityData.GroupName, data);
-        }
-
-        public static void ShowWeapon(this EntityComponent entityComponent, WeaponEntityData data)
-        {
-            entityComponent.ShowEntity(typeof(WeaponLogic),
-                AssetUtility.GetEntityAsset(data.entityData.AssetName),
-                data.entityData.GroupName, data);
-        }
-
-        public static void ShowThruster(this EntityComponent entityComponent, ThrusterEntityData data)
-        {
-            entityComponent.ShowEntity(typeof(ThrusterLogic),
-                AssetUtility.GetEntityAsset(data.entityData.AssetName),
-                data.entityData.GroupName, data);
-        }
-
-        public static void ShowPlayerFighter(this EntityComponent entityComponent, FighterEntityData data)
-        {
-            entityComponent.ShowEntity(typeof(PlayerFighterLogic),
+            entityComponent.ShowEntity(typeof(T),
                 AssetUtility.GetEntityAsset(data.entityData.AssetName),
                 data.entityData.GroupName, data);
         }

@@ -18,9 +18,9 @@ namespace ShootingStar
             get => drFighter.Id;
         }
 
-        public float ChangeTime
+        public int Health
         {
-            get => drFighter.ChangeTime;
+            get => drFighter.Health;
         }
     }
 }

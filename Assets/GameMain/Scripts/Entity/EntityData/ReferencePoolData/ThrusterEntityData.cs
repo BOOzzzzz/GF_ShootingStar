@@ -9,7 +9,6 @@ namespace ShootingStar
     [Serializable]
     public class ThrusterEntityData : AccessoryObjectData
     {
-        public EntityData entityData;
         public ThrusterData thrusterData;
 
         [SerializeField] private float speed;

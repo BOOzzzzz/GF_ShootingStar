@@ -8,7 +8,6 @@ namespace ShootingStar
     [Serializable]
     public class WeaponEntityData : AccessoryObjectData
     {
-        public EntityData entityData;
         public WeaponData weaponData;
         [SerializeField] private int weaponPower;
         private float attackInterval;

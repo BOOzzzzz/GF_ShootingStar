@@ -6,7 +6,8 @@ namespace ShootingStar
 {
     public class PlayerFighterLogic : FighterLogic
     {
-        [SerializeField] private FighterEntityData fighterEntityData;
+        [SerializeField] private FighterEntityData playerFighterEntityData;
+        [SerializeField] private FighterEntityData FighterEntityData;
 
         private Rigidbody rb;
 
@@ -18,6 +19,7 @@ namespace ShootingStar
         private float targetSpeed;
         private float speedChangeVelocity; // 用于 SmoothDamp
         private float angelRotate = 25;
+        private float changeTime = 0.2f;
 
         /// <summary>
         /// Fire field
@@ -28,14 +30,14 @@ namespace ShootingStar
         {
             base.OnInit(userData);
 
-            fighterEntityData = userData as FighterEntityData;
-            if (fighterEntityData == null)
+            playerFighterEntityData = userData as FighterEntityData;
+            if (playerFighterEntityData == null)
             {
                 Log.Warning("PlayerFighterData is not initialized");
             }
 
             rb = GetComponent<Rigidbody>();
-            InitData(fighterEntityData);
+            InitData(playerFighterEntityData);
         }
 
         protected override void OnShow(object userData)
@@ -46,10 +48,10 @@ namespace ShootingStar
             PlayerInputManager.Instance.onStopMove += PlayerStopMove;
             PlayerInputManager.Instance.onFire += PlayerFire;
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
-            GameEntry.Entity.ShowThruster(fighterEntityData.thrusterEntityData);
-            GameEntry.Entity.ShowWeapon(fighterEntityData.weaponEntityData);
+            GameEntry.Entity.ShowEntity<ThrusterLogic>(playerFighterEntityData.thrusterEntityData);
+            GameEntry.Entity.ShowEntity<WeaponLogic>(playerFighterEntityData.weaponEntityData);
             
-            fireInterval = new WaitForSeconds(fighterEntityData.weaponEntityData.AttackInterval);
+            fireInterval = new WaitForSeconds(playerFighterEntityData.weaponEntityData.AttackInterval);
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -86,7 +88,7 @@ namespace ShootingStar
         private void PlayerMove(Vector2 direction)
         {
             moveDir = direction;
-            targetSpeed = fighterEntityData.thrusterEntityData.Speed;
+            targetSpeed = playerFighterEntityData.thrusterEntityData.Speed;
         }
 
         private void PlayerStopMove()
@@ -98,11 +100,11 @@ namespace ShootingStar
         private void Movement()
         {
             currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedChangeVelocity,
-                fighterEntityData.ChangeTime);
+                changeTime);
             rb.velocity = moveDir * currentSpeed;
             Quaternion targetRotation = Quaternion.AngleAxis(angelRotate * moveDir.y, Vector3.right);
             CachedTransform.rotation = Quaternion.Lerp(CachedTransform.rotation, targetRotation,
-                Time.deltaTime / fighterEntityData.ChangeTime);
+                Time.deltaTime / changeTime);
         }
 
         private void LimiteMove()
