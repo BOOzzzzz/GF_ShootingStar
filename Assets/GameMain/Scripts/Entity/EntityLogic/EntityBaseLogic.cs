@@ -6,8 +6,8 @@ namespace ShootingStar
     {
         protected void InitData(EntityBaseData data)
         {
-            CachedTransform.position = data.Position;
-            CachedTransform.rotation = data.Rotation;
+            CachedTransform.localPosition = data.Position;
+            CachedTransform.localRotation = data.Rotation;
         }
     }
 }

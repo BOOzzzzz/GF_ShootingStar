@@ -29,7 +29,7 @@ namespace UnityGameFramework.Runtime
         {
             // 通过反射获取所有继承自 Data 的类型
             Type baseType = typeof(Data);
-            Assembly assembly = Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.Load("GameMain");
             Type[] derivedTypes = assembly.GetTypes().Where(t => t.IsSubclassOf(baseType) && !t.IsAbstract).ToArray();
 
             foreach (Type type in derivedTypes)
@@ -60,7 +60,6 @@ namespace UnityGameFramework.Runtime
 
         public void AddData(Data data)
         {
-            Log.Debug(data);
             dataManager.AddData(data);
         }
 

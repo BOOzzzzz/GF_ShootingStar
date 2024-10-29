@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ShootingStar
 {
     [Serializable]
-    public class BulletEntityData:EntityBaseData
+    public class BulletEntityData : EntityBaseData
     {
         public EntityData entityData;
         public BulletData bulletData;
@@ -33,48 +33,34 @@ namespace ShootingStar
             set => speed = value;
         }
 
-        public static BulletEntityData Create(BulletData bulletData,EntityData entityData)
-        {
-            BulletEntityData bulletEntityData = ReferencePool.Acquire<BulletEntityData>();
-            bulletEntityData.entityData = entityData;
-            bulletEntityData.bulletData = bulletData;
-            return bulletEntityData;
-        }
-        
         public static BulletEntityData Create(EnumEntity id)
         {
-            return Create(GameEntry.Entity.GenerateSerialId(),id);
+            return Create(GameEntry.Entity.GenerateSerialId(), id);
         }
-        
-        public static BulletEntityData Create(EnumEntity id , Vector3 position)
+
+        public static BulletEntityData Create(EnumEntity id, Vector3 position)
         {
-            return Create(GameEntry.Entity.GenerateSerialId(),id,position);
+            return Create(GameEntry.Entity.GenerateSerialId(), id, position);
         }
-        
-        public static BulletEntityData Create(int serialID, EnumEntity id)
+
+        public static BulletEntityData Create(EnumEntity id, Vector3 position, Quaternion rotation)
+        {
+            return Create(GameEntry.Entity.GenerateSerialId(), id, position, rotation);
+        }
+
+        public static BulletEntityData Create(int serialID, EnumEntity id, Vector3 position = default,
+            Quaternion rotation = default)
         {
             BulletEntityData bulletEntityData = ReferencePool.Acquire<BulletEntityData>();
             bulletEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(id);
             bulletEntityData.bulletData = GameEntry.Data.GetData<BulletDatas>().GetBulletData(id);
 
             bulletEntityData.Id = serialID;
-            bulletEntityData.Speed = bulletEntityData.bulletData.Speed;
-            bulletEntityData.Attack = bulletEntityData.bulletData.Attack;
-            bulletEntityData.Direction = bulletEntityData.bulletData.Direction;
-            return bulletEntityData;
-        }
-        
-        public static BulletEntityData Create(int serialID, EnumEntity id ,Vector3 position)
-        {
-            BulletEntityData bulletEntityData = ReferencePool.Acquire<BulletEntityData>();
-            bulletEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(id);
-            bulletEntityData.bulletData = GameEntry.Data.GetData<BulletDatas>().GetBulletData(id);
-
-            bulletEntityData.Id = serialID;
-            bulletEntityData.Speed = bulletEntityData.bulletData.Speed;
-            bulletEntityData.Attack = bulletEntityData.bulletData.Attack;
-            bulletEntityData.Direction = bulletEntityData.bulletData.Direction;
             bulletEntityData.Position = position;
+            bulletEntityData.Rotation = rotation;
+            bulletEntityData.Speed = bulletEntityData.bulletData.Speed;
+            bulletEntityData.Attack = bulletEntityData.bulletData.Attack;
+            bulletEntityData.Direction = bulletEntityData.bulletData.Direction;
             return bulletEntityData;
         }
     }

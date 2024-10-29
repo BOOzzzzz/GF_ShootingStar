@@ -1,4 +1,5 @@
 ﻿using System;
+using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -46,6 +47,7 @@ namespace ShootingStar
             if (timer > 4)
             {
                 GameEntry.Entity.HideEntity(this);
+                ReferencePool.Release(bulletData);
             }
         }
         

@@ -19,7 +19,7 @@ namespace ShootingStar
             }
 
             GameEntry.Entity.AttachEntity(Entity, thrusterEntityData.OwnerId, "Thruster");
-            //InitData(thrusterData,true);
+            InitData(thrusterEntityData);
         }
     }
 }

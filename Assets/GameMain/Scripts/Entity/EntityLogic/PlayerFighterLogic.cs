@@ -23,7 +23,6 @@ namespace ShootingStar
         /// Fire field
         /// </summary>
         private WaitForSeconds fireInterval;
-        private int weaponPower = 3;
 
         protected override void OnInit(object userData)
         {
@@ -36,7 +35,7 @@ namespace ShootingStar
             }
 
             rb = GetComponent<Rigidbody>();
-            //InitData(fighterEntityData,false);
+            InitData(fighterEntityData);
         }
 
         protected override void OnShow(object userData)

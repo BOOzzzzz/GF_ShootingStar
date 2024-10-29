@@ -22,7 +22,7 @@ namespace ShootingStar
             }
 
             GameEntry.Entity.AttachEntity(Entity, weaponData.OwnerId, "Weapon");
-            //InitData(weaponPointData,true);
+            InitData(weaponData);
         }
 
         protected override void OnShow(object userData)
