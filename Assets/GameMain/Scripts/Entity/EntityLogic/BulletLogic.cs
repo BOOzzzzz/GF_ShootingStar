@@ -25,7 +25,7 @@ namespace ShootingStar
             bulletData = userData as BulletEntityData;
             if (bulletData == null)
             {
-                Log.Warning("WeaponData is not initialized");
+                Log.Warning("BulletData is not initialized");
             }
         
             InitData(bulletData);

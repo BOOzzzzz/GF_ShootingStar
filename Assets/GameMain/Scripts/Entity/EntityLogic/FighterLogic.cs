@@ -2,8 +2,8 @@
 
 namespace ShootingStar
 {
-    public class FighterLogic:EntityBaseLogic
+    public abstract class FighterLogic:EntityBaseLogic
     {
-        public WeaponLogic weapon;
+        protected WeaponLogic weapon;
     }
 }

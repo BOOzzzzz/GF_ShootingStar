@@ -2,7 +2,7 @@
 
 namespace ShootingStar
 {
-    public class EntityBaseLogic : EntityLogic
+    public abstract class EntityBaseLogic : EntityLogic
     {
         protected void InitData(EntityBaseData data)
         {

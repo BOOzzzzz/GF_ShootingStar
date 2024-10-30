@@ -7,7 +7,6 @@ namespace ShootingStar
     public class PlayerFighterLogic : FighterLogic
     {
         [SerializeField] private FighterEntityData playerFighterEntityData;
-        [SerializeField] private FighterEntityData FighterEntityData;
 
         private Rigidbody rb;
 
@@ -49,7 +48,7 @@ namespace ShootingStar
             PlayerInputManager.Instance.onFire += PlayerFire;
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
             GameEntry.Entity.ShowEntity<ThrusterLogic>(playerFighterEntityData.thrusterEntityData);
-            GameEntry.Entity.ShowEntity<WeaponLogic>(playerFighterEntityData.weaponEntityData);
+            GameEntry.Entity.ShowEntity<PlayerWeaponLogic>(playerFighterEntityData.weaponEntityData);
             
             fireInterval = new WaitForSeconds(playerFighterEntityData.weaponEntityData.AttackInterval);
         }
@@ -68,9 +67,8 @@ namespace ShootingStar
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
 
-            Movement();
+            Movement(elapseSeconds);
             LimiteMove();
-            Fire();
         }
 
         protected override void OnAttached(EntityLogic childEntity, Transform parentTransform, object userData)
@@ -97,14 +95,14 @@ namespace ShootingStar
             targetSpeed = 0f;
         }
 
-        private void Movement()
+        private void Movement(float elapseSeconds)
         {
             currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedChangeVelocity,
                 changeTime);
             rb.velocity = moveDir * currentSpeed;
             Quaternion targetRotation = Quaternion.AngleAxis(angelRotate * moveDir.y, Vector3.right);
             CachedTransform.rotation = Quaternion.Lerp(CachedTransform.rotation, targetRotation,
-                Time.deltaTime / changeTime);
+                elapseSeconds / changeTime);
         }
 
         private void LimiteMove()

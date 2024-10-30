@@ -3,9 +3,9 @@ using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
-    public class WeaponLogic : EntityBaseLogic
+    public abstract class WeaponLogic : EntityBaseLogic
     {
-        [SerializeField]private WeaponEntityData weaponData;
+        protected WeaponEntityData weaponData;
 
         private Transform middleMuzzle;
         private Transform topMuzzle;
@@ -25,14 +25,6 @@ namespace ShootingStar
             InitData(weaponData);
         }
 
-        protected override void OnShow(object userData)
-        {
-            base.OnShow(userData);
-            middleMuzzle = transform.Find("middleMuzzle").transform;
-            topMuzzle = transform.Find("topMuzzle").transform;
-            bottomMuzzle = transform.Find("bottomMuzzle").transform;
-        }
-
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
@@ -41,27 +33,7 @@ namespace ShootingStar
             weaponData.Rotation = CachedTransform.rotation;
         }
 
-        public void Attack()
-        {
-            switch (weaponData.WeaponPower)
-            {
-                case 1:
-                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
-                    break;
-                case 2:
-                    
-                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
-                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  topMuzzle.position));
-                    break;
-                case 3:
+        public abstract void Attack();
 
-                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1 ,  middleMuzzle.position));
-
-                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile2,topMuzzle.position));
-
-                    GameEntry.Entity.ShowEntity<BulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile3,bottomMuzzle.position));
-                    break;
-            }
-        }
     }
 }

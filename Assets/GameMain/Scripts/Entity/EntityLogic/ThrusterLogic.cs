@@ -5,7 +5,6 @@ namespace ShootingStar
 {
     public class ThrusterLogic : EntityBaseLogic
     {
-        [SerializeField]
         private ThrusterEntityData thrusterEntityData;
 
         protected override void OnInit(object userData)
