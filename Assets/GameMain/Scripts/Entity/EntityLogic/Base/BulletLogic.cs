@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
@@ -7,8 +8,9 @@ namespace ShootingStar
 {
     public abstract class BulletLogic : EntityBaseLogic
     {
-        private float timer;
         protected BulletEntityData bulletData;
+
+        private WaitForSeconds disabledTime = new WaitForSeconds(4);
         
         protected override void OnShow(object userData)
         {
@@ -26,8 +28,8 @@ namespace ShootingStar
             { 
                 transform.GetChild(0).rotation = Quaternion.FromToRotation(Vector2.right, bulletData.Direction);
             }
-            
-            timer = 0;
+
+            StartCoroutine(nameof(AutoDisabled));
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
@@ -35,13 +37,20 @@ namespace ShootingStar
             base.OnUpdate(elapseSeconds, realElapseSeconds);
             
             transform.Translate(bulletData.Direction * bulletData.Speed * elapseSeconds);
-        
-            timer += Time.deltaTime;
-            if (timer > 4)
-            {
-                GameEntry.Entity.HideEntity(this);
-                ReferencePool.Release(bulletData);
-            }
+        }
+
+        protected override void OnHide(bool isShutdown, object userData)
+        {
+            base.OnHide(isShutdown, userData);
+            
+            StopAllCoroutines();
+        }
+
+        private IEnumerator AutoDisabled()
+        {
+            yield return disabledTime;
+            GameEntry.Entity.HideEntity(this);
+            ReferencePool.Release(bulletData);
         }
     }
 }

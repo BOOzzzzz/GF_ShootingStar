@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityGameFramework.Runtime;
@@ -13,7 +14,7 @@ namespace ShootingStar
         private int moveRoatationAngle = -25;
         private Vector3 targetPosition;
 
-        private float timer = 0;
+        private WaitForSeconds fireInterval = new WaitForSeconds(2);
 
         protected override void OnInit(object userData)
         {
@@ -36,42 +37,44 @@ namespace ShootingStar
             GameEntry.Entity.ShowEntity<EnemyWeaponLogic>(enemyFighterEntityData.weaponEntityData);
             
             targetPosition = RandomPosition();
+            StartCoroutine(nameof(RandomMove));
+            StartCoroutine(nameof(RandomFire));
         }
 
-        protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
+        protected override void OnHide(bool isShutdown, object userData)
         {
-            base.OnUpdate(elapseSeconds, realElapseSeconds);
-
-            RandomMove();
-
-            timer += elapseSeconds;
-            RandomFire();
+            base.OnHide(isShutdown, userData);
+            
+            StopAllCoroutines();
         }
 
-        private void RandomFire()
+        private IEnumerator RandomFire()
         {
-            if (timer > 2)
+            while (gameObject.activeSelf)
             {
-                timer = 0;
+                yield return fireInterval;
                 weapon.Attack();
-                Log.Debug("EnemyWeapon");
             }
         }
 
-        private void RandomMove()
+        private IEnumerator RandomMove()
         {
-            if (Vector3.Distance(transform.position, targetPosition) >
-                enemyFighterEntityData.thrusterEntityData.Speed * Time.deltaTime)
+            while (gameObject.activeSelf)
             {
-                transform.position =
-                    Vector3.MoveTowards(transform.position, targetPosition, enemyFighterEntityData.thrusterEntityData.Speed * Time.deltaTime);
-                transform.rotation =
-                    Quaternion.AngleAxis((transform.position - targetPosition).normalized.y * moveRoatationAngle,
-                        Vector3.right);
-            }
-            else
-            {
-                targetPosition = RandomPosition();
+                if (Vector3.Distance(transform.position, targetPosition) >
+                    enemyFighterEntityData.thrusterEntityData.Speed * Time.deltaTime)
+                {
+                    transform.position =
+                        Vector3.MoveTowards(transform.position, targetPosition, enemyFighterEntityData.thrusterEntityData.Speed * Time.deltaTime);
+                    transform.rotation =
+                        Quaternion.AngleAxis((transform.position - targetPosition).normalized.y * moveRoatationAngle,
+                            Vector3.right);
+                }
+                else
+                {
+                    targetPosition = RandomPosition();
+                }
+                yield return null;
             }
         }
 
