@@ -26,6 +26,8 @@ namespace ShootingStar
             { 
                 transform.GetChild(0).rotation = Quaternion.FromToRotation(Vector2.right, bulletData.Direction);
             }
+            
+            timer = 0;
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
