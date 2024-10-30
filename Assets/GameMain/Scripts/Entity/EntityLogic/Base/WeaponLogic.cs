@@ -7,10 +7,6 @@ namespace ShootingStar
     {
         protected WeaponEntityData weaponData;
 
-        private Transform middleMuzzle;
-        private Transform topMuzzle;
-        private Transform bottomMuzzle;
-
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
@@ -18,7 +14,7 @@ namespace ShootingStar
             weaponData = userData as WeaponEntityData;
             if (weaponData == null)
             {
-                Log.Warning("ThrusterData is not initialized");
+                Log.Warning("WeaponData is not initialized");
             }
 
             GameEntry.Entity.AttachEntity(Entity, weaponData.OwnerId, "Weapon");

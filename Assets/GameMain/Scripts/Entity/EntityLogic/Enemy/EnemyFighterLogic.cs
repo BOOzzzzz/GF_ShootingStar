@@ -13,6 +13,8 @@ namespace ShootingStar
         private int moveRoatationAngle = -25;
         private Vector3 targetPosition;
 
+        private float timer = 0;
+
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
@@ -41,6 +43,19 @@ namespace ShootingStar
             base.OnUpdate(elapseSeconds, realElapseSeconds);
 
             RandomMove();
+
+            timer += elapseSeconds;
+            RandomFire();
+        }
+
+        private void RandomFire()
+        {
+            if (timer > 2)
+            {
+                timer = 0;
+                weapon.Attack();
+                Log.Debug("EnemyWeapon");
+            }
         }
 
         private void RandomMove()
@@ -71,9 +86,9 @@ namespace ShootingStar
         {
             base.OnAttached(childEntity, parentTransform, userData);
 
-            if (childEntity is WeaponLogic)
+            if (childEntity is EnemyWeaponLogic)
             {
-                weapon = childEntity as WeaponLogic;
+                weapon = childEntity as EnemyWeaponLogic;
             }
         }
     }

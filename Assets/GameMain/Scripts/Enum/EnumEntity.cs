@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-30 15:16:21.675
+// 生成时间：2024-10-30 17:04:25.316
 //------------------------------------------------------------
 
 namespace ShootingStar
@@ -55,5 +55,10 @@ namespace ShootingStar
         /// 玩家子弹3
         /// </summary>
         PlayerProjectile3 = 4002,
+
+        /// <summary>
+        /// 敌人子弹1
+        /// </summary>
+        EnemyProjectileBasic = 4003,
     }
 }

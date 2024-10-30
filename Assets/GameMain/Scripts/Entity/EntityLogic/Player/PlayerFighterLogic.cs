@@ -75,9 +75,9 @@ namespace ShootingStar
         {
             base.OnAttached(childEntity, parentTransform, userData);
 
-            if (childEntity is WeaponLogic)
+            if (childEntity is PlayerWeaponLogic)
             {
-                weapon = childEntity as WeaponLogic;
+                weapon = childEntity as PlayerWeaponLogic;
             }
         }
 
