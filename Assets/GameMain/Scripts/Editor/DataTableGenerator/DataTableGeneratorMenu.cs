@@ -14,7 +14,7 @@ namespace ShootingStar.Editor.DataTableTools
     public sealed class DataTableGeneratorMenu
     {
         
-        [MenuItem("ShootingStar/Generate DataTables")]
+        [MenuItem("ShootingStar/Generate DataTables",false,1)]
         private static void GenerateDataTables()
         {
             foreach (string dataTableName in ProcedurePreload.DataTableNames)

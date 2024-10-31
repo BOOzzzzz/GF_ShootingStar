@@ -18,8 +18,8 @@ namespace ShootingStar
             "Entity",
             "Thruster",
             "Fighter",
+            "Weapon",
             "Bullet",
-            "Weapon"
         };
 
         protected override void OnInit(IFsm<IProcedureManager> procedureOwner)

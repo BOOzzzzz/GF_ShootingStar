@@ -17,7 +17,7 @@ namespace Flower
             "Entity",
         };
 
-        [MenuItem("ShootingStar/Generate DataTable Enum", false, 3)]
+        [MenuItem("ShootingStar/Generate DataTable Enum",false ,2)]
         private static void GenerateDataTableEnum()
         {
             foreach (string dataTableName in GenerateDataTables)
@@ -54,7 +54,6 @@ namespace Flower
             codeContent.Replace("__DATA_TABLE_CREATE_TIME__", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
             codeContent.Replace("__DATA_TABLE_NAME_SPACE__", "ShootingStar");
             codeContent.Replace("__DATA_TABLE_ENUM_NAME__", "Enum" + dataTableName);
-            //codeContent.Replace("__DATA_TABLE_COMMENT__", dataTableProcessor.GetValue(0, 1) + "。");
             codeContent.Replace("__DATA_TABLE_ENUM_ITEM__", GenerateEnumItems(dataTableProcessor));
         }
 

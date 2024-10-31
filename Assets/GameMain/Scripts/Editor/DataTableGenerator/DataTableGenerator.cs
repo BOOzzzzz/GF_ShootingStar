@@ -135,7 +135,7 @@ namespace ShootingStar.Editor.DataTableTools
                 .AppendLine("            {")
                 .AppendLine("                columnStrings[i] = columnStrings[i].Trim(DataTableExtension.DataTrimSeparators);")
                 .AppendLine("            }")
-                .AppendLine()
+                .AppendLine() 
                 .AppendLine("            int index = 0;");
 
             for (int i = 0; i < dataTableProcessor.RawColumnCount; i++)

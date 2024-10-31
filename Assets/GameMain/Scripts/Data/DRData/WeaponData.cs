@@ -1,31 +1,40 @@
-﻿using System;
-using GameFramework.DataTable;
+﻿// 此文件由工具自动生成，请勿直接修改。
+// 生成时间：2024-10-31 23:31:18.035
+//------------------------------------------------------------
+using GameFramework;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
-    public class WeaponData
+    public class WeaponData 
     {
         private DRWeapon drWeapon;
-
+        
         public WeaponData(DRWeapon drWeapon)
         {
-            this.drWeapon=drWeapon;
+            this.drWeapon = drWeapon;
         }
-
+        
         public int ID
         {
-            get => drWeapon.Id;
+             get => drWeapon.Id;
         }
+        
+        /// <summary>
+        /// 获取武器威力。
+        /// </summary>
+        public int WeaponPower => drWeapon.WeaponPower;
 
-        public int WeaponPower
-        {
-            get => drWeapon.WeaponPower;
-        }
 
-        public float AttackInterval
-        {
-            get => drWeapon.AttackInterval;
-        }
+        /// <summary>
+        /// 获取武器攻击时间间隔。
+        /// </summary>
+        public float AttackInterval => drWeapon.AttackInterval;
+
     }
 }

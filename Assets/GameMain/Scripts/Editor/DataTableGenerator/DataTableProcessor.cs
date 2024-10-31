@@ -35,7 +35,8 @@ namespace ShootingStar.Editor.DataTableTools
         private string m_CodeTemplate;
         private DataTableCodeGenerator m_CodeGenerator;
 
-        public DataTableProcessor(string dataTableFileName, Encoding encoding, int nameRow, int typeRow, int? defaultValueRow, int? commentRow, int contentStartRow, int idColumn)
+        public DataTableProcessor(string dataTableFileName, Encoding encoding, int nameRow, int typeRow,
+            int? defaultValueRow, int? commentRow, int contentStartRow, int idColumn)
         {
             if (string.IsNullOrEmpty(dataTableFileName))
             {
@@ -44,12 +45,14 @@ namespace ShootingStar.Editor.DataTableTools
 
             if (!dataTableFileName.EndsWith(".txt", StringComparison.Ordinal))
             {
-                throw new GameFrameworkException(Utility.Text.Format("Data table file '{0}' is not a txt.", dataTableFileName));
+                throw new GameFrameworkException(Utility.Text.Format("Data table file '{0}' is not a txt.",
+                    dataTableFileName));
             }
 
             if (!File.Exists(dataTableFileName))
             {
-                throw new GameFrameworkException(Utility.Text.Format("Data table file '{0}' is not exist.", dataTableFileName));
+                throw new GameFrameworkException(Utility.Text.Format("Data table file '{0}' is not exist.",
+                    dataTableFileName));
             }
 
             string[] lines = File.ReadAllLines(dataTableFileName, encoding);
@@ -71,7 +74,9 @@ namespace ShootingStar.Editor.DataTableTools
                 }
                 else if (rawValue.Length != rawColumnCount)
                 {
-                    throw new GameFrameworkException(Utility.Text.Format("Data table file '{0}', raw Column is '{2}', but line '{1}' column is '{3}'.", dataTableFileName, i, rawColumnCount, rawValue.Length));
+                    throw new GameFrameworkException(Utility.Text.Format(
+                        "Data table file '{0}', raw Column is '{2}', but line '{1}' column is '{3}'.",
+                        dataTableFileName, i, rawColumnCount, rawValue.Length));
                 }
 
                 rawValues.Add(rawValue);
@@ -91,7 +96,8 @@ namespace ShootingStar.Editor.DataTableTools
 
             if (contentStartRow < 0)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Content start row '{0}' is invalid.", contentStartRow));
+                throw new GameFrameworkException(Utility.Text.Format("Content start row '{0}' is invalid.",
+                    contentStartRow));
             }
 
             if (idColumn < 0)
@@ -101,32 +107,39 @@ namespace ShootingStar.Editor.DataTableTools
 
             if (nameRow >= rawRowCount)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Name row '{0}' >= raw row count '{1}' is not allow.", nameRow, rawRowCount));
+                throw new GameFrameworkException(
+                    Utility.Text.Format("Name row '{0}' >= raw row count '{1}' is not allow.", nameRow, rawRowCount));
             }
 
             if (typeRow >= rawRowCount)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Type row '{0}' >= raw row count '{1}' is not allow.", typeRow, rawRowCount));
+                throw new GameFrameworkException(
+                    Utility.Text.Format("Type row '{0}' >= raw row count '{1}' is not allow.", typeRow, rawRowCount));
             }
 
             if (defaultValueRow.HasValue && defaultValueRow.Value >= rawRowCount)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Default value row '{0}' >= raw row count '{1}' is not allow.", defaultValueRow.Value, rawRowCount));
+                throw new GameFrameworkException(Utility.Text.Format(
+                    "Default value row '{0}' >= raw row count '{1}' is not allow.", defaultValueRow.Value,
+                    rawRowCount));
             }
 
             if (commentRow.HasValue && commentRow.Value >= rawRowCount)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Comment row '{0}' >= raw row count '{1}' is not allow.", commentRow.Value, rawRowCount));
+                throw new GameFrameworkException(Utility.Text.Format(
+                    "Comment row '{0}' >= raw row count '{1}' is not allow.", commentRow.Value, rawRowCount));
             }
 
             if (contentStartRow > rawRowCount)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Content start row '{0}' > raw row count '{1}' is not allow.", contentStartRow, rawRowCount));
+                throw new GameFrameworkException(Utility.Text.Format(
+                    "Content start row '{0}' > raw row count '{1}' is not allow.", contentStartRow, rawRowCount));
             }
 
             if (idColumn >= rawColumnCount)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Id column '{0}' >= raw column count '{1}' is not allow.", idColumn, rawColumnCount));
+                throw new GameFrameworkException(Utility.Text.Format(
+                    "Id column '{0}' >= raw column count '{1}' is not allow.", idColumn, rawColumnCount));
             }
 
             m_NameRow = m_RawValues[nameRow];
@@ -176,7 +189,8 @@ namespace ShootingStar.Editor.DataTableTools
                 }
             }
 
-            m_Strings = strings.OrderBy(value => value.Key).OrderByDescending(value => value.Value).Select(value => value.Key).ToArray();
+            m_Strings = strings.OrderBy(value => value.Key).OrderByDescending(value => value.Value)
+                .Select(value => value.Key).ToArray();
 
             m_CodeTemplate = null;
             m_CodeGenerator = null;
@@ -184,42 +198,27 @@ namespace ShootingStar.Editor.DataTableTools
 
         public int RawRowCount
         {
-            get
-            {
-                return m_RawValues.Length;
-            }
+            get { return m_RawValues.Length; }
         }
 
         public int RawColumnCount
         {
-            get
-            {
-                return m_RawValues.Length > 0 ? m_RawValues[0].Length : 0;
-            }
+            get { return m_RawValues.Length > 0 ? m_RawValues[0].Length : 0; }
         }
 
         public int StringCount
         {
-            get
-            {
-                return m_Strings.Length;
-            }
+            get { return m_Strings.Length; }
         }
 
         public int ContentStartRow
         {
-            get
-            {
-                return m_ContentStartRow;
-            }
+            get { return m_ContentStartRow; }
         }
 
         public int IdColumn
         {
-            get
-            {
-                return m_IdColumn;
-            }
+            get { return m_IdColumn; }
         }
 
         public bool IsIdColumn(int rawColumn)
@@ -387,7 +386,8 @@ namespace ShootingStar.Editor.DataTableTools
             }
             catch (Exception exception)
             {
-                Debug.LogError(Utility.Text.Format("Parse data table '{0}' failure, exception is '{1}'.", outputFileName, exception));
+                Debug.LogError(Utility.Text.Format("Parse data table '{0}' failure, exception is '{1}'.",
+                    outputFileName, exception));
                 return false;
             }
         }
@@ -402,7 +402,8 @@ namespace ShootingStar.Editor.DataTableTools
             }
             catch (Exception exception)
             {
-                Debug.LogError(Utility.Text.Format("Set code template '{0}' failure, exception is '{1}'.", codeTemplateFileName, exception));
+                Debug.LogError(Utility.Text.Format("Set code template '{0}' failure, exception is '{1}'.",
+                    codeTemplateFileName, exception));
                 return false;
             }
         }
@@ -445,7 +446,8 @@ namespace ShootingStar.Editor.DataTableTools
             }
             catch (Exception exception)
             {
-                Debug.LogError(Utility.Text.Format("Generate code file '{0}' failure, exception is '{1}'.", outputFileName, exception));
+                Debug.LogError(Utility.Text.Format("Generate code file '{0}' failure, exception is '{1}'.",
+                    outputFileName, exception));
                 return false;
             }
         }
@@ -471,19 +473,29 @@ namespace ShootingStar.Editor.DataTableTools
                         {
                             if (m_DataProcessor[rawColumn].IsId || string.IsNullOrEmpty(GetDefaultValue(rawColumn)))
                             {
-                                Debug.LogError(Utility.Text.Format("Parse raw value failure. OutputFileName='{0}' RawRow='{1}' RowColumn='{2}' Name='{3}' Type='{4}' RawValue='{5}'", outputFileName, rawRow, rawColumn, GetName(rawColumn), GetLanguageKeyword(rawColumn), GetValue(rawRow, rawColumn)));
+                                Debug.LogError(Utility.Text.Format(
+                                    "Parse raw value failure. OutputFileName='{0}' RawRow='{1}' RowColumn='{2}' Name='{3}' Type='{4}' RawValue='{5}'",
+                                    outputFileName, rawRow, rawColumn, GetName(rawColumn),
+                                    GetLanguageKeyword(rawColumn), GetValue(rawRow, rawColumn)));
                                 return null;
                             }
                             else
                             {
-                                Debug.LogWarning(Utility.Text.Format("Parse raw value failure, will try default value. OutputFileName='{0}' RawRow='{1}' RowColumn='{2}' Name='{3}' Type='{4}' RawValue='{5}'", outputFileName, rawRow, rawColumn, GetName(rawColumn), GetLanguageKeyword(rawColumn), GetValue(rawRow, rawColumn)));
+                                Debug.LogWarning(Utility.Text.Format(
+                                    "Parse raw value failure, will try default value. OutputFileName='{0}' RawRow='{1}' RowColumn='{2}' Name='{3}' Type='{4}' RawValue='{5}'",
+                                    outputFileName, rawRow, rawColumn, GetName(rawColumn),
+                                    GetLanguageKeyword(rawColumn), GetValue(rawRow, rawColumn)));
                                 try
                                 {
-                                    m_DataProcessor[rawColumn].WriteToStream(this, binaryWriter, GetDefaultValue(rawColumn));
+                                    m_DataProcessor[rawColumn]
+                                        .WriteToStream(this, binaryWriter, GetDefaultValue(rawColumn));
                                 }
                                 catch
                                 {
-                                    Debug.LogError(Utility.Text.Format("Parse default value failure. OutputFileName='{0}' RawRow='{1}' RowColumn='{2}' Name='{3}' Type='{4}' RawValue='{5}'", outputFileName, rawRow, rawColumn, GetName(rawColumn), GetLanguageKeyword(rawColumn), GetComment(rawColumn)));
+                                    Debug.LogError(Utility.Text.Format(
+                                        "Parse default value failure. OutputFileName='{0}' RawRow='{1}' RowColumn='{2}' Name='{3}' Type='{4}' RawValue='{5}'",
+                                        outputFileName, rawRow, rawColumn, GetName(rawColumn),
+                                        GetLanguageKeyword(rawColumn), GetComment(rawColumn)));
                                     return null;
                                 }
                             }
