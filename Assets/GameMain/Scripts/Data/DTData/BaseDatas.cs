@@ -2,7 +2,7 @@
 using GameFramework.Event;
 using UnityGameFramework.Runtime;
 
-namespace ShootingStar.DataTableData
+namespace ShootingStar.Data
 {
     public abstract class BaseDatas:GameFramework.Data.Data
     {

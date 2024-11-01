@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿// 此文件由工具自动生成，请勿直接修改。
+// 生成时间：2024-11-01 23:05:25.434
+//------------------------------------------------------------
+
+using System.Collections.Generic;
 using GameFramework.DataTable;
 
-namespace ShootingStar.DataTableData
+namespace ShootingStar.Data
 {
-    public class ThrusterDatas:BaseDatas
+    public class ThrusterDatas : BaseDatas
     {
-        private IDataTable<DRThruster> dtThuster;
-        private Dictionary<int, ThrusterData> dicThuster = new Dictionary<int, ThrusterData>();
+        private IDataTable<DRThruster> dtThruster;
+        private Dictionary<int, ThrusterData> dicThruster =new Dictionary<int, ThrusterData>();
 
         public override void Preload()
         {
@@ -15,19 +19,18 @@ namespace ShootingStar.DataTableData
 
         public override void Load()
         {
-            dtThuster = GameEntry.DataTable.GetDataTable<DRThruster>();
-            DRThruster[] drThrusters = dtThuster.GetAllDataRows();
+            dtThruster = GameEntry.DataTable.GetDataTable<DRThruster>();
+            DRThruster[] drThrusters = dtThruster.GetAllDataRows();
             foreach (var drThruster in drThrusters)
             {
                 ThrusterData thrusterData = new ThrusterData(drThruster);
-                dicThuster.Add(drThruster.Id,thrusterData);
+                dicThruster.Add(drThruster.Id,thrusterData);
             }
         }
         
         public ThrusterData GetThrusterData(EnumEntity id)
         {
-            return dicThuster.TryGetValue((int)id, out ThrusterData thrusterData)? thrusterData : null;
+            return dicThruster.TryGetValue((int)id, out ThrusterData entityData)? entityData : null;
         }
-        
     }
 }

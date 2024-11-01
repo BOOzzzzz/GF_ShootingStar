@@ -1,6 +1,7 @@
 ﻿using System;
 using GameFramework;
 using UnityEngine;
+using ShootingStar.Data;
 
 namespace ShootingStar
 {

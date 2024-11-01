@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿// 此文件由工具自动生成，请勿直接修改。
+// 生成时间：2024-11-01 23:05:25.440
+//------------------------------------------------------------
+
+using System.Collections.Generic;
 using GameFramework.DataTable;
 
-namespace ShootingStar.DataTableData
+namespace ShootingStar.Data
 {
-    public class BulletDatas:BaseDatas
+    public class BulletDatas : BaseDatas
     {
         private IDataTable<DRBullet> dtBullet;
-        private Dictionary<int, BulletData> dicBullet = new Dictionary<int, BulletData>();
+        private Dictionary<int, BulletData> dicBullet =new Dictionary<int, BulletData>();
 
         public override void Preload()
         {
@@ -26,7 +30,7 @@ namespace ShootingStar.DataTableData
         
         public BulletData GetBulletData(EnumEntity id)
         {
-            return dicBullet.TryGetValue((int)id, out BulletData bulletData)? bulletData : null;
+            return dicBullet.TryGetValue((int)id, out BulletData entityData)? entityData : null;
         }
     }
 }

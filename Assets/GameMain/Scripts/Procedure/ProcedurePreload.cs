@@ -1,11 +1,7 @@
 ﻿using System.Collections.Generic;
-using GameFramework.Data;
-using GameFramework.DataTable;
-using GameFramework.Event;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
-using ShootingStar.DataTableData;
-using UnityGameFramework.Runtime;
+using ShootingStar.Data;
 
 namespace ShootingStar
 {
@@ -33,7 +29,7 @@ namespace ShootingStar
         {
             base.OnEnter(procedureOwner);
 
-            List<Data> datas = GameEntry.Data.GetAllDatas();
+            List<GameFramework.Data.Data> datas = GameEntry.Data.GetAllDatas();
             for (int i = 0; i < datas.Count; i++)
             {
                 baseDatas.Add(datas[i] as BaseDatas);

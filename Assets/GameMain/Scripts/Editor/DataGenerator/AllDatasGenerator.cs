@@ -1,20 +1,20 @@
 using System;
-using UnityEditor;
 using System.IO;
 using System.Text;
 using GameFramework;
 using ShootingStar;
 using ShootingStar.Editor.DataTableTools;
+using UnityEditor;
 using UnityEngine;
 
 namespace GameMain.Scripts.Editor
 {
-    public class DataGenerator
+    public class AllDatasGenerator
     {
-        private readonly static string DataTemplateFileName = "Assets/GameMain/Configs/DataTemplate.txt";
-        private readonly static string GeneratePath = "Assets/GameMain/Scripts/Data/DRData";
+        private readonly static string DataTemplateFileName = "Assets/GameMain/Configs/AllDatasTemplate.txt";
+        private readonly static string GeneratePath = "Assets/GameMain/Scripts/Data/DTData";
 
-        [MenuItem("ShootingStar/Generate DataTable Data/Generate Data(需要先进行Generate DataTables)",false,3)]
+        [MenuItem("ShootingStar/Generate DataTable Data/Generate AllDatas(需要先进行Generate Data)",false,4)]
         private static void GenerateDataTableData()
         {
             foreach (string dataTableName in ProcedurePreload.DataTableNames)
@@ -38,7 +38,7 @@ namespace GameMain.Scripts.Editor
             dataTableProcessor.SetCodeGenerator(DataTableCodeGenerator);
 
             string csharpCodeFileName =
-                Utility.Path.GetRegularPath(Path.Combine(GeneratePath, dataTableName + "Data" + ".cs"));
+                Utility.Path.GetRegularPath(Path.Combine(GeneratePath, dataTableName + "Datas" + ".cs"));
             if (!dataTableProcessor.GenerateCodeFile(csharpCodeFileName, Encoding.UTF8, dataTableName) &&
                 File.Exists(csharpCodeFileName))
             {
@@ -53,8 +53,9 @@ namespace GameMain.Scripts.Editor
 
             codeContent.Replace("__DATA_TABLE_CREATE_TIME__", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
             codeContent.Replace("__DATA_TABLE_NAME_SPACE__", "ShootingStar.Data");
-            codeContent.Replace("__DATA_TABLE__", dataTableName);
-            codeContent.Replace("__DATA_TABLE_DATA_ITEM__", GenerateDataItems(dataTableProcessor, dataTableName));
+            codeContent.Replace("__DATAS_TABLE__", dataTableName);
+            codeContent.Replace("__DATAS_TABLE_b__", dataTableName.ToLower());
+            //codeContent.Replace("__DATA_TABLE_DATA_ITEM__", GenerateDataItems(dataTableProcessor, dataTableName));
         }
 
         private static string GenerateDataItems(DataTableProcessor dataTableProcessor, string dataTableName)

@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-31 23:31:18.031
+// 生成时间：2024-11-01 11:38:37.097
 //------------------------------------------------------------
 using GameFramework;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace ShootingStar
+namespace ShootingStar.Data
 {
     public class ThrusterData 
     {

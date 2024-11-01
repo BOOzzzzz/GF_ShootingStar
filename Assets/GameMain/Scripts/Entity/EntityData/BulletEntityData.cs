@@ -1,6 +1,6 @@
 ﻿using System;
 using GameFramework;
-using ShootingStar.DataTableData;
+using ShootingStar.Data;
 using UnityEngine;
 
 namespace ShootingStar
