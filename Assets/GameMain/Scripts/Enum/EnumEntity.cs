@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-30 17:04:25.316
+// 生成时间：2024-11-01 15:13:08.309
 //------------------------------------------------------------
 
 namespace ShootingStar
@@ -22,14 +22,34 @@ namespace ShootingStar
         Enemy01 = 1001,
 
         /// <summary>
+        /// 敌人战机02
+        /// </summary>
+        Enemy02 = 1002,
+
+        /// <summary>
+        /// 敌人战机03
+        /// </summary>
+        Enemy03 = 1003,
+
+        /// <summary>
         /// 玩家推进器
         /// </summary>
         PlayerThruster = 2000,
 
         /// <summary>
-        /// 敌人推进器
+        /// 敌人推进器01
         /// </summary>
-        EnemyThruster = 2001,
+        EnemyThruster01 = 2001,
+
+        /// <summary>
+        /// 敌人推进器02
+        /// </summary>
+        EnemyThruster02 = 2002,
+
+        /// <summary>
+        /// 敌人推进器03
+        /// </summary>
+        EnemyThruster03 = 2003,
 
         /// <summary>
         /// 玩家子弹武器
@@ -37,9 +57,19 @@ namespace ShootingStar
         PlayerWeapon = 3000,
 
         /// <summary>
-        /// 敌人子弹武器
+        /// 敌人子弹武器01
         /// </summary>
-        EnemyWeapon = 3001,
+        EnemyWeapon01 = 3001,
+
+        /// <summary>
+        /// 敌人子弹武器02
+        /// </summary>
+        EnemyWeapon02 = 3002,
+
+        /// <summary>
+        /// 敌人子弹武器03
+        /// </summary>
+        EnemyWeapon03 = 3003,
 
         /// <summary>
         /// 玩家子弹1
@@ -60,5 +90,35 @@ namespace ShootingStar
         /// 敌人子弹1
         /// </summary>
         EnemyProjectileBasic = 4003,
+
+        /// <summary>
+        /// 敌人子弹2
+        /// </summary>
+        EnemyProjectileAiming = 4004,
+
+        /// <summary>
+        /// 敌人子弹3
+        /// </summary>
+        EnemyProjectile8Oclock = 4005,
+
+        /// <summary>
+        /// 敌人子弹4
+        /// </summary>
+        EnemyProjectile9Oclock = 4006,
+
+        /// <summary>
+        /// 敌人子弹5
+        /// </summary>
+        EnemyProjectile10Oclock = 4007,
+
+        /// <summary>
+        /// 敌人子弹6
+        /// </summary>
+        EnemyProjectile11Oclock = 4008,
+
+        /// <summary>
+        /// 敌人子弹7
+        /// </summary>
+        EnemyProjectile7Oclock = 4009,
     }
 }
