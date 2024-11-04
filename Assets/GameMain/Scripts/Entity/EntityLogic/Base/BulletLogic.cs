@@ -8,6 +8,7 @@ namespace ShootingStar
 {
     public abstract class BulletLogic : EntityBaseLogic
     {
+        [SerializeField]
         protected BulletEntityData bulletData;
 
         private WaitForSeconds disabledTime = new WaitForSeconds(4);
@@ -36,7 +37,7 @@ namespace ShootingStar
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
             
-            transform.Translate(bulletData.Direction * bulletData.Speed * elapseSeconds);
+            Move(elapseSeconds);
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -44,6 +45,11 @@ namespace ShootingStar
             base.OnHide(isShutdown, userData);
             
             StopAllCoroutines();
+        }
+
+        protected virtual void Move(float elapseSeconds)
+        {
+            transform.Translate(bulletData.Direction * bulletData.Speed * elapseSeconds);
         }
 
         private IEnumerator AutoDisabled()

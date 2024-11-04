@@ -1,3 +1,4 @@
+using System;
 using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
@@ -18,6 +19,14 @@ namespace ShootingStar
         {
             base.OnHide(isShutdown, userData);
             trail.Clear();
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                GameEntry.Entity.HideEntity(bulletData.Id);
+            }
         }
     }
 }

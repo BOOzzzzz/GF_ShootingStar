@@ -8,7 +8,7 @@ namespace ShootingStar
     {
         [SerializeField] private FighterEntityData playerFighterEntityData;
 
-        private Rigidbody rb;
+        private Rigidbody2D rb;
 
         /// <summary>
         /// Move field
@@ -35,7 +35,7 @@ namespace ShootingStar
                 Log.Warning("PlayerFighterData is not initialized");
             }
 
-            rb = GetComponent<Rigidbody>();
+            rb = GetComponent<Rigidbody2D>();
             InitData(playerFighterEntityData);
         }
 
