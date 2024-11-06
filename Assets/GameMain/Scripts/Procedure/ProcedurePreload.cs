@@ -3,6 +3,7 @@ using GameFramework.Fsm;
 using GameFramework.Procedure;
 using ShootingStar.Data;
 using UnityGameFramework.Runtime;
+using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
 namespace ShootingStar
 {
@@ -19,14 +20,14 @@ namespace ShootingStar
             "Bullet",
         };
 
-        protected override void OnInit(IFsm<IProcedureManager> procedureOwner)
+        protected override void OnInit(ProcedureOwner procedureOwner)
         {
             base.OnInit(procedureOwner);
             
             PlayerInputManager.Instance.OnInit();
         }
 
-        protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
+        protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
             Log.Debug("ProcedurePreload");
@@ -40,7 +41,7 @@ namespace ShootingStar
             OnPreLoad();
         }
 
-        protected override void OnUpdate(IFsm<IProcedureManager> procedureOwner, float elapseSeconds,
+        protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds,
             float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
@@ -53,11 +54,11 @@ namespace ShootingStar
 
             GameEntry.Data.OnLoadAllDatas();
             
-            GameEntry.Scene.LoadScene("Assets/GameMain/Scenes/Menu.unity");
-            ChangeState<ProcedureMenu>(procedureOwner);
+            procedureOwner.SetData<VarString>("SceneName","Menu");
+            ChangeState<ProcedureChangeScene>(procedureOwner);
         }
 
-        protected override void OnLeave(IFsm<IProcedureManager> procedureOwner, bool isShutdown)
+        protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
         }

@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using GameFramework.DataTable;
-using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
+using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
 namespace ShootingStar
 {
@@ -11,13 +10,13 @@ namespace ShootingStar
         private Dictionary<GameMode,GameBase> games=new Dictionary<GameMode,GameBase>();
         private GameBase currentGame;
 
-        protected override void OnInit(IFsm<IProcedureManager> procedureOwner)
+        protected override void OnInit(ProcedureOwner procedureOwner)
         {
             base.OnInit(procedureOwner);
             games.Add(GameMode.Survive,new GameSurvive());
         }
 
-        protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
+        protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
             Log.Debug("ProcedureGame");
@@ -26,7 +25,7 @@ namespace ShootingStar
             currentGame.Initialize();
         }
 
-        protected override void OnUpdate(IFsm<IProcedureManager> procedureOwner, float elapseSeconds, float realElapseSeconds)
+        protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
             currentGame.Update(elapseSeconds, realElapseSeconds);
