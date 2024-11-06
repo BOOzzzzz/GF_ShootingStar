@@ -4,6 +4,7 @@
 
 using System.Collections.Generic;
 using GameFramework.DataTable;
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar.Data
 {

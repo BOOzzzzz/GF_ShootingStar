@@ -2,6 +2,7 @@
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using ShootingStar.Data;
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
@@ -28,6 +29,7 @@ namespace ShootingStar
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
+            Log.Debug("ProcedurePreload");
 
             List<GameFramework.Data.Data> datas = GameEntry.Data.GetAllDatas();
             for (int i = 0; i < datas.Count; i++)
@@ -51,8 +53,8 @@ namespace ShootingStar
 
             GameEntry.Data.OnLoadAllDatas();
             
-            GameEntry.Scene.LoadScene("Assets/GameMain/Scenes/Game.unity");
-            ChangeState<ProcedureGame>(procedureOwner);
+            GameEntry.Scene.LoadScene("Assets/GameMain/Scenes/Menu.unity");
+            ChangeState<ProcedureMenu>(procedureOwner);
         }
 
         protected override void OnLeave(IFsm<IProcedureManager> procedureOwner, bool isShutdown)
