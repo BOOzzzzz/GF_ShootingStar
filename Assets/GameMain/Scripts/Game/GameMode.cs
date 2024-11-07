@@ -2,6 +2,7 @@
 {
     public enum GameMode
     {
-        Survive
+        Survive,
+        Challenge
     }
 }

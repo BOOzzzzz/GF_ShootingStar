@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -15,8 +17,9 @@ namespace ShootingStar
         {
             entityComponent.HideEntity(entity.Entity);
         }
-        
-        public static void ShowEntity<T>(this EntityComponent entityComponent, EntityBaseData data) where T :EntityBaseLogic
+
+        public static void ShowEntity<T>(this EntityComponent entityComponent, EntityBaseData data)
+            where T : EntityBaseLogic
         {
             entityComponent.ShowEntity(typeof(T),
                 AssetUtility.GetEntityAsset(data.entityData.AssetName),

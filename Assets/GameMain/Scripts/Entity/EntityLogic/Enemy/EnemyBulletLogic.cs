@@ -7,8 +7,9 @@ namespace ShootingStar
     {
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.TryGetComponent<PlayerFighterLogic>(out PlayerFighterLogic playerFighterLogic))
             {
+                playerFighterLogic.TakeDamage(bulletData.Damage);
                 GameEntry.Entity.HideEntity(bulletData.Id);
             }
         }

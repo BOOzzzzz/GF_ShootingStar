@@ -1,10 +1,9 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-01 11:38:46.541
+// 生成时间：2024-11-07 10:30:31.023
 //------------------------------------------------------------
 
 using System.Collections.Generic;
 using GameFramework.DataTable;
-using UnityGameFramework.Runtime;
 
 namespace ShootingStar.Data
 {

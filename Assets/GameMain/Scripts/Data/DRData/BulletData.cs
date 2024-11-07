@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-01 11:38:37.099
+// 生成时间：2024-11-07 10:27:56.020
 //------------------------------------------------------------
 using GameFramework;
 using System;
@@ -41,6 +41,12 @@ namespace ShootingStar.Data
         /// 获取子弹方向。
         /// </summary>
         public Vector2 Direction => drBullet.Direction;
+
+
+        /// <summary>
+        /// 获取子弹伤害。
+        /// </summary>
+        public int Damage => drBullet.Damage;
 
     }
 }

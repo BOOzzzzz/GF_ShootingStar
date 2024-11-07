@@ -5,9 +5,12 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-10-31 14:37:58.322
+// 生成时间：2024-11-07 10:27:47.063
 //------------------------------------------------------------
 
+using GameFramework;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
@@ -60,6 +63,15 @@ namespace ShootingStar
             private set;
         }
 
+        /// <summary>
+        /// 获取子弹伤害。
+        /// </summary>
+        public int Damage
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -75,6 +87,7 @@ namespace ShootingStar
             Attack = int.Parse(columnStrings[index++]);
             Speed = float.Parse(columnStrings[index++]);
             Direction = DataTableExtension.ParseVector2(columnStrings[index++]);
+            Damage = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -90,6 +103,7 @@ namespace ShootingStar
                     Attack = binaryReader.Read7BitEncodedInt32();
                     Speed = binaryReader.ReadSingle();
                     Direction = binaryReader.ReadVector2();
+                    Damage = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

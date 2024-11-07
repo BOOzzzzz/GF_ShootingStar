@@ -7,34 +7,26 @@ namespace ShootingStar
 {
     public class EnemyFighterLogic : FighterLogic
     {
-        [SerializeField] private FighterEntityData enemyFighterEntityData;
-
-        private Rigidbody rb;
-
-        private int moveRoatationAngle = -25;
         private Vector3 targetPosition;
-
-        private WaitForSeconds fireInterval = new WaitForSeconds(2);
 
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
 
-            enemyFighterEntityData = userData as FighterEntityData;
-            if (enemyFighterEntityData == null)
+            fighterEntityData = userData as FighterEntityData;
+            if (fighterEntityData == null)
             {
                 Log.Warning("EnemyFighterData is not initialized");
             }
 
-            rb = GetComponent<Rigidbody>();
-            InitData(enemyFighterEntityData);
+            InitData(fighterEntityData);
         }
 
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
-            GameEntry.Entity.ShowEntity<ThrusterLogic>(enemyFighterEntityData.thrusterEntityData);
-            GameEntry.Entity.ShowEntity<EnemyWeaponLogic>(enemyFighterEntityData.weaponEntityData);
+            GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
+            GameEntry.Entity.ShowEntity<EnemyWeaponLogic>(fighterEntityData.weaponEntityData);
             
             targetPosition = RandomPosition();
             StartCoroutine(nameof(RandomMove));
@@ -62,12 +54,12 @@ namespace ShootingStar
             while (gameObject.activeSelf)
             {
                 if (Vector3.Distance(transform.position, targetPosition) >
-                    enemyFighterEntityData.thrusterEntityData.Speed * Time.deltaTime)
+                    fighterEntityData.thrusterEntityData.Speed * Time.deltaTime)
                 {
                     transform.position =
-                        Vector3.MoveTowards(transform.position, targetPosition, enemyFighterEntityData.thrusterEntityData.Speed * Time.deltaTime);
+                        Vector3.MoveTowards(transform.position, targetPosition, fighterEntityData.thrusterEntityData.Speed * Time.deltaTime);
                     transform.rotation =
-                        Quaternion.AngleAxis((transform.position - targetPosition).normalized.y * moveRoatationAngle,
+                        Quaternion.AngleAxis((transform.position - targetPosition).normalized.y * -angelRotate,
                             Vector3.right);
                 }
                 else

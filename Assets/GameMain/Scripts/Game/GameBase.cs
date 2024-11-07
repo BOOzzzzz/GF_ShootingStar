@@ -1,14 +1,37 @@
+using System.Collections.Generic;
+using GameFramework;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
-    public abstract class GameBase
+    public abstract class GameBase:IReference
     {
+        private EntityLoader entityLoader;
+
+        public int playerID;
+        public List<int> enemiesID;
+
         public virtual void Initialize()
         {
-            GameEntry.Entity.ShowEntity<PlayerFighterLogic>(FighterEntityData.Create(EnumEntity.PlayerFighter,
-                EnumEntity.PlayerThruster, EnumEntity.PlayerWeapon, new Vector3(-7, 0, 0)));
+            entityLoader = EntityLoader.Create(this);
+            SpawnPlayer();
+            SpawnEnemy();
+        }
+
+        public virtual void Update(float elapseSeconds, float realElapseSeconds)
+        {
             
+        }
+
+        public void SpawnPlayer()
+        {
+            playerID = entityLoader.ShowEntity<PlayerFighterLogic>(FighterEntityData.Create(EnumEntity.PlayerFighter,
+                EnumEntity.PlayerThruster, EnumEntity.PlayerWeapon, new Vector3(-7, 0, 0)));
+        }
+
+        public void SpawnEnemy()
+        {
             GameEntry.Entity.ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(EnumEntity.Enemy01,
                 EnumEntity.EnemyThruster01, EnumEntity.EnemyWeapon01, new Vector3(7, 0, 0)));
             
@@ -19,8 +42,11 @@ namespace ShootingStar
                 EnumEntity.EnemyThruster03, EnumEntity.EnemyWeapon03, new Vector3(7, -2, 0)));
         }
 
-        public virtual void Update(float elapseSeconds, float realElapseSeconds)
+        public void Clear()
         {
+            if (entityLoader != null)
+                ReferencePool.Release(entityLoader);
+            entityLoader = null;
         }
     }
 }

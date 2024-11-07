@@ -9,10 +9,17 @@ namespace ShootingStar
     public class BulletEntityData : EntityBaseData
     {
         public BulletData bulletData;
+        
         private Vector2 direction;
         private int attack;
         private float speed;
+        private int damage;
 
+        public int Damage
+        {
+            get => damage;
+            set => damage = value;
+        }
 
         public Vector2 Direction
         {
@@ -60,6 +67,7 @@ namespace ShootingStar
             bulletEntityData.Speed = bulletEntityData.bulletData.Speed;
             bulletEntityData.Attack = bulletEntityData.bulletData.Attack;
             bulletEntityData.Direction = bulletEntityData.bulletData.Direction;
+            bulletEntityData.Damage = bulletEntityData.bulletData.Damage;
             return bulletEntityData;
         }
     }

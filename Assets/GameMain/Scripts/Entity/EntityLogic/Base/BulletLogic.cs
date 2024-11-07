@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using GameFramework;
+using GameFramework.Event;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -12,7 +13,7 @@ namespace ShootingStar
         protected BulletEntityData bulletData;
 
         private WaitForSeconds disabledTime = new WaitForSeconds(4);
-        
+
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
