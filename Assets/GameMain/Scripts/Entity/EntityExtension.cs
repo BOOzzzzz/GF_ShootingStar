@@ -9,9 +9,9 @@ namespace ShootingStar
     {
         public static int serialID = 0;
 
-        public const float maxHorizontalDistance = 8.5f;
-        public const float maxVerticalDistance = 5.5f;
-        public const float minVerticalDistance = -3.3f;
+        public const float MaxHorizontalDistance = 8.5f;
+        public const float MaxVerticalDistance = 5.5f;
+        public const float MinVerticalDistance = -3.3f;
 
         public static void HideEntity(this EntityComponent entityComponent, EntityLogic entity)
         {

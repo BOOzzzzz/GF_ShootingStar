@@ -1,4 +1,5 @@
 using System.Collections;
+using GameMain.Scripts.Event;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -68,6 +69,12 @@ namespace ShootingStar
             }
         }
 
+        protected override void OnDead()
+        {
+            base.OnDead();
+            GameEntry.Event.Fire(this,PlayerDeadEventArgs.Create());
+        }
+
         #region Move
 
         private void PlayerMove(Vector2 direction)
@@ -95,10 +102,10 @@ namespace ShootingStar
         private void LimiteMove()
         {
             CachedTransform.position = new Vector3(
-                Mathf.Clamp(CachedTransform.position.x, -EntityExtension.maxHorizontalDistance,
-                    EntityExtension.maxHorizontalDistance),
-                Mathf.Clamp(CachedTransform.position.y, EntityExtension.minVerticalDistance,
-                    EntityExtension.maxVerticalDistance),
+                Mathf.Clamp(CachedTransform.position.x, -EntityExtension.MaxHorizontalDistance,
+                    EntityExtension.MaxHorizontalDistance),
+                Mathf.Clamp(CachedTransform.position.y, EntityExtension.MinVerticalDistance,
+                    EntityExtension.MaxVerticalDistance),
                 0);
         }
 

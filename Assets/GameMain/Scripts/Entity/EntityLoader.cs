@@ -10,13 +10,14 @@ namespace ShootingStar
 {
     public class EntityLoader : IReference
     {
-        public Dictionary<int, Entity> dicLoadedEntities;
-
+        public GameObject playerEntity;
+        public List<GameObject> enemyEntities;
         public object Owner { get; private set; }
 
         public EntityLoader()
         {
-            dicLoadedEntities = new Dictionary<int, Entity>();
+            playerEntity = null;
+            enemyEntities = new List<GameObject>();
             Owner = null;
         }
 
@@ -49,7 +50,15 @@ namespace ShootingStar
                 return;
             }
 
-            dicLoadedEntities.Add(args.Entity.Id, args.Entity);
+            if (args.EntityLogicType == typeof(PlayerFighterLogic))
+            {
+                playerEntity = args.Entity.gameObject;
+            }
+
+            if (args.EntityLogicType == typeof(EnemyFighterLogic))
+            {
+                enemyEntities.Add(args.Entity.gameObject);
+            }
         }
 
         public void Clear()

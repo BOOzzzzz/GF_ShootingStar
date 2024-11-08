@@ -5,23 +5,22 @@ using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
-    public abstract class GameBase:IReference
+    public class GameBase : IReference
     {
         private EntityLoader entityLoader;
 
-        public int playerID;
-        public List<int> enemiesID;
+        public int playerID = 0;
+        public List<int> enemiesID = new List<int>();
 
         public virtual void Initialize()
         {
             entityLoader = EntityLoader.Create(this);
             SpawnPlayer();
-            SpawnEnemy();
+            SpawnEnemies(5);
         }
 
         public virtual void Update(float elapseSeconds, float realElapseSeconds)
         {
-            
         }
 
         public void SpawnPlayer()
@@ -30,16 +29,23 @@ namespace ShootingStar
                 EnumEntity.PlayerThruster, EnumEntity.PlayerWeapon, new Vector3(-7, 0, 0)));
         }
 
-        public void SpawnEnemy()
+        public void SpawnEnemies(int count)
         {
-            GameEntry.Entity.ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(EnumEntity.Enemy01,
-                EnumEntity.EnemyThruster01, EnumEntity.EnemyWeapon01, new Vector3(7, 0, 0)));
-            
-            GameEntry.Entity.ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(EnumEntity.Enemy02,
-                EnumEntity.EnemyThruster02, EnumEntity.EnemyWeapon02, new Vector3(7, 2, 0)));
-            
-            GameEntry.Entity.ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(EnumEntity.Enemy03,
-                EnumEntity.EnemyThruster03, EnumEntity.EnemyWeapon03, new Vector3(7, -2, 0)));
+            for (int i = 0; i < count; i++)
+            {
+                int enemyID = RandomSpawmEnemy();
+                enemiesID.Add(enemyID);
+            }
+        }
+
+        public int RandomSpawmEnemy()
+        {
+            return entityLoader.ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(
+                EnumExtension.RandomRange(EnumEntity.Enemy01, EnumEntity.Enemy03),
+                EnumExtension.RandomRange(EnumEntity.EnemyThruster01, EnumEntity.EnemyThruster03),
+                EnumExtension.RandomRange(EnumEntity.EnemyWeapon01, EnumEntity.EnemyWeapon03),
+                new Vector3(10, Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance),
+                    0)));
         }
 
         public void Clear()

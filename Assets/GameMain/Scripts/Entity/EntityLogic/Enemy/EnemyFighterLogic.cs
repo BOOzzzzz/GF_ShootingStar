@@ -1,4 +1,6 @@
 using System.Collections;
+using GameFramework.Event;
+using GameMain.Scripts.Event;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityGameFramework.Runtime;
@@ -7,6 +9,8 @@ namespace ShootingStar
 {
     public class EnemyFighterLogic : FighterLogic
     {
+        public bool isPlayerDead = false;
+        
         private Vector3 targetPosition;
 
         protected override void OnInit(object userData)
@@ -20,11 +24,20 @@ namespace ShootingStar
             }
 
             InitData(fighterEntityData);
+            
+        }
+
+        private void OnPlayerDead(object sender, GameEventArgs e)
+        {
+            isPlayerDead = true;
         }
 
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
+            
+            GameEntry.Event.Subscribe(PlayerDeadEventArgs.EventId, OnPlayerDead);
+            
             GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
             GameEntry.Entity.ShowEntity<EnemyWeaponLogic>(fighterEntityData.weaponEntityData);
             
@@ -37,12 +50,13 @@ namespace ShootingStar
         {
             base.OnHide(isShutdown, userData);
             
+            GameEntry.Event.Unsubscribe(PlayerDeadEventArgs.EventId, OnPlayerDead);
             StopAllCoroutines();
         }
 
         private IEnumerator RandomFire()
         {
-            while (gameObject.activeSelf)
+            while (!isPlayerDead)
             {
                 yield return fireInterval;
                 weapon.Attack();
@@ -72,8 +86,8 @@ namespace ShootingStar
 
         private Vector3 RandomPosition()
         {
-            float posX = Random.Range(0, EntityExtension.maxHorizontalDistance);
-            float posY = Random.Range(EntityExtension.minVerticalDistance, EntityExtension.maxVerticalDistance);
+            float posX = Random.Range(0, EntityExtension.MaxHorizontalDistance);
+            float posY = Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance);
             return new Vector3(posX, posY,0);
         }
 
