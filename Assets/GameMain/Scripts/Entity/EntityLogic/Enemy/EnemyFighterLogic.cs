@@ -10,7 +10,7 @@ namespace ShootingStar
     public class EnemyFighterLogic : FighterLogic
     {
         private bool isPlayerDead = false;
-        
+
         private Vector3 targetPosition;
 
         protected override void OnInit(object userData)
@@ -24,7 +24,6 @@ namespace ShootingStar
             }
 
             InitData(fighterEntityData);
-            
         }
 
         private void OnPlayerDead(object sender, GameEventArgs e)
@@ -35,12 +34,14 @@ namespace ShootingStar
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
-            
+
             GameEntry.Event.Subscribe(PlayerDeadEventArgs.EventId, OnPlayerDead);
-            
+
             GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
             GameEntry.Entity.ShowEntity<EnemyWeaponLogic>(fighterEntityData.weaponEntityData);
-            
+            GameEntry.Entity.ShowEntity<HealthBarLogic>(
+                HealthBarEntityData.Create(EnumEntity.EnemyHealthBar, transform));
+
             targetPosition = RandomPosition();
             StartCoroutine(nameof(RandomMove));
             StartCoroutine(nameof(RandomFire));
@@ -49,7 +50,7 @@ namespace ShootingStar
         protected override void OnHide(bool isShutdown, object userData)
         {
             base.OnHide(isShutdown, userData);
-            
+
             GameEntry.Event.Unsubscribe(PlayerDeadEventArgs.EventId, OnPlayerDead);
             StopAllCoroutines();
         }
@@ -71,7 +72,8 @@ namespace ShootingStar
                     fighterEntityData.thrusterEntityData.Speed * Time.deltaTime)
                 {
                     transform.position =
-                        Vector3.MoveTowards(transform.position, targetPosition, fighterEntityData.thrusterEntityData.Speed * Time.deltaTime);
+                        Vector3.MoveTowards(transform.position, targetPosition,
+                            fighterEntityData.thrusterEntityData.Speed * Time.deltaTime);
                     transform.rotation =
                         Quaternion.AngleAxis((transform.position - targetPosition).normalized.y * -angelRotate,
                             Vector3.right);
@@ -80,6 +82,7 @@ namespace ShootingStar
                 {
                     targetPosition = RandomPosition();
                 }
+
                 yield return null;
             }
         }
@@ -88,7 +91,7 @@ namespace ShootingStar
         {
             float posX = Random.Range(0, EntityExtension.MaxHorizontalDistance);
             float posY = Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance);
-            return new Vector3(posX, posY,0);
+            return new Vector3(posX, posY, 0);
         }
 
         protected override void OnAttached(EntityLogic childEntity, Transform parentTransform, object userData)

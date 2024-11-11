@@ -39,6 +39,7 @@ namespace ShootingStar
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
             GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
             GameEntry.Entity.ShowEntity<PlayerWeaponLogic>(fighterEntityData.weaponEntityData);
+            GameEntry.Entity.ShowEntity<HealthBarLogic>(HealthBarEntityData.Create(EnumEntity.PlayerHealthBar,transform));
         }
 
         protected override void OnHide(bool isShutdown, object userData)

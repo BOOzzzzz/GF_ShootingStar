@@ -5,16 +5,11 @@ using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
-    public class GameBase : IReference
+    public class GameBase
     {
-        private EntityLoader entityLoader;
-
-        public int playerID = 0;
-        public List<int> enemiesID = new List<int>();
 
         public virtual void Initialize()
         {
-            entityLoader = EntityLoader.Create(this);
             SpawnPlayer();
             SpawnEnemies(5);
         }
@@ -25,7 +20,7 @@ namespace ShootingStar
 
         public void SpawnPlayer()
         {
-            playerID = entityLoader.ShowEntity<PlayerFighterLogic>(FighterEntityData.Create(EnumEntity.PlayerFighter,
+            GameEntry.Entity.ShowEntity<PlayerFighterLogic>(FighterEntityData.Create(EnumEntity.PlayerFighter,
                 EnumEntity.PlayerThruster, EnumEntity.PlayerWeapon, new Vector3(-7, 0, 0)));
         }
 
@@ -33,26 +28,18 @@ namespace ShootingStar
         {
             for (int i = 0; i < count; i++)
             {
-                int enemyID = RandomSpawmEnemy();
-                enemiesID.Add(enemyID);
+                RandomSpawmEnemy();
             }
         }
 
-        public int RandomSpawmEnemy()
+        public void RandomSpawmEnemy()
         {
-            return entityLoader.ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(
+             GameEntry.Entity.ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(
                 EnumExtension.RandomRange(EnumEntity.Enemy01, EnumEntity.Enemy03),
                 EnumExtension.RandomRange(EnumEntity.EnemyThruster01, EnumEntity.EnemyThruster03),
                 EnumExtension.RandomRange(EnumEntity.EnemyWeapon01, EnumEntity.EnemyWeapon03),
                 new Vector3(10, Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance),
                     0)));
-        }
-
-        public void Clear()
-        {
-            if (entityLoader != null)
-                ReferencePool.Release(entityLoader);
-            entityLoader = null;
         }
     }
 }
