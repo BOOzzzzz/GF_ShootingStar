@@ -16,14 +16,11 @@ namespace ShootingStar
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
-            
-            bulletData.Direction = (player.transform.position - transform.position).normalized;
-        }
 
-        protected override void Move(float elapseSeconds)
-        {
-            
-            base.Move(elapseSeconds);
+            if (player != null)
+            {
+                bulletData.Direction = (player.transform.position - transform.position).normalized;
+            }
         }
     }
 }

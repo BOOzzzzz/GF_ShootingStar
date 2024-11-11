@@ -15,8 +15,7 @@ namespace ShootingStar
             topMuzzle = transform.Find("topMuzzle").transform;
             bottomMuzzle = transform.Find("bottomMuzzle").transform;
         }
-
-
+        
         public override void Attack()
         {
             switch (weaponData.WeaponPower)

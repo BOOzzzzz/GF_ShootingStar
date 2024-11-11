@@ -26,7 +26,8 @@ namespace ShootingStar
             if (other.gameObject.TryGetComponent<EnemyFighterLogic>(out EnemyFighterLogic enemyFighterLogic))
             {
                 enemyFighterLogic.TakeDamage(bulletData.Damage);
-                GameEntry.Entity.HideEntity(bulletData.Id);
+                GameEntry.Entity.HideEntity(this);
+                ReferencePool.Release(bulletData);
             }
         }
     }

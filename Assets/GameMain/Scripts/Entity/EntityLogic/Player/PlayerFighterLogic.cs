@@ -43,12 +43,12 @@ namespace ShootingStar
 
         protected override void OnHide(bool isShutdown, object userData)
         {
-            base.OnHide(isShutdown, userData);
             PlayerInputManager.Instance.onMove -= PlayerMove;
             PlayerInputManager.Instance.onStopMove -= PlayerStopMove;
             PlayerInputManager.Instance.onFire -= PlayerFire;
             PlayerInputManager.Instance.onStopFire -= PlayerStopFire;
             PlayerInputManager.Instance.OnDisable();
+            base.OnHide(isShutdown, userData);
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)

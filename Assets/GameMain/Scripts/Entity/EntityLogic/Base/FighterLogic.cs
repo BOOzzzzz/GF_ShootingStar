@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GameFramework;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -29,7 +30,8 @@ namespace ShootingStar
 
         protected virtual void OnDead()
         {
-            GameEntry.Entity.HideEntity(fighterEntityData.Id);
+            GameEntry.Entity.HideEntity(this);
+            ReferencePool.Release(fighterEntityData);
         }
     }
 }

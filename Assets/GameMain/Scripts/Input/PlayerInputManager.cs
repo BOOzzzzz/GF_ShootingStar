@@ -33,12 +33,12 @@ namespace ShootingStar
         {
             if (context.performed)
             {
-                onMove(context.ReadValue<Vector2>());
+                onMove?.Invoke(context.ReadValue<Vector2>());
             }
 
             if (context.canceled)
             {
-                onStopMove();
+                onStopMove?.Invoke();
             }
         }
 
@@ -46,11 +46,11 @@ namespace ShootingStar
         {
             if (context.performed)
             {
-                onFire();
+                onFire?.Invoke();
             }
             if (context.canceled)
             {
-                onStopFire();
+                onStopFire?.Invoke();
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GameFramework;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -27,6 +28,12 @@ namespace ShootingStar
 
             weaponData.Position = CachedTransform.position;
             weaponData.Rotation = CachedTransform.rotation;
+        }
+
+        protected override void OnHide(bool isShutdown, object userData)
+        {
+            base.OnHide(isShutdown, userData);
+            ReferencePool.Release(weaponData);
         }
 
         public abstract void Attack();

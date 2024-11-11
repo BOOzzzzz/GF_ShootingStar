@@ -1,3 +1,4 @@
+using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -10,7 +11,8 @@ namespace ShootingStar
             if (other.gameObject.TryGetComponent<PlayerFighterLogic>(out PlayerFighterLogic playerFighterLogic))
             {
                 playerFighterLogic.TakeDamage(bulletData.Damage);
-                GameEntry.Entity.HideEntity(bulletData.Id);
+                GameEntry.Entity.HideEntity(this);
+                ReferencePool.Release(bulletData);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GameFramework;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -19,6 +20,12 @@ namespace ShootingStar
 
             GameEntry.Entity.AttachEntity(Entity, thrusterEntityData.OwnerId, "Thruster");
             InitData(thrusterEntityData);
+        }
+
+        protected override void OnHide(bool isShutdown, object userData)
+        {
+            base.OnHide(isShutdown, userData);
+            ReferencePool.Release(thrusterEntityData);
         }
     }
 }
