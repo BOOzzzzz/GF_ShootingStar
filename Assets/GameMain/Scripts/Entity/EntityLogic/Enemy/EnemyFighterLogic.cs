@@ -9,7 +9,7 @@ namespace ShootingStar
 {
     public class EnemyFighterLogic : FighterLogic
     {
-        public bool isPlayerDead = false;
+        private bool isPlayerDead = false;
         
         private Vector3 targetPosition;
 

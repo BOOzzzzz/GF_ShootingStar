@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-01 15:13:08.309
+// 生成时间：2024-11-11 16:53:42.183
 //------------------------------------------------------------
 
 namespace ShootingStar
@@ -120,5 +120,15 @@ namespace ShootingStar
         /// 敌人子弹7
         /// </summary>
         EnemyProjectile7Oclock = 4009,
+
+        /// <summary>
+        /// 玩家血条UI
+        /// </summary>
+        PlayerHealthBar = 5001,
+
+        /// <summary>
+        /// 敌人血条UI
+        /// </summary>
+        EnemyHealthBar = 5002,
     }
 }

@@ -9,11 +9,10 @@ namespace ShootingStar
     public class BulletEntityData : EntityBaseData
     {
         public BulletData bulletData;
-        
-        private Vector2 direction;
-        private int attack;
-        private float speed;
-        private int damage;
+
+        [SerializeField] private Vector2 direction;
+        [SerializeField] private float speed;
+        [SerializeField] private int damage;
 
         public int Damage
         {
@@ -25,12 +24,6 @@ namespace ShootingStar
         {
             get => direction;
             set => direction = value;
-        }
-
-        public int Attack
-        {
-            get => attack;
-            set => attack = value;
         }
 
         public float Speed
@@ -65,7 +58,6 @@ namespace ShootingStar
             bulletEntityData.Position = position;
             bulletEntityData.Rotation = rotation;
             bulletEntityData.Speed = bulletEntityData.bulletData.Speed;
-            bulletEntityData.Attack = bulletEntityData.bulletData.Attack;
             bulletEntityData.Direction = bulletEntityData.bulletData.Direction;
             bulletEntityData.Damage = bulletEntityData.bulletData.Damage;
             return bulletEntityData;

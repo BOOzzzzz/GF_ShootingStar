@@ -10,7 +10,7 @@ namespace ShootingStar
     {
         public WeaponData weaponData;
         [SerializeField] private int weaponPower;
-        private float attackInterval;
+        [SerializeField] private float attackInterval;
 
         public int WeaponPower
         {

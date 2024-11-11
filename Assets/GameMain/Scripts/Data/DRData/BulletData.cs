@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-07 10:27:56.020
+// 生成时间：2024-11-11 17:19:07.508
 //------------------------------------------------------------
 using GameFramework;
 using System;
@@ -25,12 +25,6 @@ namespace ShootingStar.Data
              get => drBullet.Id;
         }
         
-        /// <summary>
-        /// 获取子弹攻击力。
-        /// </summary>
-        public int Attack => drBullet.Attack;
-
-
         /// <summary>
         /// 获取子弹移动速度。
         /// </summary>

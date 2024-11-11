@@ -7,14 +7,11 @@ namespace ShootingStar
 {
     public class ProcedureChangeScene:ProcedureBase
     {
-        private bool isChangeSceneCompleted;
         
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
             Log.Debug("ProcedureChangeScene");
-
-            isChangeSceneCompleted = false;
 
             GameEntry.Event.Subscribe(LoadSceneSuccessEventArgs.EventId, OnLoadSceneSuccess);
             GameEntry.Event.Subscribe(LoadSceneFailureEventArgs.EventId, OnLoadSceneFailure);
@@ -68,8 +65,6 @@ namespace ShootingStar
             }
 
             Log.Info("Load scene '{0}' OK.", ne.SceneAssetName);
-
-            isChangeSceneCompleted = true;
         }
 
         private void OnLoadSceneFailure(object sender, GameEventArgs e)

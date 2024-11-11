@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-07 10:27:47.063
+// 生成时间：2024-11-11 17:18:51.409
 //------------------------------------------------------------
 
 using GameFramework;
@@ -34,15 +34,6 @@ namespace ShootingStar
             {
                 return m_Id;
             }
-        }
-
-        /// <summary>
-        /// 获取子弹攻击力。
-        /// </summary>
-        public int Attack
-        {
-            get;
-            private set;
         }
 
         /// <summary>
@@ -84,7 +75,6 @@ namespace ShootingStar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            Attack = int.Parse(columnStrings[index++]);
             Speed = float.Parse(columnStrings[index++]);
             Direction = DataTableExtension.ParseVector2(columnStrings[index++]);
             Damage = int.Parse(columnStrings[index++]);
@@ -100,7 +90,6 @@ namespace ShootingStar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    Attack = binaryReader.Read7BitEncodedInt32();
                     Speed = binaryReader.ReadSingle();
                     Direction = binaryReader.ReadVector2();
                     Damage = binaryReader.Read7BitEncodedInt32();
