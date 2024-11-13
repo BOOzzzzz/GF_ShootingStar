@@ -1,16 +1,18 @@
-﻿using GameFramework;
+﻿using System;
+using GameFramework;
 using UnityEngine;
-using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
     public abstract class FighterLogic : EntityBaseLogic
     {
-        [SerializeField] protected FighterEntityData fighterEntityData;
+        public FighterEntityData fighterEntityData;
 
         protected WeaponLogic weapon;
         protected WaitForSeconds fireInterval;
-        protected float angelRotate = 25;
+        protected readonly float angelRotate = 25;
+
+        public Action updateHealthBar;
 
         protected override void OnShow(object userData)
         {
@@ -22,6 +24,7 @@ namespace ShootingStar
         public virtual void TakeDamage(int damage)
         {
             fighterEntityData.Health -= damage;
+            updateHealthBar?.Invoke();
             if (fighterEntityData.Health <= 0)
             {
                 OnDead();

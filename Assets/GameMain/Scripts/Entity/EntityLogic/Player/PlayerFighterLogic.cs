@@ -73,7 +73,7 @@ namespace ShootingStar
         protected override void OnDead()
         {
             base.OnDead();
-            GameEntry.Event.Fire(this,PlayerDeadEventArgs.Create());
+            GameEntry.Event.Fire(this,GameOverEventArgs.Create());
         }
 
         #region Move

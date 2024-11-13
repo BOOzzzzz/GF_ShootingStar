@@ -35,12 +35,11 @@ namespace ShootingStar
         {
             base.OnShow(userData);
 
-            GameEntry.Event.Subscribe(PlayerDeadEventArgs.EventId, OnPlayerDead);
+            GameEntry.Event.Subscribe(GameOverEventArgs.EventId, OnPlayerDead);
 
             GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
             GameEntry.Entity.ShowEntity<EnemyWeaponLogic>(fighterEntityData.weaponEntityData);
-            GameEntry.Entity.ShowEntity<HealthBarLogic>(
-                HealthBarEntityData.Create(EnumEntity.EnemyHealthBar, transform));
+            GameEntry.Entity.ShowEntity<HealthBarLogic>(HealthBarEntityData.Create(EnumEntity.EnemyHealthBar,transform));
 
             targetPosition = RandomPosition();
             StartCoroutine(nameof(RandomMove));
@@ -51,7 +50,7 @@ namespace ShootingStar
         {
             base.OnHide(isShutdown, userData);
 
-            GameEntry.Event.Unsubscribe(PlayerDeadEventArgs.EventId, OnPlayerDead);
+            GameEntry.Event.Unsubscribe(GameOverEventArgs.EventId, OnPlayerDead);
             StopAllCoroutines();
         }
 

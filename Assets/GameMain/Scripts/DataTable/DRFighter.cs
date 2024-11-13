@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-11 17:18:51.400
+// 生成时间：2024-11-13 11:13:17.219
 //------------------------------------------------------------
 
 using GameFramework;
@@ -39,7 +39,16 @@ namespace ShootingStar
         /// <summary>
         /// 获取生命值。
         /// </summary>
-        public int Health
+        public float Health
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取最大生命值。
+        /// </summary>
+        public float MaxHealth
         {
             get;
             private set;
@@ -57,7 +66,8 @@ namespace ShootingStar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            Health = int.Parse(columnStrings[index++]);
+            Health = float.Parse(columnStrings[index++]);
+            MaxHealth = float.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -70,7 +80,8 @@ namespace ShootingStar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    Health = binaryReader.Read7BitEncodedInt32();
+                    Health = binaryReader.ReadSingle();
+                    MaxHealth = binaryReader.ReadSingle();
                 }
             }
 

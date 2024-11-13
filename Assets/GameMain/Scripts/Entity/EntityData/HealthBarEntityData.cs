@@ -6,7 +6,7 @@ namespace ShootingStar
 {
     public class HealthBarEntityData : EntityBaseData
     {
-        public Transform follow;
+        private Transform follow;
 
         public Transform Follow
         {
