@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using GameFramework.Event;
 using GameMain.Scripts.Event;
 using UnityEngine;
@@ -11,8 +12,11 @@ namespace ShootingStar
     {
         private HealthBarEntityData healthBarEntityData;
         private readonly Vector3 offset = new Vector3(0.15f, 0.6f, 0);
-        private Image fillImage;
+        private Image fillImageFront;
+        private Image fillImageBack;
         private FighterLogic fighterLogic;
+        private Coroutine fillCoroutine;
+        private WaitForSeconds delayFillTime;
 
         protected override void OnShow(object userData)
         {
@@ -24,10 +28,11 @@ namespace ShootingStar
                 Log.Warning("HealthBarEntityData is not initialized");
             }
 
-            fillImage = transform.GetChild(2).GetComponent<Image>();
+            fillImageBack = transform.GetChild(1).GetComponent<Image>();
+            fillImageFront = transform.GetChild(2).GetComponent<Image>();
             fighterLogic = healthBarEntityData?.Follow.GetComponent<FighterLogic>();
+            delayFillTime = new WaitForSeconds(1);
             if (fighterLogic != null) fighterLogic.updateHealthBar = UpdateHealthBar;
-            UpdateHealthBar();
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
@@ -42,14 +47,28 @@ namespace ShootingStar
             }
         }
 
-        protected override void OnHide(bool isShutdown, object userData)
-        {
-            base.OnHide(isShutdown, userData);
-        }
-
         private void UpdateHealthBar()
         {
-            fillImage.fillAmount = fighterLogic.fighterEntityData.Health / fighterLogic.fighterEntityData.MaxHealth;
+            if(fillCoroutine!=null)StopCoroutine(fillCoroutine);
+            fillImageFront.fillAmount = fighterLogic.fighterEntityData.Health / fighterLogic.fighterEntityData.MaxHealth;
+            fillCoroutine = StartCoroutine(SmoothUpdateHealthBar(fillImageFront.fillAmount, 0.3f));
+        }
+        
+        private IEnumerator SmoothUpdateHealthBar(float targetFillAmount, float duration)
+        {
+            yield return delayFillTime;
+            
+            float startTime = Time.time;
+            float startFillAmount = fillImageBack.fillAmount;
+
+            while (Time.time < startTime + duration)
+            {
+                float t = (Time.time - startTime) / duration;
+                fillImageBack.fillAmount = Mathf.Lerp(startFillAmount, targetFillAmount, t);
+                yield return null;
+            }
+
+            fillImageBack.fillAmount = targetFillAmount;
         }
     }
 }
