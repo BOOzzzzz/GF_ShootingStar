@@ -17,6 +17,7 @@ namespace ShootingStar
         private FighterLogic fighterLogic;
         private Coroutine fillCoroutine;
         private WaitForSeconds delayFillTime;
+        private float timer;
 
         protected override void OnShow(object userData)
         {
@@ -49,22 +50,24 @@ namespace ShootingStar
 
         private void UpdateHealthBar()
         {
-            if(fillCoroutine!=null)StopCoroutine(fillCoroutine);
-            fillImageFront.fillAmount = fighterLogic.fighterEntityData.Health / fighterLogic.fighterEntityData.MaxHealth;
-            fillCoroutine = StartCoroutine(SmoothUpdateHealthBar(fillImageFront.fillAmount, 0.3f));
+            if (fillCoroutine != null) StopCoroutine(fillCoroutine);
+            fillImageFront.fillAmount =
+                fighterLogic.fighterEntityData.Health / fighterLogic.fighterEntityData.MaxHealth;
+            fillCoroutine = StartCoroutine(SmoothUpdateHealthBar(fillImageFront.fillAmount, fillImageBack.fillAmount,
+                fillImageBack, 0.3f));
         }
-        
-        private IEnumerator SmoothUpdateHealthBar(float targetFillAmount, float duration)
+
+        private IEnumerator SmoothUpdateHealthBar(float targetFillAmount, float currentFillAmount, Image fillImage,
+            float duration)
         {
             yield return delayFillTime;
-            
-            float startTime = Time.time;
-            float startFillAmount = fillImageBack.fillAmount;
 
-            while (Time.time < startTime + duration)
+            timer = 0;
+
+            while (timer <= duration)
             {
-                float t = (Time.time - startTime) / duration;
-                fillImageBack.fillAmount = Mathf.Lerp(startFillAmount, targetFillAmount, t);
+                timer += Time.deltaTime;
+                fillImage.fillAmount = Mathf.Lerp(currentFillAmount, targetFillAmount, timer / duration);
                 yield return null;
             }
 
