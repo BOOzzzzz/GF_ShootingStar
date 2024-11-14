@@ -30,7 +30,7 @@ namespace __DATA_TABLE_NAME_SPACE__
         
         public __DATAS_TABLE__Data Get__DATAS_TABLE__Data(EnumEntity id)
         {
-            return dic__DATAS_TABLE__.TryGetValue((int)id, out __DATAS_TABLE__Data entityData)? entityData : null;
+            return dic__DATAS_TABLE__.GetValueOrDefault((int)id);
         }
     }
 }

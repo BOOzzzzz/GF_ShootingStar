@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-13 11:13:24.851
+// 生成时间：2024-11-14 15:11:39.884
 //------------------------------------------------------------
 
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace ShootingStar.Data
         
         public FighterData GetFighterData(EnumEntity id)
         {
-            return dicFighter.TryGetValue((int)id, out FighterData entityData)? entityData : null;
+            return dicFighter.GetValueOrDefault((int)id);
         }
     }
 }

@@ -15,6 +15,8 @@ namespace ShootingStar
 
         [SerializeField] private float health;
         [SerializeField] private float maxHealth;
+        [SerializeField] private float energy;
+        [SerializeField] private float maxEnergy;
 
         public float Health
         {
@@ -26,6 +28,18 @@ namespace ShootingStar
         {
             get => maxHealth;
             private set => maxHealth = value;
+        }
+        
+        public float Energy
+        {
+            get => energy;
+            set => energy = value;
+        }
+        
+        public float MaxEnergy
+        {
+            get => maxEnergy;
+            private set => maxEnergy = value;
         }
 
         public static FighterEntityData Create(EnumEntity entity, EnumEntity thruster, EnumEntity weapon)
@@ -58,6 +72,8 @@ namespace ShootingStar
             fighterEntityData.Rotation = rotation;
             fighterEntityData.Health = fighterEntityData.fighterData.Health;
             fighterEntityData.MaxHealth = fighterEntityData.fighterData.MaxHealth;
+            fighterEntityData.Energy = fighterEntityData.fighterData.Energy;
+            fighterEntityData.MaxEnergy = fighterEntityData.fighterData.MaxEnergy;
             fighterEntityData.thrusterEntityData = ThrusterEntityData.Create(thruster,
                 fighterEntityData.Id, new Vector3(0, 0, 0));
             fighterEntityData.weaponEntityData =

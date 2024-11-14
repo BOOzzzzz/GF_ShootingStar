@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-13 11:13:24.849
+// 生成时间：2024-11-14 15:11:39.882
 //------------------------------------------------------------
 
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace ShootingStar.Data
         
         public ThrusterData GetThrusterData(EnumEntity id)
         {
-            return dicThruster.TryGetValue((int)id, out ThrusterData entityData)? entityData : null;
+            return dicThruster.GetValueOrDefault((int)id);
         }
     }
 }

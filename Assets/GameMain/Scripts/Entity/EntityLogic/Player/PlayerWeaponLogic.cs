@@ -15,31 +15,37 @@ namespace ShootingStar
             topMuzzle = transform.Find("topMuzzle").transform;
             bottomMuzzle = transform.Find("bottomMuzzle").transform;
         }
-        
+
         public override void Attack()
         {
             switch (weaponData.WeaponPower)
             {
                 case 1:
-                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1,
+                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(
+                        weaponData.IsOverDrive ? EnumEntity.PlayerProjectile1 : EnumEntity.PlayerProjectileOverDrive,
                         middleMuzzle.position));
                     break;
                 case 2:
 
-                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1,
+                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(
+                        weaponData.IsOverDrive ? EnumEntity.PlayerProjectile1 : EnumEntity.PlayerProjectileOverDrive,
                         middleMuzzle.position));
-                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1,
+                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(
+                        weaponData.IsOverDrive ? EnumEntity.PlayerProjectile1 : EnumEntity.PlayerProjectileOverDrive,
                         topMuzzle.position));
                     break;
                 case 3:
 
-                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile1,
+                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(
+                        weaponData.IsOverDrive ? EnumEntity.PlayerProjectile1 : EnumEntity.PlayerProjectileOverDrive,
                         middleMuzzle.position));
 
-                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile2,
+                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(
+                        weaponData.IsOverDrive ? EnumEntity.PlayerProjectile2 : EnumEntity.PlayerProjectileOverDrive,
                         topMuzzle.position));
 
-                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(EnumEntity.PlayerProjectile3,
+                    GameEntry.Entity.ShowEntity<PlayerBulletLogic>(BulletEntityData.Create(
+                        weaponData.IsOverDrive ? EnumEntity.PlayerProjectile3 : EnumEntity.PlayerProjectileOverDrive,
                         bottomMuzzle.position));
                     break;
             }

@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-13 11:13:20.656
+// 生成时间：2024-11-14 15:11:34.869
 //------------------------------------------------------------
 using GameFramework;
 using System;
@@ -35,6 +35,18 @@ namespace ShootingStar.Data
         /// 获取最大生命值。
         /// </summary>
         public float MaxHealth => drFighter.MaxHealth;
+
+
+        /// <summary>
+        /// 获取能量值。
+        /// </summary>
+        public float Energy => drFighter.Energy;
+
+
+        /// <summary>
+        /// 获取最大能量值。
+        /// </summary>
+        public float MaxEnergy => drFighter.MaxEnergy;
 
     }
 }

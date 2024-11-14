@@ -37,6 +37,7 @@ namespace ShootingStar
             PlayerInputManager.Instance.onStopMove += PlayerStopMove;
             PlayerInputManager.Instance.onFire += PlayerFire;
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
+            PlayerInputManager.Instance.onOverDrive += PlayerOverDrive;
             GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
             GameEntry.Entity.ShowEntity<PlayerWeaponLogic>(fighterEntityData.weaponEntityData);
             GameEntry.Entity.ShowEntity<HealthBarLogic>(HealthBarEntityData.Create(EnumEntity.PlayerHealthBar,transform));
@@ -48,6 +49,7 @@ namespace ShootingStar
             PlayerInputManager.Instance.onStopMove -= PlayerStopMove;
             PlayerInputManager.Instance.onFire -= PlayerFire;
             PlayerInputManager.Instance.onStopFire -= PlayerStopFire;
+            PlayerInputManager.Instance.onOverDrive -= PlayerOverDrive;
             PlayerInputManager.Instance.OnDisable();
             base.OnHide(isShutdown, userData);
         }
@@ -134,6 +136,15 @@ namespace ShootingStar
             }
         }
         
+        #endregion
+
+        #region OverDrive
+
+        public void PlayerOverDrive()
+        {
+            
+        }
+
         #endregion
     }
 }

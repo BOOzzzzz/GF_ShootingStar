@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-13 11:13:17.222
+// 生成时间：2024-11-14 15:09:13.533
 //------------------------------------------------------------
 
 using GameFramework;
@@ -54,6 +54,15 @@ namespace ShootingStar
             private set;
         }
 
+        /// <summary>
+        /// 获取是否超速。
+        /// </summary>
+        public bool IsOverDrive
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -68,6 +77,7 @@ namespace ShootingStar
             index++;
             WeaponPower = int.Parse(columnStrings[index++]);
             AttackInterval = float.Parse(columnStrings[index++]);
+            IsOverDrive = bool.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -82,6 +92,7 @@ namespace ShootingStar
                     m_Id = binaryReader.Read7BitEncodedInt32();
                     WeaponPower = binaryReader.Read7BitEncodedInt32();
                     AttackInterval = binaryReader.ReadSingle();
+                    IsOverDrive = binaryReader.ReadBoolean();
                 }
             }
 

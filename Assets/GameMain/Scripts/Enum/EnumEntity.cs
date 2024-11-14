@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-11 16:53:42.183
+// 生成时间：2024-11-14 14:58:00.637
 //------------------------------------------------------------
 
 namespace ShootingStar
@@ -87,39 +87,44 @@ namespace ShootingStar
         PlayerProjectile3 = 4002,
 
         /// <summary>
+        /// 玩家追踪子弹
+        /// </summary>
+        PlayerProjectileOverDrive = 4003,
+
+        /// <summary>
         /// 敌人子弹1
         /// </summary>
-        EnemyProjectileBasic = 4003,
+        EnemyProjectileBasic = 4004,
 
         /// <summary>
         /// 敌人子弹2
         /// </summary>
-        EnemyProjectileAiming = 4004,
+        EnemyProjectileAiming = 4005,
 
         /// <summary>
         /// 敌人子弹3
         /// </summary>
-        EnemyProjectile8Oclock = 4005,
+        EnemyProjectile8Oclock = 4006,
 
         /// <summary>
         /// 敌人子弹4
         /// </summary>
-        EnemyProjectile9Oclock = 4006,
+        EnemyProjectile9Oclock = 4007,
 
         /// <summary>
         /// 敌人子弹5
         /// </summary>
-        EnemyProjectile10Oclock = 4007,
+        EnemyProjectile10Oclock = 4008,
 
         /// <summary>
         /// 敌人子弹6
         /// </summary>
-        EnemyProjectile11Oclock = 4008,
+        EnemyProjectile11Oclock = 4009,
 
         /// <summary>
         /// 敌人子弹7
         /// </summary>
-        EnemyProjectile7Oclock = 4009,
+        EnemyProjectile7Oclock = 4010,
 
         /// <summary>
         /// 玩家血条UI

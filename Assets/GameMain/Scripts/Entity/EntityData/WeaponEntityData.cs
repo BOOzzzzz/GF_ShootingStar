@@ -11,6 +11,7 @@ namespace ShootingStar
         public WeaponData weaponData;
         [SerializeField] private int weaponPower;
         [SerializeField] private float attackInterval;
+        [SerializeField] private bool isOverDrive;
 
         public int WeaponPower
         {
@@ -22,6 +23,12 @@ namespace ShootingStar
         {
             get => attackInterval;
             set => attackInterval = value;
+        }
+        
+        public bool IsOverDrive
+        {
+            get => isOverDrive;
+            set => isOverDrive = value;
         }
 
         public static WeaponEntityData Create(EnumEntity id, int ownerId)
@@ -47,6 +54,7 @@ namespace ShootingStar
             weaponEntityData.OwnerId = ownerId;
             weaponEntityData.WeaponPower = weaponEntityData.weaponData.WeaponPower;
             weaponEntityData.AttackInterval = weaponEntityData.weaponData.AttackInterval;
+            weaponEntityData.IsOverDrive = weaponEntityData.weaponData.IsOverDrive;
             return weaponEntityData;
         }
     }

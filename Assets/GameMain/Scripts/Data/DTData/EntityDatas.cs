@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-13 11:13:24.846
+// 生成时间：2024-11-14 15:11:39.876
 //------------------------------------------------------------
 
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace ShootingStar.Data
         
         public EntityData GetEntityData(EnumEntity id)
         {
-            return dicEntity.TryGetValue((int)id, out EntityData entityData)? entityData : null;
+            return dicEntity.GetValueOrDefault((int)id);
         }
     }
 }
