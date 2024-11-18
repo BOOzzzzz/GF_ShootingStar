@@ -1,4 +1,5 @@
 using System.Collections;
+using GameFramework;
 using GameFramework.Event;
 using GameMain.Scripts.Event;
 using UnityEngine;
@@ -28,6 +29,12 @@ namespace ShootingStar
 
         private void OnPlayerDead(object sender, GameEventArgs e)
         {
+            GameOverEventArgs args = e as GameOverEventArgs;
+            if (args == null)
+            {
+                return;
+            }
+            
             isPlayerDead = true;
         }
 
@@ -52,6 +59,12 @@ namespace ShootingStar
 
             GameEntry.Event.Unsubscribe(GameOverEventArgs.EventId, OnPlayerDead);
             StopAllCoroutines();
+        }
+
+        protected override void OnDead()
+        {
+            GameEntry.Event.Fire(this,EnemyDieEventArgs.Create(this));
+            ReferencePool.Release(fighterEntityData);
         }
 
         private IEnumerator RandomFire()

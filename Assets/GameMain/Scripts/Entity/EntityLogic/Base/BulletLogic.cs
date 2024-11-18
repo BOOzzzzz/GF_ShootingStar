@@ -38,7 +38,7 @@ namespace ShootingStar
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
             
-            Move(elapseSeconds);
+            Move();
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -48,9 +48,9 @@ namespace ShootingStar
             StopAllCoroutines();
         }
 
-        protected virtual void Move(float elapseSeconds)
+        protected virtual void Move()
         {
-            transform.Translate(bulletData.Direction * bulletData.Speed * elapseSeconds);
+            transform.Translate(bulletData.Direction * bulletData.Speed * Time.deltaTime);
         }
 
         private IEnumerator AutoDisabled()

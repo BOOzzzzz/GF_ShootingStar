@@ -8,7 +8,8 @@ namespace ShootingStar
     public class ProcedureGame : ProcedureBase
     {
         private Dictionary<GameMode,GameBase> games=new Dictionary<GameMode,GameBase>();
-        private GameBase currentGame;
+        
+        public GameBase currentGame;
 
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
@@ -20,15 +21,21 @@ namespace ShootingStar
         {
             base.OnEnter(procedureOwner);
             Log.Debug("ProcedureGame");
-            
             currentGame = games[GameMode.Survive];
             currentGame.Initialize();
+            currentGame.OnEnter();
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
             currentGame.Update(elapseSeconds, realElapseSeconds);
+        }
+
+        protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
+        {
+            base.OnLeave(procedureOwner, isShutdown);
+            currentGame.OnLeave();
         }
     }
 }

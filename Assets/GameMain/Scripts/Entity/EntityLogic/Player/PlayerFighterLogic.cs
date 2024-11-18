@@ -142,7 +142,8 @@ namespace ShootingStar
 
         public void PlayerOverDrive()
         {
-            
+            Log.Debug("Player OverDrive");
+            fighterEntityData.weaponEntityData.IsOverDrive = true;
         }
 
         #endregion
