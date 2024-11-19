@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-14 15:11:34.871
+// 生成时间：2024-11-19 14:31:34.673
 //------------------------------------------------------------
 using GameFramework;
 using System;
@@ -38,7 +38,7 @@ namespace ShootingStar.Data
 
 
         /// <summary>
-        /// 获取是否超速。
+        /// 获取是否过载。
         /// </summary>
         public bool IsOverDrive => drWeapon.IsOverDrive;
 

@@ -10,9 +10,9 @@ namespace ShootingStar
     {
         public BulletData bulletData;
 
-        [SerializeField] private Vector2 direction;
         [SerializeField] private float speed;
         [SerializeField] private int damage;
+        [SerializeField] private bool isOverDrive;
 
         public int Damage
         {
@@ -20,16 +20,16 @@ namespace ShootingStar
             set => damage = value;
         }
 
-        public Vector2 Direction
-        {
-            get => direction;
-            set => direction = value;
-        }
-
         public float Speed
         {
             get => speed;
             set => speed = value;
+        }
+        
+        public bool IsOverDrive
+        {
+            get => isOverDrive;
+            set => isOverDrive = value;
         }
 
         public static BulletEntityData Create(EnumEntity id)
@@ -58,8 +58,8 @@ namespace ShootingStar
             bulletEntityData.Position = position;
             bulletEntityData.Rotation = rotation;
             bulletEntityData.Speed = bulletEntityData.bulletData.Speed;
-            bulletEntityData.Direction = bulletEntityData.bulletData.Direction;
             bulletEntityData.Damage = bulletEntityData.bulletData.Damage;
+            bulletEntityData.IsOverDrive = bulletEntityData.bulletData.IsOverDirve;
             return bulletEntityData;
         }
     }

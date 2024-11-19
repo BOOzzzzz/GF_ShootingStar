@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using GameFramework;
-using GameFramework.Event;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -12,7 +10,7 @@ namespace ShootingStar
         [SerializeField]
         protected BulletEntityData bulletData;
 
-        private WaitForSeconds disabledTime = new WaitForSeconds(4);
+        private readonly WaitForSeconds disabledTime = new (4);
 
         protected override void OnShow(object userData)
         {
@@ -25,11 +23,6 @@ namespace ShootingStar
             }
         
             InitData(bulletData);
-            
-            if (bulletData.Direction != Vector2.right)
-            { 
-                transform.GetChild(0).rotation = Quaternion.FromToRotation(Vector2.right, bulletData.Direction);
-            }
 
             StartCoroutine(nameof(AutoDisabled));
         }
@@ -48,10 +41,7 @@ namespace ShootingStar
             StopAllCoroutines();
         }
 
-        protected virtual void Move()
-        {
-            transform.Translate(bulletData.Direction * bulletData.Speed * Time.deltaTime);
-        }
+        protected abstract void Move();
 
         private IEnumerator AutoDisabled()
         {

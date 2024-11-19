@@ -20,23 +20,23 @@ namespace ShootingStar
 
         public override void Attack()
         {
-            switch (enemyWeaponEntityData.entityData.ID)
+            switch (enemyWeaponEntityData.OwnerEntityId)
             {
-                case 3001:
+                case 1001:
                     GameEntry.Entity.ShowEntity<EnemyBulletLogic>(
-                        BulletEntityData.Create(EnumEntity.EnemyProjectileBasic, CachedTransform.position));
+                        BulletEntityData.Create(EnumEntity.EnemyProjectileBasic, middleMuzzle.position));
                     break;
-                case 3002:
+                case 1002:
                     GameEntry.Entity.ShowEntity<EnemyAimBulletLogic>(
-                        BulletEntityData.Create(EnumEntity.EnemyProjectileAiming, CachedTransform.position));
+                        BulletEntityData.Create(EnumEntity.EnemyProjectileAiming, middleMuzzle.position));
                     break;
-                case 3003:
+                case 1003:
                     GameEntry.Entity.ShowEntity<EnemyBulletLogic>(
-                        BulletEntityData.Create(EnumEntity.EnemyProjectile10Oclock, CachedTransform.position));
+                        BulletEntityData.Create(EnumEntity.EnemyProjectile, middleMuzzle.position,middleMuzzle.rotation));
                     GameEntry.Entity.ShowEntity<EnemyBulletLogic>(
-                        BulletEntityData.Create(EnumEntity.EnemyProjectile8Oclock, CachedTransform.position));
+                        BulletEntityData.Create(EnumEntity.EnemyProjectile, bottomMuzzle.position,bottomMuzzle.rotation));
                     GameEntry.Entity.ShowEntity<EnemyBulletLogic>(
-                        BulletEntityData.Create(EnumEntity.EnemyProjectile9Oclock, CachedTransform.position));
+                        BulletEntityData.Create(EnumEntity.EnemyProjectile, topMuzzle.position,topMuzzle.rotation));
                     break;
             }
         }

@@ -198,6 +198,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""OverDrive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59f990e2-7b38-48f7-8ae6-549ac8bf1feb"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OverDrive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }

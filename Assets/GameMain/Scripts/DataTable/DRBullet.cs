@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-14 15:09:13.540
+// 生成时间：2024-11-19 14:31:25.780
 //------------------------------------------------------------
 
 using GameFramework;
@@ -46,18 +46,18 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取子弹方向。
+        /// 获取子弹伤害。
         /// </summary>
-        public Vector2 Direction
+        public int Damage
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取子弹伤害。
+        /// 获取是否是过载子弹。
         /// </summary>
-        public int Damage
+        public bool IsOverDirve
         {
             get;
             private set;
@@ -76,8 +76,8 @@ namespace ShootingStar
             m_Id = int.Parse(columnStrings[index++]);
             index++;
             Speed = float.Parse(columnStrings[index++]);
-            Direction = DataTableExtension.ParseVector2(columnStrings[index++]);
             Damage = int.Parse(columnStrings[index++]);
+            IsOverDirve = bool.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -91,8 +91,8 @@ namespace ShootingStar
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
                     Speed = binaryReader.ReadSingle();
-                    Direction = binaryReader.ReadVector2();
                     Damage = binaryReader.Read7BitEncodedInt32();
+                    IsOverDirve = binaryReader.ReadBoolean();
                 }
             }
 

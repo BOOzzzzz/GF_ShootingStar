@@ -23,19 +23,19 @@ namespace ShootingStar
             get => health;
             set => health = value;
         }
-        
+
         public float MaxHealth
         {
             get => maxHealth;
             private set => maxHealth = value;
         }
-        
+
         public float Energy
         {
             get => energy;
             set => energy = value;
         }
-        
+
         public float MaxEnergy
         {
             get => maxEnergy;
@@ -77,7 +77,7 @@ namespace ShootingStar
             fighterEntityData.thrusterEntityData = ThrusterEntityData.Create(thruster,
                 fighterEntityData.Id, new Vector3(0, 0, 0));
             fighterEntityData.weaponEntityData =
-                WeaponEntityData.Create(weapon, fighterEntityData.Id, new Vector3(0, 0, 0));
+                WeaponEntityData.Create(weapon, fighterEntityData.Id,(int)entity);
 
             return fighterEntityData;
         }

@@ -10,7 +10,8 @@ namespace ShootingStar
 {
     public class EnemyFighterLogic : FighterLogic
     {
-        private bool isPlayerDead = false;
+        private bool isPlayerDead;
+        private bool isDead;
 
         private Vector3 targetPosition;
 
@@ -27,17 +28,6 @@ namespace ShootingStar
             InitData(fighterEntityData);
         }
 
-        private void OnPlayerDead(object sender, GameEventArgs e)
-        {
-            GameOverEventArgs args = e as GameOverEventArgs;
-            if (args == null)
-            {
-                return;
-            }
-            
-            isPlayerDead = true;
-        }
-
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
@@ -51,6 +41,8 @@ namespace ShootingStar
             targetPosition = RandomPosition();
             StartCoroutine(nameof(RandomMove));
             StartCoroutine(nameof(RandomFire));
+
+            isDead = false;
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -63,8 +55,24 @@ namespace ShootingStar
 
         protected override void OnDead()
         {
+            if (isDead)
+            {
+                return;
+            }
+            isDead = true;
             GameEntry.Event.Fire(this,EnemyDieEventArgs.Create(this));
             ReferencePool.Release(fighterEntityData);
+        }
+
+        private void OnPlayerDead(object sender, GameEventArgs e)
+        {
+            GameOverEventArgs args = e as GameOverEventArgs;
+            if (args == null)
+            {
+                return;
+            }
+            
+            isPlayerDead = true;
         }
 
         private IEnumerator RandomFire()

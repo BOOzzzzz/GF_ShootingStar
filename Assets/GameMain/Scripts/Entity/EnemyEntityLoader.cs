@@ -37,7 +37,7 @@ namespace ShootingStar
             GameEntry.Entity.HideEntity(entity);
             enemyEntities.Remove(entity.Entity.gameObject);
         }
-        
+
         public GameObject EnemyTarget()
         {
             if (enemyEntities.Count > 0)
@@ -49,7 +49,7 @@ namespace ShootingStar
                 return null;
             }
         }
-        
+
         public void SpawnEnemies(int count)
         {
             for (int i = 0; i < count; i++)
@@ -61,11 +61,8 @@ namespace ShootingStar
         public void RandomSpawnEnemy()
         {
             ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(
-                EnumExtension.RandomRange(EnumEntity.Enemy01, EnumEntity.Enemy03),
-                EnumExtension.RandomRange(EnumEntity.EnemyThruster01, EnumEntity.EnemyThruster03),
-                EnumExtension.RandomRange(EnumEntity.EnemyWeapon01, EnumEntity.EnemyWeapon03),
-                new Vector3(10, Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance),
-                    0)));
+                EnumExtension.RandomRange(EnumEntity.Enemy01, EnumEntity.Enemy03), EnumEntity.EnemyThruster, EnumEntity.EnemyWeapon,
+                new Vector3(10, Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance), 0)));
         }
 
         private void OnShowEntityFail(object sender, GameEventArgs e)

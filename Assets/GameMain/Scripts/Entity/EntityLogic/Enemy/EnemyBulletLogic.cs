@@ -1,6 +1,5 @@
 using GameFramework;
 using UnityEngine;
-using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
@@ -8,12 +7,17 @@ namespace ShootingStar
     {
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.TryGetComponent<PlayerFighterLogic>(out PlayerFighterLogic playerFighterLogic))
+            if (other.gameObject.TryGetComponent(out PlayerFighterLogic playerFighterLogic))
             {
                 playerFighterLogic.TakeDamage(bulletData.Damage);
                 GameEntry.Entity.HideEntity(this);
                 ReferencePool.Release(bulletData);
             }
+        }
+
+        protected override void Move()
+        {
+            transform.Translate(-CachedTransform.right * bulletData.Speed * Time.deltaTime);
         }
     }
 }

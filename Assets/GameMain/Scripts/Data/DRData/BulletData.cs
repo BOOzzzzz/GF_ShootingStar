@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-14 15:11:34.872
+// 生成时间：2024-11-19 14:31:34.675
 //------------------------------------------------------------
 using GameFramework;
 using System;
@@ -32,15 +32,15 @@ namespace ShootingStar.Data
 
 
         /// <summary>
-        /// 获取子弹方向。
-        /// </summary>
-        public Vector2 Direction => drBullet.Direction;
-
-
-        /// <summary>
         /// 获取子弹伤害。
         /// </summary>
         public int Damage => drBullet.Damage;
+
+
+        /// <summary>
+        /// 获取是否是过载子弹。
+        /// </summary>
+        public bool IsOverDirve => drBullet.IsOverDirve;
 
     }
 }

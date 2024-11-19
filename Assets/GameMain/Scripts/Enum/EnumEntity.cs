@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-14 14:58:00.637
+// 生成时间：2024-11-19 16:33:23.025
 //------------------------------------------------------------
 
 namespace ShootingStar
@@ -37,94 +37,44 @@ namespace ShootingStar
         PlayerThruster = 2000,
 
         /// <summary>
-        /// 敌人推进器01
+        /// 敌人推进器
         /// </summary>
-        EnemyThruster01 = 2001,
+        EnemyThruster = 2001,
 
         /// <summary>
-        /// 敌人推进器02
-        /// </summary>
-        EnemyThruster02 = 2002,
-
-        /// <summary>
-        /// 敌人推进器03
-        /// </summary>
-        EnemyThruster03 = 2003,
-
-        /// <summary>
-        /// 玩家子弹武器
+        /// 玩家武器
         /// </summary>
         PlayerWeapon = 3000,
 
         /// <summary>
-        /// 敌人子弹武器01
+        /// 敌人武器
         /// </summary>
-        EnemyWeapon01 = 3001,
+        EnemyWeapon = 3001,
 
         /// <summary>
-        /// 敌人子弹武器02
+        /// 玩家子弹
         /// </summary>
-        EnemyWeapon02 = 3002,
-
-        /// <summary>
-        /// 敌人子弹武器03
-        /// </summary>
-        EnemyWeapon03 = 3003,
-
-        /// <summary>
-        /// 玩家子弹1
-        /// </summary>
-        PlayerProjectile1 = 4000,
-
-        /// <summary>
-        /// 玩家子弹2
-        /// </summary>
-        PlayerProjectile2 = 4001,
-
-        /// <summary>
-        /// 玩家子弹3
-        /// </summary>
-        PlayerProjectile3 = 4002,
+        PlayerProjectile = 4000,
 
         /// <summary>
         /// 玩家追踪子弹
         /// </summary>
-        PlayerProjectileOverDrive = 4003,
+        PlayerProjectileOverDrive = 4001,
 
         /// <summary>
-        /// 敌人子弹1
+        /// 敌人基础子弹
         /// </summary>
-        EnemyProjectileBasic = 4004,
+        EnemyProjectileBasic = 4002,
 
         /// <summary>
-        /// 敌人子弹2
+        /// 敌人瞄准子弹
         /// </summary>
-        EnemyProjectileAiming = 4005,
+        EnemyProjectileAiming = 4003,
 
         /// <summary>
-        /// 敌人子弹3
+        /// 敌人分裂子弹
         /// </summary>
-        EnemyProjectile8Oclock = 4006,
-
-        /// <summary>
-        /// 敌人子弹4
-        /// </summary>
-        EnemyProjectile9Oclock = 4007,
-
-        /// <summary>
-        /// 敌人子弹5
-        /// </summary>
-        EnemyProjectile10Oclock = 4008,
-
-        /// <summary>
-        /// 敌人子弹6
-        /// </summary>
-        EnemyProjectile11Oclock = 4009,
-
-        /// <summary>
-        /// 敌人子弹7
-        /// </summary>
-        EnemyProjectile7Oclock = 4010,
+        EnemyProjectile = 4004,
 
         /// <summary>
         /// 玩家血条UI
