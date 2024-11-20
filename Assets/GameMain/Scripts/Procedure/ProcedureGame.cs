@@ -24,6 +24,8 @@ namespace ShootingStar
             currentGame = games[GameMode.Survive];
             currentGame.Initialize();
             currentGame.OnEnter();
+            
+            GameEntry.UI.OpenUIForm(AssetUtility.GetUIFormAsset("HUD"), "Default",this);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)

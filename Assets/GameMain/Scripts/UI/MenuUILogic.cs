@@ -3,15 +3,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityGameFramework.Runtime;
 
-namespace GameMain.Scripts.UI
+namespace ShootingStar
 {
-    public class MenuUILogic : UIFormLogic
+    public class MenuUILogic : UIFormBaseLogic
     {
         public Button btnStart;
         public Button btnOption;
         public Button btnQuit;
 
-        private Canvas canvas;
         private ProcedureMenu procedureMenu;
 
         protected override void OnInit(object userData)
@@ -22,8 +21,6 @@ namespace GameMain.Scripts.UI
             btnOption.onClick.AddListener(OpenOption);
             btnQuit.onClick.AddListener(QuitGame);
 
-            canvas = GetComponent<Canvas>();
-            canvas.worldCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         }
 
         protected override void OnOpen(object userData)
