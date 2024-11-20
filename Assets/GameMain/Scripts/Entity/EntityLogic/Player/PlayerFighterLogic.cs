@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using GameFramework.Event;
 using GameMain.Scripts.Event;
 using UnityEngine;
 using UnityGameFramework.Runtime;
@@ -14,6 +16,7 @@ namespace ShootingStar
         private float targetSpeed;
         private float speedChangeVelocity; // 用于 SmoothDamp
         private float changeTime = 0.2f;
+        private WaitForSeconds AttenuationInterval = new(0.15f);
 
         protected override void OnInit(object userData)
         {
@@ -32,15 +35,20 @@ namespace ShootingStar
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
+
             PlayerInputManager.Instance.OnEnable();
             PlayerInputManager.Instance.onMove += PlayerMove;
             PlayerInputManager.Instance.onStopMove += PlayerStopMove;
             PlayerInputManager.Instance.onFire += PlayerFire;
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
             PlayerInputManager.Instance.onOverDrive += PlayerOverDrive;
+
             GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
             GameEntry.Entity.ShowEntity<PlayerWeaponLogic>(fighterEntityData.weaponEntityData);
-            GameEntry.Entity.ShowEntity<HealthBarLogic>(HealthBarEntityData.Create(EnumEntity.PlayerHealthBar,transform));
+            GameEntry.Entity.ShowEntity<HealthBarLogic>(HealthBarEntityData.Create(EnumEntity.PlayerHealthBar,
+                transform));
+
+            GameEntry.Event.Subscribe(AddEnergyEventArgs.EventId, AddEnergyValue);
         }
 
         protected override void OnHide(bool isShutdown, object userData)
@@ -51,6 +59,9 @@ namespace ShootingStar
             PlayerInputManager.Instance.onStopFire -= PlayerStopFire;
             PlayerInputManager.Instance.onOverDrive -= PlayerOverDrive;
             PlayerInputManager.Instance.OnDisable();
+            
+            GameEntry.Event.Unsubscribe(AddEnergyEventArgs.EventId, AddEnergyValue);
+            
             base.OnHide(isShutdown, userData);
         }
 
@@ -75,7 +86,7 @@ namespace ShootingStar
         protected override void OnDead()
         {
             base.OnDead();
-            GameEntry.Event.Fire(this,GameOverEventArgs.Create());
+            GameEntry.Event.Fire(this, GameOverEventArgs.Create());
         }
 
         #region Move
@@ -114,19 +125,19 @@ namespace ShootingStar
 
         #endregion
 
-        
+
         #region Fire
-        
+
         private void PlayerFire()
         {
             StartCoroutine(nameof(Fire));
         }
-        
+
         private void PlayerStopFire()
         {
             StopCoroutine(nameof(Fire));
         }
-        
+
         private IEnumerator Fire()
         {
             while (true)
@@ -135,15 +146,41 @@ namespace ShootingStar
                 yield return fireInterval;
             }
         }
-        
+
         #endregion
 
         #region OverDrive
 
-        public void PlayerOverDrive()
+        private void PlayerOverDrive()
         {
-            Log.Debug("Player OverDrive");
+            if (Math.Abs(fighterEntityData.Energy - fighterEntityData.MaxEnergy) < 0.1f)
+            {
+                Log.Debug("Player OverDrive");
+                StartCoroutine(EnergyBurstDecayCoroutine());
+            }
+        }
+
+        private IEnumerator EnergyBurstDecayCoroutine()
+        {
             fighterEntityData.weaponEntityData.IsOverDrive = true;
+            while (fighterEntityData.Energy > 0.1f)
+            {
+                fighterEntityData.Energy = Mathf.Clamp(fighterEntityData.Energy -= 1, 0, fighterEntityData.MaxEnergy);
+                yield return AttenuationInterval;
+            }
+
+            fighterEntityData.weaponEntityData.IsOverDrive = false;
+        }
+
+        private void AddEnergyValue(object sender, GameEventArgs e)
+        {
+            AddEnergyEventArgs ne = e as AddEnergyEventArgs;
+            if (ne == null)
+            {
+                return;
+            }
+
+            fighterEntityData.Energy = Mathf.Clamp(fighterEntityData.Energy + ne.EnergyValue,0,fighterEntityData.MaxEnergy);
         }
 
         #endregion

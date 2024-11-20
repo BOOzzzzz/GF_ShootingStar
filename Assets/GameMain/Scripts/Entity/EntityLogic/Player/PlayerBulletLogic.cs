@@ -1,5 +1,6 @@
 using System;
 using GameFramework;
+using GameMain.Scripts.Event;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using Random = UnityEngine.Random;
@@ -16,15 +17,15 @@ namespace ShootingStar
         private float ballisticAngle;
         private Vector3 targetDirection;
 
-        protected GameObject target;
-        protected EnemyEntityLoader enemyEntityLoader;
+        private GameObject target;
+        private EnemyEntityLoader enemyEntityLoader;
 
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
             trail = GetComponentInChildren<TrailRenderer>();
-            ProcedureGame currentProcedure = GameEntry.Procedure.CurrentProcedure as ProcedureGame;
-            enemyEntityLoader = currentProcedure.currentGame.enemyEntityLoader;
+            var currentProcedure = GameEntry.Procedure.CurrentProcedure as ProcedureGame;
+            enemyEntityLoader = currentProcedure!.currentGame.enemyEntityLoader;
         }
 
         protected override void OnShow(object userData)
@@ -84,6 +85,11 @@ namespace ShootingStar
 
             if (other.gameObject.TryGetComponent<EnemyFighterLogic>(out EnemyFighterLogic enemyFighterLogic))
             {
+                if (!bulletData.IsOverDrive)
+                {
+                    GameEntry.Event.Fire(AddEnergyEventArgs.EventId,AddEnergyEventArgs.Create(10));
+                }
+                
                 isColliding = true;
                 enemyFighterLogic.TakeDamage(bulletData.Damage);
                 GameEntry.Entity.HideEntity(this);
