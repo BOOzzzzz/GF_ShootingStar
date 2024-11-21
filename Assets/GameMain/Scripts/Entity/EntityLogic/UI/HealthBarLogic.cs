@@ -33,7 +33,7 @@ namespace ShootingStar
             fillImageFront = transform.GetChild(2).GetComponent<Image>();
             fighterLogic = healthBarEntityData?.Follow.GetComponent<FighterLogic>();
             delayFillTime = new WaitForSeconds(1);
-            if (fighterLogic != null) fighterLogic.updateHealthBar = UpdateHealthBar;
+            if (fighterLogic != null) fighterLogic.updateHealthBar += UpdateHealthBar;
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
@@ -48,13 +48,18 @@ namespace ShootingStar
             }
         }
 
-        private void UpdateHealthBar()
+        private void UpdateHealthBar(bool isRecover)
         {
             if (fillCoroutine != null) StopCoroutine(fillCoroutine);
-            fillImageFront.fillAmount =
+
+            Image directFillImage = isRecover ? fillImageBack : fillImageFront;
+            Image bufferFillImage = isRecover ? fillImageFront : fillImageBack;
+
+            directFillImage.fillAmount =
                 fighterLogic.fighterEntityData.Health / fighterLogic.fighterEntityData.MaxHealth;
-            fillCoroutine = StartCoroutine(SmoothUpdateHealthBar(fillImageFront.fillAmount, fillImageBack.fillAmount,
-                fillImageBack, 0.3f));
+            
+            fillCoroutine = StartCoroutine(SmoothUpdateHealthBar(directFillImage.fillAmount, bufferFillImage.fillAmount,
+                bufferFillImage, 0.3f));
         }
 
         private IEnumerator SmoothUpdateHealthBar(float targetFillAmount, float currentFillAmount, Image fillImage,
@@ -71,7 +76,7 @@ namespace ShootingStar
                 yield return null;
             }
 
-            fillImageBack.fillAmount = targetFillAmount;
+            fillImage.fillAmount = targetFillAmount;
         }
     }
 }

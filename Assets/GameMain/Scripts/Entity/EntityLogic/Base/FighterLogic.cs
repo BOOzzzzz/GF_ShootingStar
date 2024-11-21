@@ -12,7 +12,8 @@ namespace ShootingStar
         protected WaitForSeconds fireInterval;
         protected readonly float angelRotate = 25;
 
-        public Action updateHealthBar;
+        public Action<bool> updateHealthBar;
+        public Action<bool> updateEnergyBar;
 
         protected override void OnShow(object userData)
         {
@@ -24,7 +25,7 @@ namespace ShootingStar
         public virtual void TakeDamage(int damage)
         {
             fighterEntityData.Health -= damage;
-            updateHealthBar?.Invoke();
+            updateHealthBar?.Invoke(false);
             if (fighterEntityData.Health <= 0)
             {
                 OnDead();

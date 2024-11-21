@@ -16,7 +16,7 @@ namespace ShootingStar
         private float targetSpeed;
         private float speedChangeVelocity; // 用于 SmoothDamp
         private float changeTime = 0.2f;
-        private WaitForSeconds AttenuationInterval = new(0.15f);
+        private WaitForSeconds attenuationInterval = new(0.15f);
 
         protected override void OnInit(object userData)
         {
@@ -64,7 +64,6 @@ namespace ShootingStar
             
             base.OnHide(isShutdown, userData);
         }
-
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
@@ -166,7 +165,8 @@ namespace ShootingStar
             while (fighterEntityData.Energy > 0.1f)
             {
                 fighterEntityData.Energy = Mathf.Clamp(fighterEntityData.Energy -= 1, 0, fighterEntityData.MaxEnergy);
-                yield return AttenuationInterval;
+                updateEnergyBar?.Invoke(false);
+                yield return attenuationInterval;
             }
 
             fighterEntityData.weaponEntityData.IsOverDrive = false;
@@ -181,6 +181,7 @@ namespace ShootingStar
             }
 
             fighterEntityData.Energy = Mathf.Clamp(fighterEntityData.Energy + ne.EnergyValue,0,fighterEntityData.MaxEnergy);
+            updateEnergyBar?.Invoke(true);
         }
 
         #endregion
