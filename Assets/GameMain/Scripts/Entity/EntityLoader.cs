@@ -10,20 +10,11 @@ namespace ShootingStar
 {
     public class EntityLoader : IReference
     {
-        public GameObject playerEntity;
-        public List<GameObject> enemyEntities;
-        public object Owner { get; private set; }
+        public object Owner { get; private set; } = null;
 
-        public EntityLoader()
+        public static T Create<T>(object owner) where T : EntityLoader, new()
         {
-            playerEntity = null;
-            enemyEntities = new List<GameObject>();
-            Owner = null;
-        }
-
-        public static EntityLoader Create(object owner)
-        {
-            EntityLoader entityLoader = ReferencePool.Acquire<EntityLoader>();
+            T entityLoader = ReferencePool.Acquire<T>();
             entityLoader.Owner = owner;
             GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, entityLoader.OnShowEntitySuccess);
             GameEntry.Event.Subscribe(ShowEntityFailureEventArgs.EventId, entityLoader.OnShowEntityFail);
@@ -37,31 +28,26 @@ namespace ShootingStar
                 data.entityData.GroupName, data);
             return data.Id;
         }
+        
+        public virtual void HideEntity<T>(T entity) where T : EntityBaseLogic
+        {
+            GameEntry.Entity.HideEntity(entity);
+        }
 
-        private void OnShowEntityFail(object sender, GameEventArgs e)
+        protected virtual void OnShowEntityFail(object sender, GameEventArgs e)
         {
         }
 
-        private void OnShowEntitySuccess(object sender, GameEventArgs e)
+        protected virtual void OnShowEntitySuccess(object sender, GameEventArgs e)
         {
             ShowEntitySuccessEventArgs args = e as ShowEntitySuccessEventArgs;
             if (args == null)
             {
                 return;
             }
-
-            if (args.EntityLogicType == typeof(PlayerFighterLogic))
-            {
-                playerEntity = args.Entity.gameObject;
-            }
-
-            if (args.EntityLogicType == typeof(EnemyFighterLogic))
-            {
-                enemyEntities.Add(args.Entity.gameObject);
-            }
         }
 
-        public void Clear()
+        public virtual void Clear()
         {
             Owner = null;
             GameEntry.Event.Unsubscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);

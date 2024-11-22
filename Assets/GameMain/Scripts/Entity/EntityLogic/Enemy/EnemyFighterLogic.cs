@@ -14,6 +14,7 @@ namespace ShootingStar
         private bool isDead;
 
         private Vector3 targetPosition;
+        private MuzzleVFXLogic muzzleVFXLogic;
 
         protected override void OnInit(object userData)
         {
@@ -37,6 +38,7 @@ namespace ShootingStar
             GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
             GameEntry.Entity.ShowEntity<EnemyWeaponLogic>(fighterEntityData.weaponEntityData);
             GameEntry.Entity.ShowEntity<HealthBarLogic>(HealthBarEntityData.Create(EnumEntity.EnemyHealthBar,transform));
+            GameEntry.Entity.ShowEntity<MuzzleVFXLogic>(VFXAccessoryEntityData.Create(EnumEntity.VFXEnemyMuzzleFire,fighterEntityData.Id));
 
             targetPosition = RandomPosition();
             StartCoroutine(nameof(RandomMove));
@@ -60,8 +62,9 @@ namespace ShootingStar
                 return;
             }
             isDead = true;
-            GameEntry.Event.Fire(this,EnemyDieEventArgs.Create(this));
-            ReferencePool.Release(fighterEntityData);
+            GameEntry.Event.Fire(this, EnemyDieEventArgs.Create(this));
+            
+            GameEntry.Entity.ShowEntity<VFXLogic>(VFXEntityData.Create(EnumEntity.VFXEnemyDeath,CachedTransform.position,CachedTransform.rotation));
         }
 
         private void OnPlayerDead(object sender, GameEventArgs e)
@@ -80,7 +83,8 @@ namespace ShootingStar
             while (!isPlayerDead)
             {
                 yield return fireInterval;
-                weapon.Attack();
+                muzzleVFXLogic.muzzleParticleSystem.Play();
+                weaponLogic.Attack();
             }
         }
 
@@ -118,9 +122,14 @@ namespace ShootingStar
         {
             base.OnAttached(childEntity, parentTransform, userData);
 
-            if (childEntity is EnemyWeaponLogic)
+            if (childEntity is EnemyWeaponLogic enemyWeaponLogic)
             {
-                weapon = childEntity as EnemyWeaponLogic;
+                weaponLogic = enemyWeaponLogic;
+            }
+            
+            if (childEntity is MuzzleVFXLogic enemyMuzzleVFXLogic)
+            {
+                muzzleVFXLogic = enemyMuzzleVFXLogic;
             }
         }
     }

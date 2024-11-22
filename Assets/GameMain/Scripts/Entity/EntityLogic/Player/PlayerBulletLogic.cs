@@ -76,19 +76,29 @@ namespace ShootingStar
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
             if (isColliding)
             {
                 return;
             }
 
-            if (other.gameObject.TryGetComponent<EnemyFighterLogic>(out EnemyFighterLogic enemyFighterLogic))
+            if (collision.gameObject.TryGetComponent(out EnemyFighterLogic enemyFighterLogic))
             {
                 if (!bulletData.IsOverDrive)
                 {
-                    GameEntry.Event.Fire(AddEnergyEventArgs.EventId,AddEnergyEventArgs.Create(10));
+                    GameEntry.Event.Fire(AddEnergyEventArgs.EventId, AddEnergyEventArgs.Create(10));
                 }
+
+                GameEntry.Entity.ShowEntity<VFXLogic>(
+                    VFXEntityData.Create(
+                        bulletData.IsOverDrive
+                            ? EnumEntity.VFXPlayerOverDriveProjectileHit
+                            : EnumEntity.VFXPlayerProjectileHit,
+                        collision.GetContact(0).point,
+                        Quaternion.LookRotation(collision.GetContact(0).normal)
+                    )
+                );
                 
                 isColliding = true;
                 enemyFighterLogic.TakeDamage(bulletData.Damage);

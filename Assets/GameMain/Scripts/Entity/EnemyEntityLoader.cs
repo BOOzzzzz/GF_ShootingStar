@@ -9,32 +9,13 @@ using Random = UnityEngine.Random;
 
 namespace ShootingStar
 {
-    public class EnemyEntityLoader : IReference
+    public class EnemyEntityLoader : EntityLoader
     {
-        public List<GameObject> enemyEntities;
+        public List<GameObject> enemyEntities = new();
 
-        public EnemyEntityLoader()
+        public override void HideEntity<T>(T entity)
         {
-            enemyEntities = new List<GameObject>();
-        }
-
-        public static EnemyEntityLoader Create()
-        {
-            EnemyEntityLoader enemyEntityLoader = ReferencePool.Acquire<EnemyEntityLoader>();
-            GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, enemyEntityLoader.OnShowEntitySuccess);
-            GameEntry.Event.Subscribe(ShowEntityFailureEventArgs.EventId, enemyEntityLoader.OnShowEntityFail);
-            return enemyEntityLoader;
-        }
-
-        public void ShowEntity<T>(EntityBaseData data) where T : EntityBaseLogic
-        {
-            GameEntry.Entity.ShowEntity(typeof(T), AssetUtility.GetEntityAsset(data.entityData.AssetName),
-                data.entityData.GroupName, data);
-        }
-
-        public void HideEntity<T>(T entity) where T : EntityBaseLogic
-        {
-            GameEntry.Entity.HideEntity(entity);
+            base.HideEntity(entity);
             enemyEntities.Remove(entity.Entity.gameObject);
         }
 
@@ -65,11 +46,11 @@ namespace ShootingStar
                 new Vector3(10, Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance), 0)));
         }
 
-        private void OnShowEntityFail(object sender, GameEventArgs e)
+        protected override void OnShowEntityFail(object sender, GameEventArgs e)
         {
         }
 
-        private void OnShowEntitySuccess(object sender, GameEventArgs e)
+        protected override void OnShowEntitySuccess(object sender, GameEventArgs e)
         {
             ShowEntitySuccessEventArgs args = e as ShowEntitySuccessEventArgs;
             if (args == null)
@@ -83,10 +64,9 @@ namespace ShootingStar
             }
         }
 
-        public void Clear()
+        public override void Clear()
         {
-            GameEntry.Event.Unsubscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
-            GameEntry.Event.Unsubscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFail);
+            base.Clear();
             enemyEntities.Clear();
         }
     }

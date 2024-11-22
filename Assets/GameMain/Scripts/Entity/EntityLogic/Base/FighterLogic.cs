@@ -8,7 +8,7 @@ namespace ShootingStar
     {
         public FighterEntityData fighterEntityData;
 
-        protected WeaponLogic weapon;
+        protected WeaponLogic weaponLogic;
         protected WaitForSeconds fireInterval;
         protected readonly float angelRotate = 25;
 

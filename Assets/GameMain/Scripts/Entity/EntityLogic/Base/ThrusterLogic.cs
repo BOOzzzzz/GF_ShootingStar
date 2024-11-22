@@ -1,4 +1,5 @@
-﻿using GameFramework;
+﻿using System;
+using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -18,6 +19,12 @@ namespace ShootingStar
                 Log.Warning("ThrusterData is not initialized");
             }
 
+        }
+
+        protected override void OnShow(object userData)
+        {
+            base.OnShow(userData);
+            
             GameEntry.Entity.AttachEntity(Entity, thrusterEntityData.OwnerId, "Thruster");
             InitData(thrusterEntityData);
         }

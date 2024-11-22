@@ -18,12 +18,12 @@ namespace ShootingStar
             entityComponent.HideEntity(entity.Entity);
         }
 
-        public static void ShowEntity<T>(this EntityComponent entityComponent, EntityBaseData data)
+        public static int ShowEntity<T>(this EntityComponent entityComponent, EntityBaseData data)
             where T : EntityBaseLogic
         {
-            entityComponent.ShowEntity(typeof(T),
-                AssetUtility.GetEntityAsset(data.entityData.AssetName),
+            GameEntry.Entity.ShowEntity(typeof(T), AssetUtility.GetEntityAsset(data.entityData.AssetName),
                 data.entityData.GroupName, data);
+            return data.Id;
         }
 
         public static void ShowEntity(this EntityComponent entityComponent, Type typeLogic, string assetName,

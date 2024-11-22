@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-19 16:33:23.025
+// 生成时间：2024-11-22 17:10:16.097
 //------------------------------------------------------------
 
 namespace ShootingStar
@@ -37,9 +37,14 @@ namespace ShootingStar
         PlayerThruster = 2000,
 
         /// <summary>
+        /// 玩家过载推进器
+        /// </summary>
+        PlayerThrusterOverDrive = 2001,
+
+        /// <summary>
         /// 敌人推进器
         /// </summary>
-        EnemyThruster = 2001,
+        EnemyThruster = 2002,
 
         /// <summary>
         /// 玩家武器
@@ -85,5 +90,45 @@ namespace ShootingStar
         /// 敌人血条UI
         /// </summary>
         EnemyHealthBar = 5002,
+
+        /// <summary>
+        /// 玩家死亡特效
+        /// </summary>
+        VFXPlayerDeath = 6000,
+
+        /// <summary>
+        /// 玩家枪口开火特效
+        /// </summary>
+        VFXPlayerMuzzleFire = 6001,
+
+        /// <summary>
+        /// 玩家过载子弹击中特效
+        /// </summary>
+        VFXPlayerOverDriveProjectileHit = 6002,
+
+        /// <summary>
+        /// 玩家子弹击中特效
+        /// </summary>
+        VFXPlayerProjectileHit = 6003,
+
+        /// <summary>
+        /// 玩家战机触发过载特效
+        /// </summary>
+        VFXOverdriveTrigger = 6004,
+
+        /// <summary>
+        /// 敌人死亡特效
+        /// </summary>
+        VFXEnemyDeath = 6005,
+
+        /// <summary>
+        /// 敌人枪口开火特效
+        /// </summary>
+        VFXEnemyMuzzleFire = 6006,
+
+        /// <summary>
+        /// 敌人子弹击中特效
+        /// </summary>
+        VFXEnemyProjectileHit = 6007,
     }
 }

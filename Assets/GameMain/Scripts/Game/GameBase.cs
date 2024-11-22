@@ -13,7 +13,7 @@ namespace ShootingStar
         
         public virtual void Initialize()
         {
-            enemyEntityLoader = EnemyEntityLoader.Create();
+            enemyEntityLoader = EntityLoader.Create<EnemyEntityLoader>(this);
             SpawnPlayer();
             enemyEntityLoader.SpawnEnemies(5);
         }

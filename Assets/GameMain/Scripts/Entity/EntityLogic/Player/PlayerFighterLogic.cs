@@ -18,6 +18,8 @@ namespace ShootingStar
         private float changeTime = 0.2f;
         private WaitForSeconds attenuationInterval = new(0.15f);
 
+        private PlayerMuzzleVFXLogic playerMuzzleVFXLogic;
+
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
@@ -47,6 +49,8 @@ namespace ShootingStar
             GameEntry.Entity.ShowEntity<PlayerWeaponLogic>(fighterEntityData.weaponEntityData);
             GameEntry.Entity.ShowEntity<HealthBarLogic>(HealthBarEntityData.Create(EnumEntity.PlayerHealthBar,
                 transform));
+            GameEntry.Entity.ShowEntity<PlayerMuzzleVFXLogic>(
+                VFXAccessoryEntityData.Create(EnumEntity.VFXPlayerMuzzleFire, fighterEntityData.Id));
 
             GameEntry.Event.Subscribe(AddEnergyEventArgs.EventId, AddEnergyValue);
         }
@@ -59,11 +63,12 @@ namespace ShootingStar
             PlayerInputManager.Instance.onStopFire -= PlayerStopFire;
             PlayerInputManager.Instance.onOverDrive -= PlayerOverDrive;
             PlayerInputManager.Instance.OnDisable();
-            
+
             GameEntry.Event.Unsubscribe(AddEnergyEventArgs.EventId, AddEnergyValue);
-            
+
             base.OnHide(isShutdown, userData);
         }
+
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
@@ -76,9 +81,14 @@ namespace ShootingStar
         {
             base.OnAttached(childEntity, parentTransform, userData);
 
-            if (childEntity is PlayerWeaponLogic)
+            if (childEntity is PlayerWeaponLogic playerWeaponLogic)
             {
-                weapon = childEntity as PlayerWeaponLogic;
+                weaponLogic = playerWeaponLogic;
+            }
+
+            if (childEntity is PlayerMuzzleVFXLogic muzzleVFXLogic)
+            {
+                playerMuzzleVFXLogic = muzzleVFXLogic;
             }
         }
 
@@ -86,6 +96,8 @@ namespace ShootingStar
         {
             base.OnDead();
             GameEntry.Event.Fire(this, GameOverEventArgs.Create());
+            GameEntry.Entity.ShowEntity<VFXLogic>(VFXEntityData.Create(EnumEntity.VFXPlayerDeath,
+                CachedTransform.position, CachedTransform.rotation));
         }
 
         #region Move
@@ -124,16 +136,17 @@ namespace ShootingStar
 
         #endregion
 
-
         #region Fire
 
         private void PlayerFire()
         {
+            playerMuzzleVFXLogic.muzzleParticleSystem.Play();
             StartCoroutine(nameof(Fire));
         }
 
         private void PlayerStopFire()
         {
+            playerMuzzleVFXLogic.muzzleParticleSystem.Stop();
             StopCoroutine(nameof(Fire));
         }
 
@@ -141,7 +154,7 @@ namespace ShootingStar
         {
             while (true)
             {
-                weapon.Attack();
+                weaponLogic.Attack();
                 yield return fireInterval;
             }
         }
@@ -155,6 +168,12 @@ namespace ShootingStar
             if (Math.Abs(fighterEntityData.Energy - fighterEntityData.MaxEnergy) < 0.1f)
             {
                 Log.Debug("Player OverDrive");
+                playerMuzzleVFXLogic.SetOverDriveMaterial();
+                GameEntry.Entity.HideEntity(fighterEntityData.thrusterEntityData.Id);
+                fighterEntityData.thrusterEntityData = ThrusterEntityData.Create(EnumEntity.PlayerThrusterOverDrive, fighterEntityData.Id);
+                GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
+                GameEntry.Entity.ShowEntity<VFXLogic>(VFXEntityData.Create(EnumEntity.VFXOverdriveTrigger,
+                    CachedTransform.position, CachedTransform.rotation, Entity));
                 StartCoroutine(EnergyBurstDecayCoroutine());
             }
         }
@@ -170,6 +189,10 @@ namespace ShootingStar
             }
 
             fighterEntityData.weaponEntityData.IsOverDrive = false;
+            playerMuzzleVFXLogic.SetDefaultMaterial();
+            GameEntry.Entity.HideEntity(fighterEntityData.thrusterEntityData.Id);
+            fighterEntityData.thrusterEntityData = ThrusterEntityData.Create(EnumEntity.PlayerThruster, fighterEntityData.Id);
+            GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
         }
 
         private void AddEnergyValue(object sender, GameEventArgs e)
@@ -180,7 +203,8 @@ namespace ShootingStar
                 return;
             }
 
-            fighterEntityData.Energy = Mathf.Clamp(fighterEntityData.Energy + ne.EnergyValue,0,fighterEntityData.MaxEnergy);
+            fighterEntityData.Energy =
+                Mathf.Clamp(fighterEntityData.Energy + ne.EnergyValue, 0, fighterEntityData.MaxEnergy);
             updateEnergyBar?.Invoke(true);
         }
 
