@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using GameFramework;
 using GameFramework.Event;
 using UnityEngine;
 using UnityGameFramework.Runtime;
@@ -13,9 +10,8 @@ namespace ShootingStar
     {
         public List<GameObject> enemyEntities = new();
 
-        public override void HideEntity<T>(T entity)
+        public void RemoveEntity<T>(T entity) where T : EntityBaseLogic
         {
-            base.HideEntity(entity);
             enemyEntities.Remove(entity.Entity.gameObject);
         }
 
@@ -42,8 +38,10 @@ namespace ShootingStar
         public void RandomSpawnEnemy()
         {
             ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(
-                EnumExtension.RandomRange(EnumEntity.Enemy01, EnumEntity.Enemy03), EnumEntity.EnemyThruster, EnumEntity.EnemyWeapon,
-                new Vector3(10, Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance), 0)));
+                EnumExtension.RandomRange(EnumEntity.Enemy01, EnumEntity.Enemy03), EnumEntity.EnemyThruster,
+                EnumEntity.EnemyWeapon,
+                new Vector3(10, Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance),
+                    0)));
         }
 
         protected override void OnShowEntityFail(object sender, GameEventArgs e)

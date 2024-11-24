@@ -40,7 +40,7 @@ namespace ShootingStar
             {
                 return;
             }
-            enemyEntityLoader.HideEntity(args.EntityLogic);
+            enemyEntityLoader.RemoveEntity(args.EntityLogic);
         }
 
         private void SpawnPlayer()

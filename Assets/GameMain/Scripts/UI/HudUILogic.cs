@@ -3,6 +3,7 @@ using GameMain.Scripts.Event;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
@@ -33,7 +34,15 @@ namespace ShootingStar
             GameEntry.Event.Fire(AddEnergyEventArgs.EventId,AddEnergyEventArgs.Create(100));
             UpdateEnergyBar(true);
         }
-        
+
+        protected override void OnClose(bool isShutdown, object userData)
+        {
+            base.OnClose(isShutdown, userData);
+            
+            fighterLogic.updateHealthBar -= UpdateHealthBar;
+            fighterLogic.updateEnergyBar -= UpdateEnergyBar;
+        }
+
         private void UpdateHealthBar(bool isRecover)
         {
             if (fillHealthCoroutine != null) StopCoroutine(fillHealthCoroutine);
@@ -67,6 +76,7 @@ namespace ShootingStar
         {
             yield return delayFillTime;
             
+            Log.Debug(fillImage);
             timer = 0;
 
             while (timer <= duration)

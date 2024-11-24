@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
-using GameFramework.Event;
-using GameMain.Scripts.Event;
+using GameFramework;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityGameFramework.Runtime;
@@ -34,6 +32,8 @@ namespace ShootingStar
             fighterLogic = healthBarEntityData?.Follow.GetComponent<FighterLogic>();
             delayFillTime = new WaitForSeconds(1);
             if (fighterLogic != null) fighterLogic.updateHealthBar += UpdateHealthBar;
+            
+            fighterLogic.updateHealthBar.Invoke(true);
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
@@ -46,6 +46,14 @@ namespace ShootingStar
             {
                 GameEntry.Entity.HideEntity(this);
             }
+        }
+
+        protected override void OnHide(bool isShutdown, object userData)
+        {
+            base.OnHide(isShutdown, userData);
+            
+            fighterLogic.updateHealthBar -= UpdateHealthBar;
+            ReferencePool.Release(healthBarEntityData);
         }
 
         private void UpdateHealthBar(bool isRecover)

@@ -58,6 +58,7 @@ namespace ShootingStar
                 return;
             }
             isDead = true;
+            base.OnDead();
             GameEntry.Event.Fire(this, EnemyDieEventArgs.Create(this));
             
             GameEntry.Entity.ShowEntity<VFXLogic>(VFXEntityData.Create(EnumEntity.VFXEnemyDeath,CachedTransform.position,CachedTransform.rotation));
