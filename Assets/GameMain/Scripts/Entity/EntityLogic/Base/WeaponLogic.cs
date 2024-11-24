@@ -12,20 +12,15 @@ namespace ShootingStar
         protected Transform topMuzzle;
         protected Transform bottomMuzzle;
 
-        protected override void OnInit(object userData)
+        protected override void OnShow(object userData)
         {
-            base.OnInit(userData);
-
+            base.OnShow(userData);
+            
             weaponData = userData as WeaponEntityData;
             if (weaponData == null)
             {
                 Log.Warning("WeaponData is not initialized");
             }
-        }
-
-        protected override void OnShow(object userData)
-        {
-            base.OnShow(userData);
             
             GameEntry.Entity.AttachEntity(Entity, weaponData.OwnerId, "Weapon");
             InitData(weaponData);

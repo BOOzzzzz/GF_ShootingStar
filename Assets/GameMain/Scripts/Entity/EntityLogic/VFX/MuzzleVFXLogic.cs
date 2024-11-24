@@ -15,6 +15,13 @@ namespace ShootingStar
         {
             base.OnInit(userData);
 
+            muzzleParticleSystem = GetComponent<ParticleSystem>();
+        }
+
+        protected override void OnShow(object userData)
+        {
+            base.OnShow(userData);
+
             vfxAccessoryEntityData = userData as VFXAccessoryEntityData;
             if (vfxAccessoryEntityData == null)
             {
@@ -23,9 +30,6 @@ namespace ShootingStar
 
             GameEntry.Entity.AttachEntity(Entity, vfxAccessoryEntityData.OwnerId, "MuzzleVFX");
             InitData(vfxAccessoryEntityData);
-
-            muzzleParticleSystem = GetComponent<ParticleSystem>();
-            
         }
 
         protected override void OnHide(bool isShutdown, object userData)

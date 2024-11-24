@@ -24,18 +24,18 @@ namespace ShootingStar
         {
             base.OnInit(userData);
 
+            rb = GetComponent<Rigidbody2D>();
+        }
+
+        protected override void OnShow(object userData)
+        {
             fighterEntityData = userData as FighterEntityData;
             if (fighterEntityData == null)
             {
                 Log.Warning("PlayerFighterData is not initialized");
             }
-
-            rb = GetComponent<Rigidbody2D>();
             InitData(fighterEntityData);
-        }
-
-        protected override void OnShow(object userData)
-        {
+            
             base.OnShow(userData);
 
             PlayerInputManager.Instance.OnEnable();

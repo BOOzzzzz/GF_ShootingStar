@@ -16,9 +16,8 @@ namespace ShootingStar
         private Vector3 targetPosition;
         private MuzzleVFXLogic muzzleVFXLogic;
 
-        protected override void OnInit(object userData)
+        protected override void OnShow(object userData)
         {
-            base.OnInit(userData);
 
             fighterEntityData = userData as FighterEntityData;
             if (fighterEntityData == null)
@@ -27,10 +26,7 @@ namespace ShootingStar
             }
 
             InitData(fighterEntityData);
-        }
-
-        protected override void OnShow(object userData)
-        {
+            
             base.OnShow(userData);
 
             GameEntry.Event.Subscribe(GameOverEventArgs.EventId, OnPlayerDead);

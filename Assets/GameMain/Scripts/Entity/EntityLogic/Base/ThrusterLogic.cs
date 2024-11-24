@@ -5,25 +5,20 @@ using UnityGameFramework.Runtime;
 
 namespace ShootingStar
 {
+    [Serializable]
     public class ThrusterLogic : EntityBaseLogic
     {
-        private ThrusterEntityData thrusterEntityData;
+        [SerializeField] private ThrusterEntityData thrusterEntityData;
 
-        protected override void OnInit(object userData)
+        protected override void OnShow(object userData)
         {
-            base.OnInit(userData);
-
+            base.OnShow(userData);
+            
             thrusterEntityData = userData as ThrusterEntityData;
             if (thrusterEntityData == null)
             {
                 Log.Warning("ThrusterData is not initialized");
             }
-
-        }
-
-        protected override void OnShow(object userData)
-        {
-            base.OnShow(userData);
             
             GameEntry.Entity.AttachEntity(Entity, thrusterEntityData.OwnerId, "Thruster");
             InitData(thrusterEntityData);
