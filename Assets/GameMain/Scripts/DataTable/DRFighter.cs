@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-19 14:31:25.774
+// 生成时间：2024-11-25 14:38:29.223
 //------------------------------------------------------------
 
 using GameFramework;
@@ -72,6 +72,15 @@ namespace ShootingStar
             private set;
         }
 
+        /// <summary>
+        /// 获取分数奖励。
+        /// </summary>
+        public int ScoreBonus
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -88,6 +97,7 @@ namespace ShootingStar
             MaxHealth = float.Parse(columnStrings[index++]);
             Energy = float.Parse(columnStrings[index++]);
             MaxEnergy = float.Parse(columnStrings[index++]);
+            ScoreBonus = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -104,6 +114,7 @@ namespace ShootingStar
                     MaxHealth = binaryReader.ReadSingle();
                     Energy = binaryReader.ReadSingle();
                     MaxEnergy = binaryReader.ReadSingle();
+                    ScoreBonus = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

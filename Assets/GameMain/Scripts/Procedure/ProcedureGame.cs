@@ -7,14 +7,14 @@ namespace ShootingStar
 {
     public class ProcedureGame : ProcedureBase
     {
-        private Dictionary<GameMode,GameBase> games=new Dictionary<GameMode,GameBase>();
-        
+        private Dictionary<GameMode, GameBase> games = new Dictionary<GameMode, GameBase>();
+
         public GameBase currentGame;
 
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
             base.OnInit(procedureOwner);
-            games.Add(GameMode.Survive,new GameSurvive());
+            games.Add(GameMode.Survive, new GameSurvive());
         }
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
@@ -24,8 +24,8 @@ namespace ShootingStar
             currentGame = games[GameMode.Survive];
             currentGame.Initialize();
             currentGame.OnEnter();
-            
-            GameEntry.UI.OpenUIForm(AssetUtility.GetUIFormAsset("HUD"), "Default",this);
+
+            GameEntry.UI.OpenUIForm(AssetUtility.GetUIFormAsset("HUD"), "Default", currentGame);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)

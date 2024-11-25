@@ -33,7 +33,7 @@ namespace ShootingStar
             ReferencePool.Release(enemyEntityLoader);
         }
 
-        private void EnemyDie(object sender, GameEventArgs e)
+        protected virtual void EnemyDie(object sender, GameEventArgs e)
         {
             EnemyDieEventArgs args = e as EnemyDieEventArgs;
             if (args == null)
