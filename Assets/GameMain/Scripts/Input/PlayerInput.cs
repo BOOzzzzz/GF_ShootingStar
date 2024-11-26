@@ -53,6 +53,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Missile"",
+                    ""type"": ""Button"",
+                    ""id"": ""82acc757-74f6-403d-a089-63fe727bed95"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +218,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""OverDrive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e40b7aa0-13d4-434c-b679-72bdf7c701f8"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Missile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -220,6 +240,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_GamePlay_Move = m_GamePlay.FindAction("Move", throwIfNotFound: true);
         m_GamePlay_Fire = m_GamePlay.FindAction("Fire", throwIfNotFound: true);
         m_GamePlay_OverDrive = m_GamePlay.FindAction("OverDrive", throwIfNotFound: true);
+        m_GamePlay_Missile = m_GamePlay.FindAction("Missile", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,6 +305,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_GamePlay_Move;
     private readonly InputAction m_GamePlay_Fire;
     private readonly InputAction m_GamePlay_OverDrive;
+    private readonly InputAction m_GamePlay_Missile;
     public struct GamePlayActions
     {
         private @PlayerInput m_Wrapper;
@@ -291,6 +313,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_GamePlay_Move;
         public InputAction @Fire => m_Wrapper.m_GamePlay_Fire;
         public InputAction @OverDrive => m_Wrapper.m_GamePlay_OverDrive;
+        public InputAction @Missile => m_Wrapper.m_GamePlay_Missile;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -309,6 +332,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @OverDrive.started += instance.OnOverDrive;
             @OverDrive.performed += instance.OnOverDrive;
             @OverDrive.canceled += instance.OnOverDrive;
+            @Missile.started += instance.OnMissile;
+            @Missile.performed += instance.OnMissile;
+            @Missile.canceled += instance.OnMissile;
         }
 
         private void UnregisterCallbacks(IGamePlayActions instance)
@@ -322,6 +348,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @OverDrive.started -= instance.OnOverDrive;
             @OverDrive.performed -= instance.OnOverDrive;
             @OverDrive.canceled -= instance.OnOverDrive;
+            @Missile.started -= instance.OnMissile;
+            @Missile.performed -= instance.OnMissile;
+            @Missile.canceled -= instance.OnMissile;
         }
 
         public void RemoveCallbacks(IGamePlayActions instance)
@@ -344,5 +373,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnOverDrive(InputAction.CallbackContext context);
+        void OnMissile(InputAction.CallbackContext context);
     }
 }

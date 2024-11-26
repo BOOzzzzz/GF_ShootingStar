@@ -24,6 +24,7 @@ namespace ShootingStar
             currentGame = games[GameMode.Survive];
             currentGame.Initialize();
             currentGame.OnEnter();
+            
 
             GameEntry.UI.OpenUIForm(AssetUtility.GetUIFormAsset("HUD"), "Default", currentGame);
         }

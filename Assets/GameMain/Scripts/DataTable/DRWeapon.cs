@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-25 14:38:29.234
+// 生成时间：2024-11-26 14:06:23.112
 //------------------------------------------------------------
 
 using GameFramework;
@@ -37,7 +37,7 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取武器威力。
+        /// 获取子弹威力。
         /// </summary>
         public int WeaponPower
         {
@@ -63,6 +63,15 @@ namespace ShootingStar
             private set;
         }
 
+        /// <summary>
+        /// 获取导弹数量。
+        /// </summary>
+        public int MissileCount
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -78,6 +87,7 @@ namespace ShootingStar
             WeaponPower = int.Parse(columnStrings[index++]);
             AttackInterval = float.Parse(columnStrings[index++]);
             IsOverDrive = bool.Parse(columnStrings[index++]);
+            MissileCount = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -93,6 +103,7 @@ namespace ShootingStar
                     WeaponPower = binaryReader.Read7BitEncodedInt32();
                     AttackInterval = binaryReader.ReadSingle();
                     IsOverDrive = binaryReader.ReadBoolean();
+                    MissileCount = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

@@ -44,6 +44,7 @@ namespace ShootingStar
             PlayerInputManager.Instance.onFire += PlayerFire;
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
             PlayerInputManager.Instance.onOverDrive += PlayerOverDrive;
+            PlayerInputManager.Instance.onFireMissile += PlayerFireMissile;
 
             GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
             GameEntry.Entity.ShowEntity<PlayerWeaponLogic>(fighterEntityData.weaponEntityData);
@@ -62,6 +63,7 @@ namespace ShootingStar
             PlayerInputManager.Instance.onFire -= PlayerFire;
             PlayerInputManager.Instance.onStopFire -= PlayerStopFire;
             PlayerInputManager.Instance.onOverDrive -= PlayerOverDrive;
+            PlayerInputManager.Instance.onFireMissile -= PlayerFireMissile;
             PlayerInputManager.Instance.OnDisable();
 
             GameEntry.Event.Unsubscribe(AddEnergyEventArgs.EventId, AddEnergyValue);
@@ -156,6 +158,14 @@ namespace ShootingStar
             {
                 weaponLogic.Attack();
                 yield return fireInterval;
+            }
+        }
+
+        private void PlayerFireMissile()
+        {
+            if (fighterEntityData.weaponEntityData.MissileCount > 0)
+            {
+                (weaponLogic as PlayerWeaponLogic)?.FireMissile();
             }
         }
 

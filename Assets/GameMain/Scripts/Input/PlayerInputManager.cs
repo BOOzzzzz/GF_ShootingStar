@@ -13,6 +13,7 @@ namespace ShootingStar
         public Action onFire;
         public Action onStopFire;
         public Action onOverDrive;
+        public Action onFireMissile;
 
         public void OnInit()
         {
@@ -60,6 +61,14 @@ namespace ShootingStar
             if (context.performed)
             {
                 onOverDrive?.Invoke();
+            }
+        }
+
+        public void OnMissile(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                onFireMissile?.Invoke();
             }
         }
     }

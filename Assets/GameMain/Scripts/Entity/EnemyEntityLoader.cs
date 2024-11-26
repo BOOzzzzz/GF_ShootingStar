@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using GameFramework.Event;
 using UnityEngine;
 using UnityGameFramework.Runtime;
@@ -8,7 +10,16 @@ namespace ShootingStar
 {
     public class EnemyEntityLoader : EntityLoader
     {
+        
         public List<GameObject> enemyEntities = new();
+        public int waveNum = 0;
+        
+        private WaitUntil waitUntilNoEnemy;
+
+        public EnemyEntityLoader()
+        {
+            waitUntilNoEnemy = new WaitUntil(() => enemyEntities.Count == 0);
+        }
 
         public void RemoveEntity<T>(T entity) where T : EntityBaseLogic
         {
@@ -26,13 +37,19 @@ namespace ShootingStar
                 return null;
             }
         }
-
-        public void SpawnEnemies(int count)
+        
+        public IEnumerator SpawnEnemies(int count)
         {
+            GameEntry.UI.OpenUIForm(AssetUtility.GetUIFormAsset("WaveUI"), "Default");
+            yield return new WaitForSeconds(3);
+            
             for (int i = 0; i < count; i++)
             {
                 RandomSpawnEnemy();
             }
+
+            waveNum++;
+            yield return waitUntilNoEnemy;
         }
 
         public void RandomSpawnEnemy()

@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Missile",
+                    "type": "Button",
+                    "id": "82acc757-74f6-403d-a089-63fe727bed95",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -185,6 +194,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OverDrive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e40b7aa0-13d4-434c-b679-72bdf7c701f8",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Missile",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

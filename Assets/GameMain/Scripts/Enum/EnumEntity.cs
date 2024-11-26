@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-22 17:10:16.097
+// 生成时间：2024-11-26 11:25:44.534
 //------------------------------------------------------------
 
 namespace ShootingStar
@@ -82,6 +82,11 @@ namespace ShootingStar
         EnemyProjectile = 4004,
 
         /// <summary>
+        /// 玩家导弹
+        /// </summary>
+        PlayerMissile = 4005,
+
+        /// <summary>
         /// 玩家血条UI
         /// </summary>
         PlayerHealthBar = 5001,
@@ -130,5 +135,10 @@ namespace ShootingStar
         /// 敌人子弹击中特效
         /// </summary>
         VFXEnemyProjectileHit = 6007,
+
+        /// <summary>
+        /// 玩家导弹爆炸特效
+        /// </summary>
+        VFXMissileExplosion = 6008,
     }
 }

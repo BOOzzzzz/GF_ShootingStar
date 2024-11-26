@@ -17,6 +17,7 @@ namespace ShootingStar
         [SerializeField] private Image energyFillImageFront;
         [SerializeField] private Text energyText;
         [SerializeField] private Text scoreText;
+        [SerializeField] private Text missileText;
 
         private GameSurvive currentGame;
         private FighterLogic fighterLogic;
@@ -44,12 +45,8 @@ namespace ShootingStar
 
             GameEntry.Event.Fire(AddEnergyEventArgs.EventId, AddEnergyEventArgs.Create(100));
             GameEntry.Event.Subscribe(EnemyDieEventArgs.EventId, UpdateScore);
+            GameEntry.Event.Subscribe(UpdateMissileCountEventArgs.EventId, UpdateMissileCount);
             UpdateEnergyBar(true);
-        }
-
-        private void UpdateScore(object sender, GameEventArgs e)
-        {
-            scoreText.text =  currentGame.score.ToString();
         }
 
         protected override void OnClose(bool isShutdown, object userData)
@@ -60,6 +57,17 @@ namespace ShootingStar
             fighterLogic.updateEnergyBar -= UpdateEnergyBar;
             
             GameEntry.Event.Unsubscribe(EnemyDieEventArgs.EventId, UpdateScore);
+            GameEntry.Event.Unsubscribe(UpdateMissileCountEventArgs.EventId, UpdateMissileCount);
+        }
+
+        private void UpdateMissileCount(object sender, GameEventArgs e)
+        {
+            missileText.text = fighterLogic.fighterEntityData.weaponEntityData.MissileCount.ToString();
+        }
+
+        private void UpdateScore(object sender, GameEventArgs e)
+        {
+            scoreText.text =  currentGame.score.ToString();
         }
 
         private void UpdateHealthBar(bool isRecover)

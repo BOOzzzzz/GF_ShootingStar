@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5223005247098901507}
   - component: {fileID: 8436288099867406547}
   - component: {fileID: 4693422317408961104}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 578449712315536098}
   - component: {fileID: 8577097131604381986}
   - component: {fileID: 2787644814828878161}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Enemy03
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8183585428126349189}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Thruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9040249504275086219}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: MuzzleVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7680527354740438575}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

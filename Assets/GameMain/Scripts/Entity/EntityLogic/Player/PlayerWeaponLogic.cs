@@ -1,4 +1,5 @@
 using System;
+using GameMain.Scripts.Event;
 using UnityEngine;
 
 namespace ShootingStar
@@ -41,6 +42,14 @@ namespace ShootingStar
                             : EnumEntity.PlayerProjectile, bottomMuzzle.position,bottomMuzzle.rotation));
                     break;
             }
+        }
+
+        public void FireMissile()
+        {
+            weaponData.MissileCount = Mathf.Clamp(weaponData.MissileCount-1,0,10);
+            GameEntry.Event.Fire(UpdateMissileCountEventArgs.EventId,UpdateMissileCountEventArgs.Create());
+            GameEntry.Entity.ShowEntity<PlayerMissileLogic>(BulletEntityData.Create(EnumEntity.PlayerMissile,
+                middleMuzzle.position));
         }
     }
 }

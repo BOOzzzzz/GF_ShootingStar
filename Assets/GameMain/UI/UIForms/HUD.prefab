@@ -836,6 +836,7 @@ MonoBehaviour:
   energyFillImageFront: {fileID: 6815885249826015324}
   energyText: {fileID: 581548998555012064}
   scoreText: {fileID: 4427417410199315789}
+  missileText: {fileID: 2167959383821102158}
 --- !u!1 &3138007204620333509
 GameObject:
   m_ObjectHideFlags: 0

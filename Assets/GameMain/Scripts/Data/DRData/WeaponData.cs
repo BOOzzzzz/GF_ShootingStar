@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-25 14:38:36.031
+// 生成时间：2024-11-26 14:06:30.117
 //------------------------------------------------------------
 using GameFramework;
 using System;
@@ -26,7 +26,7 @@ namespace ShootingStar.Data
         }
         
         /// <summary>
-        /// 获取武器威力。
+        /// 获取子弹威力。
         /// </summary>
         public int WeaponPower => drWeapon.WeaponPower;
 
@@ -41,6 +41,12 @@ namespace ShootingStar.Data
         /// 获取是否过载。
         /// </summary>
         public bool IsOverDrive => drWeapon.IsOverDrive;
+
+
+        /// <summary>
+        /// 获取导弹数量。
+        /// </summary>
+        public int MissileCount => drWeapon.MissileCount;
 
     }
 }

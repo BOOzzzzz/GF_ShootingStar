@@ -9,16 +9,16 @@ namespace ShootingStar
 {
     public class PlayerBulletLogic : BulletLogic
     {
-        private TrailRenderer trail;
+        protected TrailRenderer trail;
 
-        private bool isColliding;
-        private float minBallisticAngle = -20f;
-        private float maxBallisticAngle = 20f;
-        private float ballisticAngle;
-        private Vector3 targetDirection;
+        protected bool isColliding;
+        protected float minBallisticAngle = -20f;
+        protected float maxBallisticAngle = 20f;
+        protected float ballisticAngle;
+        protected Vector3 targetDirection;
 
-        private GameObject target;
-        private EnemyEntityLoader enemyEntityLoader;
+        protected GameObject target;
+        protected EnemyEntityLoader enemyEntityLoader;
 
         protected override void OnInit(object userData)
         {
@@ -76,7 +76,7 @@ namespace ShootingStar
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        protected virtual void OnCollisionEnter2D(Collision2D collision)
         {
             if (isColliding)
             {
