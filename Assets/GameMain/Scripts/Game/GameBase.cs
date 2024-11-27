@@ -15,6 +15,7 @@ namespace ShootingStar
         {
             enemyEntityLoader = EntityLoader.Create<EnemyEntityLoader>(this);
             SpawnPlayer();
+            enemyEntityLoader.SpawnEnemies(5);
         }
 
         public virtual void OnEnter()

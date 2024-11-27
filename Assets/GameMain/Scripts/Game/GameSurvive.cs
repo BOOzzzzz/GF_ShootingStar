@@ -30,6 +30,11 @@ namespace ShootingStar
         public override void Update(float elapseSeconds, float realElapseSeconds)
         {
             base.Update(elapseSeconds, realElapseSeconds);
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                enemyEntityLoader.SpawnEnemies(5);
+            }
         }
 
         public override void OnLeave()

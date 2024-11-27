@@ -10,11 +10,11 @@ namespace ShootingStar
 {
     public class EnemyEntityLoader : EntityLoader
     {
-        
         public List<GameObject> enemyEntities = new();
         public int waveNum = 0;
-        
+
         private WaitUntil waitUntilNoEnemy;
+        private int uiFormID;
 
         public EnemyEntityLoader()
         {
@@ -37,19 +37,31 @@ namespace ShootingStar
                 return null;
             }
         }
-        
-        public IEnumerator SpawnEnemies(int count)
-        {
-            GameEntry.UI.OpenUIForm(AssetUtility.GetUIFormAsset("WaveUI"), "Default");
-            yield return new WaitForSeconds(3);
-            
-            for (int i = 0; i < count; i++)
-            {
-                RandomSpawnEnemy();
-            }
 
-            waveNum++;
-            yield return waitUntilNoEnemy;
+        public void SpawnEnemies(int count)
+        {
+            CoroutineRunner.Instance.StartCoroutineRunner(LoadEnemiesAndUI(5));
+        }
+
+        private IEnumerator LoadEnemiesAndUI(int count)
+        {
+            while (waveNum < 3)
+            {
+                waveNum++;
+                uiFormID = GameEntry.UI.OpenUIForm(AssetUtility.GetUIFormAsset("WaveUI"), "Default", userData: waveNum);
+                yield return new WaitForSeconds(3);
+                GameEntry.UI.CloseUIForm(uiFormID);
+
+                for (int i = 0; i < count; i++)
+                {
+                    RandomSpawnEnemy();
+                }
+
+                //加载实体是异步的，等待一帧
+                yield return null;
+
+                yield return waitUntilNoEnemy;
+            }
         }
 
         public void RandomSpawnEnemy()
