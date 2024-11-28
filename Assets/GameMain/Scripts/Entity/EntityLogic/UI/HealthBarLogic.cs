@@ -31,8 +31,10 @@ namespace ShootingStar
             fillImageFront = transform.GetChild(2).GetComponent<Image>();
             fighterLogic = healthBarEntityData?.Follow.GetComponent<FighterLogic>();
             delayFillTime = new WaitForSeconds(1);
-            if (fighterLogic != null) fighterLogic.updateHealthBar += UpdateHealthBar;
+            if (fighterLogic == null)
+                return;
             
+            fighterLogic.updateHealthBar += UpdateHealthBar;
             fighterLogic.updateHealthBar.Invoke(true);
         }
 

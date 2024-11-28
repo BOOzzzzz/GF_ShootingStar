@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9040249504275086219}
   m_Layer: 3
-  m_Name: MuzzleVFX
+  m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

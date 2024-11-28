@@ -23,6 +23,7 @@ namespace ShootingStar
             if (fighterEntityData == null)
             {
                 Log.Warning("EnemyFighterData is not initialized");
+                return;
             }
 
             InitData(fighterEntityData);

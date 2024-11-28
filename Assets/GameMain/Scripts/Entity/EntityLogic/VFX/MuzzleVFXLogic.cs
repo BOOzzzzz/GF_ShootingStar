@@ -25,10 +25,11 @@ namespace ShootingStar
             vfxAccessoryEntityData = userData as VFXAccessoryEntityData;
             if (vfxAccessoryEntityData == null)
             {
-                Log.Warning("ThrusterData is not initialized");
+                Log.Warning("vfxAccessoryEntityData is not initialized");
+                return;
             }
 
-            GameEntry.Entity.AttachEntity(Entity, vfxAccessoryEntityData.OwnerId, "MuzzleVFX");
+            GameEntry.Entity.AttachEntity(Entity, vfxAccessoryEntityData.OwnerId, "Muzzle");
             InitData(vfxAccessoryEntityData);
         }
 
