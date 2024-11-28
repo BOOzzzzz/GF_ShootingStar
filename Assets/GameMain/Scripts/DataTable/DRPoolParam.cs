@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-28 22:58:25.749
+// 生成时间：2024-11-28 22:58:25.743
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,9 +19,9 @@ using UnityGameFramework.Runtime;
 namespace ShootingStar
 {
     /// <summary>
-    /// 武器表。
+    /// 池参数表。
     /// </summary>
-    public class DRWeapon : DataRowBase
+    public class DRPoolParam : DataRowBase
     {
         private int m_Id = 0;
 
@@ -37,36 +37,36 @@ namespace ShootingStar
         }
 
         /// <summary>
-        /// 获取子弹威力。
+        /// 获取实例自动释放间隔。
         /// </summary>
-        public int WeaponPower
+        public float InstanceAutoReleaseInterval
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取武器攻击时间间隔。
+        /// 获取实例容量。
         /// </summary>
-        public float AttackInterval
+        public int InstanceCapacity
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取是否过载。
+        /// 获取实例过期时间。
         /// </summary>
-        public bool IsOverDrive
+        public float InstanceExpireTime
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取导弹数量。
+        /// 获取实例优先级。
         /// </summary>
-        public int MissileCount
+        public int InstancePriority
         {
             get;
             private set;
@@ -84,10 +84,10 @@ namespace ShootingStar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            WeaponPower = int.Parse(columnStrings[index++]);
-            AttackInterval = float.Parse(columnStrings[index++]);
-            IsOverDrive = bool.Parse(columnStrings[index++]);
-            MissileCount = int.Parse(columnStrings[index++]);
+            InstanceAutoReleaseInterval = float.Parse(columnStrings[index++]);
+            InstanceCapacity = int.Parse(columnStrings[index++]);
+            InstanceExpireTime = float.Parse(columnStrings[index++]);
+            InstancePriority = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -100,10 +100,10 @@ namespace ShootingStar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    WeaponPower = binaryReader.Read7BitEncodedInt32();
-                    AttackInterval = binaryReader.ReadSingle();
-                    IsOverDrive = binaryReader.ReadBoolean();
-                    MissileCount = binaryReader.Read7BitEncodedInt32();
+                    InstanceAutoReleaseInterval = binaryReader.ReadSingle();
+                    InstanceCapacity = binaryReader.Read7BitEncodedInt32();
+                    InstanceExpireTime = binaryReader.ReadSingle();
+                    InstancePriority = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

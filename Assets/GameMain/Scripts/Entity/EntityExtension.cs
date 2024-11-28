@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ShootingStar.Data;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -21,6 +22,14 @@ namespace ShootingStar
         public static int ShowEntity<T>(this EntityComponent entityComponent, EntityBaseData data)
             where T : EntityBaseLogic
         {
+            if (!entityComponent.HasEntityGroup(data.entityData.GroupName))
+            {
+                PoolParamData poolParamData = GameEntry.Data.GetData<PoolParamDatas>()
+                    .GetPoolParamData(data.entityData.PoolParamID);
+                entityComponent.AddEntityGroup(data.entityData.GroupName, poolParamData.InstanceAutoReleaseInterval,
+                    poolParamData.InstanceCapacity, poolParamData.InstanceExpireTime, poolParamData.InstancePriority);
+            }
+            
             GameEntry.Entity.ShowEntity(typeof(T), AssetUtility.GetEntityAsset(data.entityData.AssetName),
                 data.entityData.GroupName, data);
             return data.Id;

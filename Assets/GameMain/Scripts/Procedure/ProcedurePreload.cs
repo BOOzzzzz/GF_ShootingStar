@@ -10,15 +10,6 @@ namespace ShootingStar
     public class ProcedurePreload : ProcedureBase
     {
         private List<BaseDatas> baseDatas = new List<BaseDatas>();
-        
-        public static string[] DataTableNames = new string[]
-        {
-            "Entity",
-            "Thruster",
-            "Fighter",
-            "Weapon",
-            "Bullet",
-        };
 
         protected override void OnInit(ProcedureOwner procedureOwner)
         {

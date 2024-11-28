@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-26 14:06:35.602
+// 生成时间：2024-11-28 22:58:25.964
 //------------------------------------------------------------
 
 using System.Collections.Generic;
@@ -31,6 +31,11 @@ namespace ShootingStar.Data
         public BulletData GetBulletData(EnumEntity id)
         {
             return dicBullet.GetValueOrDefault((int)id);
+        }
+        
+        public BulletData GetBulletData(int id)
+        {
+            return dicBullet.GetValueOrDefault(id);
         }
     }
 }

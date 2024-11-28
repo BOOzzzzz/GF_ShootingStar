@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-26 11:25:44.534
+// 生成时间：2024-11-28 15:15:30.138
 //------------------------------------------------------------
 
 namespace ShootingStar
@@ -32,6 +32,11 @@ namespace ShootingStar
         Enemy03 = 1003,
 
         /// <summary>
+        /// Boss
+        /// </summary>
+        Boss = 1004,
+
+        /// <summary>
         /// 玩家推进器
         /// </summary>
         PlayerThruster = 2000,
@@ -47,6 +52,11 @@ namespace ShootingStar
         EnemyThruster = 2002,
 
         /// <summary>
+        /// Boss推进器
+        /// </summary>
+        BossThruster = 2003,
+
+        /// <summary>
         /// 玩家武器
         /// </summary>
         PlayerWeapon = 3000,
@@ -55,6 +65,11 @@ namespace ShootingStar
         /// 敌人武器
         /// </summary>
         EnemyWeapon = 3001,
+
+        /// <summary>
+        /// Boss武器
+        /// </summary>
+        BossWeapon = 3002,
 
         /// <summary>
         /// 玩家子弹
@@ -95,6 +110,11 @@ namespace ShootingStar
         /// 敌人血条UI
         /// </summary>
         EnemyHealthBar = 5002,
+
+        /// <summary>
+        /// Boss血条
+        /// </summary>
+        BossHealthBar = 5003,
 
         /// <summary>
         /// 玩家死亡特效
@@ -140,5 +160,10 @@ namespace ShootingStar
         /// 玩家导弹爆炸特效
         /// </summary>
         VFXMissileExplosion = 6008,
+
+        /// <summary>
+        /// Boss死亡特效
+        /// </summary>
+        VFXBossMuzzleFire = 6009,
     }
 }

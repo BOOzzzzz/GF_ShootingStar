@@ -7,17 +7,16 @@ using ShootingStar.Editor.DataTableTools;
 using UnityEditor;
 using UnityEngine;
 
-namespace GameMain.Scripts.Editor
+namespace ShootingStar.Editor.DataTableTools
 {
-    public class AllDatasGenerator
+    public sealed partial class DataTableGeneratorMenu
     {
-        private readonly static string DataTemplateFileName = "Assets/GameMain/Configs/AllDatasTemplate.txt";
-        private readonly static string GeneratePath = "Assets/GameMain/Scripts/Data/DTData";
+        private readonly static string AllDatasTemplateFileName = "Assets/GameMain/Configs/AllDatasTemplate.txt";
+        private readonly static string AllDatasGeneratePath = "Assets/GameMain/Scripts/Data/DTData";
 
-        [MenuItem("ShootingStar/Generate DataTable Data/Generate AllDatas(需要先进行Generate Data)",false,4)]
-        private static void GenerateDataTableData()
+        private static void GenerateDataTableAllDatas()
         {
-            foreach (string dataTableName in ProcedurePreload.DataTableNames)
+            foreach (string dataTableName in DataTableNameScanner.GetDataTableNames())
             {
                 DataTableProcessor dataTableProcessor = DataTableGenerator.CreateDataTableProcessor(dataTableName);
                 if (!DataTableGenerator.CheckRawData(dataTableProcessor, dataTableName))
@@ -26,19 +25,19 @@ namespace GameMain.Scripts.Editor
                     break;
                 }
 
-                GenerateDataFile(dataTableProcessor, dataTableName);
+                GenerateAllDatasFile(dataTableProcessor, dataTableName);
             }
 
             AssetDatabase.Refresh();
         }
 
-        public static void GenerateDataFile(DataTableProcessor dataTableProcessor, string dataTableName)
+        public static void GenerateAllDatasFile(DataTableProcessor dataTableProcessor, string dataTableName)
         {
-            dataTableProcessor.SetCodeTemplate(DataTemplateFileName, Encoding.UTF8);
-            dataTableProcessor.SetCodeGenerator(DataTableCodeGenerator);
+            dataTableProcessor.SetCodeTemplate(AllDatasTemplateFileName, Encoding.UTF8);
+            dataTableProcessor.SetCodeGenerator(DataTableCodeGeneratorAllDatas);
 
             string csharpCodeFileName =
-                Utility.Path.GetRegularPath(Path.Combine(GeneratePath, dataTableName + "Datas" + ".cs"));
+                Utility.Path.GetRegularPath(Path.Combine(AllDatasGeneratePath, dataTableName + "Datas" + ".cs"));
             if (!dataTableProcessor.GenerateCodeFile(csharpCodeFileName, Encoding.UTF8, dataTableName) &&
                 File.Exists(csharpCodeFileName))
             {
@@ -46,7 +45,7 @@ namespace GameMain.Scripts.Editor
             }
         }
 
-        private static void DataTableCodeGenerator(DataTableProcessor dataTableProcessor, StringBuilder codeContent,
+        private static void DataTableCodeGeneratorAllDatas(DataTableProcessor dataTableProcessor, StringBuilder codeContent,
             object userData)
         {
             string dataTableName = (string)userData;
@@ -55,7 +54,6 @@ namespace GameMain.Scripts.Editor
             codeContent.Replace("__DATA_TABLE_NAME_SPACE__", "ShootingStar.Data");
             codeContent.Replace("__DATAS_TABLE__", dataTableName);
             codeContent.Replace("__DATAS_TABLE_b__", dataTableName.ToLower());
-            //codeContent.Replace("__DATA_TABLE_DATA_ITEM__", GenerateDataItems(dataTableProcessor, dataTableName));
         }
 
         private static string GenerateDataItems(DataTableProcessor dataTableProcessor, string dataTableName)

@@ -11,13 +11,12 @@ using UnityEngine;
 
 namespace ShootingStar.Editor.DataTableTools
 {
-    public sealed class DataTableGeneratorMenu
+    public sealed partial class DataTableGeneratorMenu
     {
         
-        [MenuItem("ShootingStar/Generate DataTables",false,1)]
         private static void GenerateDataTables()
         {
-            foreach (string dataTableName in ProcedurePreload.DataTableNames)
+            foreach (string dataTableName in DataTableNameScanner.GetDataTableNames())
             {
                 DataTableProcessor dataTableProcessor = DataTableGenerator.CreateDataTableProcessor(dataTableName);
                 if (!DataTableGenerator.CheckRawData(dataTableProcessor, dataTableName))

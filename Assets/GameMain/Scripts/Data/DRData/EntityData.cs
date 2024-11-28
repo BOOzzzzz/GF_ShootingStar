@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-26 14:06:30.107
+// 生成时间：2024-11-28 22:58:25.880
 //------------------------------------------------------------
 using GameFramework;
 using System;
@@ -35,6 +35,12 @@ namespace ShootingStar.Data
         /// 获取资源组名称。
         /// </summary>
         public string GroupName => drEntity.GroupName;
+
+
+        /// <summary>
+        /// 获取池参数编号。
+        /// </summary>
+        public int PoolParamID => drEntity.PoolParamID;
 
     }
 }

@@ -7,17 +7,16 @@ using ShootingStar;
 using ShootingStar.Editor.DataTableTools;
 using UnityEngine;
 
-namespace GameMain.Scripts.Editor
+namespace ShootingStar.Editor.DataTableTools
 {
-    public class DataGenerator
+    public sealed partial class DataTableGeneratorMenu
     {
         private readonly static string DataTemplateFileName = "Assets/GameMain/Configs/DataTemplate.txt";
-        private readonly static string GeneratePath = "Assets/GameMain/Scripts/Data/DRData";
+        private readonly static string DataGeneratePath = "Assets/GameMain/Scripts/Data/DRData";
 
-        [MenuItem("ShootingStar/Generate DataTable Data/Generate Data(需要先进行Generate DataTables)",false,3)]
         private static void GenerateDataTableData()
         {
-            foreach (string dataTableName in ProcedurePreload.DataTableNames)
+            foreach (string dataTableName in DataTableNameScanner.GetDataTableNames())
             {
                 DataTableProcessor dataTableProcessor = DataTableGenerator.CreateDataTableProcessor(dataTableName);
                 if (!DataTableGenerator.CheckRawData(dataTableProcessor, dataTableName))
@@ -38,7 +37,7 @@ namespace GameMain.Scripts.Editor
             dataTableProcessor.SetCodeGenerator(DataTableCodeGenerator);
 
             string csharpCodeFileName =
-                Utility.Path.GetRegularPath(Path.Combine(GeneratePath, dataTableName + "Data" + ".cs"));
+                Utility.Path.GetRegularPath(Path.Combine(DataGeneratePath, dataTableName + "Data" + ".cs"));
             if (!dataTableProcessor.GenerateCodeFile(csharpCodeFileName, Encoding.UTF8, dataTableName) &&
                 File.Exists(csharpCodeFileName))
             {
@@ -55,44 +54,6 @@ namespace GameMain.Scripts.Editor
             codeContent.Replace("__DATA_TABLE_NAME_SPACE__", "ShootingStar.Data");
             codeContent.Replace("__DATA_TABLE__", dataTableName);
             codeContent.Replace("__DATA_TABLE_DATA_ITEM__", GenerateDataItems(dataTableProcessor, dataTableName));
-        }
-
-        private static string GenerateDataItems(DataTableProcessor dataTableProcessor, string dataTableName)
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            bool firstProperty = true;
-            for (int i = 0; i < dataTableProcessor.RawColumnCount; i++)
-            {
-                if (dataTableProcessor.IsCommentColumn(i))
-                {
-                    // 注释列
-                    continue;
-                }
-
-                if (dataTableProcessor.IsIdColumn(i))
-                {
-                    // 编号列
-                    continue;
-                }
-
-                if (firstProperty)
-                {
-                    firstProperty = false;
-                }
-                else
-                {
-                    stringBuilder.AppendLine().AppendLine();
-                }
-
-                stringBuilder
-                    .AppendLine("        /// <summary>")
-                    .AppendFormat("        /// 获取{0}。", dataTableProcessor.GetComment(i)).AppendLine()
-                    .AppendLine("        /// </summary>")
-                    .AppendFormat("        public {0} {1} => dr{2}.{3};", dataTableProcessor.GetLanguageKeyword(i),
-                        dataTableProcessor.GetName(i), dataTableName, dataTableProcessor.GetName(i)).AppendLine();
-            }
-
-            return stringBuilder.ToString();
         }
     }
 }

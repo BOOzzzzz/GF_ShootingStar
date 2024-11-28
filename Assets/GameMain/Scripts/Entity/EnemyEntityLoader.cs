@@ -66,7 +66,7 @@ namespace ShootingStar
 
         public void RandomSpawnEnemy()
         {
-            ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(
+            GameEntry.Entity.ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(
                 EnumExtension.RandomRange(EnumEntity.Enemy01, EnumEntity.Enemy03), EnumEntity.EnemyThruster,
                 EnumEntity.EnemyWeapon,
                 new Vector3(10, Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance),

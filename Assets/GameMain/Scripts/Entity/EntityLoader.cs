@@ -22,18 +22,6 @@ namespace ShootingStar
             return entityLoader;
         }
 
-        public int ShowEntity<T>(EntityBaseData data) where T : EntityBaseLogic
-        {
-            GameEntry.Entity.ShowEntity(typeof(T), AssetUtility.GetEntityAsset(data.entityData.AssetName),
-                data.entityData.GroupName, data);
-            return data.Id;
-        }
-        
-        public virtual void HideEntity<T>(T entity) where T : EntityBaseLogic
-        {
-            GameEntry.Entity.HideEntity(entity);
-        }
-
         protected virtual void OnShowEntityFail(object sender, GameEventArgs e)
         {
         }

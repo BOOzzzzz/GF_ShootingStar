@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-11-26 14:06:23.083
+// 生成时间：2024-11-28 22:58:25.737
 //------------------------------------------------------------
 
 using GameFramework;
@@ -54,6 +54,15 @@ namespace ShootingStar
             private set;
         }
 
+        /// <summary>
+        /// 获取池参数编号。
+        /// </summary>
+        public int PoolParamID
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -68,6 +77,7 @@ namespace ShootingStar
             index++;
             AssetName = columnStrings[index++];
             GroupName = columnStrings[index++];
+            PoolParamID = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -82,6 +92,7 @@ namespace ShootingStar
                     m_Id = binaryReader.Read7BitEncodedInt32();
                     AssetName = binaryReader.ReadString();
                     GroupName = binaryReader.ReadString();
+                    PoolParamID = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

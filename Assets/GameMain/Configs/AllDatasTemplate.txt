@@ -32,5 +32,10 @@ namespace __DATA_TABLE_NAME_SPACE__
         {
             return dic__DATAS_TABLE__.GetValueOrDefault((int)id);
         }
+        
+        public __DATAS_TABLE__Data Get__DATAS_TABLE__Data(int id)
+        {
+            return dic__DATAS_TABLE__.GetValueOrDefault(id);
+        }
     }
 }
