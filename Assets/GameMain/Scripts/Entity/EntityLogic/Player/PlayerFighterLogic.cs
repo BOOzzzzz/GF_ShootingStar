@@ -33,6 +33,7 @@ namespace ShootingStar
             if (fighterEntityData == null)
             {
                 Log.Warning("PlayerFighterData is not initialized");
+                return;
             }
             InitData(fighterEntityData);
             
@@ -45,13 +46,6 @@ namespace ShootingStar
             PlayerInputManager.Instance.onStopFire += PlayerStopFire;
             PlayerInputManager.Instance.onOverDrive += PlayerOverDrive;
             PlayerInputManager.Instance.onFireMissile += PlayerFireMissile;
-
-            GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
-            GameEntry.Entity.ShowEntity<PlayerWeaponLogic>(fighterEntityData.weaponEntityData);
-            GameEntry.Entity.ShowEntity<HealthBarLogic>(HealthBarEntityData.Create(EnumEntity.PlayerHealthBar,
-                transform));
-            GameEntry.Entity.ShowEntity<PlayerMuzzleVFXLogic>(
-                VFXAccessoryEntityData.Create(EnumEntity.VFXPlayerMuzzleFire, fighterEntityData.Id));
 
             GameEntry.Event.Subscribe(AddEnergyEventArgs.EventId, AddEnergyValue);
         }
@@ -92,6 +86,14 @@ namespace ShootingStar
             {
                 playerMuzzleVFXLogic = muzzleVFXLogic;
             }
+        }
+
+        public override void ShowEntity()
+        {
+            GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
+            GameEntry.Entity.ShowEntity<PlayerWeaponLogic>(fighterEntityData.weaponEntityData);
+            GameEntry.Entity.ShowEntity<HealthBarLogic>(fighterEntityData.healthBarEntityData);
+            GameEntry.Entity.ShowEntity<PlayerMuzzleVFXLogic>(fighterEntityData.vfxAccessoryEntityData);
         }
 
         protected override void OnDead()

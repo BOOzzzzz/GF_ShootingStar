@@ -15,7 +15,7 @@ namespace ShootingStar
         {
             enemyEntityLoader = EntityLoader.Create<EnemyEntityLoader>(this);
             SpawnPlayer();
-            enemyEntityLoader.SpawnEnemies(5);
+            enemyEntityLoader.SpawnBoss();
         }
 
         public virtual void OnEnter()
@@ -47,7 +47,7 @@ namespace ShootingStar
         private void SpawnPlayer()
         {
             GameEntry.Entity.ShowEntity<PlayerFighterLogic>(FighterEntityData.Create(EnumEntity.PlayerFighter,
-                EnumEntity.PlayerThruster, EnumEntity.PlayerWeapon, new Vector3(-7, 0, 0)));
+                EnumEntity.PlayerThruster, EnumEntity.PlayerWeapon,EnumEntity.PlayerHealthBar, EnumEntity.VFXPlayerMuzzleFire,new Vector3(-7, 0, 0)));
         }
     }
 }

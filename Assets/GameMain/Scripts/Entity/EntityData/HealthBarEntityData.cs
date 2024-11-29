@@ -6,21 +6,21 @@ namespace ShootingStar
 {
     public class HealthBarEntityData : EntityBaseData
     {
-        private Transform follow;
+        private int followID;
 
-        public Transform Follow
+        public int FollowID
         {
-            get => follow;
-            set => follow = value;
+            get => followID;
+            set => followID = value;
         }
 
-        public static HealthBarEntityData Create(EnumEntity entityData, Transform follow, Vector3 position = default,
+        public static HealthBarEntityData Create(EnumEntity entityData, int follow, Vector3 position = default,
             Quaternion rotation = default)
         {
             return Create(GameEntry.Entity.GenerateSerialId(), entityData, follow, position, rotation);
         }
 
-        public static HealthBarEntityData Create(int serialID, EnumEntity entityData, Transform follow,
+        public static HealthBarEntityData Create(int serialID, EnumEntity entityData, int follow,
             Vector3 position = default,
             Quaternion rotation = default)
         {
@@ -30,7 +30,7 @@ namespace ShootingStar
             healthBarEntityData.Id = serialID;
             healthBarEntityData.Position = position;
             healthBarEntityData.Rotation = rotation;
-            healthBarEntityData.follow = follow;
+            healthBarEntityData.FollowID = follow;
 
             return healthBarEntityData;
         }

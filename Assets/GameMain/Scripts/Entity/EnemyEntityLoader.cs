@@ -40,10 +40,15 @@ namespace ShootingStar
 
         public void SpawnEnemies(int count)
         {
-            CoroutineRunner.Instance.StartCoroutineRunner(LoadEnemiesAndUI(5));
+            CoroutineRunner.Instance.StartCoroutineRunner(LoadEnemiesAndUI(false, 5));
         }
 
-        private IEnumerator LoadEnemiesAndUI(int count)
+        public void SpawnBoss()
+        {
+            CoroutineRunner.Instance.StartCoroutineRunner(LoadEnemiesAndUI(true));
+        }
+
+        private IEnumerator LoadEnemiesAndUI(bool isBoss, int count = 1)
         {
             while (waveNum < 3)
             {
@@ -52,9 +57,22 @@ namespace ShootingStar
                 yield return new WaitForSeconds(3);
                 GameEntry.UI.CloseUIForm(uiFormID);
 
-                for (int i = 0; i < count; i++)
+                if (isBoss)
                 {
-                    RandomSpawnEnemy();
+                    GameEntry.Entity.ShowEntity<BossFighterLogic>(FighterEntityData.Create(
+                        EnumEntity.Boss, EnumEntity.BossThruster,
+                        EnumEntity.BossWeapon, EnumEntity.BossHealthBar, EnumEntity.VFXEnemyMuzzleFire,
+                        new Vector3(10,
+                            Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance),
+                            0), thrusterPosition:
+                        new Vector3(-0.1f, -0.6f, -5f),thrusterRotation:Quaternion.Euler(0,90,0)));
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        RandomSpawnEnemy();
+                    }
                 }
 
                 //加载实体是异步的，等待一帧
@@ -68,7 +86,7 @@ namespace ShootingStar
         {
             GameEntry.Entity.ShowEntity<EnemyFighterLogic>(FighterEntityData.Create(
                 EnumExtension.RandomRange(EnumEntity.Enemy01, EnumEntity.Enemy03), EnumEntity.EnemyThruster,
-                EnumEntity.EnemyWeapon,
+                EnumEntity.EnemyWeapon, EnumEntity.EnemyHealthBar, EnumEntity.VFXEnemyMuzzleFire,
                 new Vector3(10, Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance),
                     0)));
         }
@@ -86,6 +104,11 @@ namespace ShootingStar
             }
 
             if (args.EntityLogicType == typeof(EnemyFighterLogic))
+            {
+                enemyEntities.Add(args.Entity.gameObject);
+            }
+
+            if (args.EntityLogicType == typeof(BossFighterLogic))
             {
                 enemyEntities.Add(args.Entity.gameObject);
             }

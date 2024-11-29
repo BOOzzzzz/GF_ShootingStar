@@ -18,6 +18,7 @@ namespace ShootingStar
             if (thrusterEntityData == null)
             {
                 Log.Warning("ThrusterData is not initialized");
+                return;
             }
             
             GameEntry.Entity.AttachEntity(Entity, thrusterEntityData.OwnerId, "Thruster");

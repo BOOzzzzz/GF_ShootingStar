@@ -20,7 +20,11 @@ namespace ShootingStar
             base.OnShow(userData);
 
             fireInterval = new WaitForSeconds(fighterEntityData.weaponEntityData.AttackInterval);
+            
+            ShowEntity();
         }
+        
+        public abstract void ShowEntity();
 
         public virtual void TakeDamage(int damage)
         {

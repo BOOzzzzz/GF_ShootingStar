@@ -9,7 +9,7 @@ namespace ShootingStar
     public class HealthBarLogic : EntityBaseLogic
     {
         private HealthBarEntityData healthBarEntityData;
-        private readonly Vector3 offset = new Vector3(0.15f, 0.6f, 0);
+        private readonly Vector3 offset = new Vector3(0.15f, 0.8f, 0);
         private Image fillImageFront;
         private Image fillImageBack;
         private FighterLogic fighterLogic;
@@ -25,11 +25,12 @@ namespace ShootingStar
             if (healthBarEntityData == null)
             {
                 Log.Warning("HealthBarEntityData is not initialized");
+                return;
             }
 
             fillImageBack = transform.GetChild(1).GetComponent<Image>();
             fillImageFront = transform.GetChild(2).GetComponent<Image>();
-            fighterLogic = healthBarEntityData?.Follow.GetComponent<FighterLogic>();
+            fighterLogic = GameEntry.Entity.GetEntity(healthBarEntityData.FollowID).GetComponent<FighterLogic>();
             delayFillTime = new WaitForSeconds(1);
             if (fighterLogic == null)
                 return;
@@ -42,9 +43,9 @@ namespace ShootingStar
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
 
-            transform.position = healthBarEntityData.Follow.position + offset;
+            transform.position = fighterLogic.transform.position + offset;
 
-            if (!healthBarEntityData.Follow.gameObject.activeSelf)
+            if (!fighterLogic.transform.gameObject.activeSelf)
             {
                 GameEntry.Entity.HideEntity(this);
             }

@@ -14,7 +14,8 @@ namespace ShootingStar
         private bool isDead;
 
         private Vector3 targetPosition;
-        private MuzzleVFXLogic muzzleVFXLogic;
+        
+        protected MuzzleVFXLogic muzzleVFXLogic;
 
         protected override void OnShow(object userData)
         {
@@ -32,11 +33,6 @@ namespace ShootingStar
 
             GameEntry.Event.Subscribe(GameOverEventArgs.EventId, OnPlayerDead);
 
-            GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
-            GameEntry.Entity.ShowEntity<EnemyWeaponLogic>(fighterEntityData.weaponEntityData);
-            GameEntry.Entity.ShowEntity<HealthBarLogic>(HealthBarEntityData.Create(EnumEntity.EnemyHealthBar,transform));
-            GameEntry.Entity.ShowEntity<MuzzleVFXLogic>(VFXAccessoryEntityData.Create(EnumEntity.VFXEnemyMuzzleFire,fighterEntityData.Id));
-
             targetPosition = RandomPosition();
             StartCoroutine(nameof(RandomMove));
             StartCoroutine(nameof(RandomFire));
@@ -50,6 +46,14 @@ namespace ShootingStar
 
             GameEntry.Event.Unsubscribe(GameOverEventArgs.EventId, OnPlayerDead);
             StopAllCoroutines();
+        }
+
+        public override void ShowEntity()
+        {
+            GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
+            GameEntry.Entity.ShowEntity<EnemyWeaponLogic>(fighterEntityData.weaponEntityData);
+            GameEntry.Entity.ShowEntity<HealthBarLogic>(fighterEntityData.healthBarEntityData);
+            GameEntry.Entity.ShowEntity<MuzzleVFXLogic>(fighterEntityData.vfxAccessoryEntityData);
         }
 
         protected override void OnDead()

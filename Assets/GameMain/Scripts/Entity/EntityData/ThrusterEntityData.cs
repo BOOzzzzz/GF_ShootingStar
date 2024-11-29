@@ -23,9 +23,9 @@ namespace ShootingStar
             return Create(GameEntry.Entity.GenerateSerialId(), id, ownerId);
         }
 
-        public static ThrusterEntityData Create(EnumEntity id, int ownerId, Vector3 position)
+        public static ThrusterEntityData Create(EnumEntity id, int ownerId, Vector3 position ,Quaternion rotation =default)
         {
-            return Create(GameEntry.Entity.GenerateSerialId(), id, ownerId, position);
+            return Create(GameEntry.Entity.GenerateSerialId(), id, ownerId, position,rotation);
         }
 
         public static ThrusterEntityData Create(int serialID, EnumEntity id, int ownerId, Vector3 postion = default,
