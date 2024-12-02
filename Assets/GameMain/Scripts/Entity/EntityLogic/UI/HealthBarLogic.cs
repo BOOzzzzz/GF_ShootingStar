@@ -16,6 +16,16 @@ namespace ShootingStar
         private Coroutine fillCoroutine;
         private WaitForSeconds delayFillTime;
         private float timer;
+        private Canvas canvas;
+        
+        protected override void OnInit(object userData)
+        {
+            base.OnInit(userData);
+            
+            canvas = GetComponent<Canvas>();
+            canvas.worldCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        }
+        
 
         protected override void OnShow(object userData)
         {

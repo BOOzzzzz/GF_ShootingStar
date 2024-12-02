@@ -8,7 +8,7 @@ namespace ShootingStar
         private Canvas canvas;
         protected override void OnInit(object userData)
         {
-            base.OnOpen(userData);
+            base.OnInit(userData);
             
             canvas = GetComponent<Canvas>();
             canvas.worldCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
