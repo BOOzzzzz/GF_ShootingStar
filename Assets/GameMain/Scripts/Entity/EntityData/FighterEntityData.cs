@@ -52,31 +52,33 @@ namespace ShootingStar
         }
 
         public static FighterEntityData Create(EnumEntity entity, EnumEntity thruster, EnumEntity weapon,
-            EnumEntity health, EnumEntity vfxMuzzle)
+            EnumEntity health, EnumEntity vfxMuzzle, float healthBarOffset = 0.6f)
         {
-            return Create(GameEntry.Entity.GenerateSerialId(), entity, thruster, weapon, health, vfxMuzzle);
+            return Create(GameEntry.Entity.GenerateSerialId(), entity, thruster, weapon, health, vfxMuzzle,healthBarOffset: healthBarOffset);
         }
 
         public static FighterEntityData Create(EnumEntity entity, EnumEntity thruster, EnumEntity weapon,
             EnumEntity health, EnumEntity vfxMuzzle,
-            Vector3 position, Quaternion rotation)
+            Vector3 position, Quaternion rotation, float healthBarOffset = 0.6f)
         {
             return Create(GameEntry.Entity.GenerateSerialId(), entity, thruster, weapon, health, vfxMuzzle, position,
-                rotation);
+                rotation ,healthBarOffset: healthBarOffset);
         }
-        
+
         public static FighterEntityData Create(EnumEntity entity, EnumEntity thruster, EnumEntity weapon,
             EnumEntity health, EnumEntity vfxMuzzle,
-            Vector3 position =default, Quaternion rotation =default ,Vector3 thrusterPosition = default,Quaternion thrusterRotation =default)
+            Vector3 position = default, Quaternion rotation = default, Vector3 thrusterPosition = default,
+            Quaternion thrusterRotation = default, float healthBarOffset = 0.6f)
         {
             return Create(GameEntry.Entity.GenerateSerialId(), entity, thruster, weapon, health, vfxMuzzle, position,
-                rotation , thrusterPosition , thrusterRotation);
+                rotation, thrusterPosition, thrusterRotation,healthBarOffset);
         }
 
         public static FighterEntityData Create(int serialID, EnumEntity entity, EnumEntity thruster, EnumEntity weapon,
             EnumEntity health, EnumEntity vfxMuzzle,
             Vector3 position = default,
-            Quaternion rotation = default, Vector3 thrusterPosition = default,Quaternion thrusterRotation =default)
+            Quaternion rotation = default, Vector3 thrusterPosition = default, Quaternion thrusterRotation = default,
+            float healthBarOffset = 0.6f)
         {
             FighterEntityData fighterEntityData = ReferencePool.Acquire<FighterEntityData>();
             fighterEntityData.entityData = GameEntry.Data.GetData<EntityDatas>().GetEntityData(entity);
@@ -91,10 +93,11 @@ namespace ShootingStar
             fighterEntityData.MaxEnergy = fighterEntityData.fighterData.MaxEnergy;
             fighterEntityData.ScoreBonus = fighterEntityData.fighterData.ScoreBonus;
             fighterEntityData.thrusterEntityData = ThrusterEntityData.Create(thruster,
-                fighterEntityData.Id, thrusterPosition,thrusterRotation);
+                fighterEntityData.Id, thrusterPosition, thrusterRotation);
             fighterEntityData.weaponEntityData =
                 WeaponEntityData.Create(weapon, fighterEntityData.Id, (int)entity);
-            fighterEntityData.healthBarEntityData = HealthBarEntityData.Create(health, fighterEntityData.Id);
+            fighterEntityData.healthBarEntityData =
+                HealthBarEntityData.Create(health, fighterEntityData.Id, healthBarOffset);
             fighterEntityData.vfxAccessoryEntityData = VFXAccessoryEntityData.Create(vfxMuzzle, fighterEntityData.Id);
 
             return fighterEntityData;

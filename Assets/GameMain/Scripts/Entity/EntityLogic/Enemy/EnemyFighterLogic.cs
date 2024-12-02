@@ -10,7 +10,7 @@ namespace ShootingStar
 {
     public class EnemyFighterLogic : FighterLogic
     {
-        private bool isPlayerDead;
+        protected bool isPlayerDead;
         private bool isDead;
 
         private Vector3 targetPosition;
@@ -80,11 +80,11 @@ namespace ShootingStar
             isPlayerDead = true;
         }
 
-        private IEnumerator RandomFire()
+        protected virtual IEnumerator RandomFire()
         {
             while (!isPlayerDead)
             {
-                yield return fireInterval;
+                yield return weaponFireInterval;
                 muzzleVFXLogic.muzzleParticleSystem.Play();
                 weaponLogic.Attack();
             }
@@ -94,14 +94,14 @@ namespace ShootingStar
         {
             while (gameObject.activeSelf)
             {
-                if (Vector3.Distance(transform.position, targetPosition) >
+                if (Vector3.Distance(CachedTransform.position, targetPosition) >
                     fighterEntityData.thrusterEntityData.Speed * Time.deltaTime)
                 {
                     transform.position =
-                        Vector3.MoveTowards(transform.position, targetPosition,
+                        Vector3.MoveTowards(CachedTransform.position, targetPosition,
                             fighterEntityData.thrusterEntityData.Speed * Time.deltaTime);
                     transform.rotation =
-                        Quaternion.AngleAxis((transform.position - targetPosition).normalized.y * -angelRotate,
+                        Quaternion.AngleAxis((CachedTransform.position - targetPosition).normalized.y * -angelRotate,
                             Vector3.right);
                 }
                 else

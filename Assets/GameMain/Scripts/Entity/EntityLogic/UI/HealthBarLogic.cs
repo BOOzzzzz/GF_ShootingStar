@@ -9,7 +9,7 @@ namespace ShootingStar
     public class HealthBarLogic : EntityBaseLogic
     {
         private HealthBarEntityData healthBarEntityData;
-        private readonly Vector3 offset = new Vector3(0.15f, 0.8f, 0);
+        private Vector3 offset;
         private Image fillImageFront;
         private Image fillImageBack;
         private FighterLogic fighterLogic;
@@ -38,6 +38,7 @@ namespace ShootingStar
                 return;
             }
 
+            offset = new Vector3(0.15f, healthBarEntityData.Offset, 0);
             fillImageBack = transform.GetChild(1).GetComponent<Image>();
             fillImageFront = transform.GetChild(2).GetComponent<Image>();
             fighterLogic = GameEntry.Entity.GetEntity(healthBarEntityData.FollowID).GetComponent<FighterLogic>();

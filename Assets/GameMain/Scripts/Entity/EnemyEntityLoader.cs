@@ -65,7 +65,7 @@ namespace ShootingStar
                         new Vector3(10,
                             Random.Range(EntityExtension.MinVerticalDistance, EntityExtension.MaxVerticalDistance),
                             0), thrusterPosition:
-                        new Vector3(-0.1f, -0.6f, -5f),thrusterRotation:Quaternion.Euler(0,90,0)));
+                        new Vector3(-0.1f, -0.6f, -5f),thrusterRotation:Quaternion.Euler(0,90,0),healthBarOffset:1f));
                 }
                 else
                 {

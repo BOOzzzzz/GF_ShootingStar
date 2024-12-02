@@ -1,5 +1,7 @@
-﻿using GameFramework;
+﻿using System;
+using GameFramework;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityGameFramework.Runtime;
 
 namespace ShootingStar
@@ -11,6 +13,8 @@ namespace ShootingStar
         protected Transform middleMuzzle;
         protected Transform topMuzzle;
         protected Transform bottomMuzzle;
+        
+        [FormerlySerializedAs("attackFinished")] public bool isAttackFinished;
 
         protected override void OnShow(object userData)
         {
@@ -42,6 +46,11 @@ namespace ShootingStar
         {
             base.OnHide(isShutdown, userData);
             ReferencePool.Release(weaponData);
+        }
+
+        public bool AttackFinished()
+        {
+            return isAttackFinished;
         }
 
         public abstract void Attack();

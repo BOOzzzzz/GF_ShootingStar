@@ -159,7 +159,7 @@ namespace ShootingStar
             while (true)
             {
                 weaponLogic.Attack();
-                yield return fireInterval;
+                yield return weaponFireInterval;
             }
         }
 

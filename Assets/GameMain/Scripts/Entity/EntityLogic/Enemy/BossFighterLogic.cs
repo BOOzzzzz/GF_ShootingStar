@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -5,6 +7,7 @@ namespace ShootingStar
 {
     public class BossFighterLogic:EnemyFighterLogic
     {
+        private WaitUntil waitAttackFinished;
         public override void ShowEntity()
         {
             GameEntry.Entity.ShowEntity<ThrusterLogic>(fighterEntityData.thrusterEntityData);
@@ -20,11 +23,23 @@ namespace ShootingStar
             if (childEntity is BossWeaponLogic enemyWeaponLogic)
             {
                 weaponLogic = enemyWeaponLogic;
+                waitAttackFinished = new WaitUntil(weaponLogic.AttackFinished);
             }
             
             if (childEntity is MuzzleVFXLogic enemyMuzzleVFXLogic)
             {
                 muzzleVFXLogic = enemyMuzzleVFXLogic;
+            }
+        }
+
+        protected override IEnumerator RandomFire()
+        {
+            while (!isPlayerDead)
+            {
+                yield return weaponFireInterval;
+                muzzleVFXLogic.muzzleParticleSystem.Play();
+                weaponLogic.Attack();
+                yield return waitAttackFinished;
             }
         }
     }

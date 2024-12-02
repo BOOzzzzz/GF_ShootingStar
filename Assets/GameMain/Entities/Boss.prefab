@@ -19784,6 +19784,7 @@ GameObject:
   - component: {fileID: 6777184693504505543}
   - component: {fileID: 8965626045995070401}
   - component: {fileID: 6777184693504505536}
+  - component: {fileID: 9131262764924274334}
   m_Layer: 9
   m_Name: Beam
   m_TagString: Enemy Beam
@@ -19879,6 +19880,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 0.25}
   m_EdgeRadius: 0.1
+--- !u!114 &9131262764924274334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777184693504505542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23aacf3713e04e0f9954320182e3eb51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8136977872067818088
 GameObject:
   m_ObjectHideFlags: 0

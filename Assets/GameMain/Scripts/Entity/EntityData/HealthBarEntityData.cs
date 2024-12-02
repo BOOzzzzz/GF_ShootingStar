@@ -7,20 +7,27 @@ namespace ShootingStar
     public class HealthBarEntityData : EntityBaseData
     {
         private int followID;
+        private float offset;
 
         public int FollowID
         {
             get => followID;
             set => followID = value;
         }
-
-        public static HealthBarEntityData Create(EnumEntity entityData, int follow, Vector3 position = default,
-            Quaternion rotation = default)
+        
+        public float Offset
         {
-            return Create(GameEntry.Entity.GenerateSerialId(), entityData, follow, position, rotation);
+            get => offset;
+            set => offset = value;
         }
 
-        public static HealthBarEntityData Create(int serialID, EnumEntity entityData, int follow,
+        public static HealthBarEntityData Create(EnumEntity entityData, int follow,float offset , Vector3 position = default,
+            Quaternion rotation = default)
+        {
+            return Create(GameEntry.Entity.GenerateSerialId(), entityData, follow,offset, position, rotation);
+        }
+
+        public static HealthBarEntityData Create(int serialID, EnumEntity entityData, int follow,float offset,
             Vector3 position = default,
             Quaternion rotation = default)
         {
@@ -31,6 +38,7 @@ namespace ShootingStar
             healthBarEntityData.Position = position;
             healthBarEntityData.Rotation = rotation;
             healthBarEntityData.FollowID = follow;
+            healthBarEntityData.Offset = offset;
 
             return healthBarEntityData;
         }

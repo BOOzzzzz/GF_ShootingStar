@@ -9,7 +9,7 @@ namespace ShootingStar
         public FighterEntityData fighterEntityData;
 
         protected WeaponLogic weaponLogic;
-        protected WaitForSeconds fireInterval;
+        protected WaitForSeconds weaponFireInterval;
         protected readonly float angelRotate = 25;
 
         public Action<bool> updateHealthBar;
@@ -19,7 +19,7 @@ namespace ShootingStar
         {
             base.OnShow(userData);
 
-            fireInterval = new WaitForSeconds(fighterEntityData.weaponEntityData.AttackInterval);
+            weaponFireInterval = new WaitForSeconds(fighterEntityData.weaponEntityData.AttackInterval);
             
             ShowEntity();
         }
