@@ -1,0 +1,108 @@
+ManifestFileVersion: 0
+CRC: 1644220971
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 303ec123600fba64e65404eba6714aa3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5937b3780fdafeb6d60293e57878d8a4
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 303ec123600fba64e65404eba6714aa3
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 58
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 70
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 96
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 23aacf3713e04e0f9954320182e3eb51, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+Assets:
+- Assets/GameMain/Entities/VFXPlayerOverDriveProjectileHit.prefab
+- Assets/GameMain/Entities/EnemyWeapon.prefab
+- Assets/GameMain/Entities/VFXEnemyMuzzleFire.prefab
+- Assets/GameMain/Entities/VFXPlayerMuzzleFire.prefab
+- Assets/GameMain/Entities/PlayerProjectile.prefab
+- Assets/GameMain/Entities/PlayerFighter.prefab
+- Assets/GameMain/Entities/Boss.prefab
+- Assets/GameMain/Entities/PlayerWeapon.prefab
+- Assets/GameMain/Entities/VFXEnemyProjectileHit.prefab
+- Assets/GameMain/Entities/EnemyThruster.prefab
+- Assets/GameMain/Entities/VFXEnemyDeath.prefab
+- Assets/GameMain/Entities/VFXMissileExplosion.prefab
+- Assets/GameMain/Entities/VFXPlayerProjectileHit.prefab
+- Assets/GameMain/Entities/Enemy03.prefab
+- Assets/GameMain/Entities/EnemyProjectileBasic.prefab
+- Assets/GameMain/Entities/EnemyProjectileAiming.prefab
+- Assets/GameMain/Entities/PlayerProjectileOverDrive.prefab
+- Assets/GameMain/Entities/VFXBossMuzzleFire.prefab
+- Assets/GameMain/Entities/PlayerThrusterOverDrive.prefab
+- Assets/GameMain/Entities/BossThruster.prefab
+- Assets/GameMain/Entities/Enemy01.prefab
+- Assets/GameMain/Entities/VFXOverdriveTrigger.prefab
+- Assets/GameMain/Entities/PlayerHealthBar.prefab
+- Assets/GameMain/Entities/PlayerThruster.prefab
+- Assets/GameMain/Entities/EnemyProjectile.prefab
+- Assets/GameMain/Entities/PlayerMissile.prefab
+- Assets/GameMain/Entities/EnemyHealthBar.prefab
+- Assets/GameMain/Entities/BossWeapon.prefab
+- Assets/GameMain/Entities/BossHealthBar.prefab
+- Assets/GameMain/Entities/Enemy02.prefab
+- Assets/GameMain/Entities/VFXPlayerDeath.prefab
+Dependencies:
+- E:/UnityLearn/Projects/GF_ShootingStar/ABPackage/Working/Windows/animation
+- E:/UnityLearn/Projects/GF_ShootingStar/ABPackage/Working/Windows/res

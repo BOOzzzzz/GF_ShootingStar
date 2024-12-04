@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <BuildReport>
+    <Summary>
+      <ProductName>GF_ShootingStar</ProductName>
+      <CompanyName>DefaultCompany</CompanyName>
+      <GameIdentifier>com.DefaultCompany.GF-ShootingStar</GameIdentifier>
+      <GameFrameworkVersion>2021.05.31</GameFrameworkVersion>
+      <UnityVersion>2022.3.17f1c1</UnityVersion>
+      <ApplicableGameVersion>0.1</ApplicableGameVersion>
+      <InternalResourceVersion>1</InternalResourceVersion>
+      <Platforms>Windows</Platforms>
+      <AssetBundleCompression>LZ4</AssetBundleCompression>
+      <CompressionHelperTypeName>UnityGameFramework.Runtime.DefaultCompressionHelper</CompressionHelperTypeName>
+      <AdditionalCompressionSelected>False</AdditionalCompressionSelected>
+      <ForceRebuildAssetBundleSelected>False</ForceRebuildAssetBundleSelected>
+      <BuildEventHandlerTypeName>
+      </BuildEventHandlerTypeName>
+      <OutputDirectory>E:/UnityLearn/Projects/GF_ShootingStar/ABPackage</OutputDirectory>
+      <BuildAssetBundleOptions>DeterministicAssetBundle, ChunkBasedCompression</BuildAssetBundleOptions>
+    </Summary>
+    <Resources Count="8">
+      <Resource Name="Animation" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="6">
+          <Asset Guid="04855ce878676de438e369d51ad4fb36" Name="Assets/GameMain/Animations/Boss/Beam Launch.anim" Length="78507" HashCode="2119354186" />
+          <Asset Guid="26ff9ae8498a50b49a90f35d283a877d" Name="Assets/GameMain/Animations/Boss/Boss_Idle.anim" Length="11062" HashCode="4320627" />
+          <Asset Guid="3c067447e9337824d807acb23c689d88" Name="Assets/GameMain/Animations/Wave UI/show.anim" Length="11137" HashCode="1109920228" />
+          <Asset Guid="92bc38e2bb0478045ad4744cf051ba89" Name="Assets/GameMain/Animations/Boss/Boss.controller" Length="4181" HashCode="-2121502629">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Animations/Boss/Beam Launch.anim" />
+              <DependencyAsset Name="Assets/GameMain/Animations/Boss/Boss_Idle.anim" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="97b4797679efe3e4dacea10e3d304e57" Name="Assets/GameMain/Animations/Wave UI/Wave UI.controller" Length="2089" HashCode="-1331373161">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Animations/Wave UI/show.anim" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="f1ad6ecfefd78e34bae40a23df10928e" Name="Assets/GameMain/Animations/Button/Button.controller" Length="51071" HashCode="-755369905" />
+        </Assets>
+        <Codes>
+          <Windows Length="13052" HashCode="-232608441" CompressedLength="13052" CompressedHashCode="-232608441" />
+        </Codes>
+      </Resource>
+      <Resource Name="Configs" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="4">
+          <Asset Guid="ae26aaa5c07c564478a7a8e527c6a297" Name="Assets/GameMain/Configs/EnumTemplate.txt" Length="303" HashCode="1648266045" />
+          <Asset Guid="b1c3a3b17117cfd45b76802427e64c53" Name="Assets/GameMain/Configs/AllDatasTemplate.txt" Length="1504" HashCode="-850441807" />
+          <Asset Guid="b3e867e9b1162114891589956b8ebdc9" Name="Assets/GameMain/Configs/DataTableCodeTemplate.txt" Length="1151" HashCode="956683773" />
+          <Asset Guid="da1f453d19364d47b266332f4725a482" Name="Assets/GameMain/Configs/DataTemplate.txt" Length="774" HashCode="-1395672552" />
+        </Assets>
+        <Codes>
+          <Windows Length="2461" HashCode="1727615580" CompressedLength="2461" CompressedHashCode="1727615580" />
+        </Codes>
+      </Resource>
+      <Resource Name="DataTables" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="12">
+          <Asset Guid="3bc401560d203294c8a83e9f07982da6" Name="Assets/GameMain/DataTables/Entity.txt" Length="3226" HashCode="605321964" />
+          <Asset Guid="5a793f0e8a269b945b1f9f30e7b015ba" Name="Assets/GameMain/DataTables/PoolParam.txt" Length="390" HashCode="-1371822706" />
+          <Asset Guid="6ac70542bc723804ab7e74fdaca6b1da" Name="Assets/GameMain/DataTables/PoolParam.bytes" Length="13" HashCode="1756293165" />
+          <Asset Guid="9f2e70ba0fa7fda4689f8c1fd4038c86" Name="Assets/GameMain/DataTables/Thruster.txt" Length="248" HashCode="-301716640" />
+          <Asset Guid="b51f7b0e759147447851df9af615fb35" Name="Assets/GameMain/DataTables/Bullet.bytes" Length="54" HashCode="972256682" />
+          <Asset Guid="ba5af1e0928e05147b77796f6cece926" Name="Assets/GameMain/DataTables/Thruster.bytes" Length="12" HashCode="1291208726" />
+          <Asset Guid="bf3a30d454a3d2c4b823f8fe5dec3618" Name="Assets/GameMain/DataTables/Weapon.bytes" Length="20" HashCode="-1089318563" />
+          <Asset Guid="c593e5f9daf620b47acb695f0c0aa797" Name="Assets/GameMain/DataTables/Entity.bytes" Length="1064" HashCode="-428410995" />
+          <Asset Guid="c7a874f781408974fb5b71a76a488270" Name="Assets/GameMain/DataTables/Bullet.txt" Length="502" HashCode="-1267992755" />
+          <Asset Guid="e148180153eaf2347b94b8800971ae0c" Name="Assets/GameMain/DataTables/Fighter.txt" Length="572" HashCode="-1183452075" />
+          <Asset Guid="fd80a81c8b7d0e5479778ab3a0743e80" Name="Assets/GameMain/DataTables/Weapon.txt" Length="432" HashCode="902810207" />
+          <Asset Guid="ffa8a83558ad1614188c4f60d5e425af" Name="Assets/GameMain/DataTables/Fighter.bytes" Length="80" HashCode="1599569834" />
+        </Assets>
+        <Codes>
+          <Windows Length="3935" HashCode="2012606678" CompressedLength="3935" CompressedHashCode="2012606678" />
+        </Codes>
+      </Resource>
+      <Resource Name="Entities" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="31">
+          <Asset Guid="092e9538b0e2f0f488b146c55f482d89" Name="Assets/GameMain/Entities/EnemyProjectile.prefab" Length="4395" HashCode="-49302247">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/EnemyProjectile.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="0c0619533ebadab46a5dfa6e1e9edda5" Name="Assets/GameMain/Entities/EnemyProjectileAiming.prefab" Length="4377" HashCode="-1474398102">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/EnemyProjectile.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="0c16c635e0e176a4ea06b212dbb5b996" Name="Assets/GameMain/Entities/Boss.prefab" Length="486616" HashCode="653460416">
+            <DependencyAssets Count="6">
+              <DependencyAsset Name="Assets/GameMain/Animations/Boss/Boss.controller" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Laser Beam/M_EnemyLaserParticle.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Laser Beam/M_LaserBeam.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Space Frigate/M_Spacefrigate_hose.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Space Frigate/M_Spacefrigate_Main.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Space Frigate/SM_Spacefrigate.FBX" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="0e3433c7c0832184c83bb5a3dade7a69" Name="Assets/GameMain/Entities/BossHealthBar.prefab" Length="9274" HashCode="-914374208">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/Health Bar/BackGround.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/Health Bar/Filler.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_HDR.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_Image_Fill.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="1b2c3ab1e0e61914ba3e10d026ca3023" Name="Assets/GameMain/Entities/PlayerMissile.prefab" Length="255396" HashCode="1915225615">
+            <DependencyAssets Count="5">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine Base.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine Fire.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Missile And Bomb/Missile.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/M_PlayerNormalParticle.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Missile And Bomb/MissilesSample.FBX" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="20a90e93909e8fa4ba56b426e7115058" Name="Assets/GameMain/Entities/PlayerThruster.prefab" Length="1057732" HashCode="754481186">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine Base.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine Fire.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine Flame.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="2ab3ff156c8f1c149a4d4fe513936685" Name="Assets/GameMain/Entities/Enemy02.prefab" Length="7676" HashCode="-1484571954">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Fighter/StarSparrow Blue.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Fighter/StarSparrowExamples1.FBX" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="2d55ef798e986df4db1aa2d22a470be0" Name="Assets/GameMain/Entities/VFXBossMuzzleFire.prefab" Length="701785" HashCode="-1801613153">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Laser Beam/M_EnemyLaserParticle.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Muzzle/WFX_M_MF Glow.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Muzzle/WFX_M_MF Side RIFLE3.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Muzzle/Plane1x1.FBX" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="38ec516f43da9f34fa49fc7c091bedae" Name="Assets/GameMain/Entities/PlayerHealthBar.prefab" Length="9263" HashCode="-2102156648">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/Health Bar/BackGround.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/Health Bar/Filler.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_HDR.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_Image_Fill.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="5610318768bf0484cb9082d522ff359e" Name="Assets/GameMain/Entities/PlayerProjectileOverDrive.prefab" Length="127533" HashCode="-1250355526">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/M_PlayerOverDriveParticle.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/Trail_Player Projectile_OverDrive.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Projectile/ProjectileMesh.fbx" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="567c6877d9fac544dbfe1cda9e3394f8" Name="Assets/GameMain/Entities/BossWeapon.prefab" Length="5610" HashCode="1167768860" />
+          <Asset Guid="59b5ded08f11e5c4198cf3cf04655947" Name="Assets/GameMain/Entities/VFXPlayerOverDriveProjectileHit.prefab" Length="123359" HashCode="264277055">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/M_PlayerOverDriveParticle.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="600ec83cba1cec448bf41a6607229741" Name="Assets/GameMain/Entities/VFXPlayerDeath.prefab" Length="1221018" HashCode="-1744889589">
+            <DependencyAssets Count="5">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/CFX2_Glow.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/FireSparkle ADD.mat.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_01.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_02.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Smoke/M_SmokePuff MULT.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="6775c68a79b34db4fa2fd4db2a4cdf74" Name="Assets/GameMain/Entities/VFXPlayerProjectileHit.prefab" Length="123350" HashCode="-1816771435">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/M_PlayerNormalParticle.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="69bf9c8dfe6a9e5479d5093236b17108" Name="Assets/GameMain/Entities/PlayerFighter.prefab" Length="7661" HashCode="808961574">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Fighter/StarSparrow Red.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Fighter/StarSparrowExamples1.FBX" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="6f751b4eb46135044a78ff8af969ce06" Name="Assets/GameMain/Entities/EnemyThruster.prefab" Length="366890" HashCode="1394373429">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Basic.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Effect Sphere.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Effect.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="71a21ed31d1eb374ca249dabdf3936d3" Name="Assets/GameMain/Entities/VFXPlayerMuzzleFire.prefab" Length="735876" HashCode="1920416112">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Glow Default.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Side Default.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Muzzle/Muzzle Mesh.fbx" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Muzzle/Plane1x1.FBX" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="81d4a791378c9f94aab765ad78151dbf" Name="Assets/GameMain/Entities/VFXOverdriveTrigger.prefab" Length="855708" HashCode="438314670">
+            <DependencyAssets Count="5">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_BubbleAdditive.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_ElectricBoltAdditive.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_ElectricityAdditive.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_GlowSoftAdditive.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_SparklesAdditive.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="8520f3b1f6ae4a34a94b2c0f358268fe" Name="Assets/GameMain/Entities/EnemyWeapon.prefab" Length="3839" HashCode="409816779" />
+          <Asset Guid="94d3dff6247d98e4cb4d8d6f0be5e291" Name="Assets/GameMain/Entities/VFXEnemyProjectileHit.prefab" Length="123351" HashCode="-42718459">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Hit VFX/M_EnemyProjectileHitParticle.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="975f9549f84dd594a84456abeb05e287" Name="Assets/GameMain/Entities/VFXMissileExplosion.prefab" Length="844394" HashCode="-1491222234">
+            <DependencyAssets Count="5">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/CFX2_Glow.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/FireSparkle ADD.mat.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/M_Anim_Triangle_AddSoft.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Fire/FireBulk ADD.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Smoke/M_SmokePuff MULT.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="97b415311529fa145aacd3eedaac728e" Name="Assets/GameMain/Entities/VFXEnemyDeath.prefab" Length="861487" HashCode="1811928376">
+            <DependencyAssets Count="6">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/CFX2_Glow.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/FireSparkle ADD.mat.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Parts_01.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_01_PC.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_02.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Smoke/M_SmokePuff MULT.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="a624a0e3000461e4286965f8a65aedb6" Name="Assets/GameMain/Entities/Enemy01.prefab" Length="7639" HashCode="244002497">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Fighter/StarSparrow Orange.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Fighter/StarSparrowExamples1.FBX" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="b196cbdab574daf439cdab39e81cb159" Name="Assets/GameMain/Entities/BossThruster.prefab" Length="352220" HashCode="-630883460">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Basic.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Effect Sphere.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Effect.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="bb27a27cc7c27fe4eb6c6ff13906e9f2" Name="Assets/GameMain/Entities/EnemyProjectileBasic.prefab" Length="4645" HashCode="495653572">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/EnemyProjectile.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="bcdfcb20bdfc97f44a4f585803958b75" Name="Assets/GameMain/Entities/VFXEnemyMuzzleFire.prefab" Length="732104" HashCode="-1885123408">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Laser Beam/M_EnemyLaserParticle.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Muzzle/WFX_M_MF Glow.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Muzzle/WFX_M_MF Side RIFLE3.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Muzzle/Plane1x1.FBX" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="c09767a80c39dca498c95b2e5be1afd8" Name="Assets/GameMain/Entities/Enemy03.prefab" Length="7714" HashCode="846868520">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Fighter/StarSparrow Black.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Fighter/StarSparrowExamples2.FBX" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="ee73ca936fc67fe4b96bf808f08665aa" Name="Assets/GameMain/Entities/PlayerProjectile.prefab" Length="127521" HashCode="-333435051">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/M_PlayerNormalParticle.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Projectiles/Trail_Player Projectile_Normal.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Models/Projectile/ProjectileMesh.fbx" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="f0943553854878d44988f105f0edaa1f" Name="Assets/GameMain/Entities/PlayerThrusterOverDrive.prefab" Length="1101251" HashCode="-1090112252">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/PlayerEngineOverdrive/M_PlayerEngineBaseOverdrive.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/PlayerEngineOverdrive/M_PlayerEngineFireOverdrive.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Engine VFX/PlayerEngineOverdrive/M_PlayerEngineFlameOverdrive.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="f83ba033a4f9d2e418274758388cd69e" Name="Assets/GameMain/Entities/EnemyHealthBar.prefab" Length="9269" HashCode="-1648277059">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/Health Bar/BackGround.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/Health Bar/Filler.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_HDR.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_Image_Fill.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="faa4443b8d947524aaff9106f70a8b0a" Name="Assets/GameMain/Entities/PlayerWeapon.prefab" Length="3849" HashCode="-1522199852" />
+        </Assets>
+        <Codes>
+          <Windows Length="111167" HashCode="-860093929" CompressedLength="111167" CompressedHashCode="-860093929" />
+        </Codes>
+      </Resource>
+      <Resource Name="Fonts" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="1">
+          <Asset Guid="c3cfc8b7edc3a450c8e6ff7080af7935" Name="Assets/GameMain/Fonts/Aero.ttf" Length="44464" HashCode="-262767039" />
+        </Assets>
+        <Codes>
+          <Windows Length="27992" HashCode="1022520706" CompressedLength="27992" CompressedHashCode="1022520706" />
+        </Codes>
+      </Resource>
+      <Resource Name="Res" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="106">
+          <Asset Guid="020568ce6bb9b3245a24630d5282ca24" Name="Assets/GameMain/Res/Materials/Fighter/StarSparrow Black.mat" Length="4124" HashCode="1385997478">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Black.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Emission.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_MetallicSmoothness.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Normal.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="0236cb1f74a8a9b4ab262f6f5a577697" Name="Assets/GameMain/Res/Models/Muzzle/Muzzle Mesh.fbx" Length="16908" HashCode="244112208" />
+          <Asset Guid="08803d215d76c924c8318bec4eeffab5" Name="Assets/GameMain/Res/Materials/Muzzle/WFX_M_MF Side RIFLE3.mat" Length="907" HashCode="-621352833">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_MF Side RIFLE3 A8.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="0b546246c4fd4154fad1600b77aef2a5" Name="Assets/GameMain/Res/Materials/Space Frigate/M_Spacefrigate_hose.mat" Length="3498" HashCode="289668364">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_hose_base.TGA" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_hose_n.TGA" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_hose_rg.TGA" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="0c536cd41eb26c84880ad44b182415fd" Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_MF Side RIFLE3 A8.png" Length="13913" HashCode="-1260137105" />
+          <Asset Guid="0ce846f59a0a94140b86033f0bde21b2" Name="Assets/GameMain/Res/Models/Space Frigate/SM_Spacefrigate.FBX" Length="6325780" HashCode="1286608277">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Space Frigate/M_Spacefrigate_hose.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Space Frigate/M_Spacefrigate_Main.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="0e99ec6985664430db823fc758aba989" Name="Assets/GameMain/Res/Images/UI/Health Bar/Filler.png" Length="5322" HashCode="-1696809882" />
+          <Asset Guid="0ea55465fb4815647b0a69be0db82d20" Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Emission.png" Length="84140" HashCode="-1063227013" />
+          <Asset Guid="12d6e56bbf4ac7a419ac250680dfae07" Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_T_Anim4_Bubble.png" Length="46767" HashCode="1641021222" />
+          <Asset Guid="1ad48c43c47aefb48a5a781793f1c30b" Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Black.png" Length="575007" HashCode="-1555723069" />
+          <Asset Guid="1eb45bd2a80224fb38bf7ec42a8de2a2" Name="Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/BackGround.png" Length="5322" HashCode="1948595731" />
+          <Asset Guid="1f665717674355d489e01624ad09c1cf" Name="Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine Base.mat" Length="4016" HashCode="2080538168">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Engine Particle/Player Engine Basic.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="21c6d0bb8170cae4f9d49bb728b3f524" Name="Assets/GameMain/Res/Models/Fighter/StarSparrowExamples2.FBX" Length="222752" HashCode="1462777208" />
+          <Asset Guid="25cbaca39ac0e3f47b4db172e11cb9aa" Name="Assets/GameMain/Res/Materials/Smoke/M_SmokePuff MULT.mat" Length="971" HashCode="-1848106956">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Smoke/T_SmokePuff.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="25d31e56d66c0a04a9a5dd02fac6b0f1" Name="Assets/GameMain/Res/Materials/Projectiles/M_PlayerOverDriveParticle.mat" Length="3767" HashCode="-1758100247" />
+          <Asset Guid="26ef18b8554244e468494868dd6fead7" Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_MetallicSmoothness.png" Length="1235655" HashCode="-2100145053" />
+          <Asset Guid="2a60d60b74cbe7048b56d1542948ea5e" Name="Assets/GameMain/Res/Materials/UI/UI_Image_Fill.mat" Length="1018" HashCode="-974147012" />
+          <Asset Guid="2b2823a4a91200b4b8e20f9956870ddf" Name="Assets/GameMain/Res/Models/Projectile/ProjectileMesh.fbx" Length="18268" HashCode="-1962674866" />
+          <Asset Guid="2b972bb6bcf755b49bdc702bf972227c" Name="Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine Flame.mat" Length="3998" HashCode="1450217437">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Engine Particle/Engine Effect Sphere.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="2da092be90f5a6d41947243a1dc84f5b" Name="Assets/GameMain/Res/Textures/Engine Particle/Enemy Engine Effect.png" Length="13519" HashCode="1595175421" />
+          <Asset Guid="30112649d5d1d544c832ac1ece67888d" Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_m.TGA" Length="50331692" HashCode="-2118114784" />
+          <Asset Guid="30d351457dfac9d40a8b07e6426fd177" Name="Assets/GameMain/Res/Materials/Missile And Bomb/Missile.mat" Length="4004" HashCode="-2029894901">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Missile And Bomb/Missile_Emission.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Missile And Bomb/Missile_Grey.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Missile And Bomb/Missile_MetallicSmoothness.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Missile And Bomb/Missile_Normal.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="30df685506a25f243b5cffab6ee5459b" Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_ElectricSparkle.png" Length="4128" HashCode="-1138904276" />
+          <Asset Guid="347a4af640f58824d8438fae9b34a012" Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_T_Bolt.png" Length="9451" HashCode="1487102412" />
+          <Asset Guid="3574d5733ac60b941b175932e0a1aa2e" Name="Assets/GameMain/Res/Materials/Fighter/StarSparrow Red.mat" Length="4628" HashCode="-1373555605">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Red.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Emission.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_MetallicSmoothness.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Normal.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="35ff171067efd0048a5bbb15ce1b5819" Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_n.TGA" Length="50331692" HashCode="760968382" />
+          <Asset Guid="39752a81fc15fb84da31307b090c8dc3" Name="Assets/GameMain/Res/Materials/Background/Background.mat" Length="3771" HashCode="942746919" />
+          <Asset Guid="3976ae2233b34254689f29476d909cd9" Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_AO.TGA" Length="50331692" HashCode="1780520540" />
+          <Asset Guid="3b922b76b9ea81d4cbd9207035208b52" Name="Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_01.mat" Length="2287" HashCode="48259799">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Smoke_01.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="3d5b5587f52189544b4c7ac8ae54c62c" Name="Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Parts_01.png" Length="17189" HashCode="1648043957" />
+          <Asset Guid="402e927ab0837ed42a4d8d0c16704474" Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_MF Side RIFLE3 A8 Sprite.png" Length="13913" HashCode="-1260137105" />
+          <Asset Guid="457b1e2e96148da47ac7049226511eff" Name="Assets/GameMain/Res/Textures/Explosion/CFX_T_Anim4_Triangle1.png" Length="3676" HashCode="618161673" />
+          <Asset Guid="481ceca4f17f9c549a77e4fd4b455b43" Name="Assets/GameMain/Res/Images/UI/Health Bar/BackGround.png" Length="5264" HashCode="435522580" />
+          <Asset Guid="4838c4b4bdd7ef24091a5ef009469d95" Name="Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Effect.mat" Length="3996" HashCode="-2110376494">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Engine Particle/Enemy Engine Effect.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="48caa98f613e809408c7fae246001e89" Name="Assets/GameMain/Res/Textures/Engine Particle/Enemy Engine Basic.png" Length="2891" HashCode="-204484810" />
+          <Asset Guid="4a509910efd559c4f8ba0395fae58b1a" Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_rg.TGA" Length="50331692" HashCode="-330701890" />
+          <Asset Guid="4b007e998d473ae41af2104d1c613415" Name="Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Smoke_02.png" Length="22254" HashCode="26655939" />
+          <Asset Guid="503ba37627ac18c4ebe9bbe73d6ea9ad" Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_BubbleAdditive.mat" Length="5562" HashCode="-996109671">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_T_Anim4_Bubble.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="50cd73a325d3a0145a19c956de7950a5" Name="Assets/GameMain/Res/Textures/Missile And Bomb/Missile_Normal.png" Length="134405" HashCode="232690639" />
+          <Asset Guid="52c1a422bfc04b543adc653b160af1e6" Name="Assets/GameMain/Res/Textures/Explosion/CFX3_T_FireSparkle.png" Length="5363" HashCode="-1708692142" />
+          <Asset Guid="57125df2e9117bb40a32c83b6390c301" Name="Assets/GameMain/Res/Materials/Fighter/StarSparrow Blue.mat" Length="4013" HashCode="-227096932">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Blue.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Emission.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_MetallicSmoothness.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Normal.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="58b7cac6f4fca944db1a4c232f21a6b6" Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_base.TGA" Length="50331692" HashCode="50193445" />
+          <Asset Guid="5adee1c66f1ad4a4fa4dbf425ca10feb" Name="Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/Mask.png" Length="4780" HashCode="1506545197" />
+          <Asset Guid="5ed76d09c52f34faba7d809d29020622" Name="Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/Filler.png" Length="5263" HashCode="720114182" />
+          <Asset Guid="67b0a4cd4c72b86469e7ca179598fcaf" Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_T_Anim7_Electricity.png" Length="30579" HashCode="-1071641276" />
+          <Asset Guid="67c3db2f0d5b4aa4eaa1d7aec0699d15" Name="Assets/GameMain/Res/Materials/Fire/FireBulk ADD.mat" Length="998" HashCode="-2102389575">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fire/T_FireBulk.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="704376da483ef144db57a9c8a2b71253" Name="Assets/GameMain/Res/Textures/Missile And Bomb/Missile_MetallicSmoothness.png" Length="218950" HashCode="1616161916" />
+          <Asset Guid="710191fd918f4444e92b8407ece4b82a" Name="Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_01_PC.mat" Length="2286" HashCode="-677056115">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Smoke_01.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="727e0f56fe1cf0d4ea4768e6c2d43f23" Name="Assets/GameMain/Res/Materials/Explosion/FireSparkle ADD.mat.mat" Length="3072" HashCode="-2096680992">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Explosion/CFX3_T_FireSparkle.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="74aa8b63dbf8e4644bd524668b6d459e" Name="Assets/GameMain/Res/Materials/Engine VFX/PlayerEngineOverdrive/M_PlayerEngineBaseOverdrive.mat" Length="4023" HashCode="1433883120">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Engine Particle/Player Engine Basic.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="757d64d3d03344042815953531d17ad1" Name="Assets/GameMain/Res/Materials/Engine VFX/PlayerEngineOverdrive/M_PlayerEngineFlameOverdrive.mat" Length="4005" HashCode="329381741">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Engine Particle/Engine Effect Sphere.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="7685b84088763754da70c7014302bfcf" Name="Assets/GameMain/Res/Materials/Laser Beam/M_LaserBeam.mat" Length="2370" HashCode="-1910166033">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Laser Beam/WFX_T_NukeFlames.tga" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="7895bb88d21b82e4c86e0e53289c8afe" Name="Assets/GameMain/Res/Textures/Missile And Bomb/Missile_Emission.png" Length="2798" HashCode="589994139" />
+          <Asset Guid="7b30ca461145da646ba88d0110fbb637" Name="Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Smoke_01.png" Length="19741" HashCode="-572776728" />
+          <Asset Guid="7dc3221e546a5fc4f9bc5011cbd6fbc2" Name="Assets/GameMain/Res/Materials/UI/UI_HDR.mat" Length="1008" HashCode="850463534" />
+          <Asset Guid="7fad8d08dacde444dbd4cf8ced78d651" Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_hose_rg.TGA" Length="50331692" HashCode="-866056249" />
+          <Asset Guid="802212517bed0c34584669cc3e1325a1" Name="Assets/GameMain/Res/Images/UI/HUD/Missile  Icon.png" Length="18147" HashCode="1154532025" />
+          <Asset Guid="83a1fdff4c6af5845aa5ded2a8852978" Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_hose_n.TGA" Length="50331692" HashCode="64510126" />
+          <Asset Guid="8a75e78ce03d6bf4aa7ab9b759c2ca32" Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX2_T_GlowSoft.png" Length="11128" HashCode="413994718" />
+          <Asset Guid="8acfa108df3dc724bb02b95ffc346a3d" Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Normal.png" Length="2215563" HashCode="1073164937" />
+          <Asset Guid="8b52c4a2cbd2a8248b7c6e782e73497e" Name="Assets/GameMain/Res/Materials/Fighter/StarSparrow Orange.mat" Length="4070" HashCode="2058625166">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Emission.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_MetallicSmoothness.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Normal.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="8f67ee43ff9be7b428ea646d476b9fa0" Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Blue.png" Length="910939" HashCode="741754295" />
+          <Asset Guid="944bc1016f6ac38439ec1bf04fab9550" Name="Assets/GameMain/Res/Materials/Explosion/M_Anim_Triangle_AddSoft.mat" Length="5183" HashCode="-254851217">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Explosion/CFX_T_Anim4_Triangle1.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="99a711709045c58409b66e71ee2b3e1a" Name="Assets/GameMain/Res/Textures/Engine Particle/Player Engine Effect.png" Length="13536" HashCode="1977000244" />
+          <Asset Guid="99e588461de51d14a809c357f0191ba9" Name="Assets/GameMain/Res/Materials/Muzzle/WFX_M_MF Glow.mat" Length="914" HashCode="1073763091">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_GlowCircle A8.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="9c36c09a0f6dd93458248f001ebce5ab" Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_ElectricBoltAdditive.mat" Length="5790" HashCode="-641607079">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_T_Bolt.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="9d0862121c112ec4abc229920df08581" Name="Assets/GameMain/Res/Models/Muzzle/Plane1x1.FBX" Length="10393" HashCode="833989032" />
+          <Asset Guid="a5cb313d414666f4ebe55d020a3bb381" Name="Assets/GameMain/Res/Materials/Projectiles/Trail_Player Projectile_OverDrive.mat" Length="4318" HashCode="-116953315" />
+          <Asset Guid="a74016926877b1e4aa6f9831dbf2ee0a" Name="Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Basic.mat" Length="4015" HashCode="-345560379">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Engine Particle/Enemy Engine Basic.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="acf4868b965e01b4b8b2d75da9516825" Name="Assets/GameMain/Res/Materials/Engine VFX/PlayerEngineOverdrive/M_PlayerEngineFireOverdrive.mat" Length="4004" HashCode="-136116665">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Engine Particle/Player Engine Effect.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="aeb50426fee5f74469903743661c247f" Name="Assets/GameMain/Res/Materials/Laser Beam/M_EnemyLaserParticle.mat" Length="3994" HashCode="-1459488086">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Laser Beam/CFX2_T_ShinyStar.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="afbbf42a35d3ca347aea29a1457035cc" Name="Assets/GameMain/Res/Models/Missile And Bomb/MissilesSample.FBX" Length="48416" HashCode="502111318" />
+          <Asset Guid="afbdb3ae6ec922843a90b6cdef71bc4c" Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_hose_base.TGA" Length="50331692" HashCode="-1067698235" />
+          <Asset Guid="aff991a95cb92204fa62dffc7e7b6ead" Name="Assets/GameMain/Res/Textures/Smoke/T_SmokePuff.png" Length="6444" HashCode="1846232027" />
+          <Asset Guid="b479681f08574fd4188237f92866cbac" Name="Assets/GameMain/Res/Materials/Explosion/CFX2_Glow.mat" Length="3593" HashCode="-234679443">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Explosion/CFX2_T_Glow.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="b57e9fd4004e73c4486d446c026d338b" Name="Assets/GameMain/Res/Textures/Engine Particle/Player Engine Basic.png" Length="2931" HashCode="1802531548" />
+          <Asset Guid="b6a4ebddb006a4a4bb0bea6365c7512a" Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_GlowSoftAdditive.mat" Length="6025" HashCode="1932913921">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX2_T_GlowSoft.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="bad3d999b886d0f459b9f69e2625c78a" Name="Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Normal.png" Length="2183431" HashCode="-1339292397" />
+          <Asset Guid="bda5c79a40686a94bbc85938450657c4" Name="Assets/GameMain/Res/Materials/Projectiles/Trail_Player Projectile_Normal.mat" Length="4470" HashCode="1634011857" />
+          <Asset Guid="be4db88e44ff4b946baa4d79aaa5b8f0" Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Red.png" Length="802083" HashCode="-1780329144" />
+          <Asset Guid="c1e2180035cd91841b5d343f46041da9" Name="Assets/GameMain/Res/Textures/Laser Beam/WFX_T_NukeFlames.tga" Length="262188" HashCode="273655655" />
+          <Asset Guid="c316b37062c2fe04f8a48c6157ec618b" Name="Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Side Default.mat" Length="2925" HashCode="-703229248">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_MF Side RIFLE3 A8 Sprite.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_MF Side RIFLE3 A8.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="cc88b8dfa2e9689449b97f40c5c76952" Name="Assets/GameMain/Res/Materials/Projectiles/M_PlayerNormalParticle.mat" Length="3762" HashCode="-546444442" />
+          <Asset Guid="ce605ac741f57ea40ac14f16d49c3c02" Name="Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Side Overdrive.mat" Length="2919" HashCode="-1339803808">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_MF Side RIFLE3 A8 Sprite.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_MF Side RIFLE3 A8.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="d154d39d87bcda24aac9ffefba862980" Name="Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Glow Default.mat" Length="2940" HashCode="1599057961">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_GlowCircle A8 Sprite.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_GlowCircle A8.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="d567ee66e68954348aca71f0b0584403" Name="Assets/GameMain/Res/Materials/Hit VFX/M_EnemyProjectileHitParticle.mat" Length="4470" HashCode="-135848451" />
+          <Asset Guid="d7cc1ca15556c4347bc479b5b65bae70" Name="Assets/GameMain/Res/Images/Background/Space-Background-Tiled.png" Length="3038026" HashCode="-2073454479" />
+          <Asset Guid="da3c18cd4f90b7d48900ea3471d8d61d" Name="Assets/GameMain/Res/Textures/Missile And Bomb/Missile_Grey.png" Length="90720" HashCode="-2034641328" />
+          <Asset Guid="ddd99084bf4dcd54e8a575ee0959c08e" Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_GlowCircle A8.png" Length="6098" HashCode="838811156" />
+          <Asset Guid="e0b6f143ec7dc5043a9c71a0179566b6" Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_GlowCircle A8 Sprite.png" Length="6098" HashCode="838811156" />
+          <Asset Guid="e0f90ad78680d6145b082ac69f7fc504" Name="Assets/GameMain/Res/Models/Fighter/StarSparrowExamples1.FBX" Length="342960" HashCode="-422612729" />
+          <Asset Guid="e11a46337d7c55c42b0a2df4ae4ce720" Name="Assets/GameMain/Res/Textures/Laser Beam/CFX2_T_ShinyStar.png" Length="16603" HashCode="-651999899" />
+          <Asset Guid="e2ca814af61251744b144291f5631964" Name="Assets/GameMain/Res/Materials/Space Frigate/M_Spacefrigate_Main.mat" Length="3687" HashCode="-1596559680">
+            <DependencyAssets Count="5">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_AO.TGA" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_base.TGA" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_m.TGA" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_n.TGA" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_rg.TGA" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="e387f662afce60c4cbf4689043469d34" Name="Assets/GameMain/Res/Textures/Explosion/CFX2_T_Glow.png" Length="10093" HashCode="603605059" />
+          <Asset Guid="e3bcfb1e47421ab4786c4ad4a7965935" Name="Assets/GameMain/Res/Textures/Engine Particle/Engine Effect Sphere.png" Length="1514" HashCode="-141610955" />
+          <Asset Guid="e6d1dbabd3135d546b6c48db6a6879f3" Name="Assets/GameMain/Res/Textures/Fire/T_FireBulk.png" Length="15023" HashCode="2068545996" />
+          <Asset Guid="f30e30427ba62104ca0af52552628aaf" Name="Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Glow Overdrive.mat" Length="2933" HashCode="774102825">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_GlowCircle A8 Sprite.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Muzzle/WFX_T_GlowCircle A8.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="f3ffb954962977443ada0663a3ecd44d" Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_MetallicSmoothness.png" Length="1226529" HashCode="-1794714474" />
+          <Asset Guid="f70f45ac7c9fb644c9a039b7d3aab297" Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_SparklesAdditive.mat" Length="5784" HashCode="494750665">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_ElectricSparkle.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="f7601e72adf5e7b4eabb731425d0b998" Name="Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_02.mat" Length="2287" HashCode="1704850713">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Smoke_02.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="f78b95d230bb2b546a24c7e45e474100" Name="Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine Fire.mat" Length="3997" HashCode="1929370164">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Engine Particle/Player Engine Effect.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="f95f8d965ed1e9c4e9a84356a7867dbc" Name="Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Effect Sphere.mat" Length="4004" HashCode="1373835998">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Engine Particle/Engine Effect Sphere.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="fada3d943cd19094f96885f6699a45ca" Name="Assets/GameMain/Res/Materials/Projectiles/EnemyProjectile.mat" Length="3562" HashCode="819474685" />
+          <Asset Guid="fcb97c6faf083ca4f978210036f3832b" Name="Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_ElectricityAdditive.mat" Length="5817" HashCode="1194187339">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_T_Anim7_Electricity.png" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="fd4d61e7a6d4f764b82482047ee2242b" Name="Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Emission.png" Length="79267" HashCode="1630754817" />
+          <Asset Guid="fe1443dff46bd5a4082cc407c98f4b40" Name="Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Parts_01.mat" Length="2287" HashCode="-1670544729">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Parts_01.png" />
+            </DependencyAssets>
+          </Asset>
+        </Assets>
+        <Codes>
+          <Windows Length="15005079" HashCode="751967855" CompressedLength="15005079" CompressedHashCode="751967855" />
+        </Codes>
+      </Resource>
+      <Resource Name="Scene" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="3">
+          <Asset Guid="9fc0d4010bbf28b4594072e72b8655ab" Name="Assets/GameMain/Scenes/Launch.unity" Length="37935" HashCode="1969078840" />
+          <Asset Guid="c6be7f677f2ce4f42ae3395248fe9fa0" Name="Assets/GameMain/Scenes/Menu.unity" Length="6575" HashCode="1992409704">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Images/Background/Space-Background-Tiled.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Background/Background.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="d43dff22fafc81e4ea040ec49b268e42" Name="Assets/GameMain/Scenes/Game.unity" Length="6347" HashCode="1063326100">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/GameMain/Res/Images/Background/Space-Background-Tiled.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/Background/Background.mat" />
+            </DependencyAssets>
+          </Asset>
+        </Assets>
+        <Codes>
+          <Windows Length="319911" HashCode="-126210029" CompressedLength="319911" CompressedHashCode="-126210029" />
+        </Codes>
+      </Resource>
+      <Resource Name="UI" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="4">
+          <Asset Guid="0fb16f94b1096fa45b9815ac12704704" Name="Assets/GameMain/UI/UIForms/MainMenu.prefab" Length="37085" HashCode="-2065526893">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/GameMain/Fonts/Aero.ttf" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_HDR.mat" />
+              <DependencyAsset Name="Assets/GameMain/UI/UIForms/Button.prefab" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="3c49ebd46a7da374d8d2d6f312e3b354" Name="Assets/GameMain/UI/UIForms/HUD.prefab" Length="67935" HashCode="1181521940">
+            <DependencyAssets Count="9">
+              <DependencyAsset Name="Assets/GameMain/Fonts/Aero.ttf" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/Health Bar/BackGround.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/Health Bar/Filler.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/HUD/Missile  Icon.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/BackGround.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/Filler.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/Mask.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_HDR.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_Image_Fill.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="a80b333448901244c8c1a60ed6eef533" Name="Assets/GameMain/UI/UIForms/Button.prefab" Length="10441" HashCode="-58878095">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Animations/Button/Button.controller" />
+              <DependencyAsset Name="Assets/GameMain/Fonts/Aero.ttf" />
+              <DependencyAsset Name="Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/Filler.png" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_HDR.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="aaa6d07401d930d4cb4abc445fa79341" Name="Assets/GameMain/UI/UIForms/WaveUI.prefab" Length="9752" HashCode="-1352881420">
+            <DependencyAssets Count="4">
+              <DependencyAsset Name="Assets/GameMain/Animations/Wave UI/Wave UI.controller" />
+              <DependencyAsset Name="Assets/GameMain/Fonts/Aero.ttf" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_HDR.mat" />
+              <DependencyAsset Name="Assets/GameMain/Res/Materials/UI/UI_Image_Fill.mat" />
+            </DependencyAssets>
+          </Asset>
+        </Assets>
+        <Codes>
+          <Windows Length="25393" HashCode="767509958" CompressedLength="25393" CompressedHashCode="767509958" />
+        </Codes>
+      </Resource>
+    </Resources>
+  </BuildReport>
+</UnityGameFramework>

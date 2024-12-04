@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 2047772391
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 52833c8763e31027d5d94561966804d8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5d8cf9d168a23b38c9007ec49c138a92
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 52833c8763e31027d5d94561966804d8
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/GameMain/Animations/Boss/Beam Launch.anim
+- Assets/GameMain/Animations/Button/Button.controller
+- Assets/GameMain/Animations/Wave UI/Wave UI.controller
+- Assets/GameMain/Animations/Boss/Boss_Idle.anim
+- Assets/GameMain/Animations/Wave UI/show.anim
+- Assets/GameMain/Animations/Boss/Boss.controller
+Dependencies: []

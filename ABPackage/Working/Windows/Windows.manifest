@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 157147769
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: animation
+      Dependencies: {}
+    Info_1:
+      Name: configs
+      Dependencies: {}
+    Info_2:
+      Name: datatables
+      Dependencies: {}
+    Info_3:
+      Name: entities
+      Dependencies:
+        Dependency_0: animation
+        Dependency_1: res
+    Info_4:
+      Name: fonts
+      Dependencies: {}
+    Info_5:
+      Name: res
+      Dependencies: {}
+    Info_6:
+      Name: scene
+      Dependencies:
+        Dependency_0: res
+    Info_7:
+      Name: ui
+      Dependencies:
+        Dependency_0: animation
+        Dependency_1: fonts
+        Dependency_2: res

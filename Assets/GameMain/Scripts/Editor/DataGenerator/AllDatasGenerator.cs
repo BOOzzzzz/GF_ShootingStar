@@ -1,9 +1,8 @@
+#if UNITY_EDITOR
 using System;
 using System.IO;
 using System.Text;
 using GameFramework;
-using ShootingStar;
-using ShootingStar.Editor.DataTableTools;
 using UnityEditor;
 using UnityEngine;
 
@@ -95,3 +94,4 @@ namespace ShootingStar.Editor.DataTableTools
         }
     }
 }
+#endif

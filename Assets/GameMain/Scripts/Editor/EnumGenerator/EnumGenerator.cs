@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using System.IO;
 using System.Text;
 using System;
@@ -6,7 +7,7 @@ using UnityEditor;
 using GameFramework;
 using ShootingStar.Editor.DataTableTools;
 
-namespace Flower
+namespace ShootingStar
 {
     public static class DataTableEnumGenerator
     {
@@ -65,10 +66,10 @@ namespace Flower
             int startRow = 4;
 
             stringBuilder
-             .AppendLine("        /// <summary>")
-             .AppendFormat("        /// {0}", "无").AppendLine()
-             .AppendLine("        /// </summary>")
-             .AppendFormat("        {0} = {1},", "None", "0").AppendLine().AppendLine();
+                .AppendLine("        /// <summary>")
+                .AppendFormat("        /// {0}", "无").AppendLine()
+                .AppendLine("        /// </summary>")
+                .AppendFormat("        {0} = {1},", "None", "0").AppendLine().AppendLine();
 
             for (int i = startRow; i < dataTableProcessor.RawRowCount; i++)
             {
@@ -95,3 +96,5 @@ namespace Flower
 }
 
 
+
+#endif

@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 2344477190
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cb342fabd1ce7548b54a4a3cf73b70d2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: cb342fabd1ce7548b54a4a3cf73b70d2
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/GameMain/Configs/DataTableCodeTemplate.txt
+- Assets/GameMain/Configs/AllDatasTemplate.txt
+- Assets/GameMain/Configs/EnumTemplate.txt
+- Assets/GameMain/Configs/DataTemplate.txt
+Dependencies: []

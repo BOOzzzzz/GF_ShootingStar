@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 4062530386
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7035800ab123bfd96dddd065d8edff28
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 7035800ab123bfd96dddd065d8edff28
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/GameMain/DataTables/PoolParam.bytes
+- Assets/GameMain/DataTables/Bullet.bytes
+- Assets/GameMain/DataTables/Fighter.txt
+- Assets/GameMain/DataTables/Entity.txt
+- Assets/GameMain/DataTables/Entity.bytes
+- Assets/GameMain/DataTables/Weapon.bytes
+- Assets/GameMain/DataTables/Thruster.txt
+- Assets/GameMain/DataTables/Bullet.txt
+- Assets/GameMain/DataTables/Thruster.bytes
+- Assets/GameMain/DataTables/Fighter.bytes
+- Assets/GameMain/DataTables/PoolParam.txt
+- Assets/GameMain/DataTables/Weapon.txt
+Dependencies: []

@@ -1,4 +1,5 @@
-﻿//------------------------------------------------------------
+﻿#if UNITY_EDITOR
+//------------------------------------------------------------
 // Game Framework
 // Copyright © 2013-2021 Jiang Yin. All rights reserved.
 // Homepage: https://gameframework.cn/
@@ -33,3 +34,5 @@ namespace ShootingStar.Editor.DataTableTools
         }
     }
 }
+
+#endif

@@ -1,0 +1,147 @@
+ManifestFileVersion: 0
+CRC: 2693413611
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 346f43cd91852aabd4d95dc85e518680
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: baf1ea84b430651f81a8dde1ec4ecf15
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 346f43cd91852aabd4d95dc85e518680
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/GameMain/Res/Textures/Missile And Bomb/Missile_Emission.png
+- Assets/GameMain/Res/Images/UI/HUD/Missile  Icon.png
+- Assets/GameMain/Res/Materials/Projectiles/Trail_Player Projectile_OverDrive.mat
+- Assets/GameMain/Res/Textures/Missile And Bomb/Missile_Grey.png
+- Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Side Overdrive.mat
+- Assets/GameMain/Res/Models/Muzzle/Plane1x1.FBX
+- Assets/GameMain/Res/Materials/Projectiles/M_PlayerOverDriveParticle.mat
+- Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Effect.mat
+- Assets/GameMain/Res/Materials/Fighter/StarSparrow Orange.mat
+- Assets/GameMain/Res/Materials/Explosion/M_Anim_Triangle_AddSoft.mat
+- Assets/GameMain/Res/Models/Fighter/StarSparrowExamples2.FBX
+- Assets/GameMain/Res/Textures/Laser Beam/WFX_T_NukeFlames.tga
+- Assets/GameMain/Res/Materials/Muzzle/WFX_M_MF Glow.mat
+- Assets/GameMain/Res/Materials/Engine VFX/PlayerEngineOverdrive/M_PlayerEngineFireOverdrive.mat
+- Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_MetallicSmoothness.png
+- Assets/GameMain/Res/Textures/Smoke/T_SmokePuff.png
+- Assets/GameMain/Res/Models/Space Frigate/SM_Spacefrigate.FBX
+- Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_ElectricBoltAdditive.mat
+- Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/BackGround.png
+- Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Emission.png
+- Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Black.png
+- Assets/GameMain/Res/Materials/Explosion/CFX2_Glow.mat
+- Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/Filler.png
+- Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_ElectricSparkle.png
+- Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Basic.mat
+- Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_BubbleAdditive.mat
+- Assets/GameMain/Res/Textures/Engine Particle/Engine Effect Sphere.png
+- Assets/GameMain/Res/Materials/Explosion/FireSparkle ADD.mat.mat
+- Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_n.TGA
+- Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_T_Anim4_Bubble.png
+- Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_AO.TGA
+- Assets/GameMain/Res/Images/Background/Space-Background-Tiled.png
+- Assets/GameMain/Res/Materials/Laser Beam/M_LaserBeam.mat
+- Assets/GameMain/Res/Materials/Smoke/M_SmokePuff MULT.mat
+- Assets/GameMain/Res/Models/Muzzle/Muzzle Mesh.fbx
+- Assets/GameMain/Res/Textures/Laser Beam/CFX2_T_ShinyStar.png
+- Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_hose_rg.TGA
+- Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Emission.png
+- Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_hose_n.TGA
+- Assets/GameMain/Res/Textures/Muzzle/WFX_T_MF Side RIFLE3 A8.png
+- Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Smoke_02.png
+- Assets/GameMain/Res/Materials/Fighter/StarSparrow Black.mat
+- Assets/GameMain/Res/Materials/Fighter/StarSparrow Blue.mat
+- Assets/GameMain/Res/Textures/Engine Particle/Player Engine Effect.png
+- Assets/GameMain/Res/Textures/Fighter/Other/StarSparrow_Normal.png
+- Assets/GameMain/Res/Materials/Projectiles/M_PlayerNormalParticle.mat
+- Assets/GameMain/Res/Images/UI/Health Bar/Filler.png
+- Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Parts_01.mat
+- Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_rg.TGA
+- Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Normal.png
+- Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_base.TGA
+- Assets/GameMain/Res/Textures/Explosion/CFX3_T_FireSparkle.png
+- Assets/GameMain/Res/Textures/Muzzle/WFX_T_GlowCircle A8.png
+- Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX2_T_GlowSoft.png
+- Assets/GameMain/Res/Textures/Muzzle/WFX_T_GlowCircle A8 Sprite.png
+- Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_ElectricityAdditive.mat
+- Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_SparklesAdditive.mat
+- Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_MetallicSmoothness.png
+- Assets/GameMain/Res/Materials/UI/UI_Image_Fill.mat
+- Assets/GameMain/Res/Materials/Background/Background.mat
+- Assets/GameMain/Res/Textures/Engine Particle/Enemy Engine Effect.png
+- Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_01.mat
+- Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Glow Overdrive.mat
+- Assets/GameMain/Res/Textures/Muzzle/WFX_T_MF Side RIFLE3 A8 Sprite.png
+- Assets/GameMain/Res/Materials/Space Frigate/M_Spacefrigate_hose.mat
+- Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Parts_01.png
+- Assets/GameMain/Res/Textures/Fire/T_FireBulk.png
+- Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_T_Anim7_Electricity.png
+- Assets/GameMain/Res/Materials/Projectiles/Trail_Player Projectile_Normal.mat
+- Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Red.png
+- Assets/GameMain/Res/Textures/Explosion/CFX2_T_Glow.png
+- Assets/GameMain/Res/Textures/Explosion/CFX_T_Anim4_Triangle1.png
+- Assets/GameMain/Res/Models/Missile And Bomb/MissilesSample.FBX
+- Assets/GameMain/Res/Textures/Engine Particle/Player Engine Basic.png
+- Assets/GameMain/Res/Materials/Projectiles/EnemyProjectile.mat
+- Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_02.mat
+- Assets/GameMain/Res/Materials/Fire/FireBulk ADD.mat
+- Assets/GameMain/Res/Textures/Explosion/Small Explosion_01_Smoke_01.png
+- Assets/GameMain/Res/Images/UI/Health Bar/BackGround.png
+- Assets/GameMain/Res/Materials/Engine VFX/PlayerEngineOverdrive/M_PlayerEngineBaseOverdrive.mat
+- Assets/GameMain/Res/Materials/Space Frigate/M_Spacefrigate_Main.mat
+- Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_hose_base.TGA
+- Assets/GameMain/Res/Textures/Missile And Bomb/Missile_MetallicSmoothness.png
+- Assets/GameMain/Res/Materials/UI/UI_HDR.mat
+- Assets/GameMain/Res/Materials/Laser Beam/M_EnemyLaserParticle.mat
+- Assets/GameMain/Res/Materials/Explosion/Small Explosion_01_Smoke_01_PC.mat
+- Assets/GameMain/Res/Materials/Fighter/StarSparrow Red.mat
+- Assets/GameMain/Res/Materials/Engine VFX/PlayerEngineOverdrive/M_PlayerEngineFlameOverdrive.mat
+- Assets/GameMain/Res/Textures/Engine Particle/Enemy Engine Basic.png
+- Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Side Default.mat
+- Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine
+  Base.mat
+- Assets/GameMain/Res/Materials/Hit VFX/M_EnemyProjectileHitParticle.mat
+- Assets/GameMain/Res/Textures/Overdrive Ttrigger VFX/CFX_T_Bolt.png
+- Assets/GameMain/Res/Materials/Missile And Bomb/Missile.mat
+- Assets/GameMain/Res/Textures/Space Frigate/T_Spacefrigate_m.TGA
+- Assets/GameMain/Res/Materials/Engine VFX/Enemy Engine Materials/Enemy Engine Effect
+  Sphere.mat
+- Assets/GameMain/Res/Images/UI/HUD/Stats Bars/Tech/Mask.png
+- Assets/GameMain/Res/Textures/Fighter/Main/StarSparrow_Blue.png
+- Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine
+  Fire.mat
+- Assets/GameMain/Res/Models/Fighter/StarSparrowExamples1.FBX
+- Assets/GameMain/Res/Materials/Engine VFX/Player Engine Materials/Player Engine
+  Flame.mat
+- Assets/GameMain/Res/Materials/Overdrive Ttrigger VFX/M_GlowSoftAdditive.mat
+- Assets/GameMain/Res/Materials/Muzzle/M_Player Muzzle Fire Glow Default.mat
+- Assets/GameMain/Res/Materials/Muzzle/WFX_M_MF Side RIFLE3.mat
+- Assets/GameMain/Res/Models/Projectile/ProjectileMesh.fbx
+- Assets/GameMain/Res/Textures/Missile And Bomb/Missile_Normal.png
+Dependencies: []

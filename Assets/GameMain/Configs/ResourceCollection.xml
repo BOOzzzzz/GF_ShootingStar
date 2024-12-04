@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <ResourceCollection>
+    <Resources>
+      <Resource Name="Animation" LoadType="0" Packed="True" />
+      <Resource Name="Configs" LoadType="0" Packed="True" />
+      <Resource Name="DataTables" LoadType="0" Packed="True" />
+      <Resource Name="Entities" LoadType="0" Packed="True" />
+      <Resource Name="Fonts" LoadType="0" Packed="True" />
+      <Resource Name="Res" LoadType="0" Packed="True" />
+      <Resource Name="Scene" LoadType="0" Packed="True" />
+      <Resource Name="UI" LoadType="0" Packed="True" />
+    </Resources>
+    <Assets>
+      <Asset Guid="020568ce6bb9b3245a24630d5282ca24" ResourceName="Res" />
+      <Asset Guid="0236cb1f74a8a9b4ab262f6f5a577697" ResourceName="Res" />
+      <Asset Guid="04855ce878676de438e369d51ad4fb36" ResourceName="Animation" />
+      <Asset Guid="08803d215d76c924c8318bec4eeffab5" ResourceName="Res" />
+      <Asset Guid="092e9538b0e2f0f488b146c55f482d89" ResourceName="Entities" />
+      <Asset Guid="0b546246c4fd4154fad1600b77aef2a5" ResourceName="Res" />
+      <Asset Guid="0c0619533ebadab46a5dfa6e1e9edda5" ResourceName="Entities" />
+      <Asset Guid="0c16c635e0e176a4ea06b212dbb5b996" ResourceName="Entities" />
+      <Asset Guid="0c536cd41eb26c84880ad44b182415fd" ResourceName="Res" />
+      <Asset Guid="0ce846f59a0a94140b86033f0bde21b2" ResourceName="Res" />
+      <Asset Guid="0e3433c7c0832184c83bb5a3dade7a69" ResourceName="Entities" />
+      <Asset Guid="0e99ec6985664430db823fc758aba989" ResourceName="Res" />
+      <Asset Guid="0ea55465fb4815647b0a69be0db82d20" ResourceName="Res" />
+      <Asset Guid="0fb16f94b1096fa45b9815ac12704704" ResourceName="UI" />
+      <Asset Guid="12d6e56bbf4ac7a419ac250680dfae07" ResourceName="Res" />
+      <Asset Guid="1ad48c43c47aefb48a5a781793f1c30b" ResourceName="Res" />
+      <Asset Guid="1b2c3ab1e0e61914ba3e10d026ca3023" ResourceName="Entities" />
+      <Asset Guid="1eb45bd2a80224fb38bf7ec42a8de2a2" ResourceName="Res" />
+      <Asset Guid="1f665717674355d489e01624ad09c1cf" ResourceName="Res" />
+      <Asset Guid="20a90e93909e8fa4ba56b426e7115058" ResourceName="Entities" />
+      <Asset Guid="21c6d0bb8170cae4f9d49bb728b3f524" ResourceName="Res" />
+      <Asset Guid="25cbaca39ac0e3f47b4db172e11cb9aa" ResourceName="Res" />
+      <Asset Guid="25d31e56d66c0a04a9a5dd02fac6b0f1" ResourceName="Res" />
+      <Asset Guid="26ef18b8554244e468494868dd6fead7" ResourceName="Res" />
+      <Asset Guid="26ff9ae8498a50b49a90f35d283a877d" ResourceName="Animation" />
+      <Asset Guid="2a60d60b74cbe7048b56d1542948ea5e" ResourceName="Res" />
+      <Asset Guid="2ab3ff156c8f1c149a4d4fe513936685" ResourceName="Entities" />
+      <Asset Guid="2b2823a4a91200b4b8e20f9956870ddf" ResourceName="Res" />
+      <Asset Guid="2b972bb6bcf755b49bdc702bf972227c" ResourceName="Res" />
+      <Asset Guid="2d55ef798e986df4db1aa2d22a470be0" ResourceName="Entities" />
+      <Asset Guid="2da092be90f5a6d41947243a1dc84f5b" ResourceName="Res" />
+      <Asset Guid="30112649d5d1d544c832ac1ece67888d" ResourceName="Res" />
+      <Asset Guid="30d351457dfac9d40a8b07e6426fd177" ResourceName="Res" />
+      <Asset Guid="30df685506a25f243b5cffab6ee5459b" ResourceName="Res" />
+      <Asset Guid="347a4af640f58824d8438fae9b34a012" ResourceName="Res" />
+      <Asset Guid="3574d5733ac60b941b175932e0a1aa2e" ResourceName="Res" />
+      <Asset Guid="35ff171067efd0048a5bbb15ce1b5819" ResourceName="Res" />
+      <Asset Guid="38ec516f43da9f34fa49fc7c091bedae" ResourceName="Entities" />
+      <Asset Guid="39752a81fc15fb84da31307b090c8dc3" ResourceName="Res" />
+      <Asset Guid="3976ae2233b34254689f29476d909cd9" ResourceName="Res" />
+      <Asset Guid="3b922b76b9ea81d4cbd9207035208b52" ResourceName="Res" />
+      <Asset Guid="3bc401560d203294c8a83e9f07982da6" ResourceName="DataTables" />
+      <Asset Guid="3c067447e9337824d807acb23c689d88" ResourceName="Animation" />
+      <Asset Guid="3c49ebd46a7da374d8d2d6f312e3b354" ResourceName="UI" />
+      <Asset Guid="3d5b5587f52189544b4c7ac8ae54c62c" ResourceName="Res" />
+      <Asset Guid="402e927ab0837ed42a4d8d0c16704474" ResourceName="Res" />
+      <Asset Guid="457b1e2e96148da47ac7049226511eff" ResourceName="Res" />
+      <Asset Guid="481ceca4f17f9c549a77e4fd4b455b43" ResourceName="Res" />
+      <Asset Guid="4838c4b4bdd7ef24091a5ef009469d95" ResourceName="Res" />
+      <Asset Guid="48caa98f613e809408c7fae246001e89" ResourceName="Res" />
+      <Asset Guid="4a509910efd559c4f8ba0395fae58b1a" ResourceName="Res" />
+      <Asset Guid="4b007e998d473ae41af2104d1c613415" ResourceName="Res" />
+      <Asset Guid="503ba37627ac18c4ebe9bbe73d6ea9ad" ResourceName="Res" />
+      <Asset Guid="50cd73a325d3a0145a19c956de7950a5" ResourceName="Res" />
+      <Asset Guid="52c1a422bfc04b543adc653b160af1e6" ResourceName="Res" />
+      <Asset Guid="5610318768bf0484cb9082d522ff359e" ResourceName="Entities" />
+      <Asset Guid="567c6877d9fac544dbfe1cda9e3394f8" ResourceName="Entities" />
+      <Asset Guid="57125df2e9117bb40a32c83b6390c301" ResourceName="Res" />
+      <Asset Guid="58b7cac6f4fca944db1a4c232f21a6b6" ResourceName="Res" />
+      <Asset Guid="59b5ded08f11e5c4198cf3cf04655947" ResourceName="Entities" />
+      <Asset Guid="5a793f0e8a269b945b1f9f30e7b015ba" ResourceName="DataTables" />
+      <Asset Guid="5adee1c66f1ad4a4fa4dbf425ca10feb" ResourceName="Res" />
+      <Asset Guid="5ed76d09c52f34faba7d809d29020622" ResourceName="Res" />
+      <Asset Guid="600ec83cba1cec448bf41a6607229741" ResourceName="Entities" />
+      <Asset Guid="6775c68a79b34db4fa2fd4db2a4cdf74" ResourceName="Entities" />
+      <Asset Guid="67b0a4cd4c72b86469e7ca179598fcaf" ResourceName="Res" />
+      <Asset Guid="67c3db2f0d5b4aa4eaa1d7aec0699d15" ResourceName="Res" />
+      <Asset Guid="69bf9c8dfe6a9e5479d5093236b17108" ResourceName="Entities" />
+      <Asset Guid="6ac70542bc723804ab7e74fdaca6b1da" ResourceName="DataTables" />
+      <Asset Guid="6f751b4eb46135044a78ff8af969ce06" ResourceName="Entities" />
+      <Asset Guid="704376da483ef144db57a9c8a2b71253" ResourceName="Res" />
+      <Asset Guid="710191fd918f4444e92b8407ece4b82a" ResourceName="Res" />
+      <Asset Guid="71a21ed31d1eb374ca249dabdf3936d3" ResourceName="Entities" />
+      <Asset Guid="727e0f56fe1cf0d4ea4768e6c2d43f23" ResourceName="Res" />
+      <Asset Guid="74aa8b63dbf8e4644bd524668b6d459e" ResourceName="Res" />
+      <Asset Guid="757d64d3d03344042815953531d17ad1" ResourceName="Res" />
+      <Asset Guid="7685b84088763754da70c7014302bfcf" ResourceName="Res" />
+      <Asset Guid="7895bb88d21b82e4c86e0e53289c8afe" ResourceName="Res" />
+      <Asset Guid="7b30ca461145da646ba88d0110fbb637" ResourceName="Res" />
+      <Asset Guid="7dc3221e546a5fc4f9bc5011cbd6fbc2" ResourceName="Res" />
+      <Asset Guid="7fad8d08dacde444dbd4cf8ced78d651" ResourceName="Res" />
+      <Asset Guid="802212517bed0c34584669cc3e1325a1" ResourceName="Res" />
+      <Asset Guid="81d4a791378c9f94aab765ad78151dbf" ResourceName="Entities" />
+      <Asset Guid="83a1fdff4c6af5845aa5ded2a8852978" ResourceName="Res" />
+      <Asset Guid="8520f3b1f6ae4a34a94b2c0f358268fe" ResourceName="Entities" />
+      <Asset Guid="8a75e78ce03d6bf4aa7ab9b759c2ca32" ResourceName="Res" />
+      <Asset Guid="8acfa108df3dc724bb02b95ffc346a3d" ResourceName="Res" />
+      <Asset Guid="8b52c4a2cbd2a8248b7c6e782e73497e" ResourceName="Res" />
+      <Asset Guid="8f67ee43ff9be7b428ea646d476b9fa0" ResourceName="Res" />
+      <Asset Guid="92bc38e2bb0478045ad4744cf051ba89" ResourceName="Animation" />
+      <Asset Guid="944bc1016f6ac38439ec1bf04fab9550" ResourceName="Res" />
+      <Asset Guid="94d3dff6247d98e4cb4d8d6f0be5e291" ResourceName="Entities" />
+      <Asset Guid="975f9549f84dd594a84456abeb05e287" ResourceName="Entities" />
+      <Asset Guid="97b415311529fa145aacd3eedaac728e" ResourceName="Entities" />
+      <Asset Guid="97b4797679efe3e4dacea10e3d304e57" ResourceName="Animation" />
+      <Asset Guid="99a711709045c58409b66e71ee2b3e1a" ResourceName="Res" />
+      <Asset Guid="99e588461de51d14a809c357f0191ba9" ResourceName="Res" />
+      <Asset Guid="9c36c09a0f6dd93458248f001ebce5ab" ResourceName="Res" />
+      <Asset Guid="9d0862121c112ec4abc229920df08581" ResourceName="Res" />
+      <Asset Guid="9f2e70ba0fa7fda4689f8c1fd4038c86" ResourceName="DataTables" />
+      <Asset Guid="9fc0d4010bbf28b4594072e72b8655ab" ResourceName="Scene" />
+      <Asset Guid="a5cb313d414666f4ebe55d020a3bb381" ResourceName="Res" />
+      <Asset Guid="a624a0e3000461e4286965f8a65aedb6" ResourceName="Entities" />
+      <Asset Guid="a74016926877b1e4aa6f9831dbf2ee0a" ResourceName="Res" />
+      <Asset Guid="a80b333448901244c8c1a60ed6eef533" ResourceName="UI" />
+      <Asset Guid="aaa6d07401d930d4cb4abc445fa79341" ResourceName="UI" />
+      <Asset Guid="acf4868b965e01b4b8b2d75da9516825" ResourceName="Res" />
+      <Asset Guid="ae26aaa5c07c564478a7a8e527c6a297" ResourceName="Configs" />
+      <Asset Guid="aeb50426fee5f74469903743661c247f" ResourceName="Res" />
+      <Asset Guid="afbbf42a35d3ca347aea29a1457035cc" ResourceName="Res" />
+      <Asset Guid="afbdb3ae6ec922843a90b6cdef71bc4c" ResourceName="Res" />
+      <Asset Guid="aff991a95cb92204fa62dffc7e7b6ead" ResourceName="Res" />
+      <Asset Guid="b196cbdab574daf439cdab39e81cb159" ResourceName="Entities" />
+      <Asset Guid="b1c3a3b17117cfd45b76802427e64c53" ResourceName="Configs" />
+      <Asset Guid="b3e867e9b1162114891589956b8ebdc9" ResourceName="Configs" />
+      <Asset Guid="b479681f08574fd4188237f92866cbac" ResourceName="Res" />
+      <Asset Guid="b51f7b0e759147447851df9af615fb35" ResourceName="DataTables" />
+      <Asset Guid="b57e9fd4004e73c4486d446c026d338b" ResourceName="Res" />
+      <Asset Guid="b6a4ebddb006a4a4bb0bea6365c7512a" ResourceName="Res" />
+      <Asset Guid="ba5af1e0928e05147b77796f6cece926" ResourceName="DataTables" />
+      <Asset Guid="bad3d999b886d0f459b9f69e2625c78a" ResourceName="Res" />
+      <Asset Guid="bb27a27cc7c27fe4eb6c6ff13906e9f2" ResourceName="Entities" />
+      <Asset Guid="bcdfcb20bdfc97f44a4f585803958b75" ResourceName="Entities" />
+      <Asset Guid="bda5c79a40686a94bbc85938450657c4" ResourceName="Res" />
+      <Asset Guid="be4db88e44ff4b946baa4d79aaa5b8f0" ResourceName="Res" />
+      <Asset Guid="bf3a30d454a3d2c4b823f8fe5dec3618" ResourceName="DataTables" />
+      <Asset Guid="c09767a80c39dca498c95b2e5be1afd8" ResourceName="Entities" />
+      <Asset Guid="c1e2180035cd91841b5d343f46041da9" ResourceName="Res" />
+      <Asset Guid="c316b37062c2fe04f8a48c6157ec618b" ResourceName="Res" />
+      <Asset Guid="c3cfc8b7edc3a450c8e6ff7080af7935" ResourceName="Fonts" />
+      <Asset Guid="c593e5f9daf620b47acb695f0c0aa797" ResourceName="DataTables" />
+      <Asset Guid="c6be7f677f2ce4f42ae3395248fe9fa0" ResourceName="Scene" />
+      <Asset Guid="c7a874f781408974fb5b71a76a488270" ResourceName="DataTables" />
+      <Asset Guid="cc88b8dfa2e9689449b97f40c5c76952" ResourceName="Res" />
+      <Asset Guid="ce605ac741f57ea40ac14f16d49c3c02" ResourceName="Res" />
+      <Asset Guid="d154d39d87bcda24aac9ffefba862980" ResourceName="Res" />
+      <Asset Guid="d43dff22fafc81e4ea040ec49b268e42" ResourceName="Scene" />
+      <Asset Guid="d567ee66e68954348aca71f0b0584403" ResourceName="Res" />
+      <Asset Guid="d7cc1ca15556c4347bc479b5b65bae70" ResourceName="Res" />
+      <Asset Guid="da1f453d19364d47b266332f4725a482" ResourceName="Configs" />
+      <Asset Guid="da3c18cd4f90b7d48900ea3471d8d61d" ResourceName="Res" />
+      <Asset Guid="ddd99084bf4dcd54e8a575ee0959c08e" ResourceName="Res" />
+      <Asset Guid="e0b6f143ec7dc5043a9c71a0179566b6" ResourceName="Res" />
+      <Asset Guid="e0f90ad78680d6145b082ac69f7fc504" ResourceName="Res" />
+      <Asset Guid="e11a46337d7c55c42b0a2df4ae4ce720" ResourceName="Res" />
+      <Asset Guid="e148180153eaf2347b94b8800971ae0c" ResourceName="DataTables" />
+      <Asset Guid="e2ca814af61251744b144291f5631964" ResourceName="Res" />
+      <Asset Guid="e387f662afce60c4cbf4689043469d34" ResourceName="Res" />
+      <Asset Guid="e3bcfb1e47421ab4786c4ad4a7965935" ResourceName="Res" />
+      <Asset Guid="e6d1dbabd3135d546b6c48db6a6879f3" ResourceName="Res" />
+      <Asset Guid="ee73ca936fc67fe4b96bf808f08665aa" ResourceName="Entities" />
+      <Asset Guid="f0943553854878d44988f105f0edaa1f" ResourceName="Entities" />
+      <Asset Guid="f1ad6ecfefd78e34bae40a23df10928e" ResourceName="Animation" />
+      <Asset Guid="f30e30427ba62104ca0af52552628aaf" ResourceName="Res" />
+      <Asset Guid="f3ffb954962977443ada0663a3ecd44d" ResourceName="Res" />
+      <Asset Guid="f70f45ac7c9fb644c9a039b7d3aab297" ResourceName="Res" />
+      <Asset Guid="f7601e72adf5e7b4eabb731425d0b998" ResourceName="Res" />
+      <Asset Guid="f78b95d230bb2b546a24c7e45e474100" ResourceName="Res" />
+      <Asset Guid="f83ba033a4f9d2e418274758388cd69e" ResourceName="Entities" />
+      <Asset Guid="f95f8d965ed1e9c4e9a84356a7867dbc" ResourceName="Res" />
+      <Asset Guid="faa4443b8d947524aaff9106f70a8b0a" ResourceName="Entities" />
+      <Asset Guid="fada3d943cd19094f96885f6699a45ca" ResourceName="Res" />
+      <Asset Guid="fcb97c6faf083ca4f978210036f3832b" ResourceName="Res" />
+      <Asset Guid="fd4d61e7a6d4f764b82482047ee2242b" ResourceName="Res" />
+      <Asset Guid="fd80a81c8b7d0e5479778ab3a0743e80" ResourceName="DataTables" />
+      <Asset Guid="fe1443dff46bd5a4082cc407c98f4b40" ResourceName="Res" />
+      <Asset Guid="ffa8a83558ad1614188c4f60d5e425af" ResourceName="DataTables" />
+    </Assets>
+  </ResourceCollection>
+</UnityGameFramework>

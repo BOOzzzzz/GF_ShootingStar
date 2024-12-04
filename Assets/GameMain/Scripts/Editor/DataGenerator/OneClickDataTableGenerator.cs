@@ -1,11 +1,5 @@
-using System;
-using System.IO;
-using System.Text;
-using GameFramework;
-using ShootingStar;
-using ShootingStar.Editor.DataTableTools;
+#if UNITY_EDITOR
 using UnityEditor;
-using UnityEngine;
 
 namespace ShootingStar.Editor.DataTableTools
 {
@@ -22,3 +16,4 @@ namespace ShootingStar.Editor.DataTableTools
 
     }
 }
+#endif
