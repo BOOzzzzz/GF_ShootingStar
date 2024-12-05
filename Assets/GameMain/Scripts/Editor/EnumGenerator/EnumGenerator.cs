@@ -1,5 +1,4 @@
-﻿#if UNITY_EDITOR
-using UnityEngine;
+﻿using UnityEngine;
 using System.IO;
 using System.Text;
 using System;
@@ -94,7 +93,3 @@ namespace ShootingStar
         }
     }
 }
-
-
-
-#endif

@@ -22,7 +22,7 @@ namespace ShootingStar
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            ChangeState<ProcedurePreload>(procedureOwner);
+            ChangeState<ProcedureSplash>(procedureOwner);
         }
     }
 }

@@ -2,14 +2,14 @@
 <UnityGameFramework>
   <ResourceCollection>
     <Resources>
-      <Resource Name="Animation" LoadType="0" Packed="True" />
-      <Resource Name="Configs" LoadType="0" Packed="True" />
-      <Resource Name="DataTables" LoadType="0" Packed="True" />
-      <Resource Name="Entities" LoadType="0" Packed="True" />
-      <Resource Name="Fonts" LoadType="0" Packed="True" />
-      <Resource Name="Res" LoadType="0" Packed="True" />
-      <Resource Name="Scene" LoadType="0" Packed="True" />
-      <Resource Name="UI" LoadType="0" Packed="True" />
+      <Resource Name="Animation" LoadType="0" Packed="False" />
+      <Resource Name="Configs" LoadType="0" Packed="False" />
+      <Resource Name="DataTables" LoadType="0" Packed="False" />
+      <Resource Name="Entities" LoadType="0" Packed="False" />
+      <Resource Name="Fonts" LoadType="0" Packed="False" />
+      <Resource Name="Res" LoadType="0" Packed="False" />
+      <Resource Name="Scene" LoadType="0" Packed="False" />
+      <Resource Name="UI" LoadType="0" Packed="False" />
     </Resources>
     <Assets>
       <Asset Guid="020568ce6bb9b3245a24630d5282ca24" ResourceName="Res" />
